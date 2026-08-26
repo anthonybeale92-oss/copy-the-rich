@@ -244,7 +244,7 @@ export const RB_CSS = `
 export function Stars() {
   return (
     <>
-      <ConstellationBackground tint="224,169,46" />
+      <ConstellationBackground tint="63,146,204" />
       {/* rbglow: the class is what the 100lvh rule in ConstellationBackground reaches for — without
           it this layer stops where the browser toolbar starts and the strip below reads flat black. */}
       <div
