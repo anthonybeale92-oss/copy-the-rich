@@ -2,28 +2,28 @@ import { useEffect, useRef, useState } from "react";
 import { fetchDm, sendDm, fetchDmThreads, fetchDmThread, replyDm, type DmMsg, type DmThread } from "./api";
 
 const CSS = `
-.rtbdm-scrim{position:fixed;inset:0;z-index:80;background:rgba(3,5,10,.7);backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center;padding:0}
+.rtbdm-scrim{position:fixed;inset:0;z-index:80;background:rgba(3,3,5,.7);backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center;padding:0}
 @media(min-width:640px){.rtbdm-scrim{align-items:center;padding:20px}}
 .rtbdm{width:100%;max-width:460px;height:82vh;max-height:640px;background:#0a0b11;border:1px solid rgba(255,255,255,.1);border-radius:18px 18px 0 0;display:flex;flex-direction:column;overflow:hidden}
 @media(min-width:640px){.rtbdm{border-radius:18px;height:min(640px,82vh)}}
-.rtbdm .dh{display:flex;align-items:center;gap:11px;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(63,146,204,.05)}
-.rtbdm .dav{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;background:linear-gradient(135deg,#3f92cc,#3f92cc)}
-.rtbdm .dav.m{background:linear-gradient(135deg,#6bb4e2,#2a72a8);font-size:14px;font-weight:900;color:#0d1420}
+.rtbdm .dh{display:flex;align-items:center;gap:11px;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(63,159,224,.05)}
+.rtbdm .dav{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;background:linear-gradient(135deg,#3f9fe0,#3f9fe0)}
+.rtbdm .dav.m{background:linear-gradient(135deg,#5ec8ff,#1f6fa8);font-size:14px;font-weight:900;color:#0b0d12}
 .rtbdm .dt{flex:1;min-width:0}
 .rtbdm .dt b{font-size:14.5px;font-weight:900;display:block}
 .rtbdm .dt span{font-size:11.5px;color:rgba(255,255,255,.45)}
 .rtbdm .dx{width:32px;height:32px;border-radius:9px;border:1px solid rgba(255,255,255,.12);background:none;color:#fff;cursor:pointer;font-size:15px}
-.rtbdm .back{background:none;border:none;color:#b3daf4;font-size:13px;font-weight:800;cursor:pointer;padding:0;margin-right:2px}
+.rtbdm .back{background:none;border:none;color:#bde7ff;font-size:13px;font-weight:800;cursor:pointer;padding:0;margin-right:2px}
 .rtbdm .body{flex:1;overflow-y:auto;padding:14px 14px 6px;display:flex;flex-direction:column;gap:8px}
 .rtbdm .msg{max-width:78%;padding:9px 13px;border-radius:16px;font-size:14px;line-height:1.45;white-space:pre-wrap;word-break:break-word}
-.rtbdm .msg.me{align-self:flex-end;background:linear-gradient(90deg,#6bb4e2,#2e7ab4);color:#0d1420;border-bottom-right-radius:5px;font-weight:600}
+.rtbdm .msg.me{align-self:flex-end;background:linear-gradient(90deg,#5ec8ff,#2a80bd);color:#0b0d12;border-bottom-right-radius:5px;font-weight:600}
 .rtbdm .msg.them{align-self:flex-start;background:rgba(255,255,255,.07);color:#fff;border-bottom-left-radius:5px}
 .rtbdm .mt{font-size:10px;opacity:.55;margin-top:3px}
 .rtbdm .empty{margin:auto;text-align:center;color:rgba(255,255,255,.45);font-size:13.5px;padding:20px}
 .rtbdm .comp{display:flex;gap:8px;padding:12px 14px;border-top:1px solid rgba(255,255,255,.07)}
-.rtbdm .comp input{flex:1;height:42px;border:1px solid rgba(255,255,255,.12);background:#05070d;border-radius:21px;padding:0 16px;color:#fff;font-size:14px;outline:none}
-.rtbdm .comp input:focus{border-color:rgba(107,180,226,.4)}
-.rtbdm .comp button{height:42px;padding:0 18px;border:none;border-radius:21px;font-weight:800;font-size:13.5px;color:#0d1420;background:linear-gradient(90deg,#6bb4e2,#2e7ab4);cursor:pointer}
+.rtbdm .comp input{flex:1;height:42px;border:1px solid rgba(255,255,255,.12);background:#050608;border-radius:21px;padding:0 16px;color:#fff;font-size:14px;outline:none}
+.rtbdm .comp input:focus{border-color:rgba(94,200,255,.4)}
+.rtbdm .comp button{height:42px;padding:0 18px;border:none;border-radius:21px;font-weight:800;font-size:13.5px;color:#0b0d12;background:linear-gradient(90deg,#5ec8ff,#2a80bd);cursor:pointer}
 .rtbdm .comp button:disabled{opacity:.5}
 .rtbdm .thread{display:flex;align-items:center;gap:11px;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;text-align:left;background:none;border-left:none;border-right:none;border-top:none;width:100%;color:#fff}
 .rtbdm .thread:hover{background:rgba(255,255,255,.03)}

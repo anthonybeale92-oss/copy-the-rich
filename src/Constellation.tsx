@@ -11,7 +11,7 @@ export default function Constellation({ className }: { className?: string }) {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let raf = 0, w = 0, h = 0;
     let pts: { x: number; y: number; vx: number; vy: number; c: string }[] = [];
-    const COLORS = ["rgba(63,146,204,", "rgba(86,164,216,", "rgba(107,180,226,", "rgba(240,232,210,"];
+    const COLORS = ["rgba(63,159,224,", "rgba(79,181,238,", "rgba(94,200,255,", "rgba(240,232,210,"];
     const resize = () => {
       w = canvas.clientWidth; h = canvas.clientHeight;
       canvas.width = Math.floor(w * dpr); canvas.height = Math.floor(h * dpr);
@@ -38,7 +38,7 @@ export default function Constellation({ className }: { className?: string }) {
           const d2 = dx * dx + dy * dy;
           if (d2 < LINK * LINK) {
             const al = (1 - Math.sqrt(d2) / LINK) * 0.32;
-            ctx.strokeStyle = `rgba(140,198,234,${al})`;
+            ctx.strokeStyle = `rgba(147,215,255,${al})`;
             ctx.lineWidth = 1;
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }

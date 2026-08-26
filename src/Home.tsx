@@ -51,7 +51,7 @@ const testimonials = [
 
 export const RB_CSS = `
 .rb *{box-sizing:border-box}
-.rb{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;background:#05070d;color:#fff;min-height:100vh;position:relative;overflow-x:clip;-webkit-font-smoothing:antialiased}
+.rb{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;background:#050608;color:#fff;min-height:100vh;position:relative;overflow-x:clip;-webkit-font-smoothing:antialiased}
 .rb a{text-decoration:none;color:inherit}
 .rb .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 @keyframes rbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
@@ -59,63 +59,78 @@ export const RB_CSS = `
 @keyframes rbGrad{0%{background-position:-200% 0}100%{background-position:200% 0}}
 @keyframes rbTwinkle{0%,100%{opacity:.12}50%{opacity:.5}}
 @keyframes rbSheen{0%{transform:translateX(-160%) skewX(-18deg)}100%{transform:translateX(280%) skewX(-18deg)}}
-.rb .stars{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(1100px 650px at 70% -10%,rgba(107,180,226,.08),transparent 60%),radial-gradient(900px 600px at 10% 110%,rgba(46,122,180,.08),transparent 60%)}
-.rb .dot{position:absolute;width:3px;height:3px;border-radius:50%;background:#6bb4e2;animation:rbTwinkle 4s ease-in-out infinite}
+.rb .stars{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(1100px 650px at 70% -10%,rgba(94,200,255,.08),transparent 60%),radial-gradient(900px 600px at 10% 110%,rgba(42,128,189,.08),transparent 60%)}
+.rb .dot{position:absolute;width:3px;height:3px;border-radius:50%;background:#5ec8ff;animation:rbTwinkle 4s ease-in-out infinite}
 /* viewport-fit=cover hands the page the full screen, home indicator included. The backdrop
    wants that (it's why the bottom strip is lit now); the CONTENT does not, or the last line
    of the footer sits under the indicator. */
 .rb main{position:relative;z-index:1;padding-bottom:env(safe-area-inset-bottom)}
 /* NAV */
-.rb .nav{position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(255,255,255,.06);backdrop-filter:blur(18px);background:rgba(5,7,13,.82);transform:translateZ(0);will-change:transform;backface-visibility:hidden}
+.rb .nav{position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(255,255,255,.06);backdrop-filter:blur(18px);background:rgba(5,6,8,.82);transform:translateZ(0);will-change:transform;backface-visibility:hidden}
 .rb .navin{display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
 .rb .brand{display:flex;align-items:center;gap:9px;min-width:0}
-.rb .brand img{height:34px;width:34px;border-radius:9px;object-fit:contain;box-shadow:0 6px 20px -8px rgba(63,146,204,.55);flex:none}
+.rb .brand img{height:34px;width:34px;border-radius:9px;object-fit:contain;box-shadow:0 6px 20px -8px rgba(63,159,224,.55);flex:none}
 .rb .brand span{font-size:16px;font-weight:900;letter-spacing:-.01em;white-space:nowrap}
 .rb .navr{display:flex;align-items:center;gap:8px;flex:none}
 .rb .navlinks{display:none}
 @media(min-width:900px){.rb .navlinks{display:flex;align-items:center;gap:6px;position:absolute;left:50%;transform:translateX(-50%)}}
 .rb .navlinks a{position:relative;font-size:13px;font-weight:700;color:rgba(255,255,255,.72);padding:8px 12px;border-radius:10px;transition:.15s}
 .rb .navlinks a:hover{color:#fff;background:rgba(255,255,255,.06)}
-.rb .navlinks a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:2px;background:linear-gradient(90deg,#6bb4e2,#2a72a8);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.rb .navlinks a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:2px;background:linear-gradient(90deg,#5ec8ff,#1f6fa8);transform:scaleX(0);transform-origin:left;transition:transform .2s}
 .rb .navlinks a:hover::after{transform:scaleX(1)}
-.rb .navlinks a.on{color:#fff;background:rgba(107,180,226,.08)}
+.rb .navlinks a.on{color:#fff;background:rgba(94,200,255,.08)}
 .rb .navlinks a.on::after{transform:scaleX(1)}
 .rb .brand{cursor:pointer}
 .rb .navin{position:relative}
 .rb section{scroll-margin-top:74px}
-.rb .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:13px;font-weight:800;color:#0d1420;background:linear-gradient(90deg,#6bb4e2,#2e7ab4,#2a72a8);box-shadow:0 12px 34px -16px rgba(107,180,226,.7);transition:transform .15s;white-space:nowrap}
+.rb .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:13px;font-weight:800;color:#0b0d12;background:linear-gradient(90deg,#5ec8ff,#2a80bd,#1f6fa8);box-shadow:0 12px 34px -16px rgba(94,200,255,.7);transition:transform .15s;white-space:nowrap}
 .rb .btn:hover{transform:scale(1.03)}
 .rb .btn::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.18),transparent);transform:translateX(-160%) skewX(-18deg);animation:rbSheen 4.5s ease-in-out infinite}
-.rb .btn.gold{background:linear-gradient(90deg,#3f92cc,#7cbde6)}
+.rb .btn.gold{background:linear-gradient(90deg,#3f9fe0,#7fd4ff)}
 .rb .btn.sm{height:38px;padding:0 15px;font-size:13px}
 .rb .btn.lg{height:54px;padding:0 28px;font-size:16px}
 .rb .ghost{display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 15px;border-radius:13px;font-size:13px;font-weight:700;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.15);transition:.15s;white-space:nowrap}
 .rb .ghost.lg{height:54px;padding:0 26px;font-size:15px}
 .rb .ghost:hover{border-color:rgba(255,255,255,.3);color:#fff}
 @media(max-width:420px){.rb .brand span{font-size:14px}.rb .btn.sm,.rb .ghost{height:34px;padding:0 12px;font-size:12px}}
-/* HERO */
-.rb .hero{text-align:center;padding:46px 0 30px}
-.rb .logo-hero{position:relative;width:186px;height:186px;margin:0 auto 4px;max-width:54vw}
-.rb .logo-hero .halo{position:absolute;inset:-16px;border-radius:50%;filter:blur(30px);background:radial-gradient(circle,rgba(63,146,204,.28),rgba(107,180,226,.2) 55%,transparent 72%);animation:rbGlow 4.5s infinite}
-.rb .logo-hero img{position:relative;width:100%;height:100%;object-fit:contain;border-radius:26px;animation:rbFloat 6s ease-in-out infinite}
-.rb h1{font-size:40px;line-height:1.03;font-weight:900;letter-spacing:-.02em;margin:14px 0 0}
-@media(min-width:860px){.rb h1{font-size:60px}}
-.rb h1 .g{background:linear-gradient(135deg,#c5e5fa 0%,#54ace6 28%,#1c75b0 55%,#80c2ee 78%,#fff8e1 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:rbGrad 8s linear infinite}
-.rb .lede{color:rgba(255,255,255,.62);font-size:16px;line-height:1.62;max-width:42rem;margin:20px auto 0}
-.rb .cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
-.rb .stat-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px}
+/* HERO — one statement on black, held open by space rather than decorated with panels.
+   The fold is deliberately tall: the headline lands near the middle of the screen instead of
+   at the top of it, which is what makes a page like this feel like a statement rather than a
+   product tour. Everything that used to sit above the headline is gone. */
+.rb .hero{text-align:center;padding:clamp(70px,17vh,180px) 0 clamp(56px,10vh,110px)}
+.rb h1{font-size:clamp(42px,9.2vw,86px);line-height:1.02;font-weight:900;letter-spacing:-.034em;margin:0}
+/* Light blue into white, left to right. The old sweep ran pale-bright-dark-mid and ended on a
+   warm cream, which was gold's shape kept after gold was gone — on black it read as a mistake
+   rather than as a material. */
+.rb h1 .g{background:linear-gradient(92deg,#5ec8ff 0%,#8ad9ff 46%,#ffffff 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.rb .lede{color:rgba(255,255,255,.58);font-size:clamp(15px,1.65vw,18.5px);line-height:1.62;max-width:36rem;margin:clamp(18px,2.4vh,26px) auto 0}
+.rb .lede b{color:rgba(255,255,255,.9);font-weight:700}
+.rb .cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:clamp(26px,3.4vh,38px)}
+/* The four stat tiles became one line of plain text. As boxes they read as four more things to
+   evaluate; as a line they read as a caption, which is all they ever were. */
+.rb .hero-facts{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin-top:26px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.42);letter-spacing:.01em}
+.rb .hero-facts i{width:3px;height:3px;border-radius:50%;background:rgba(94,200,255,.55);display:block}
+.rb .seemore{display:inline-flex;flex-direction:column;align-items:center;gap:5px;margin-top:clamp(34px,6vh,64px);font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.34);transition:color .18s}
+.rb .seemore:hover{color:rgba(94,200,255,.9)}
+.rb .seemore em{font-style:normal;font-size:15px;animation:rbFloat 2.6s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.rb .seemore em{animation:none}}
+/* The stat tiles left the hero but NOT the page — the 10X section and the GoldRock info page
+   still lay out with them, and dropping the rules alongside the markup that used them collapsed
+   those into a bare vertical list of numbers and captions. They stay defined here, styled for
+   the section that kept them. */
+.rb .stat-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .rb .stat{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);border-radius:12px;padding:10px 18px;text-align:center}
-.rb .stat .v{font-size:18px;font-weight:900;background:linear-gradient(135deg,#c5e5fa 0%,#54ace6 28%,#1c75b0 55%,#80c2ee 78%,#fff8e1 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:rbGrad 8s linear infinite}
+.rb .stat .v{font-size:18px;font-weight:900;background:linear-gradient(92deg,#5ec8ff,#8ad9ff 55%,#fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .rb .stat .l{font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.45);margin-top:3px}
 /* SECTIONS */
 .rb section{padding:44px 0}
-.rb .sec-k{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(107,180,226,.8);margin-bottom:8px;text-align:center}
+.rb .sec-k{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(94,200,255,.8);margin-bottom:8px;text-align:center}
 .rb h2{font-size:28px;font-weight:900;letter-spacing:-.02em;text-align:center}
 @media(min-width:860px){.rb h2{font-size:37px}}
 .rb .sub{color:rgba(255,255,255,.55);text-align:center;max-width:40rem;margin:12px auto 0;line-height:1.6}
 /* EDU banner */
-.rb .edu{border:1px solid rgba(107,180,226,.2);border-radius:24px;padding:34px 24px;background:radial-gradient(700px 320px at 50% 0%,rgba(107,180,226,.1),transparent 60%)}
-.rb .free{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#0d1420;background:linear-gradient(90deg,#6bb4e2,#2a72a8);border-radius:99px;padding:5px 12px;margin-bottom:14px}
+.rb .edu{border:1px solid rgba(94,200,255,.2);border-radius:24px;padding:34px 24px;background:radial-gradient(700px 320px at 50% 0%,rgba(94,200,255,.1),transparent 60%)}
+.rb .free{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#0b0d12;background:linear-gradient(90deg,#5ec8ff,#1f6fa8);border-radius:99px;padding:5px 12px;margin-bottom:14px}
 .rb .edu-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px}
 @media(min-width:820px){.rb .edu-grid{grid-template-columns:1fr 1fr 1fr}}
 .rb .ecard{text-align:left;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);border-radius:16px;padding:20px}
@@ -125,14 +140,14 @@ export const RB_CSS = `
 /* TWO WAYS TO EARN */
 .rb .grid2{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px}
 @media(min-width:820px){.rb .grid2{grid-template-columns:1fr 1fr}}
-.rb .opt{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:30px;display:flex;flex-direction:column;background:#0b0c12}
-.rb .opt.gold{border-color:rgba(63,146,204,.28);background:radial-gradient(520px 260px at 15% 0%,rgba(63,146,204,.12),transparent 60%),#0b0c12}
-.rb .opt.cyan{border-color:rgba(107,180,226,.28);background:radial-gradient(520px 260px at 15% 0%,rgba(107,180,226,.12),transparent 60%),#0b0c12}
+.rb .opt{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:30px;display:flex;flex-direction:column;background:#0a0b10}
+.rb .opt.gold{border-color:rgba(63,159,224,.28);background:radial-gradient(520px 260px at 15% 0%,rgba(63,159,224,.12),transparent 60%),#0a0b10}
+.rb .opt.cyan{border-color:rgba(94,200,255,.28);background:radial-gradient(520px 260px at 15% 0%,rgba(94,200,255,.12),transparent 60%),#0a0b10}
 .rb .opt .oic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;border:1px solid rgba(255,255,255,.14)}
-.rb .opt.gold .oic{background:rgba(63,146,204,.14);border-color:rgba(63,146,204,.32)}
-.rb .opt.cyan .oic{background:rgba(107,180,226,.14);border-color:rgba(107,180,226,.32)}
+.rb .opt.gold .oic{background:rgba(63,159,224,.14);border-color:rgba(63,159,224,.32)}
+.rb .opt.cyan .oic{background:rgba(94,200,255,.14);border-color:rgba(94,200,255,.32)}
 .rb .opt .tag{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-top:16px}
-.rb .opt.gold .tag{color:#7cbde6}.rb .opt.cyan .tag{color:#b3daf4}
+.rb .opt.gold .tag{color:#7fd4ff}.rb .opt.cyan .tag{color:#bde7ff}
 .rb .opt h3{font-size:23px;font-weight:900;margin-top:6px;letter-spacing:-.01em}
 .rb .opt p{color:rgba(255,255,255,.62);font-size:14.5px;line-height:1.62;margin-top:11px}
 .rb .opt ul{list-style:none;padding:0;margin:16px 0 0;flex:1}
@@ -141,32 +156,32 @@ export const RB_CSS = `
    required", "the pros trade it for you" — not a profit/loss signal, so they are
    the one green on this page with no meaning to protect. Green stays where it
    means money: P/L figures, buy buttons, the chart's candles. */
-.rb .opt li::before{content:"✓";position:absolute;left:0;color:#6bb4e2;font-weight:900}
+.rb .opt li::before{content:"✓";position:absolute;left:0;color:#5ec8ff;font-weight:900}
 .rb .opt .go{margin-top:22px}
 .rb .opt{transition:transform .25s ease,box-shadow .25s ease}
 /* PAMM card — the gold-ringed one. */
-.rb .opt.blue{border-color:rgba(46,122,180,.32);background:radial-gradient(520px 260px at 15% 0%,rgba(107,180,226,.12),transparent 55%),radial-gradient(520px 260px at 90% 10%,rgba(46,122,180,.12),transparent 55%),#0b0c12;box-shadow:0 24px 60px -34px rgba(107,180,226,.4)}
-.rb .opt.blue .tag{color:#b3daf4}
-.rb .opt.blue:hover{transform:translateY(-3px);box-shadow:0 30px 70px -30px rgba(107,180,226,.5)}
+.rb .opt.blue{border-color:rgba(42,128,189,.32);background:radial-gradient(520px 260px at 15% 0%,rgba(94,200,255,.12),transparent 55%),radial-gradient(520px 260px at 90% 10%,rgba(42,128,189,.12),transparent 55%),#0a0b10;box-shadow:0 24px 60px -34px rgba(94,200,255,.4)}
+.rb .opt.blue .tag{color:#bde7ff}
+.rb .opt.blue:hover{transform:translateY(-3px);box-shadow:0 30px 70px -30px rgba(94,200,255,.5)}
 /* animated gold gradient ring (bright gold → amber → bronze) */
-.rb .opt.blue::after{content:"";position:absolute;inset:0;border-radius:22px;padding:1.4px;background:linear-gradient(120deg,rgba(107,180,226,.75),rgba(46,122,180,.6),rgba(46,122,180,.7),rgba(107,180,226,.75));background-size:300% 300%;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:gborder 9s linear infinite;pointer-events:none}
+.rb .opt.blue::after{content:"";position:absolute;inset:0;border-radius:22px;padding:1.4px;background:linear-gradient(120deg,rgba(94,200,255,.75),rgba(42,128,189,.6),rgba(42,128,189,.7),rgba(94,200,255,.75));background-size:300% 300%;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:gborder 9s linear infinite;pointer-events:none}
 @keyframes gborder{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 /* Gold flame + waveform mark */
 .rb .gr-ic{width:58px;height:58px}
-.rb .gr-ic svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 3px 12px rgba(42,114,168,.55))}
+.rb .gr-ic img{width:100%;height:100%;display:block;object-fit:cover;border-radius:14px;filter:drop-shadow(0 4px 16px rgba(94,200,255,.35))}
 .rb .fl{transform-box:fill-box;transform-origin:center bottom;animation:flick 1.4s ease-in-out infinite}
 .rb .fl.b{animation-duration:1.05s;animation-delay:-.3s}
 .rb .fl.c{animation-duration:1.7s;animation-delay:-.6s}
 @keyframes flick{0%,100%{transform:scaleY(1) scaleX(1);opacity:.95}50%{transform:scaleY(1.16) scaleX(.9);opacity:.66}}
 .rb .gr-ic .wave{stroke-dasharray:120;stroke-dashoffset:120;animation:wdraw 2.2s ease-out forwards,wpulse 2.6s ease-in-out 2.2s infinite}
 @keyframes wdraw{to{stroke-dashoffset:0}}
-@keyframes wpulse{0%,100%{opacity:1;filter:drop-shadow(0 0 0 rgba(107,180,226,0))}50%{opacity:.85;filter:drop-shadow(0 0 5px rgba(107,180,226,.8))}}
+@keyframes wpulse{0%,100%{opacity:1;filter:drop-shadow(0 0 0 rgba(94,200,255,0))}50%{opacity:.85;filter:drop-shadow(0 0 5px rgba(94,200,255,.8))}}
 /* growth track-record sparkline */
-.rb .track{margin-top:16px;border:1px solid rgba(107,180,226,.22);background:linear-gradient(180deg,rgba(107,180,226,.06),rgba(46,122,180,.04));border-radius:14px;padding:12px 14px}
+.rb .track{margin-top:16px;border:1px solid rgba(94,200,255,.22);background:linear-gradient(180deg,rgba(94,200,255,.06),rgba(42,128,189,.04));border-radius:14px;padding:12px 14px}
 .rb .track .tl{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.rb .track .tl b{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#b3daf4}
+.rb .track .tl b{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#bde7ff}
 .rb .track .tl em{font-style:normal;font-size:12px;color:rgba(255,255,255,.6)}
-.rb .track .tl em i{font-style:normal;color:#56a4d8;font-weight:900}
+.rb .track .tl em i{font-style:normal;color:#4fb5ee;font-weight:900}
 .rb .spark{width:100%;height:46px;display:block}
 .rb .spark .sdraw{stroke-dasharray:520;stroke-dashoffset:520;animation:sdraw 2.6s ease-out forwards}
 @keyframes sdraw{to{stroke-dashoffset:0}}
@@ -174,59 +189,59 @@ export const RB_CSS = `
 @keyframes sdot{0%,100%{opacity:1}50%{opacity:.45}}
 @media(prefers-reduced-motion:reduce){.rb .fl,.rb .opt.blue::after,.rb .spark .sdraw,.rb .spark .sdot,.rb .gr-ic .wave{animation:none}.rb .spark .sdraw,.rb .gr-ic .wave{stroke-dashoffset:0}}
 /* 10X FUND-UP */
-.rb .tenx{border:1px solid rgba(46,122,180,.24);border-radius:26px;padding:38px 26px;text-align:center;background:radial-gradient(680px 300px at 50% 0%,rgba(46,122,180,.14),transparent 60%)}
+.rb .tenx{border:1px solid rgba(42,128,189,.24);border-radius:26px;padding:38px 26px;text-align:center;background:radial-gradient(680px 300px at 50% 0%,rgba(42,128,189,.14),transparent 60%)}
 .rb .tenx .stat-row{margin-top:26px}
 /* CARDS (community) */
 .rb .grid3{display:grid;grid-template-columns:1fr;gap:16px;margin-top:34px}
 @media(min-width:640px){.rb .grid3{grid-template-columns:1fr 1fr}}
 @media(min-width:980px){.rb .grid3{grid-template-columns:1fr 1fr 1fr}}
-.rb .card{border:1px solid rgba(255,255,255,.08);background:#0b0c12;border-radius:18px;padding:24px;display:flex;flex-direction:column}
-.rb .card .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(63,146,204,.12);border:1px solid rgba(63,146,204,.3)}
-.rb .card.cyan .ic{background:rgba(107,180,226,.12);border-color:rgba(107,180,226,.3)}
+.rb .card{border:1px solid rgba(255,255,255,.08);background:#0a0b10;border-radius:18px;padding:24px;display:flex;flex-direction:column}
+.rb .card .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(63,159,224,.12);border:1px solid rgba(63,159,224,.3)}
+.rb .card.cyan .ic{background:rgba(94,200,255,.12);border-color:rgba(94,200,255,.3)}
 .rb .card h3{font-size:17.5px;font-weight:800;margin-top:15px}
 .rb .card p{color:rgba(255,255,255,.6);font-size:14px;line-height:1.6;margin-top:9px;flex:1}
 /* TESTIMONIALS */
-.rb .tcard{border:1px solid rgba(255,255,255,.08);background:#0b0c12;border-radius:18px;padding:22px}
-.rb .tcard .stars-row{color:#7cbde6;font-size:14px;letter-spacing:2px}
+.rb .tcard{border:1px solid rgba(255,255,255,.08);background:#0a0b10;border-radius:18px;padding:22px}
+.rb .tcard .stars-row{color:#7fd4ff;font-size:14px;letter-spacing:2px}
 .rb .tcard .q{color:rgba(255,255,255,.82);font-size:14.5px;line-height:1.65;margin-top:12px}
 .rb .tcard .who{display:flex;align-items:center;gap:10px;margin-top:16px}
-.rb .tcard .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#0d1420;background:linear-gradient(135deg,#3f92cc,#6bb4e2)}
+.rb .tcard .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#0b0d12;background:linear-gradient(135deg,#3f9fe0,#5ec8ff)}
 .rb .tcard .nm{font-size:14px;font-weight:800}
 .rb .tcard .hd{font-size:12px;color:rgba(255,255,255,.4)}
 /* FINAL */
-.rb .final{text-align:center;border:1px solid rgba(63,146,204,.22);border-radius:26px;padding:46px 22px;background:radial-gradient(600px 300px at 50% 0%,rgba(63,146,204,.12),transparent 60%)}
+.rb .final{text-align:center;border:1px solid rgba(63,159,224,.22);border-radius:26px;padding:46px 22px;background:radial-gradient(600px 300px at 50% 0%,rgba(63,159,224,.12),transparent 60%)}
 .rb .about{max-width:720px;margin:20px auto 0;text-align:center;color:rgba(255,255,255,.65);font-size:16px;line-height:1.75}
 .rb footer{text-align:center;color:rgba(255,255,255,.35);font-size:12px;padding:32px 22px 50px;line-height:1.7}
 /* PROOF GALLERY */
 .rb .proofgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
 @media(min-width:560px){.rb .proofgrid{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:920px){.rb .proofgrid{grid-template-columns:repeat(4,1fr)}}
-.rb .proofcard{position:relative;padding:0;border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;background:#0a1018;aspect-ratio:3/4;cursor:pointer;transition:transform .22s,border-color .22s,box-shadow .22s}
+.rb .proofcard{position:relative;padding:0;border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;background:#080910;aspect-ratio:3/4;cursor:pointer;transition:transform .22s,border-color .22s,box-shadow .22s}
 .rb .proofcard img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .35s}
 .rb .proofcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.4));opacity:.5;transition:opacity .22s}
-.rb .proofcard:hover{transform:translateY(-4px);border-color:rgba(107,180,226,.5);box-shadow:0 20px 44px -22px rgba(107,180,226,.55)}
+.rb .proofcard:hover{transform:translateY(-4px);border-color:rgba(94,200,255,.5);box-shadow:0 20px 44px -22px rgba(94,200,255,.55)}
 .rb .proofcard:hover img{transform:scale(1.06)}
 .rb .proofcard:hover::after{opacity:0}
 .rb .proofcard .pfz{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:9px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);display:grid;place-items:center;font-size:14px;color:#fff;opacity:0;transform:scale(.8);transition:.2s;z-index:1}
 .rb .proofcard:hover .pfz{opacity:1;transform:scale(1)}
 /* GROWTH CALCULATOR */
-.rb .calc{border:1px solid rgba(107,180,226,.2);border-radius:24px;padding:32px 24px;background:radial-gradient(680px 320px at 50% 0%,rgba(107,180,226,.1),transparent 60%),radial-gradient(560px 300px at 90% 100%,rgba(46,122,180,.08),transparent 60%)}
+.rb .calc{border:1px solid rgba(94,200,255,.2);border-radius:24px;padding:32px 24px;background:radial-gradient(680px 320px at 50% 0%,rgba(94,200,255,.1),transparent 60%),radial-gradient(560px 300px at 90% 100%,rgba(42,128,189,.08),transparent 60%)}
 .rb .calcgrid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:26px}
 @media(min-width:820px){.rb .calcgrid{grid-template-columns:1fr 1.1fr;align-items:center}}
 .rb .calcin{border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.02);border-radius:16px;padding:20px}
 .rb .calcin label{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:14px 0 8px}
 .rb .calcin label:first-child{margin-top:0}
-.rb .calcin label span{font-size:15px;font-weight:900;color:#b3daf4;letter-spacing:0;text-transform:none}
-.rb .calcin input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:linear-gradient(90deg,#6bb4e2,#2a72a8);outline:none}
-.rb .calcin input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid #6bb4e2;box-shadow:0 3px 10px rgba(107,180,226,.6);cursor:pointer}
-.rb .calcin input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid #6bb4e2;cursor:pointer}
-.rb .calcout{border:1px solid rgba(46,122,180,.28);background:linear-gradient(180deg,rgba(107,180,226,.06),rgba(46,122,180,.04));border-radius:16px;padding:18px}
+.rb .calcin label span{font-size:15px;font-weight:900;color:#bde7ff;letter-spacing:0;text-transform:none}
+.rb .calcin input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:linear-gradient(90deg,#5ec8ff,#1f6fa8);outline:none}
+.rb .calcin input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid #5ec8ff;box-shadow:0 3px 10px rgba(94,200,255,.6);cursor:pointer}
+.rb .calcin input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid #5ec8ff;cursor:pointer}
+.rb .calcout{border:1px solid rgba(42,128,189,.28);background:linear-gradient(180deg,rgba(94,200,255,.06),rgba(42,128,189,.04));border-radius:16px;padding:18px}
 .rb .calcspark{width:100%;height:120px;display:block}
 .rb .calcres{display:flex;gap:12px;margin-top:12px}
 .rb .calcres div{flex:1;border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.25);border-radius:12px;padding:12px 14px}
 .rb .calcres span{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45)}
 .rb .calcres b{display:block;font-size:22px;font-weight:900;margin-top:4px;font-variant-numeric:tabular-nums}
-.rb .calcres b.pos{color:#56a4d8}
+.rb .calcres b.pos{color:#4fb5ee}
 @media(prefers-reduced-motion:reduce){.rb *{animation:none!important}}
 `;
 
@@ -256,7 +271,7 @@ export function Stars() {
           zIndex: 0,
           pointerEvents: "none",
           background:
-            "radial-gradient(1100px 650px at 70% -10%, rgba(107,180,226,.10), transparent 60%), radial-gradient(900px 600px at 10% 110%, rgba(46,122,180,.10), transparent 60%)",
+            "radial-gradient(1100px 650px at 70% -10%, rgba(94,200,255,.10), transparent 60%), radial-gradient(900px 600px at 10% 110%, rgba(42,128,189,.10), transparent 60%)",
         }}
       />
     </>
@@ -272,8 +287,12 @@ export function SiteNav({ active }: { active?: string }) {
         <nav className="navlinks">
           {NAV_LINKS.map((l) => (<a key={l.href} href={l.href} className={active === l.href ? "on" : ""}>{l.label}</a>))}
         </nav>
+        {/* One control. Log in used to sit here as a second pill, and on a phone the brand
+            name, it and Get Started fought over the same row — the name ran into the button.
+            Members reach /login from the footer and from their bookmark; a visitor who has
+            never signed up does not need an account door in the top right, and giving it one
+            costs the only action this page is trying to get. */}
         <div className="navr">
-          <a className="ghost" href={LOGIN_URL}>Log in</a>
           <a className="btn sm" href={SIGNUP_PATH}>Get Started →</a>
         </div>
       </div>
@@ -301,18 +320,23 @@ export default function Home() {
         <SiteNav />
 
         <div className="wrap">
-          {/* HERO — learn free + earn passively */}
+          {/* HERO — built like the Pulse landing this desk sits on: the page opens as one
+              statement on black, and nothing else competes with it. The logo lockup, the
+              four-stat strip and the second button are gone from the fold; they were four
+              things asking to be read before the visitor knew what this is. The stats now
+              sit under the sub-line as plain text, and the only control is the one action
+              the page wants. */}
           <div className="hero">
-            <div className="logo-hero"><div className="halo" /><img src="/logo.svg" alt="Copy the Rich Trades" /></div>
-            <h1>Learn While You Earn.<br /><span className="g">Passive Income From Day One.</span></h1>
-            <p className="lede">Come in with zero experience. <b>Learn the markets for free</b>, earn <b>passive income</b> alongside a real community — then, when you're ready, fund up and trade with <b>10× leverage</b>. No challenge. No upfront fees. Keep 100% of your profits.</p>
-            <div className="cta-row"><a className="btn lg" href={SIGNUP_PATH}>Start free →</a><a className="ghost lg" href={LOGIN_URL}>Log in</a></div>
-            <div className="stat-row">
-              <div className="stat"><div className="v">Free</div><div className="l">Education</div></div>
-              <div className="stat"><div className="v">Passive</div><div className="l">Income</div></div>
-              <div className="stat"><div className="v">100%</div><div className="l">Profits kept</div></div>
-              <div className="stat"><div className="v">10×</div><div className="l">Leverage</div></div>
+            <h1>Copy the desk.<br /><span className="g">Compound the difference.</span></h1>
+            <p className="lede">
+              Learn the markets for free, put money to work in a managed fund, and take the
+              desk's plays as they happen — then size up to <b>10×</b> when you're ready.
+            </p>
+            <div className="cta-row"><a className="btn lg" href={SIGNUP_PATH}>Get started →</a></div>
+            <div className="hero-facts">
+              <span>Free education</span><i /><span>Passive income</span><i /><span>100% of your profits</span>
             </div>
+            <a className="seemore" href="#education">See how it works<em>⌄</em></a>
           </div>
 
           {/* 1 · FREE EDUCATION (primary) */}
@@ -340,23 +364,12 @@ export default function Home() {
             <div className="grid2">
               {/* PAMM — passive */}
               <div className="opt blue" id="goldrock">
+                {/* GoldRock owns a mark — the gold bar in blue flame — and this card was
+                    drawing its own instead: three flame paths with a waveform across them.
+                    The real badge already ships in this repo and already appears on /signup
+                    and in the member panel, so the card now shows the same thing they do. */}
                 <div className="gr-ic" aria-label="GoldRock PAMM">
-                  <svg viewBox="0 0 48 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="grflame" x1="0" y1="1" x2="0" y2="0">
-                        <stop offset="0" stopColor="#1f618d" /><stop offset=".55" stopColor="#2d86c1" /><stop offset="1" stopColor="#94caee" />
-                      </linearGradient>
-                      <linearGradient id="grwave" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0" stopColor="#6bb4e2" /><stop offset=".5" stopColor="#2e7ab4" /><stop offset="1" stopColor="#2a72a8" />
-                      </linearGradient>
-                    </defs>
-                    {/* animated blue flames */}
-                    <path className="fl b" d="M12 40 C 14 33 10 31 11 26 C 13 29 15 29 15 33 C 16 30 16 28 15 26 C 18 29 19 34 18 38 C 17.5 40 15 41 12 40 Z" fill="url(#grflame)" opacity=".8" />
-                    <path className="fl" d="M24 40 C 27 28 21 25 23 17 C 25 22 28 23 27 29 C 29 25 29 21 28 18 C 32 23 33 31 31 37 C 30 40 27 41 24 40 Z" fill="url(#grflame)" />
-                    <path className="fl c" d="M36 40 C 38 33 34 31 35 26 C 37 29 39 29 39 33 C 40 30 40 28 39 26 C 42 29 43 34 42 38 C 41.5 40 39 41 36 40 Z" fill="url(#grflame)" opacity=".8" />
-                    {/* Pulse waveform — the brand mark, riding on the blue flames */}
-                    <path className="wave" d="M4 24 H14 l2.5 -11 l4.5 21 l4 -15 l2.5 5 H44" stroke="url(#grwave)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <img src="/goldrock-flame-badge.png" alt="GoldRock" loading="lazy" />
                 </div>
                 <div className="tag">Fully passive</div>
                 <h3>Join the GoldRock PAMM</h3>
@@ -365,12 +378,12 @@ export default function Home() {
                   <div className="tl"><b>GoldRock trajectory</b><em>compounding <i>15%+ / mo</i> target</em></div>
                   <svg className="spark" viewBox="0 0 260 46" preserveAspectRatio="none" fill="none">
                     <defs>
-                      <linearGradient id="grsp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#6bb4e2" /><stop offset=".5" stopColor="#2e7ab4" /><stop offset="1" stopColor="#2a72a8" /></linearGradient>
-                      <linearGradient id="grfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="rgba(107,180,226,.28)" /><stop offset="1" stopColor="rgba(107,180,226,0)" /></linearGradient>
+                      <linearGradient id="grsp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#5ec8ff" /><stop offset=".5" stopColor="#2a80bd" /><stop offset="1" stopColor="#1f6fa8" /></linearGradient>
+                      <linearGradient id="grfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="rgba(94,200,255,.28)" /><stop offset="1" stopColor="rgba(94,200,255,0)" /></linearGradient>
                     </defs>
                     <path d="M4,42 C40,40 58,36 92,31 C126,26 150,19 186,12 C214,7 238,5 256,3 L256,46 L4,46 Z" fill="url(#grfill)" />
                     <path className="sdraw" d="M4,42 C40,40 58,36 92,31 C126,26 150,19 186,12 C214,7 238,5 256,3" stroke="url(#grsp)" strokeWidth="2.4" strokeLinecap="round" />
-                    <circle className="sdot" cx="256" cy="3" r="3.4" fill="#6bb4e2" />
+                    <circle className="sdot" cx="256" cy="3" r="3.4" fill="#5ec8ff" />
                   </svg>
                 </div>
                 <ul>
@@ -464,7 +477,7 @@ export default function Home() {
             <div className="final">
               <div className="sec-k">Your shot</div>
               <h2>Start free. Earn passively. Win together.</h2>
-              <p className="about">Most people never learn the game or trade with enough size to change anything. Copy the Rich Trades flips that — <b style={{ color: "#7cbde6" }}>learn for free</b>, earn passive income with the fund and signals, and size up to <b style={{ color: "#7cbde6" }}>10× leverage</b> when you're ready. It's not a prop-firm challenge. It's your shot.</p>
+              <p className="about">Most people never learn the game or trade with enough size to change anything. Copy the Rich Trades flips that — <b style={{ color: "#7fd4ff" }}>learn for free</b>, earn passive income with the fund and signals, and size up to <b style={{ color: "#7fd4ff" }}>10× leverage</b> when you're ready. It's not a prop-firm challenge. It's your shot.</p>
               <div className="cta-row" style={{ marginTop: 26 }}><a className="btn lg" href={SIGNUP_PATH}>Start free →</a><a className="ghost lg" href={LOGIN_URL}>Log in</a></div>
             </div>
           </section>
@@ -520,8 +533,8 @@ export function GrowthCalc() {
         <div className="calcout">
           <svg className="calcspark" viewBox="0 0 260 92" preserveAspectRatio="none" fill="none">
             <defs>
-              <linearGradient id="cln" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#6bb4e2" /><stop offset="1" stopColor="#2a72a8" /></linearGradient>
-              <linearGradient id="cfl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="rgba(107,180,226,.3)" /><stop offset="1" stopColor="rgba(107,180,226,0)" /></linearGradient>
+              <linearGradient id="cln" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#5ec8ff" /><stop offset="1" stopColor="#1f6fa8" /></linearGradient>
+              <linearGradient id="cfl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="rgba(94,200,255,.3)" /><stop offset="1" stopColor="rgba(94,200,255,0)" /></linearGradient>
             </defs>
             <polygon points={`0,92 ${pts} 260,92`} fill="url(#cfl)" />
             <polyline points={pts} stroke="url(#cln)" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />

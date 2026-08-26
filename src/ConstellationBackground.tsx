@@ -46,8 +46,12 @@ function ConstellationCanvas({ tint }: { tint: string }) {
     // a sparse, long-lined web in any one viewport. This canvas is
     // fixed-viewport, so the per-screen count is dialled down to match instead
     // of copying the raw constant (which packed 220 nodes into one screen).
-    const COUNT_BASE = 46;
-    const LINK_DIST = 190;
+    // Ambient, not a diagram. At 46 nodes linked out to 190px the field drew a visible web across
+    // the headline — on the Pulse site the equivalent layer is a starfield you only notice once,
+    // with the drama carried by a single bolt instead of by the mesh. Fewer nodes, shorter links
+    // and a much fainter line put the emphasis back on the type.
+    const COUNT_BASE = 30;
+    const LINK_DIST = 150;
     const MOUSE_DIST = 200;
     const MOUSE_ATTRACT = 0.016;
 
@@ -140,7 +144,7 @@ function ConstellationCanvas({ tint }: { tint: string }) {
           const d2 = dx * dx + dy * dy;
           if (d2 < LINK_DIST * LINK_DIST) {
             const d = Math.sqrt(d2);
-            const alpha = (1 - d / LINK_DIST) * 0.55;
+            const alpha = (1 - d / LINK_DIST) * 0.20;
             ctx.strokeStyle = `rgba(${tint},${alpha})`;
             ctx.lineWidth = 1.1;
             ctx.beginPath();
@@ -275,7 +279,7 @@ const GRAIN_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="220" height="2
 </svg>`;
 
 export default function ConstellationBackground({
-  base = "#05070d",
+  base = "#050608",
   // "R,G,B" — the colour the stars, their links and the aurora pools are drawn in. White is the
   // forexbrokercrm original; Copy the Rich Trades passes its blue so the backdrop belongs to the brand
   // instead of sitting under it.

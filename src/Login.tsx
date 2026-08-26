@@ -9,23 +9,23 @@ const CSS = `
 .lg{position:relative;min-height:100vh;overflow:hidden;background:radial-gradient(1200px 760px at 50% 18%,#12100a 0%,#06080f 55%,#020308 100%);color:#fff;display:flex;align-items:center;justify-content:center;padding:24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif}
 .lgbg{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
 .lg::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(60% 50% at 50% 42%,transparent 0%,rgba(2,3,8,.55) 100%)}
-.lg .card{position:relative;z-index:2;width:100%;max-width:400px;border:1px solid rgba(140,198,234,.16);border-radius:22px;background:linear-gradient(160deg,rgba(28,23,12,.72),rgba(8,10,18,.62));backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:30px 26px;box-shadow:0 30px 90px -28px rgba(0,0,0,.85),0 0 60px -30px rgba(86,164,216,.35),inset 0 1px 0 rgba(255,255,255,.05)}
+.lg .card{position:relative;z-index:2;width:100%;max-width:400px;border:1px solid rgba(147,215,255,.16);border-radius:22px;background:linear-gradient(160deg,rgba(28,23,12,.72),rgba(8,10,18,.62));backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:30px 26px;box-shadow:0 30px 90px -28px rgba(0,0,0,.85),0 0 60px -30px rgba(79,181,238,.35),inset 0 1px 0 rgba(255,255,255,.05)}
 .lg .logo{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:22px}
-.lg .logo img{width:76px;height:76px;border-radius:18px;object-fit:contain;box-shadow:0 10px 30px -10px rgba(63,146,204,.5)}
+.lg .logo img{width:76px;height:76px;border-radius:18px;object-fit:contain;box-shadow:0 10px 30px -10px rgba(63,159,224,.5)}
 .lg h1{font-size:22px;font-weight:900;text-align:center}
 .lg .sub{font-size:13px;color:rgba(255,255,255,.5);text-align:center;margin-top:6px}
 .lg label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin:16px 0 6px}
 .lg input{width:100%;height:48px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);color:#fff;padding:0 14px;font-size:15px;outline:none}
-.lg input:focus{border-color:rgba(107,180,226,.6)}
-.lg .btn{width:100%;height:50px;margin-top:22px;border:none;border-radius:13px;font-weight:800;font-size:15px;color:#0d1420;cursor:pointer;background:linear-gradient(90deg,#6bb4e2,#2e7ab4,#2a72a8);box-shadow:0 14px 40px -16px rgba(107,180,226,.7)}
+.lg input:focus{border-color:rgba(94,200,255,.6)}
+.lg .btn{width:100%;height:50px;margin-top:22px;border:none;border-radius:13px;font-weight:800;font-size:15px;color:#0b0d12;cursor:pointer;background:linear-gradient(90deg,#5ec8ff,#2a80bd,#1f6fa8);box-shadow:0 14px 40px -16px rgba(94,200,255,.7)}
 .lg .btn:disabled{opacity:.6;cursor:default}
 .lg .err{margin-top:14px;font-size:13px;color:#fca5a5;text-align:center}
 .lg .foot{margin-top:20px;text-align:center;font-size:13px;color:rgba(255,255,255,.5)}
-.lg .foot a{color:#6bb4e2;font-weight:700}
+.lg .foot a{color:#5ec8ff;font-weight:700}
 .lg .or{display:flex;align-items:center;gap:12px;margin:20px 0 16px;color:rgba(255,255,255,.35);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .lg .or::before,.lg .or::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.1)}
 /* Google button, dressed up: a slowly-sweeping gold→blue gradient border with a soft glow around it. */
-.lg .goog{position:relative;border-radius:24px;padding:1.6px;background:linear-gradient(90deg,var(--g1,#3f92cc),#459eda,#6bb4e2,#3f92cc);background-size:300% 100%;animation:googflow 6s linear infinite;box-shadow:0 12px 34px -14px rgba(86,164,216,.55),0 0 0 1px rgba(255,255,255,.03)}
+.lg .goog{position:relative;border-radius:24px;padding:1.6px;background:linear-gradient(90deg,var(--g1,#3f9fe0),#459eda,#5ec8ff,#3f9fe0);background-size:300% 100%;animation:googflow 6s linear infinite;box-shadow:0 12px 34px -14px rgba(79,181,238,.55),0 0 0 1px rgba(255,255,255,.03)}
 @keyframes googflow{to{background-position:300% 0}}
 @media(prefers-reduced-motion:reduce){.lg .goog{animation:none}}
 .lg .goog::before{content:"";position:absolute;inset:-2px;border-radius:26px;background:inherit;filter:blur(11px);opacity:.5;z-index:-1}
@@ -55,7 +55,7 @@ export default function Login() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let raf = 0, w = 0, h = 0;
     let pts: { x: number; y: number; vx: number; vy: number; c: string }[] = [];
-    const COLORS = ["rgba(63,146,204,", "rgba(86,164,216,", "rgba(107,180,226,", "rgba(240,232,210,"];
+    const COLORS = ["rgba(63,159,224,", "rgba(79,181,238,", "rgba(94,200,255,", "rgba(240,232,210,"];
     const resize = () => {
       w = canvas.clientWidth; h = canvas.clientHeight;
       canvas.width = Math.floor(w * dpr); canvas.height = Math.floor(h * dpr);
@@ -82,7 +82,7 @@ export default function Login() {
           const d2 = dx * dx + dy * dy;
           if (d2 < LINK * LINK) {
             const al = (1 - Math.sqrt(d2) / LINK) * 0.32;
-            ctx.strokeStyle = `rgba(140,198,234,${al})`;
+            ctx.strokeStyle = `rgba(147,215,255,${al})`;
             ctx.lineWidth = 1;
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }

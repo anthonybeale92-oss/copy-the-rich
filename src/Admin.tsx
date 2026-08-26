@@ -14,16 +14,16 @@ const shortDate = (iso: string) => { try { return new Date(iso).toLocaleDateStri
 
 const CSS = `
 .ad *{box-sizing:border-box}
-.ad{min-height:100vh;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;position:relative;overflow-x:clip;background:radial-gradient(1100px 650px at 78% -10%,rgba(107,180,226,.10),transparent 60%),radial-gradient(900px 600px at 8% 110%,rgba(46,122,180,.09),transparent 60%),#05070d}
+.ad{min-height:100vh;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;position:relative;overflow-x:clip;background:radial-gradient(1100px 650px at 78% -10%,rgba(94,200,255,.10),transparent 60%),radial-gradient(900px 600px at 8% 110%,rgba(42,128,189,.09),transparent 60%),#050608}
 .ad .top,.ad .wrap,.ad main{position:relative;z-index:1}
 /* animated constellation backdrop (canvas), fixed behind all content */
 .ad .adconst{position:fixed;inset:0;z-index:0;width:100%;height:100%;pointer-events:none;display:block}
-.ad .top{position:sticky;top:0;z-index:20;background:rgba(5,7,13,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.ad .top{position:sticky;top:0;z-index:20;background:rgba(5,6,8,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
 .ad .topin{max-width:1080px;margin:0 auto;padding:0 18px;display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
 .ad .brand{display:flex;align-items:center;gap:9px}
 .ad .brand img{height:32px;width:32px;border-radius:8px;object-fit:contain}
 .ad .brand b{font-weight:900;font-size:15px}
-.ad .brand .tag{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#7cbde6;border:1px solid rgba(63,146,204,.35);border-radius:99px;padding:3px 8px;margin-left:4px}
+.ad .brand .tag{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#7fd4ff;border:1px solid rgba(63,159,224,.35);border-radius:99px;padding:3px 8px;margin-left:4px}
 .ad .who{display:flex;align-items:center;gap:10px}
 .ad .who .em{font-size:12px;color:rgba(255,255,255,.6)}
 .ad .lo{height:32px;padding:0 12px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:none;color:rgba(255,255,255,.8);font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
@@ -38,44 +38,44 @@ const CSS = `
 @media(min-width:860px){.ad .adtab{width:100%}}
 .ad .adtab .tic{font-size:16px}
 .ad .adtab:hover{color:#fff;border-color:rgba(255,255,255,.16)}
-.ad .adtab.on{color:#0d1420;background:linear-gradient(90deg,#6bb4e2,#2e7ab4);border-color:transparent;box-shadow:0 10px 26px -14px rgba(107,180,226,.7)}
+.ad .adtab.on{color:#0b0d12;background:linear-gradient(90deg,#5ec8ff,#2a80bd);border-color:transparent;box-shadow:0 10px 26px -14px rgba(94,200,255,.7)}
 .ad .adbody{min-width:0}
 .ad .adbody .kick:first-child{margin-top:0}
-.ad .broadcast{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:0;border:1px solid rgba(63,146,204,.32);background:linear-gradient(120deg,rgba(63,146,204,.09),rgba(86,164,216,.05));border-radius:16px;padding:18px 20px}
+.ad .broadcast{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:0;border:1px solid rgba(63,159,224,.32);background:linear-gradient(120deg,rgba(63,159,224,.09),rgba(79,181,238,.05));border-radius:16px;padding:18px 20px}
 .ad .broadcast .bico{font-size:30px;line-height:1}
 .ad .broadcast .btxt{display:flex;flex-direction:column;gap:3px;min-width:220px;flex:1}
 .ad .broadcast .btxt b{color:#fff;font-size:15px;font-weight:900}
 .ad .broadcast .btxt span{color:rgba(255,255,255,.55);font-size:12.5px;line-height:1.5;max-width:60ch}
-.ad .broadcast .bbtn{margin-left:auto;height:44px;padding:0 20px;border:none;border-radius:12px;font-weight:900;font-size:13.5px;color:#0d1420;background:linear-gradient(90deg,#3f92cc,#cfe7fa);cursor:pointer;white-space:nowrap}
+.ad .broadcast .bbtn{margin-left:auto;height:44px;padding:0 20px;border:none;border-radius:12px;font-weight:900;font-size:13.5px;color:#0b0d12;background:linear-gradient(90deg,#3f9fe0,#d6efff);cursor:pointer;white-space:nowrap}
 .ad .broadcast .bbtn:hover{filter:brightness(1.06)}
-.ad .autopost{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:12px;border:1px solid rgba(86,164,216,.28);background:linear-gradient(120deg,rgba(86,164,216,.08),rgba(46,122,180,.05));border-radius:16px;padding:14px 18px}
+.ad .autopost{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:12px;border:1px solid rgba(79,181,238,.28);background:linear-gradient(120deg,rgba(79,181,238,.08),rgba(42,128,189,.05));border-radius:16px;padding:14px 18px}
 .ad .autopost .aptxt{display:flex;flex-direction:column;gap:3px;min-width:220px;flex:1}
 .ad .autopost .aptxt b{color:#fff;font-size:14px;font-weight:900}
 .ad .autopost .aptxt span{color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;max-width:56ch}
-.ad .autopost .apseg{display:flex;gap:6px;margin-left:auto;background:#05070d;border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:4px}
+.ad .autopost .apseg{display:flex;gap:6px;margin-left:auto;background:#050608;border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:4px}
 .ad .autopost .apseg button{height:34px;padding:0 13px;border:none;background:transparent;border-radius:8px;color:rgba(255,255,255,.6);font-weight:800;font-size:12.5px;cursor:pointer;white-space:nowrap}
-.ad .autopost .apseg button.on{background:linear-gradient(90deg,#6bb4e2,#2e7ab4);color:#0d1420}
-.ad .kick{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(107,180,226,.8);margin:26px 0 12px}
+.ad .autopost .apseg button.on{background:linear-gradient(90deg,#5ec8ff,#2a80bd);color:#0b0d12}
+.ad .kick{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(94,200,255,.8);margin:26px 0 12px}
 .ad .kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(min-width:720px){.ad .kpis{grid-template-columns:repeat(4,1fr)}}
-.ad .kpi{border:1px solid rgba(255,255,255,.09);background:#0b0c12;border-radius:16px;padding:18px}
+.ad .kpi{border:1px solid rgba(255,255,255,.09);background:#0a0b10;border-radius:16px;padding:18px}
 .ad .kpi .l{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.ad .kpi .v{font-size:28px;font-weight:900;margin-top:6px;font-variant-numeric:tabular-nums;background:linear-gradient(90deg,#6bb4e2,#2a72a8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ad .kpi .v{font-size:28px;font-weight:900;margin-top:6px;font-variant-numeric:tabular-nums;background:linear-gradient(90deg,#5ec8ff,#1f6fa8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .ad .kpi .s{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px}
-.ad .panel{border:1px solid rgba(255,255,255,.09);background:#0b0c12;border-radius:18px;padding:20px;min-width:0}
+.ad .panel{border:1px solid rgba(255,255,255,.09);background:#0a0b10;border-radius:18px;padding:20px;min-width:0}
 .ad .cols{display:grid;grid-template-columns:1fr;gap:16px}
 @media(min-width:820px){.ad .cols{grid-template-columns:1fr 1fr}}
 .ad .ph{font-size:14px;font-weight:800;margin-bottom:14px}
 /* 14-day chart */
 .ad .chart{display:flex;align-items:flex-end;gap:6px;height:150px;padding-top:8px}
 .ad .bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
-.ad .bar .col{width:100%;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#6bb4e2,#2e7ab4);min-height:3px;transition:.2s}
+.ad .bar .col{width:100%;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#5ec8ff,#2a80bd);min-height:3px;transition:.2s}
 .ad .bar .dd{font-size:9px;color:rgba(255,255,255,.35);white-space:nowrap}
 /* rows */
 .ad .row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid rgba(255,255,255,.05)}
 .ad .row:first-child{border-top:none}
 .ad .row .nm{font-size:13.5px;color:rgba(255,255,255,.85);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ad .row .nm.land{color:#b3daf4;font-weight:700}
+.ad .row .nm.land{color:#bde7ff;font-weight:700}
 /* users table */
 .ad .utable{padding:0;overflow:hidden}
 .ad .scrollx{overflow-x:auto}
@@ -85,32 +85,32 @@ const CSS = `
 .ad td{padding:10px 10px;border-bottom:1px solid rgba(255,255,255,.04);font-size:13px;vertical-align:middle;white-space:nowrap}
 .ad tbody tr:hover{background:rgba(255,255,255,.02)}
 .ad .uname{font-weight:700;color:#fff}
-.ad .deskpill{margin-left:8px;font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:6px;color:#85c8f4;background:rgba(63,146,204,.13);border:1px solid rgba(63,146,204,.32);white-space:nowrap}
+.ad .deskpill{margin-left:8px;font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:6px;color:#85c8f4;background:rgba(63,159,224,.13);border:1px solid rgba(63,159,224,.32);white-space:nowrap}
 .ad .uemail2{font-size:11.5px;color:rgba(255,255,255,.45)}
 .ad td.dim{color:rgba(255,255,255,.5)}
-.ad td.mono{font-family:ui-monospace,monospace;font-weight:700;color:#d8ecfb}
-.ad .ref{font-size:12px;font-weight:700;color:#8fc3e6;background:rgba(46,122,180,.12);border:1px solid rgba(46,122,180,.25);border-radius:99px;padding:2px 9px;white-space:nowrap}
+.ad td.mono{font-family:ui-monospace,monospace;font-weight:700;color:#e2f4ff}
+.ad .ref{font-size:12px;font-weight:700;color:#8fc3e6;background:rgba(42,128,189,.12);border:1px solid rgba(42,128,189,.25);border-radius:99px;padding:2px 9px;white-space:nowrap}
 .ad .usort{display:flex;align-items:center;gap:8px;margin:14px 0 6px;font-size:12px;color:rgba(255,255,255,.45)}
 .ad .us{height:30px;padding:0 12px;border-radius:9px;border:1px solid rgba(255,255,255,.12);background:none;color:rgba(255,255,255,.7);font-size:12px;font-weight:700;cursor:pointer}
-.ad .us.on{border-color:rgba(107,180,226,.4);background:rgba(107,180,226,.1);color:#d8ecfb}
+.ad .us.on{border-color:rgba(94,200,255,.4);background:rgba(94,200,255,.1);color:#e2f4ff}
 .ad .ufilters{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:16px 0 4px}
 .ad .usearch{flex:1;min-width:200px;height:38px;padding:0 14px;border-radius:11px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:#fff;font-size:13px;outline:none}
-.ad .usearch:focus{border-color:rgba(107,180,226,.4);background:rgba(107,180,226,.05)}
+.ad .usearch:focus{border-color:rgba(94,200,255,.4);background:rgba(94,200,255,.05)}
 .ad .usearch::placeholder{color:rgba(255,255,255,.35)}
 .ad .uchips{display:flex;flex-wrap:wrap;gap:6px}
 .ad .ucount{padding:10px 14px 0;font-size:11.5px;font-weight:700;color:rgba(255,255,255,.4)}
-.ad .loginas{font-size:12px;font-weight:800;color:#b3daf4;white-space:nowrap;text-decoration:none}
-.ad .loginas:hover{color:#d8ecfb;text-decoration:underline}
+.ad .loginas{font-size:12px;font-weight:800;color:#bde7ff;white-space:nowrap;text-decoration:none}
+.ad .loginas:hover{color:#e2f4ff;text-decoration:underline}
 .ad tr.urow{cursor:pointer;transition:background .12s}
 .ad tr.urow:hover{background:rgba(255,255,255,.035)}
-.ad .mdlbg{position:fixed;inset:0;z-index:60;background:rgba(3,5,10,.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:18px;animation:mfade .16s ease}
+.ad .mdlbg{position:fixed;inset:0;z-index:60;background:rgba(3,3,5,.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:18px;animation:mfade .16s ease}
 @keyframes mfade{from{opacity:0}to{opacity:1}}
-.ad .mdl{position:relative;width:100%;max-width:440px;background:#0a1018;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:22px;box-shadow:0 40px 120px -30px rgba(0,0,0,.9);animation:mpop .18s cubic-bezier(.2,.8,.2,1)}
+.ad .mdl{position:relative;width:100%;max-width:440px;background:#080910;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:22px;box-shadow:0 40px 120px -30px rgba(0,0,0,.9);animation:mpop .18s cubic-bezier(.2,.8,.2,1)}
 @keyframes mpop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
 .ad .mdlx{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:13px;cursor:pointer}
 .ad .mdlx:hover{background:rgba(255,255,255,.12);color:#fff}
 .ad .mdlhead{display:flex;align-items:center;gap:13px;margin-bottom:14px}
-.ad .mav{flex:none;width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#3e9ad8,#24638f);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
+.ad .mav{flex:none;width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#3e9ad8,#175a8c);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
 .ad .mnm{font-weight:800;color:#fff;font-size:17px}
 .ad .mem{color:rgba(255,255,255,.55);font-size:13px;word-break:break-all}
 .ad .mtags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
@@ -120,7 +120,7 @@ const CSS = `
 .ad .mk{color:rgba(255,255,255,.5);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
 .ad .mv{color:#fff;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
 .ad .mact{display:flex;gap:10px;margin-top:16px}
-.ad .mbtn{flex:1;text-align:center;padding:11px;border-radius:11px;font-size:13px;font-weight:800;cursor:pointer;text-decoration:none;background:linear-gradient(90deg,#3e9ad8,#24638f);color:#fff;border:none}
+.ad .mbtn{flex:1;text-align:center;padding:11px;border-radius:11px;font-size:13px;font-weight:800;cursor:pointer;text-decoration:none;background:linear-gradient(90deg,#3e9ad8,#175a8c);color:#fff;border:none}
 .ad .mbtn:hover{filter:brightness(1.07)}
 .ad .mbtn.ghost{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:#bfdff4}
 .ad .mbtn:disabled{opacity:.5;cursor:default}
@@ -131,10 +131,10 @@ const CSS = `
 @media(min-width:640px){.ad .track{grid-template-columns:1fr 1fr 1fr}}
 .ad .tc{border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;background:rgba(255,255,255,.02)}
 .ad .tc .t{font-size:12px;font-weight:800;color:rgba(255,255,255,.8);display:flex;align-items:center;justify-content:space-between;gap:8px}
-.ad .tc .tin{width:100%;margin-top:10px;height:38px;border-radius:9px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.35);color:#b3daf4;font-family:ui-monospace,monospace;font-size:12.5px;padding:0 11px;outline:none}
-.ad .tc .tin:focus{border-color:rgba(107,180,226,.55)}
+.ad .tc .tin{width:100%;margin-top:10px;height:38px;border-radius:9px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.35);color:#bde7ff;font-family:ui-monospace,monospace;font-size:12.5px;padding:0 11px;outline:none}
+.ad .tc .tin:focus{border-color:rgba(94,200,255,.55)}
 .ad .saverow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:16px}
-.ad .save{height:40px;padding:0 20px;border:none;border-radius:11px;font-weight:800;font-size:13.5px;color:#0d1420;cursor:pointer;background:linear-gradient(90deg,#6bb4e2,#2e7ab4,#2a72a8)}
+.ad .save{height:40px;padding:0 20px;border:none;border-radius:11px;font-weight:800;font-size:13.5px;color:#0b0d12;cursor:pointer;background:linear-gradient(90deg,#5ec8ff,#2a80bd,#1f6fa8)}
 .ad .save:disabled{opacity:.6;cursor:default}
 .ad .ok{font-size:13px;color:#6ee7b7;font-weight:700}
 .ad .pill{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;padding:3px 8px}
@@ -142,8 +142,8 @@ const CSS = `
 .ad .pill.no{color:rgba(255,255,255,.5);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
 .ad button.pill{cursor:pointer;font-family:inherit;line-height:1.4}
 .ad button.pill.siglock:hover{background:rgba(244,63,94,.12);border-color:rgba(244,63,94,.35);color:#fda4af}
-.ad .pill.unlockbtn{color:#d8ecfb;background:rgba(107,180,226,.10);border:1px solid rgba(107,180,226,.35)}
-.ad .pill.unlockbtn:hover{background:rgba(107,180,226,.18);color:#d2ebfb}
+.ad .pill.unlockbtn{color:#e2f4ff;background:rgba(94,200,255,.10);border:1px solid rgba(94,200,255,.35)}
+.ad .pill.unlockbtn:hover{background:rgba(94,200,255,.18);color:#d2ebfb}
 .ad .pill.kycbtn{cursor:pointer;color:#6ee7b7;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.35)}
 .ad .pill.kycbtn:hover{background:rgba(52,211,153,.2);color:#aad3ee}
 .ad .kycsub{opacity:.55;font-weight:700;text-transform:capitalize;margin-left:3px}
@@ -299,7 +299,7 @@ export default function Admin() {
           <div style={{ fontSize: 19, fontWeight: 900, color: "#fff", marginBottom: 8 }}>Verify it's you</div>
           <div style={{ fontSize: 13.5, color: "rgba(255,255,255,.55)", lineHeight: 1.6, marginBottom: 18 }}>
             {codeSent
-              ? <>We emailed a 6-digit code to <b style={{ color: "#cfe7fa" }}>{me.email}</b>. It expires in 10 minutes.</>
+              ? <>We emailed a 6-digit code to <b style={{ color: "#d6efff" }}>{me.email}</b>. It expires in 10 minutes.</>
               : <>We couldn't send the code. Check your connection and try again.</>}
           </div>
           <GoogleUnlock onDone={() => window.location.reload()} onError={(m) => setCodeErr(m)} />
@@ -308,12 +308,12 @@ export default function Admin() {
             onChange={(e) => { setCode(e.target.value.replace(/\D/g, "").slice(0, 6)); setCodeErr(""); }}
             onKeyDown={(e) => { if (e.key === "Enter") submitCode(); }}
             placeholder="000000"
-            style={{ width: "100%", background: "#0a1018", border: "1px solid rgba(255,255,255,.12)", borderRadius: 10, color: "#fff", fontSize: 26, fontWeight: 800, letterSpacing: ".26em", textAlign: "center", padding: "12px 14px", outline: "none" }}
+            style={{ width: "100%", background: "#080910", border: "1px solid rgba(255,255,255,.12)", borderRadius: 10, color: "#fff", fontSize: 26, fontWeight: 800, letterSpacing: ".26em", textAlign: "center", padding: "12px 14px", outline: "none" }}
           />
           {codeErr && <div style={{ color: "#ffb4b4", fontSize: 12.5, marginTop: 10 }}>{codeErr}</div>}
           <button
             onClick={submitCode} disabled={codeBusy}
-            style={{ width: "100%", marginTop: 16, padding: "12px 14px", borderRadius: 10, border: "none", cursor: codeBusy ? "default" : "pointer", background: "linear-gradient(135deg,#3e9ad8,#24638f)", color: "#fff", fontSize: 14.5, fontWeight: 800, opacity: codeBusy ? 0.6 : 1 }}
+            style={{ width: "100%", marginTop: 16, padding: "12px 14px", borderRadius: 10, border: "none", cursor: codeBusy ? "default" : "pointer", background: "linear-gradient(135deg,#3e9ad8,#175a8c)", color: "#fff", fontSize: 14.5, fontWeight: 800, opacity: codeBusy ? 0.6 : 1 }}
           >{codeBusy ? "Checking…" : "Unlock admin console"}</button>
           <button
             onClick={async () => { setCodeErr(""); setCodeSent(await requestAdminCode()); }}
@@ -659,7 +659,7 @@ export default function Admin() {
 // Brands — white-label partners in the network. Each gets its own domain and skin, but runs on the same
 // Copy the Rich Trades plumbing (members, signals, Tap-to-Trade), and its signups roll up under its ref code.
 const usd0 = (n: number) => `$${Math.round(Number(n) || 0).toLocaleString("en-US")}`;
-const BRAND_BLANK: Partial<RtbBrand> ={ name: "", slug: "", domain: "", status: "setup", ownerEmail: "", refCode: "", logoUrl: "", accent: "#6bb4e2", tagline: "", telegramUrl: "", notes: "" };
+const BRAND_BLANK: Partial<RtbBrand> ={ name: "", slug: "", domain: "", status: "setup", ownerEmail: "", refCode: "", logoUrl: "", accent: "#5ec8ff", tagline: "", telegramUrl: "", notes: "" };
 const BRAND_STATUS: { k: RtbBrand["status"]; lb: string }[] = [
   { k: "setup", lb: "🛠 In setup" }, { k: "live", lb: "🟢 Live" }, { k: "paused", lb: "⏸ Paused" },
 ];
@@ -737,8 +737,8 @@ function BrandsManager() {
             <label className="bfield">
               <span>Accent colour</span>
               <span className="bcolor">
-                <input type="color" value={/^#[0-9a-f]{6}$/i.test(String(edit.accent || "")) ? String(edit.accent) : "#6bb4e2"} onChange={(e) => set("accent", e.target.value)} />
-                <input value={String(edit.accent ?? "")} onChange={(e) => set("accent", e.target.value)} placeholder="#6bb4e2" />
+                <input type="color" value={/^#[0-9a-f]{6}$/i.test(String(edit.accent || "")) ? String(edit.accent) : "#5ec8ff"} onChange={(e) => set("accent", e.target.value)} />
+                <input value={String(edit.accent ?? "")} onChange={(e) => set("accent", e.target.value)} placeholder="#5ec8ff" />
               </span>
             </label>
             {field("telegramUrl", "Telegram / signals link", "https://t.me/…")}
@@ -761,7 +761,7 @@ function BrandsManager() {
         : (
           <div className="bcards">
             {brands.map((b) => (
-              <div key={b.id} className="bcard" style={{ ["--bx" as any]: /^#[0-9a-f]{6}$/i.test(b.accent) ? b.accent : "#6bb4e2" }}>
+              <div key={b.id} className="bcard" style={{ ["--bx" as any]: /^#[0-9a-f]{6}$/i.test(b.accent) ? b.accent : "#5ec8ff" }}>
                 <div className={`bcHead open${openId === b.id ? " on" : ""}`} role="button" tabIndex={0}
                   title={`See ${b.name}'s signups and network`}
                   onClick={() => toggleStats(b)}
@@ -846,7 +846,7 @@ function BrandsManager() {
 }
 
 const BRANDS_CSS = `
-.bform{margin-top:16px;border:1px solid rgba(140,198,234,.2);border-radius:16px;background:#0a1018;padding:18px}
+.bform{margin-top:16px;border:1px solid rgba(147,215,255,.2);border-radius:16px;background:#080910;padding:18px}
 .bfhd{font-size:14px;font-weight:900;color:#fff;margin-bottom:14px}
 .bgrid{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:760px){.bgrid{grid-template-columns:1fr 1fr}}
@@ -854,30 +854,30 @@ const BRANDS_CSS = `
 .bfield.wide{grid-column:1/-1}
 .bfield>span{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45)}
 .bfield input,.bfield select,.bfield textarea{width:100%;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);color:#fff;padding:10px 12px;font-size:14px;outline:none;font-family:inherit}
-.bfield input:focus,.bfield select:focus,.bfield textarea:focus{border-color:rgba(107,180,226,.6)}
+.bfield input:focus,.bfield select:focus,.bfield textarea:focus{border-color:rgba(94,200,255,.6)}
 .bcolor{display:flex;gap:8px;align-items:center}
 .bcolor input[type=color]{width:44px;height:40px;padding:2px;flex:none;cursor:pointer}
 .berr{margin-top:12px;font-size:13px;color:#fca5a5}
 .bactions{display:flex;gap:10px;margin-top:16px}
-.bsave{border:none;border-radius:11px;padding:11px 20px;font-weight:800;font-size:14px;color:#0d1420;cursor:pointer;background:linear-gradient(90deg,#6bb4e2,#2e7ab4)}
+.bsave{border:none;border-radius:11px;padding:11px 20px;font-weight:800;font-size:14px;color:#0b0d12;cursor:pointer;background:linear-gradient(90deg,#5ec8ff,#2a80bd)}
 .bsave:disabled{opacity:.5;cursor:default}
 .bcancel{border:1px solid rgba(255,255,255,.14);border-radius:11px;padding:11px 20px;font-weight:700;font-size:14px;color:rgba(255,255,255,.7);background:transparent;cursor:pointer}
 .bempty{margin-top:16px;border:1px dashed rgba(255,255,255,.14);border-radius:16px;padding:26px;text-align:center;color:rgba(255,255,255,.5);font-size:13.5px;line-height:1.6}
 .bcards{margin-top:16px;display:grid;grid-template-columns:1fr;gap:14px}
 @media(min-width:820px){.bcards{grid-template-columns:1fr 1fr}}
-.bcard{position:relative;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:#0a1018;padding:16px;overflow:hidden}
+.bcard{position:relative;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:#080910;padding:16px;overflow:hidden}
 .bcard::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--bx),transparent)}
 .bcHead{display:flex;align-items:center;gap:12px}
 .blogo{width:40px;height:40px;border-radius:11px;object-fit:contain;background:rgba(255,255,255,.06);flex:none}
-.blogo.ph{display:grid;place-items:center;font-weight:900;font-size:17px;color:#0d1420;background:var(--bx)}
+.blogo.ph{display:grid;place-items:center;font-weight:900;font-size:17px;color:#0b0d12;background:var(--bx)}
 .bcName{flex:1;min-width:0}
 .bcName b{display:block;font-size:15px;color:#fff}
 .bcName span{font-size:12.5px;color:rgba(255,255,255,.45)}
 .bcName a{color:var(--bx);text-decoration:none}
 .bcName a:hover{text-decoration:underline}
 .bstatus{font-size:10px;font-weight:900;letter-spacing:.05em;padding:4px 9px;border-radius:7px;white-space:nowrap}
-.bstatus.live{color:#052e1a;background:linear-gradient(90deg,#34d399,#56a4d8)}
-.bstatus.setup{color:#85c8f4;background:rgba(63,146,204,.14);border:1px solid rgba(63,146,204,.35)}
+.bstatus.live{color:#052e1a;background:linear-gradient(90deg,#34d399,#4fb5ee)}
+.bstatus.setup{color:#85c8f4;background:rgba(63,159,224,.14);border:1px solid rgba(63,159,224,.35)}
 .bstatus.paused{color:rgba(255,255,255,.6);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
 .btag{margin:12px 0 0;font-size:13px;color:rgba(255,255,255,.6);line-height:1.55}
 .bmeta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
@@ -903,14 +903,14 @@ const BRANDS_CSS = `
 .bstile span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.42);margin-top:3px}
 .bswrap{margin-top:12px;max-height:340px;overflow:auto;border:1px solid rgba(255,255,255,.07);border-radius:11px}
 .bstable{width:100%;border-collapse:collapse;font-size:12.5px}
-.bstable th{position:sticky;top:0;background:#0a1018;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.42);padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.08)}
+.bstable th{position:sticky;top:0;background:#080910;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.42);padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.08)}
 .bstable td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.78);vertical-align:top}
 .bstable tr:last-child td{border-bottom:0}
 .bstable td b{display:block;color:#fff;font-weight:700}
 .bstable td i{display:block;font-style:normal;font-size:11px;color:rgba(255,255,255,.42);margin-top:1px}
 .bstable .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .bpill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.6)}
-.bpill.direct{border-color:rgba(107,180,226,.35);color:#b3daf4}
+.bpill.direct{border-color:rgba(94,200,255,.35);color:#bde7ff}
 .bpill.on{border-color:rgba(110,231,183,.35);color:#6ee7b7}
 `;
 
@@ -965,7 +965,7 @@ function TelegramManager() {
                     {m.username && <span style={{ color: "rgba(255,255,255,.4)", marginLeft: 6 }}>@{m.username}</span>}
                     {m.email && <div style={{ fontSize: 12, color: "rgba(255,255,255,.4)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{m.email}</div>}
                   </span>
-                  {m.isAdmin && <span style={chip("#cfe7fa")}>Admin</span>}
+                  {m.isAdmin && <span style={chip("#d6efff")}>Admin</span>}
                   <span style={chip(m.status === "verified" ? "#6ee7b7" : m.status === "removed" ? "#fca5a5" : "rgba(255,255,255,.45)")}>{m.status}</span>
                   {m.funded > 0 && <span className="vv" style={{ minWidth: 78, textAlign: "right", flexShrink: 0, whiteSpace: "nowrap" }}>{money(m.funded)}</span>}
                   {!m.isAdmin

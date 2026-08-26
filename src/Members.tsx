@@ -59,7 +59,7 @@ function TlgHead({ id, n, title, sub }: { id: string; n: number; title: string; 
   return (
     <div id={id} className="mt-12 mb-4 scroll-mt-[80px] border-t border-white/[0.07] pt-7">
       <div className="flex items-center gap-3 mb-2">
-        <span className="text-[10.5px] font-black tracking-[0.22em] text-[#7cbde6]/75">PART {String(n).padStart(2, "0")}</span>
+        <span className="text-[10.5px] font-black tracking-[0.22em] text-[#7fd4ff]/75">PART {String(n).padStart(2, "0")}</span>
         <span className="flex-1 h-px bg-white/[0.09]" />
         <span className="text-[10.5px] font-bold tracking-[0.12em] text-white/25 tabular-nums">{n} / 5</span>
       </div>
@@ -126,7 +126,7 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
   ];
   const active = steps[step - 1];
   const go = (n: number) => { const s = steps[n - 1]; if (!s) return; setStep(n); s.enter?.(); };
-  const ring = (f: Focus) => active.focus === f ? "ring-2 ring-amber-400 shadow-[0_0_22px_-4px_rgba(107,180,226,.7)] relative z-10" : "";
+  const ring = (f: Focus) => active.focus === f ? "ring-2 ring-amber-400 shadow-[0_0_22px_-4px_rgba(94,200,255,.7)] relative z-10" : "";
 
   // Step 7 has nothing to manage unless something is open — put a demo position on the book.
   useEffect(() => {
@@ -216,9 +216,9 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
   return (
     <div className="max-w-5xl">
       {/* HERO */}
-      <div className="rounded-2xl border border-white/[0.09] p-6 flex justify-between items-center gap-5 flex-wrap" style={{ background: "radial-gradient(120% 100% at 100% 0,rgba(86,164,216,.14),transparent 60%),#0a1018" }}>
+      <div className="rounded-2xl border border-white/[0.09] p-6 flex justify-between items-center gap-5 flex-wrap" style={{ background: "radial-gradient(120% 100% at 100% 0,rgba(79,181,238,.14),transparent 60%),#080910" }}>
         <div className="min-w-[260px]">
-          <div className="text-[11px] font-extrabold tracking-[0.12em] uppercase text-[#7cbde6]">The platform your trades live on</div>
+          <div className="text-[11px] font-extrabold tracking-[0.12em] uppercase text-[#7fd4ff]">The platform your trades live on</div>
           <h3 className="text-[22px] font-extrabold text-white mt-1.5 mb-2">How to trade on TradeLocker</h3>
           <p className="text-white/60 text-sm leading-relaxed max-w-md">Real platform, real labels. Tour the screen, then step through a working demo of the order panel — prices tick, orders fill, P&amp;L moves. Nothing here touches your money.</p>
         </div>
@@ -231,8 +231,8 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
       {/* CHAPTER NAV */}
       <div className="tlgnav mt-4 mb-8">
         {chapters.map((c) => (
-          <button key={c.id} onClick={() => jump(c.id)} className="text-left rounded-xl border border-white/[0.08] bg-[#0a1018] px-3.5 py-3 hover:border-amber-400/40 transition">
-            <div className="text-[10px] font-black text-[#7cbde6]/70 tracking-[0.22em]">PART {String(c.n).padStart(2, "0")}</div>
+          <button key={c.id} onClick={() => jump(c.id)} className="text-left rounded-xl border border-white/[0.08] bg-[#080910] px-3.5 py-3 hover:border-amber-400/40 transition">
+            <div className="text-[10px] font-black text-[#7fd4ff]/70 tracking-[0.22em]">PART {String(c.n).padStart(2, "0")}</div>
             <div className="text-[13.5px] font-extrabold text-white mt-1">{c.t}</div>
             <div className="text-[11.5px] text-white/45 mt-0.5 leading-snug">{c.d}</div>
           </button>
@@ -254,7 +254,7 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
             ["Trades panel", "Along the bottom: Positions, Pending, Trades, Closed Positions — and your Balance, P&L, Equity, Margin used, Margin available and Margin level."],
             ["Sidebar", "Far right: show/hide panels, zoom, and your account switcher."],
           ].map(([t, d], i) => (
-            <div key={t} className="flex gap-3 rounded-xl border border-white/[0.08] bg-[#0a1018] px-3.5 py-3">
+            <div key={t} className="flex gap-3 rounded-xl border border-white/[0.08] bg-[#080910] px-3.5 py-3">
               <span className="tlgnum">{i + 1}</span>
               <span className="text-[13px] text-white/60 leading-relaxed"><b className="text-white block text-[13.5px] mb-0.5">{t}</b>{d}</span>
             </div>
@@ -267,21 +267,21 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
       <div className="flex items-end justify-between gap-3 mb-3">
         <div className="tlgchips">
           {steps.map((s) => (
-            <button key={s.n} onClick={() => go(s.n)} title={s.title} className={`flex-none w-7 h-7 rounded-lg text-[12px] font-black transition ${step === s.n ? "text-[#0d1420]" : "text-white/45 border border-white/12 hover:border-white/30"}`} style={step === s.n ? { background: "linear-gradient(135deg,#6bb4e2,#2e7ab4)" } : undefined}>{s.n}</button>
+            <button key={s.n} onClick={() => go(s.n)} title={s.title} className={`flex-none w-7 h-7 rounded-lg text-[12px] font-black transition ${step === s.n ? "text-[#0b0d12]" : "text-white/45 border border-white/12 hover:border-white/30"}`} style={step === s.n ? { background: "linear-gradient(135deg,#5ec8ff,#2a80bd)" } : undefined}>{s.n}</button>
           ))}
         </div>
         <div className="flex items-center gap-2 flex-none">
           <span className="text-[11px] font-bold text-white/40 tabular-nums max-[520px]:hidden">Step {step}/{steps.length}</span>
           <button onClick={() => go(step - 1)} disabled={step === 1} className="px-2.5 py-1 rounded-lg border border-white/15 text-[12px] font-bold text-white/70 disabled:opacity-30 hover:border-white/30">←</button>
           {step < steps.length
-            ? <button onClick={() => go(step + 1)} className="px-3 py-1 rounded-lg text-[12px] font-black text-[#0d1420]" style={{ background: "linear-gradient(135deg,#6bb4e2,#2e7ab4)" }}>Next →</button>
+            ? <button onClick={() => go(step + 1)} className="px-3 py-1 rounded-lg text-[12px] font-black text-[#0b0d12]" style={{ background: "linear-gradient(135deg,#5ec8ff,#2a80bd)" }}>Next →</button>
             : <button onClick={() => go(1)} className="px-3 py-1 rounded-lg border border-white/15 text-[12px] font-bold text-white/70 hover:border-white/30">Restart</button>}
         </div>
       </div>
-      <div className="h-1 rounded-full bg-white/[0.07] mb-3 overflow-hidden"><div className="h-full rounded-full transition-all duration-300" style={{ width: `${(step / steps.length) * 100}%`, background: "linear-gradient(90deg,#6bb4e2,#2e7ab4)" }} /></div>
+      <div className="h-1 rounded-full bg-white/[0.07] mb-3 overflow-hidden"><div className="h-full rounded-full transition-all duration-300" style={{ width: `${(step / steps.length) * 100}%`, background: "linear-gradient(90deg,#5ec8ff,#2a80bd)" }} /></div>
       <div className="rounded-xl border border-amber-400/30 bg-amber-400/[0.06] p-4 mb-3">
         <div className="flex items-center gap-2.5">
-          <span className="flex-none w-6 h-6 rounded-lg grid place-items-center text-[12px] font-black text-[#0d1420]" style={{ background: "linear-gradient(135deg,#6bb4e2,#2e7ab4)" }}>{active.n}</span>
+          <span className="flex-none w-6 h-6 rounded-lg grid place-items-center text-[12px] font-black text-[#0b0d12]" style={{ background: "linear-gradient(135deg,#5ec8ff,#2a80bd)" }}>{active.n}</span>
           <span className="text-[14.5px] font-extrabold text-white">{active.title}</span>
         </div>
         <p className="text-[13px] text-white/65 leading-relaxed mt-2 pl-[34px]">{active.body}</p>
@@ -304,7 +304,7 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
               <div className="px-3 pb-1 text-[8px] uppercase tracking-wider text-white/35 font-bold">Markets</div>
               {([["XAUUSD", bid.toFixed(2), ask.toFixed(2), true], ["EURUSD", "1.0842", "1.0843", false], ["BTCUSD", "64,210", "64,238", false], ["US30", "38,940", "38,944", false]] as [string, string, string, boolean][]).map(([s, b, a, on]) => (
                 <div key={s} className={`px-3 py-1.5 border-l-2 ${on ? `bg-[#3694d2]/[0.08] border-[#3694d2] ${ring("symbol")}` : "border-transparent"}`}>
-                  <div className={`text-[11px] font-bold ${on ? "text-[#56a4d8]" : "text-white/65"}`}>{s}</div>
+                  <div className={`text-[11px] font-bold ${on ? "text-[#4fb5ee]" : "text-white/65"}`}>{s}</div>
                   <div className="flex gap-2 text-[9px] tabular-nums mt-0.5"><span className="text-rose-400">{b}</span><span className="text-emerald-400">{a}</span></div>
                 </div>
               ))}
@@ -346,7 +346,7 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
                 <div className={`rounded-lg border border-white/[0.09] p-2 ${ring("type")}`}>
                   <div className="flex gap-1 mb-1.5 text-[9px] font-bold">
                     {([[false, "Below market"], [true, "Above market"]] as const).map(([v, label]) => (
-                      <button key={label} onClick={() => setPendAbove(v)} className={`flex-1 py-1 rounded ${pendAbove === v ? "bg-[#24638f]/25 text-[#92c4e5] border border-[#24638f]/50" : "border border-white/10 text-white/40"}`}>{label}</button>
+                      <button key={label} onClick={() => setPendAbove(v)} className={`flex-1 py-1 rounded ${pendAbove === v ? "bg-[#175a8c]/25 text-[#92c4e5] border border-[#175a8c]/50" : "border border-white/10 text-white/40"}`}>{label}</button>
                     ))}
                   </div>
                   <div className="flex items-center justify-between">
@@ -374,8 +374,8 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
               {otype !== "trail" && (
                 <div className={`rounded-lg border border-white/[0.09] overflow-hidden ${ring("risk")}`}>
                   <div className="grid grid-cols-2 text-[9.5px] font-bold">
-                    <button onClick={() => setSlOn((v) => !v)} className={`flex items-center justify-center gap-1 py-1.5 ${slOn ? "bg-[#24638f] text-white" : "text-white/40"}`}>Stop Loss {slOn ? "✓" : "☐"}</button>
-                    <button onClick={() => setTpOn((v) => !v)} className={`flex items-center justify-center gap-1 py-1.5 border-l border-white/[0.08] ${tpOn ? "bg-[#24638f] text-white" : "text-white/40"}`}>Take Profit {tpOn ? "✓" : "☐"}</button>
+                    <button onClick={() => setSlOn((v) => !v)} className={`flex items-center justify-center gap-1 py-1.5 ${slOn ? "bg-[#175a8c] text-white" : "text-white/40"}`}>Stop Loss {slOn ? "✓" : "☐"}</button>
+                    <button onClick={() => setTpOn((v) => !v)} className={`flex items-center justify-center gap-1 py-1.5 border-l border-white/[0.08] ${tpOn ? "bg-[#175a8c] text-white" : "text-white/40"}`}>Take Profit {tpOn ? "✓" : "☐"}</button>
                   </div>
                   <div className="tlgcalc text-[9.5px] tabular-nums">
                     {([
@@ -426,7 +426,7 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
             <div className="flex items-center justify-between gap-3 flex-wrap px-3 pt-2">
               <div className="flex gap-4 text-[10px] font-bold">
                 {([["positions", `Positions (${pos ? 1 : 0})`], ["orders", `Pending (${order ? 1 : 0})`], ["history", `Closed Positions (${hist.length})`]] as const).map(([k, label]) => (
-                  <button key={k} onClick={() => setTab(k)} className={`pb-1.5 ${tab === k ? "text-[#56a4d8] border-b-2 border-[#3694d2]" : "text-white/40 hover:text-white/60"}`}>{label}</button>
+                  <button key={k} onClick={() => setTab(k)} className={`pb-1.5 ${tab === k ? "text-[#4fb5ee] border-b-2 border-[#3694d2]" : "text-white/40 hover:text-white/60"}`}>{label}</button>
                 ))}
               </div>
               <div className="flex gap-3.5 pb-1.5 text-[8.5px] tabular-nums">
@@ -508,25 +508,25 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
           <figcaption className="text-[12px] text-white/50 mt-2.5 px-1 leading-relaxed"><b className="text-white">Or do it on the chart.</b> Click a position to drop into edit mode and your SL and TP appear as draggable lines, labelled in dollars <i>and</i> as a % of your balance. Drag the stop up to your entry once you're in profit — that's breakeven, and it's free.</figcaption>
         </figure>
       </div>
-      <div className="mt-3 rounded-xl border border-white/[0.08] bg-[#0a1018] px-4 py-3.5 text-[13px] text-white/65 leading-relaxed">
+      <div className="mt-3 rounded-xl border border-white/[0.08] bg-[#080910] px-4 py-3.5 text-[13px] text-white/65 leading-relaxed">
         <b className="text-white">The desk's routine on a Gold Pulse call:</b> fire the entry with the stop already set → at TP1, <b className="text-white/85">partial close</b> and drag the stop to breakeven → let the rest run to TP2/TP3. You're never risking your own money past the first target.
       </div>
 
       {/* 4 · LINGO */}
       <TlgHead id="tlg-lingo" n={4} title="Know the lingo" sub="The words the platform and the desk both use." />
       <div className="tlgterms">
-        {terms.map((t) => (<div key={t.t} className="rounded-xl border border-white/[0.08] bg-[#0a1018] p-3.5"><b className="block text-[#7cbde6] text-[13.5px] mb-1">{t.t}</b><span className="text-white/60 text-[13px] leading-relaxed">{t.d}</span></div>))}
+        {terms.map((t) => (<div key={t.t} className="rounded-xl border border-white/[0.08] bg-[#080910] p-3.5"><b className="block text-[#7fd4ff] text-[13.5px] mb-1">{t.t}</b><span className="text-white/60 text-[13px] leading-relaxed">{t.d}</span></div>))}
       </div>
 
       {/* 5 · RULES */}
       <TlgHead id="tlg-rules" n={5} title="The desk rules — read this twice" sub="The platform will let you do anything. These are the four things that keep an account alive." />
       <div className="flex flex-col gap-2.5">
         {[["Every trade ships with a stop.", "No SL, no trade. It's the difference between a bad day and a blown account."], ["Scale out at the TPs.", "Take partial profit at TP1, move your stop to breakeven, and let the rest run."], ["Size for survival.", "Risk a small, fixed amount per trade. You can't win if you're not in it tomorrow."], ["Never hold against your stop.", "If it hits, it hits. Moving a stop to dodge a loss turns small losses into big ones."]].map(([h, d], i) => (
-          <div key={i} className="flex gap-3 items-start rounded-xl border border-white/[0.08] bg-[#0a1018] px-4 py-3.5 text-[13.5px] text-white/75 leading-relaxed"><span className="tlgnum">{i + 1}</span><span><b className="text-white">{h}</b> {d}</span></div>
+          <div key={i} className="flex gap-3 items-start rounded-xl border border-white/[0.08] bg-[#080910] px-4 py-3.5 text-[13.5px] text-white/75 leading-relaxed"><span className="tlgnum">{i + 1}</span><span><b className="text-white">{h}</b> {d}</span></div>
         ))}
       </div>
 
-      <div className="mt-6 rounded-2xl border border-white/[0.09] p-5 flex items-center gap-4 flex-wrap" style={{ background: "radial-gradient(120% 100% at 0 100%,rgba(86,164,216,.12),transparent 60%),#0a1018" }}>
+      <div className="mt-6 rounded-2xl border border-white/[0.09] p-5 flex items-center gap-4 flex-wrap" style={{ background: "radial-gradient(120% 100% at 0 100%,rgba(79,181,238,.12),transparent 60%),#080910" }}>
         <a className="btn tg" href={openUrl} target="_blank" rel="noopener noreferrer">Open TradeLocker →</a>
         <span className="text-white/60 text-[13.5px] flex-1 min-w-[220px] leading-relaxed">Want it done for you? Use <b className="text-white">Tap to Trade</b> on any Gold Pulse call — it fires the entry and auto-sets your stop.</span>
       </div>
@@ -573,10 +573,10 @@ const GoldPulse = () => (
   <svg className="goldpulse" viewBox="0 0 52 30" fill="none" aria-hidden>
     <defs>
       <linearGradient id="gpGrad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stopColor="#3f92cc" /><stop offset="50%" stopColor="#d8ecfb" /><stop offset="100%" stopColor="#3f92cc" />
+        <stop offset="0%" stopColor="#3f9fe0" /><stop offset="50%" stopColor="#e2f4ff" /><stop offset="100%" stopColor="#3f9fe0" />
       </linearGradient>
     </defs>
-    <path d={GOLD_PULSE_PATH} stroke="rgba(63,146,204,0.28)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    <path d={GOLD_PULSE_PATH} stroke="rgba(63,159,224,0.28)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
     <path className="gpbeam" d={GOLD_PULSE_PATH} stroke="url(#gpGrad)" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
@@ -607,10 +607,10 @@ const NAV: { group: string; items: { key: TabKey | "pulse"; label: string; ext?:
 
 const CSS = `
 .mb *{box-sizing:border-box}
-.mb{position:relative;min-height:100vh;background:#05070d;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.mb{position:relative;min-height:100vh;background:#050608;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 /* The animated constellation backdrop sits fixed at z-index 0 (see ConstellationBackground) —
    every page layer has to be explicitly lifted above it or it paints over the content. */
-.mb .top{position:sticky;top:0;z-index:30;background:rgba(5,7,13,.72);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);transform:translateZ(0);will-change:transform;backface-visibility:hidden}
+.mb .top{position:sticky;top:0;z-index:30;background:rgba(5,6,8,.72);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);transform:translateZ(0);will-change:transform;backface-visibility:hidden}
 .mb .shell,.mb .center{position:relative;z-index:1}
 .mb .topin{max-width:1180px;margin:0 auto;padding:0 18px;display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
 .mb .brand{display:flex;align-items:center;gap:9px}
@@ -622,13 +622,13 @@ const CSS = `
 .mb .lo{height:34px;padding:0 14px;border-radius:11px;border:1px solid rgba(255,255,255,.15);background:none;color:rgba(255,255,255,.8);font-size:12px;font-weight:700;cursor:pointer}
 .mb .lo:hover{color:#fff;border-color:rgba(255,255,255,.3)}
 .mb .topr{display:flex;align-items:center;gap:10px;min-width:0}
-.mb .demobar{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:10px 18px;font-size:12.5px;color:#8fc3e6;background:rgba(46,122,180,.10);border-bottom:1px solid rgba(46,122,180,.22);text-align:center}
+.mb .demobar{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:10px 18px;font-size:12.5px;color:#8fc3e6;background:rgba(42,128,189,.10);border-bottom:1px solid rgba(42,128,189,.22);text-align:center}
 .mb .demobar b{color:#fff}
 .mb .uemail{font-size:12px;color:rgba(255,255,255,.55);max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media(max-width:560px){.mb .uemail{display:none}}
 /* Admin gets its own accent through the same variables the rail uses, so it stays distinct from
    the member nav without needing separate hover/active rules. */
-.mb .tab.admin{--gr:167,139,250;--g2r:236,72,153;border-color:rgba(96,172,220,.3);color:#8fc3e6}
+.mb .tab.admin{--gr:167,139,250;--g2r:236,72,153;border-color:rgba(88,190,246,.3);color:#8fc3e6}
 
 .mb .shell{max-width:1180px;margin:0 auto;padding:18px;display:flex;gap:18px;align-items:flex-start}
 .mb .rail{position:sticky;top:78px;flex:0 0 210px;display:flex;flex-direction:column;gap:6px}
@@ -661,20 +661,20 @@ const CSS = `
 .mb .tab.lk:hover .lkic{opacity:.9;filter:none}
 /* Pulse dashboard — an outbound link, and the one Core item that is never locked. Tinted in Pulse
    cyan and marked with an arrow so it's obviously "leaves this site". */
-.mb .tab.pulse{--gr:0,229,255;--g2r:42,157,244;color:rgba(255,255,255,.82);background:rgba(124,189,230,.06);border-color:rgba(124,189,230,.2)}
+.mb .tab.pulse{--gr:0,229,255;--g2r:42,157,244;color:rgba(255,255,255,.82);background:rgba(127,212,255,.06);border-color:rgba(127,212,255,.2)}
 .mb .tab.pulse .ti{opacity:.95}
-.mb .tab.pulse .extic{margin-left:auto;font-size:12px;font-weight:900;color:rgba(124,189,230,.7)}
-.mb .tab.pulse:hover{background:rgba(124,189,230,.13);border-color:rgba(124,189,230,.42)}
+.mb .tab.pulse .extic{margin-left:auto;font-size:12px;font-weight:900;color:rgba(127,212,255,.7)}
+.mb .tab.pulse:hover{background:rgba(127,212,255,.13);border-color:rgba(127,212,255,.42)}
 .mb .railfoot{margin-top:12px;border-top:1px solid rgba(255,255,255,.07);padding-top:12px;display:flex;flex-direction:column;gap:6px}
 .mb .content{flex:1;min-width:0}
 
 .mb .hero{padding:2px 0 8px}
 .mb .hi{font-size:26px;font-weight:900;letter-spacing:-.02em}
-.mb .hi .g{background:linear-gradient(90deg,#6bb4e2,#2a72a8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.mb .hi .g{background:linear-gradient(90deg,#5ec8ff,#1f6fa8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .mb .hisub{color:rgba(255,255,255,.55);font-size:14.5px;margin-top:6px;max-width:560px}
 .mb .walletchip{display:inline-flex;align-items:center;gap:8px;margin-top:14px;border:1px solid rgba(52,211,153,.3);background:rgba(52,211,153,.08);border-radius:12px;padding:9px 14px;font-size:13.5px;color:rgba(255,255,255,.8)}
 .mb .walletchip b{color:#6ee7b7;font-variant-numeric:tabular-nums}
-.mb .kick{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(107,180,226,.8);margin:26px 0 12px;display:flex;align-items:center;gap:8px}
+.mb .kick{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(94,200,255,.8);margin:26px 0 12px;display:flex;align-items:center;gap:8px}
 .mb .kick .opt{color:rgba(255,255,255,.35);font-weight:700}
 .mb .h2{font-size:20px;font-weight:900;letter-spacing:-.01em}
 .mb .lead{color:rgba(255,255,255,.55);font-size:14px;margin-top:6px;max-width:600px;line-height:1.55}
@@ -689,7 +689,7 @@ const CSS = `
 .mb .tlgchips{display:flex;gap:6px;flex-wrap:wrap;min-width:0}
 /* Callout numeral — outlined, deliberately quieter than the filled step chips so the two
    numbering systems never read as the same list. */
-.mb .tlgnum{flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#7ebde7;border:1px solid rgba(124,189,230,.4);background:rgba(124,189,230,.07);font-variant-numeric:tabular-nums}
+.mb .tlgnum{flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#7ebde7;border:1px solid rgba(127,212,255,.4);background:rgba(127,212,255,.07);font-variant-numeric:tabular-nums}
 .mb .tlgtour{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
 @media(min-width:900px){.mb .tlgtour{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}}
 .mb .tlgmanage{display:grid;grid-template-columns:1fr;gap:14px;align-items:start}
@@ -701,20 +701,20 @@ const CSS = `
 .mb .tlgcalc{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);border-top:1px solid rgba(255,255,255,.07)}
 .mb .tlgterms{display:grid;grid-template-columns:1fr;gap:10px}
 @media(min-width:640px){.mb .tlgterms{grid-template-columns:1fr 1fr}}
-.mb .card{border:1px solid rgba(255,255,255,.09);background:#0b0c12;border-radius:18px;padding:22px;display:flex;flex-direction:column}
-.mb .card .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:rgba(107,180,226,.12);border:1px solid rgba(107,180,226,.28)}
+.mb .card{border:1px solid rgba(255,255,255,.09);background:#0a0b10;border-radius:18px;padding:22px;display:flex;flex-direction:column}
+.mb .card .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:rgba(94,200,255,.12);border:1px solid rgba(94,200,255,.28)}
 .mb .card h3{font-size:17px;font-weight:800;margin-top:14px}
 .mb .card p{color:rgba(255,255,255,.6);font-size:14px;line-height:1.55;margin-top:8px;flex:1}
 
-.mb .btn{margin-top:16px;height:44px;border:none;border-radius:12px;font-weight:800;font-size:14px;color:#0d1420;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:linear-gradient(90deg,#6bb4e2,#2e7ab4,#2a72a8);box-shadow:0 12px 34px -16px rgba(107,180,226,.7);align-self:flex-start;padding:0 20px;text-decoration:none}
-.mb .btn.tg{background:linear-gradient(90deg,#3e9ad8,#24638f);color:#fff;box-shadow:0 12px 34px -16px rgba(86,164,216,.8)}
+.mb .btn{margin-top:16px;height:44px;border:none;border-radius:12px;font-weight:800;font-size:14px;color:#0b0d12;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:linear-gradient(90deg,#5ec8ff,#2a80bd,#1f6fa8);box-shadow:0 12px 34px -16px rgba(94,200,255,.7);align-self:flex-start;padding:0 20px;text-decoration:none}
+.mb .btn.tg{background:linear-gradient(90deg,#3e9ad8,#175a8c);color:#fff;box-shadow:0 12px 34px -16px rgba(79,181,238,.8)}
 .mb .btn:hover{filter:brightness(1.06)}
 .mb .tgrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.mb .tglink{display:inline-flex;align-items:center;gap:8px;background:rgba(86,164,216,.08);border:1px solid rgba(86,164,216,.28);border-radius:10px;padding:7px 8px 7px 12px;max-width:100%}
+.mb .tglink{display:inline-flex;align-items:center;gap:8px;background:rgba(79,181,238,.08);border:1px solid rgba(79,181,238,.28);border-radius:10px;padding:7px 8px 7px 12px;max-width:100%}
 .mb .tgurl{color:#8fc8ee;font-size:13px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
 .mb .tgurl:hover{text-decoration:underline}
-.mb .tgcopy{flex:none;background:rgba(86,164,216,.16);border:1px solid rgba(86,164,216,.35);color:#c7e6fa;font-size:12px;font-weight:700;border-radius:7px;padding:5px 10px;cursor:pointer;transition:.15s}
-.mb .tgcopy:hover{background:rgba(86,164,216,.28);color:#fff}
+.mb .tgcopy{flex:none;background:rgba(79,181,238,.16);border:1px solid rgba(79,181,238,.35);color:#c7e6fa;font-size:12px;font-weight:700;border-radius:7px;padding:5px 10px;cursor:pointer;transition:.15s}
+.mb .tgcopy:hover{background:rgba(79,181,238,.28);color:#fff}
 .mb .btn.ghost{background:none;border:1px solid rgba(255,255,255,.16);color:#fff;box-shadow:none}
 .mb .btn.link{background:none;box-shadow:none;color:rgba(255,255,255,.5);padding:0 6px;height:auto;text-decoration:underline;font-weight:700;font-size:13px}
 .mb .btn.link:hover{color:#fff;filter:none}
@@ -722,74 +722,74 @@ const CSS = `
 /* PICK YOUR PATH */
 .mb .pick2{display:grid;grid-template-columns:1fr;gap:16px;margin-top:6px}
 @media(min-width:760px){.mb .pick2{grid-template-columns:1fr 1fr}}
-.mb .pcard{position:relative;overflow:hidden;border-radius:20px;padding:26px;cursor:pointer;border:1px solid rgba(255,255,255,.1);background:#0b0c12;transition:.18s;text-align:left}
-.mb .pcard:hover{transform:translateY(-3px);border-color:rgba(107,180,226,.4)}
-.mb .pcard.gold{background:radial-gradient(520px 260px at 15% 0%,rgba(46,122,180,.14),transparent 60%),#0b0c12;border-color:rgba(46,122,180,.3)}
-.mb .pcard.cyan{background:radial-gradient(520px 260px at 15% 0%,rgba(107,180,226,.14),transparent 60%),#0b0c12;border-color:rgba(107,180,226,.3)}
+.mb .pcard{position:relative;overflow:hidden;border-radius:20px;padding:26px;cursor:pointer;border:1px solid rgba(255,255,255,.1);background:#0a0b10;transition:.18s;text-align:left}
+.mb .pcard:hover{transform:translateY(-3px);border-color:rgba(94,200,255,.4)}
+.mb .pcard.gold{background:radial-gradient(520px 260px at 15% 0%,rgba(42,128,189,.14),transparent 60%),#0a0b10;border-color:rgba(42,128,189,.3)}
+.mb .pcard.cyan{background:radial-gradient(520px 260px at 15% 0%,rgba(94,200,255,.14),transparent 60%),#0a0b10;border-color:rgba(94,200,255,.3)}
 .mb .pcard .pic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.14)}
 .mb .pcard .pic svg{width:24px;height:24px}
-.mb .pcard.gold .pic{background:rgba(46,122,180,.14);border-color:rgba(46,122,180,.32);color:#8fc3e6}
-.mb .pcard.cyan .pic{background:rgba(107,180,226,.14);border-color:rgba(107,180,226,.32);color:#b3daf4}
+.mb .pcard.gold .pic{background:rgba(42,128,189,.14);border-color:rgba(42,128,189,.32);color:#8fc3e6}
+.mb .pcard.cyan .pic{background:rgba(94,200,255,.14);border-color:rgba(94,200,255,.32);color:#bde7ff}
 .mb .pcard .ptag{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-top:16px}
-.mb .pcard.gold .ptag{color:#8cc0e3}.mb .pcard.cyan .ptag{color:#b3daf4}
+.mb .pcard.gold .ptag{color:#8cc0e3}.mb .pcard.cyan .ptag{color:#bde7ff}
 .mb .pcard h3{font-size:20px;font-weight:900;margin-top:5px}
 .mb .pcard p{color:rgba(255,255,255,.6);font-size:14px;line-height:1.6;margin-top:9px}
 .mb .pcard .go{margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:14px}
-.mb .pcard.gold .go{color:#8fc3e6}.mb .pcard.cyan .go{color:#b3daf4}
+.mb .pcard.gold .go{color:#8fc3e6}.mb .pcard.cyan .go{color:#bde7ff}
 /* GoldRock flame badge (PAMM) + Gold Pulse animated badge (signals) */
 .mb .pcard .pic.flame{background:none;border:none;width:62px;height:62px;overflow:visible}
-.mb .pcard .pic.flame img{width:62px;height:62px;object-fit:contain;mix-blend-mode:screen;filter:drop-shadow(0 0 16px rgba(42,114,168,.55));-webkit-mask-image:radial-gradient(circle at 50% 48%,#000 55%,transparent 78%);mask-image:radial-gradient(circle at 50% 48%,#000 55%,transparent 78%)}
+.mb .pcard .pic.flame img{width:62px;height:62px;object-fit:contain;mix-blend-mode:screen;filter:drop-shadow(0 0 16px rgba(31,111,168,.55));-webkit-mask-image:radial-gradient(circle at 50% 48%,#000 55%,transparent 78%);mask-image:radial-gradient(circle at 50% 48%,#000 55%,transparent 78%)}
 /* Gold Pulse signals — gold on black, no ring around the logo */
-.mb .pcard.gpsig{background:radial-gradient(520px 260px at 15% 0%,rgba(63,146,204,.10),transparent 60%),#08080b;border-color:rgba(63,146,204,.30)}
-.mb .pcard.gpsig:hover{border-color:rgba(63,146,204,.5);transform:translateY(-3px)}
-.mb .pcard.gpsig .ptag{color:#7cbde6}
-.mb .pcard.gpsig .go{color:#7cbde6}
+.mb .pcard.gpsig{background:radial-gradient(520px 260px at 15% 0%,rgba(63,159,224,.10),transparent 60%),#08080b;border-color:rgba(63,159,224,.30)}
+.mb .pcard.gpsig:hover{border-color:rgba(63,159,224,.5);transform:translateY(-3px)}
+.mb .pcard.gpsig .ptag{color:#7fd4ff}
+.mb .pcard.gpsig .go{color:#7fd4ff}
 .mb .pcard .pic.gp{background:#0a0a0d;border:none;box-shadow:none;width:56px;height:56px}
 .mb .pcard .pic.gp svg{width:36px;height:auto}
-.mb .goldpulse .gpbeam{stroke-dasharray:9 62;animation:gpBeam 1.5s linear infinite;filter:drop-shadow(0 0 5px rgba(63,146,204,.85))}
+.mb .goldpulse .gpbeam{stroke-dasharray:9 62;animation:gpBeam 1.5s linear infinite;filter:drop-shadow(0 0 5px rgba(63,159,224,.85))}
 @keyframes gpBeam{to{stroke-dashoffset:-71}}
 @media(prefers-reduced-motion:reduce){.mb .goldpulse .gpbeam{animation:none;stroke-dasharray:none}}
-.mb .unlocknote{margin:-4px 0 14px;border:1px solid rgba(107,180,226,.22);background:rgba(107,180,226,.06);border-radius:12px;padding:12px 14px;font-size:13px;color:rgba(255,255,255,.75);line-height:1.5}
+.mb .unlocknote{margin:-4px 0 14px;border:1px solid rgba(94,200,255,.22);background:rgba(94,200,255,.06);border-radius:12px;padding:12px 14px;font-size:13px;color:rgba(255,255,255,.75);line-height:1.5}
 .mb .unlocknote b{color:#fff}
 
 /* STEP GATE */
-.mb .gate{position:relative;overflow:hidden;border:1px solid rgba(107,180,226,.26);border-radius:20px;padding:24px;background:radial-gradient(600px 260px at 15% 0%,rgba(107,180,226,.10),transparent 60%),#0b0c12}
-.mb .gate.gold{border-color:rgba(46,122,180,.28);background:radial-gradient(600px 260px at 15% 0%,rgba(46,122,180,.12),transparent 60%),#0b0c12}
-.mb .gate.on{border-color:rgba(52,211,153,.4);background:radial-gradient(600px 260px at 15% 0%,rgba(52,211,153,.10),transparent 60%),#0b0c12}
-.mb .gate .glbl{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#b3daf4}
+.mb .gate{position:relative;overflow:hidden;border:1px solid rgba(94,200,255,.26);border-radius:20px;padding:24px;background:radial-gradient(600px 260px at 15% 0%,rgba(94,200,255,.10),transparent 60%),#0a0b10}
+.mb .gate.gold{border-color:rgba(42,128,189,.28);background:radial-gradient(600px 260px at 15% 0%,rgba(42,128,189,.12),transparent 60%),#0a0b10}
+.mb .gate.on{border-color:rgba(52,211,153,.4);background:radial-gradient(600px 260px at 15% 0%,rgba(52,211,153,.10),transparent 60%),#0a0b10}
+.mb .gate .glbl{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#bde7ff}
 .mb .gate.gold .glbl{color:#8fc3e6}.mb .gate.on .glbl{color:#6ee7b7}
 .mb .gate h3{font-size:20px;font-weight:900;margin-top:8px}
 .mb .gate p{color:rgba(255,255,255,.62);font-size:14px;line-height:1.6;margin-top:8px}
 .mb .bar{height:10px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:16px}
-.mb .bar>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#6bb4e2,#2a72a8);transition:width .5s ease}
-.mb .gate.gold .bar>i{background:linear-gradient(90deg,#2a72a8,#74b8e4)}
+.mb .bar>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#5ec8ff,#1f6fa8);transition:width .5s ease}
+.mb .gate.gold .bar>i{background:linear-gradient(90deg,#1f6fa8,#74cdfa)}
 .mb .barlab{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.5);margin-top:7px;font-variant-numeric:tabular-nums}
 .mb .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;align-items:center}
 .mb .row .btn{margin-top:0}
 .mb .note{font-size:13px;color:rgba(255,255,255,.5)}
-.mb .lnkbox{margin-top:16px;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);background:#05070d;border-radius:11px;padding:6px 6px 6px 12px}
+.mb .lnkbox{margin-top:16px;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);background:#050608;border-radius:11px;padding:6px 6px 6px 12px}
 .mb .lnk{flex:1;min-width:0;font-size:12.5px;color:rgba(255,255,255,.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.mb .cpy{flex:none;height:34px;padding:0 14px;border:none;border-radius:9px;font-weight:800;font-size:12.5px;color:#0d1420;cursor:pointer;background:linear-gradient(90deg,#6bb4e2,#2e7ab4);white-space:nowrap}
+.mb .cpy{flex:none;height:34px;padding:0 14px;border:none;border-radius:9px;font-weight:800;font-size:12.5px;color:#0b0d12;cursor:pointer;background:linear-gradient(90deg,#5ec8ff,#2a80bd);white-space:nowrap}
 .mb .reenable{margin-top:14px;border:1px dashed rgba(255,255,255,.14);border-radius:14px;padding:16px;font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.6}
-.mb .reenable button{background:none;border:none;color:#b3daf4;font-weight:800;cursor:pointer;font-size:13.5px}
+.mb .reenable button{background:none;border:none;color:#bde7ff;font-weight:800;cursor:pointer;font-size:13.5px}
 
 /* settings */
-.mb .srow{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid rgba(255,255,255,.09);background:#0b0c12;border-radius:14px;padding:16px 18px;margin-top:12px}
+.mb .srow{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid rgba(255,255,255,.09);background:#0a0b10;border-radius:14px;padding:16px 18px;margin-top:12px}
 .mb .srow .st{font-weight:800;font-size:14.5px}
 .mb .srow .ss{font-size:12.5px;color:rgba(255,255,255,.5);margin-top:3px}
-.mb .sbtn{height:38px;padding:0 16px;border-radius:11px;border:1px solid rgba(107,180,226,.35);background:rgba(107,180,226,.08);color:#d8ecfb;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap;flex:none}
+.mb .sbtn{height:38px;padding:0 16px;border-radius:11px;border:1px solid rgba(94,200,255,.35);background:rgba(94,200,255,.08);color:#e2f4ff;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap;flex:none}
 .mb .sbtn.ghost{border-color:rgba(255,255,255,.15);background:none;color:rgba(255,255,255,.75)}
 
 .mb .center{min-height:100vh;display:grid;place-items:center;color:rgba(255,255,255,.5)}
 @media(max-width:760px){
   .mb .burger{display:flex}
   .mb .shell{gap:0;padding:14px}
-  .mb .rail{position:fixed;left:0;top:0;bottom:0;z-index:60;flex:0 0 auto;width:270px;max-width:84vw;padding:14px 14px 22px;background:radial-gradient(420px 300px at 0% 0%,rgba(107,180,226,.10),transparent 60%),linear-gradient(180deg,#0a1018,#070910 65%);border-right:1px solid rgba(255,255,255,.09);box-shadow:24px 0 70px -20px rgba(0,0,0,.75),inset -1px 0 0 rgba(107,180,226,.06);transform:translateX(-100%);transition:transform .24s ease;overflow-y:auto}
+  .mb .rail{position:fixed;left:0;top:0;bottom:0;z-index:60;flex:0 0 auto;width:270px;max-width:84vw;padding:14px 14px 22px;background:radial-gradient(420px 300px at 0% 0%,rgba(94,200,255,.10),transparent 60%),linear-gradient(180deg,#080910,#070910 65%);border-right:1px solid rgba(255,255,255,.09);box-shadow:24px 0 70px -20px rgba(0,0,0,.75),inset -1px 0 0 rgba(94,200,255,.06);transform:translateX(-100%);transition:transform .24s ease;overflow-y:auto}
   .mb .rail.open{transform:translateX(0)}
   .mb .railtop{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 4px 16px;margin-bottom:6px;border-bottom:1px solid rgba(255,255,255,.08)}
   .mb .raillogo{display:flex;align-items:center;gap:11px;min-width:0}
-  .mb .raillogo img{height:40px;width:40px;border-radius:11px;object-fit:contain;box-shadow:0 10px 26px -10px rgba(107,180,226,.55),0 0 0 1px rgba(255,255,255,.06)}
-  .mb .raillogo span{font-weight:900;font-size:16.5px;letter-spacing:-.01em;white-space:nowrap;background:linear-gradient(90deg,#fff,#d8ecfb);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .mb .raillogo img{height:40px;width:40px;border-radius:11px;object-fit:contain;box-shadow:0 10px 26px -10px rgba(94,200,255,.55),0 0 0 1px rgba(255,255,255,.06)}
+  .mb .raillogo span{font-weight:900;font-size:16.5px;letter-spacing:-.01em;white-space:nowrap;background:linear-gradient(90deg,#fff,#e2f4ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .mb .railx{width:34px;height:34px;flex:none;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:rgba(255,255,255,.7);display:grid;place-items:center;cursor:pointer}
   .mb .railx:hover{color:#fff;border-color:rgba(255,255,255,.25)}
   .mb .railx svg{width:18px;height:18px}
@@ -804,51 +804,51 @@ const CSS = `
    card surfaces go translucent + blurred — same treatment the cabinet on
    forexbrokercrm.com uses. Overrides live at the end so they win without
    having to touch every rule above. */
-.mb .card,.mb .srow,.mb .pcard{background:rgba(11,12,18,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.mb .pcard.gold{background:radial-gradient(520px 260px at 15% 0%,rgba(46,122,180,.16),transparent 60%),rgba(11,12,18,.62)}
-.mb .pcard.cyan{background:radial-gradient(520px 260px at 15% 0%,rgba(107,180,226,.16),transparent 60%),rgba(11,12,18,.62)}
-.mb .pcard.gpsig{background:radial-gradient(520px 260px at 15% 0%,rgba(63,146,204,.13),transparent 60%),rgba(8,8,11,.62)}
-.mb .gate{background:radial-gradient(600px 260px at 15% 0%,rgba(107,180,226,.12),transparent 60%),rgba(11,12,18,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.mb .gate.gold{background:radial-gradient(600px 260px at 15% 0%,rgba(46,122,180,.14),transparent 60%),rgba(11,12,18,.62)}
-.mb .gate.on{background:radial-gradient(600px 260px at 15% 0%,rgba(52,211,153,.12),transparent 60%),rgba(11,12,18,.62)}
+.mb .card,.mb .srow,.mb .pcard{background:rgba(10,11,16,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.mb .pcard.gold{background:radial-gradient(520px 260px at 15% 0%,rgba(42,128,189,.16),transparent 60%),rgba(10,11,16,.62)}
+.mb .pcard.cyan{background:radial-gradient(520px 260px at 15% 0%,rgba(94,200,255,.16),transparent 60%),rgba(10,11,16,.62)}
+.mb .pcard.gpsig{background:radial-gradient(520px 260px at 15% 0%,rgba(63,159,224,.13),transparent 60%),rgba(8,8,11,.62)}
+.mb .gate{background:radial-gradient(600px 260px at 15% 0%,rgba(94,200,255,.12),transparent 60%),rgba(10,11,16,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.mb .gate.gold{background:radial-gradient(600px 260px at 15% 0%,rgba(42,128,189,.14),transparent 60%),rgba(10,11,16,.62)}
+.mb .gate.on{background:radial-gradient(600px 260px at 15% 0%,rgba(52,211,153,.12),transparent 60%),rgba(10,11,16,.62)}
 /* Dash surfaces (news feed, ticker, positions) render inside .content */
-.mb .rtd .newscard{background:radial-gradient(760px 230px at 10% -40%,rgba(63,146,204,.17),transparent 62%),linear-gradient(180deg,rgba(12,16,25,.7),rgba(10,13,21,.7));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.mb .rtd .newscard{background:radial-gradient(760px 230px at 10% -40%,rgba(63,159,224,.17),transparent 62%),linear-gradient(180deg,rgba(12,16,25,.7),rgba(10,13,21,.7));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .mb .rtd .ticker,.mb .rtd .poswrap{background:rgba(10,13,22,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .mb .rtd .acctbar{background:rgba(11,15,26,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 /* "Add money" first-run prompt — deliberately the loudest thing on the page for an unfunded member */
 .mb .fundwrap{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:18px;background:rgba(4,6,12,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);overflow-y:auto;animation:fundIn .22s ease-out}
 @keyframes fundIn{from{opacity:0}to{opacity:1}}
 /* Pulse brand surface: deep navy + the electric cyan from Pulse's own logo-primary.svg
-   (#6bb4e2 -> #77c1f2 -> #8bc5eb), so this reads as Pulse the moment it opens. */
-.mb .fundbox{position:relative;width:min(540px,100%);margin:auto;background:radial-gradient(620px 300px at 50% -10%,rgba(124,189,230,.16),transparent 62%),linear-gradient(180deg,#171208,#070d1a);border-radius:22px;padding:26px 24px 22px;box-shadow:0 30px 90px rgba(0,0,0,.66),0 0 60px -20px rgba(124,189,230,.35);text-align:center}
+   (#5ec8ff -> #77c1f2 -> #8bc5eb), so this reads as Pulse the moment it opens. */
+.mb .fundbox{position:relative;width:min(540px,100%);margin:auto;background:radial-gradient(620px 300px at 50% -10%,rgba(127,212,255,.16),transparent 62%),linear-gradient(180deg,#171208,#070d1a);border-radius:22px;padding:26px 24px 22px;box-shadow:0 30px 90px rgba(0,0,0,.66),0 0 60px -20px rgba(127,212,255,.35);text-align:center}
 /* Animated brand edge — same mask-composite idiom as the Tap-to-Trade modal in Dash.tsx. */
-.mb .fundbox::before{content:"";position:absolute;inset:0;border-radius:22px;padding:1.5px;background:linear-gradient(130deg,rgba(130,196,236,.9),rgba(119,193,242,.25) 42%,rgba(139,197,235,.18) 62%,rgba(130,196,236,.85));background-size:220% 220%;animation:fedge 6s linear infinite;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.mb .fundbox::before{content:"";position:absolute;inset:0;border-radius:22px;padding:1.5px;background:linear-gradient(130deg,rgba(135,215,255,.9),rgba(119,193,242,.25) 42%,rgba(139,197,235,.18) 62%,rgba(135,215,255,.85));background-size:220% 220%;animation:fedge 6s linear infinite;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 @keyframes fedge{0%{background-position:0% 50%}100%{background-position:220% 50%}}
 /* The collab lockup: Copy the Rich Trades x Pulse Markets */
 .mb .fduo{display:flex;align-items:center;justify-content:center;gap:15px;margin-bottom:14px}
 .mb .fduo .fl{position:relative;animation:ffloat 3.6s ease-in-out infinite}
 .mb .fduo .fl:last-child{animation-delay:.6s}
-.mb .fduo .fl img{display:block;width:54px;height:54px;border-radius:50%;object-fit:cover;background:#050b18;box-shadow:0 8px 26px -8px rgba(124,189,230,.6),0 0 0 1px rgba(255,255,255,.08)}
-.mb .fduo .fl::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(130,196,236,.45);animation:fring 2.8s ease-out infinite;pointer-events:none}
+.mb .fduo .fl img{display:block;width:54px;height:54px;border-radius:50%;object-fit:cover;background:#050b18;box-shadow:0 8px 26px -8px rgba(127,212,255,.6),0 0 0 1px rgba(255,255,255,.08)}
+.mb .fduo .fl::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(135,215,255,.45);animation:fring 2.8s ease-out infinite;pointer-events:none}
 .mb .fduo .fl:last-child::after{animation-delay:.6s}
 .mb .fduo .fx{font-size:15px;font-weight:900;color:rgba(255,255,255,.32)}
 @keyframes ffloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 @keyframes fring{0%{transform:scale(.86);opacity:.85}100%{transform:scale(1.3);opacity:0}}
-.mb .fbadge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:rgba(124,189,230,.12);border:1px solid rgba(124,189,230,.32);color:#9ed3f6;font-size:10.5px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;margin-bottom:12px}
+.mb .fbadge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:rgba(127,212,255,.12);border:1px solid rgba(127,212,255,.32);color:#9ed3f6;font-size:10.5px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;margin-bottom:12px}
 .mb .fundbox h2{font-size:25px;font-weight:900;color:#fff;margin:0 0 8px;letter-spacing:-.015em}
 .mb .fundbox .sub{font-size:14.5px;color:rgba(255,255,255,.66);line-height:1.6;margin:0 0 16px}
 /* The two reasons to fund — trade it yourself, or let GoldRock compound it for you. */
 .mb .fways{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 16px;text-align:left}
-.mb .fway{background:rgba(124,189,230,.06);border:1px solid rgba(124,189,230,.2);border-radius:13px;padding:12px 13px}
+.mb .fway{background:rgba(127,212,255,.06);border:1px solid rgba(127,212,255,.2);border-radius:13px;padding:12px 13px}
 .mb .fway b{display:block;font-size:13.5px;color:#fff;margin-bottom:3px}
 .mb .fway span{font-size:12.5px;color:rgba(255,255,255,.62);line-height:1.45}
 @media(max-width:520px){.mb .fways{grid-template-columns:1fr}}
 /* Callouts in the "how it works" panel — the answers to the two questions someone new to crypto
    always asks next: "what if I don't have any?" and "how do I get it back?" */
-.mb .fhnote{text-align:left;background:rgba(124,189,230,.06);border:1px solid rgba(124,189,230,.2);border-radius:12px;padding:12px 14px;margin-bottom:10px;font-size:13px;color:rgba(255,255,255,.66);line-height:1.55}
+.mb .fhnote{text-align:left;background:rgba(127,212,255,.06);border:1px solid rgba(127,212,255,.2);border-radius:12px;padding:12px 14px;margin-bottom:10px;font-size:13px;color:rgba(255,255,255,.66);line-height:1.55}
 .mb .fhnote b{color:#9ed3f6}
 /* Same content as the old modal panel, laid out as a page: wider, left-aligned body, room to read. */
-.mb .fundpage{max-width:720px;background:radial-gradient(700px 320px at 50% -10%,rgba(124,189,230,.14),transparent 62%),linear-gradient(180deg,rgba(23,18,10,.85),rgba(7,13,26,.85));border:1px solid rgba(124,189,230,.24);border-radius:20px;padding:30px 28px;text-align:center}
+.mb .fundpage{max-width:720px;background:radial-gradient(700px 320px at 50% -10%,rgba(127,212,255,.14),transparent 62%),linear-gradient(180deg,rgba(23,18,10,.85),rgba(7,13,26,.85));border:1px solid rgba(127,212,255,.24);border-radius:20px;padding:30px 28px;text-align:center}
 .mb .fundpage h2{font-size:27px;font-weight:900;color:#fff;margin:0 0 8px;letter-spacing:-.02em}
 .mb .fundpage .sub{font-size:14.5px;color:rgba(255,255,255,.66);line-height:1.6;margin:0 0 18px}
 .mb .fundpage .fundbtn{max-width:420px;margin-left:auto;margin-right:auto}
@@ -857,19 +857,19 @@ const CSS = `
 .mb .fhnote+.fundbtn{margin-top:16px}
 /* Benefits list — what the deposit actually buys, above the mechanics of making it. */
 .mb .fbens{display:grid;gap:9px;text-align:left;margin:0 0 18px}
-.mb .fben{display:flex;gap:12px;align-items:flex-start;background:rgba(124,189,230,.05);border:1px solid rgba(124,189,230,.16);border-radius:13px;padding:12px 13px}
-.mb .fben .fbi{flex:0 0 30px;height:30px;border-radius:9px;background:rgba(124,189,230,.12);display:grid;place-items:center;font-size:15px}
+.mb .fben{display:flex;gap:12px;align-items:flex-start;background:rgba(127,212,255,.05);border:1px solid rgba(127,212,255,.16);border-radius:13px;padding:12px 13px}
+.mb .fben .fbi{flex:0 0 30px;height:30px;border-radius:9px;background:rgba(127,212,255,.12);display:grid;place-items:center;font-size:15px}
 .mb .fben b{display:block;font-size:14px;color:#fff;margin-bottom:2px}
 .mb .fben span{font-size:12.5px;color:rgba(255,255,255,.62);line-height:1.5}
 .mb .fsec{display:flex;align-items:center;gap:9px;font-size:10.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#9ed3f6;margin:0 0 8px;text-align:left}
-.mb .fsec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(124,189,230,.4),transparent)}
+.mb .fsec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(127,212,255,.4),transparent)}
 .mb .fundsteps{display:grid;gap:10px;text-align:left;margin:0 0 18px}
 .mb .fundstep{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:11px 13px}
 /* .sn, not a bare b — the step copy contains its own <b>, which would inherit the badge styling */
-.mb .fundstep .sn{flex:0 0 26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#3e9ad8,#24638f);color:#fff;font-size:13px;font-weight:900;display:grid;place-items:center}
+.mb .fundstep .sn{flex:0 0 26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#3e9ad8,#175a8c);color:#fff;font-size:13px;font-weight:900;display:grid;place-items:center}
 .mb .fundstep span{font-size:14px;color:rgba(255,255,255,.82);line-height:1.45}
 /* Pulse cyan with deep-navy text — bright cyan needs dark text to stay legible. */
-.mb .fundbtn{position:relative;overflow:hidden;display:block;width:100%;padding:16px 18px;border-radius:14px;border:none;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,#6bb4e2,#3f92cc);color:#12100a;font-size:17px;font-weight:900;box-shadow:0 10px 32px rgba(124,189,230,.4)}
+.mb .fundbtn{position:relative;overflow:hidden;display:block;width:100%;padding:16px 18px;border-radius:14px;border:none;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,#5ec8ff,#3f9fe0);color:#12100a;font-size:17px;font-weight:900;box-shadow:0 10px 32px rgba(127,212,255,.4)}
 .mb .fundbtn:hover{filter:brightness(1.08)}
 .mb .fundbtn::after{content:"";position:absolute;top:0;left:-60%;width:38%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:fshine 3s ease-in-out infinite;pointer-events:none}
 @keyframes fshine{0%{left:-60%}55%{left:130%}100%{left:130%}}
@@ -880,19 +880,19 @@ const CSS = `
 @media(max-width:520px){.mb .fundbox{padding:22px 18px 18px}.mb .fundbox h2{font-size:21px}}
 /* Permanent in-page version of the same call to action. Unlike the pop-up this can't be dismissed,
    so an unfunded member always has the deposit button in front of them. */
-.mb .fundbar{position:relative;overflow:hidden;border-radius:22px;padding:40px 32px;background:radial-gradient(760px 340px at 50% -10%,rgba(124,189,230,.2),transparent 62%),linear-gradient(135deg,rgba(23,18,10,.92),rgba(7,13,26,.92));border:1px solid rgba(124,189,230,.32);box-shadow:0 18px 56px -20px rgba(124,189,230,.5)}
-.mb .fundbar::after{content:"";position:absolute;inset:-40% -10% auto auto;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(124,189,230,.16),transparent 65%);pointer-events:none}
+.mb .fundbar{position:relative;overflow:hidden;border-radius:22px;padding:40px 32px;background:radial-gradient(760px 340px at 50% -10%,rgba(127,212,255,.2),transparent 62%),linear-gradient(135deg,rgba(23,18,10,.92),rgba(7,13,26,.92));border:1px solid rgba(127,212,255,.32);box-shadow:0 18px 56px -20px rgba(127,212,255,.5)}
+.mb .fundbar::after{content:"";position:absolute;inset:-40% -10% auto auto;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(127,212,255,.16),transparent 65%);pointer-events:none}
 /* Stacked, centred hero rather than a side-by-side strip — a full-width row reads as a dismissible
    banner, a centred column reads as the point of the page. */
 .mb .fundbar .fbin{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
 .mb .fundbar .fblogo{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:12px}
-.mb .fundbar .fblogo img{width:54px;height:54px;border-radius:50%;object-fit:cover;background:#050b18;box-shadow:0 8px 26px -8px rgba(124,189,230,.6),0 0 0 1px rgba(255,255,255,.08)}
+.mb .fundbar .fblogo img{width:54px;height:54px;border-radius:50%;object-fit:cover;background:#050b18;box-shadow:0 8px 26px -8px rgba(127,212,255,.6),0 0 0 1px rgba(255,255,255,.08)}
 .mb .fundbar .fblogo span{font-size:15px;font-weight:900;color:rgba(255,255,255,.3)}
 .mb .fundbar .fbtx{flex:none;width:100%;max-width:620px}
 .mb .fundbar .fbk{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#9ed3f6;margin-bottom:8px}
 .mb .fundbar h3{font-size:34px;font-weight:900;color:#fff;margin:0 0 10px;letter-spacing:-.025em;line-height:1.12}
 .mb .fundbar p{font-size:15px;color:rgba(255,255,255,.7);margin:0;line-height:1.6}
-.mb .fundbar .fbgo{position:relative;overflow:hidden;flex:0 0 auto;display:block;width:100%;max-width:420px;text-align:center;padding:21px 34px;border-radius:16px;background:linear-gradient(135deg,#6bb4e2,#3f92cc);color:#12100a;font-size:19px;font-weight:900;text-decoration:none;white-space:nowrap;box-shadow:0 14px 38px rgba(124,189,230,.5);animation:fbpulse 2.6s ease-in-out infinite}
+.mb .fundbar .fbgo{position:relative;overflow:hidden;flex:0 0 auto;display:block;width:100%;max-width:420px;text-align:center;padding:21px 34px;border-radius:16px;background:linear-gradient(135deg,#5ec8ff,#3f9fe0);color:#12100a;font-size:19px;font-weight:900;text-decoration:none;white-space:nowrap;box-shadow:0 14px 38px rgba(127,212,255,.5);animation:fbpulse 2.6s ease-in-out infinite}
 .mb .fundbar .fbgo:hover{filter:brightness(1.08)}
 .mb .fundbar .fbgo::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);animation:fshine 3s ease-in-out infinite;pointer-events:none}
 @keyframes fbpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
@@ -1455,9 +1455,9 @@ export default function Members() {
       </div>
 
       {chatOpen && (
-        <div onClick={() => setChatOpen(false)} style={{ position: "fixed", inset: 0, zIndex: 200, background: "rgba(3,5,10,.75)", backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}>
+        <div onClick={() => setChatOpen(false)} style={{ position: "fixed", inset: 0, zIndex: 200, background: "rgba(3,3,5,.75)", backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}>
           <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: 560, position: "relative" }}>
-            <button onClick={() => setChatOpen(false)} aria-label="Close chat" style={{ position: "absolute", top: -13, right: -6, zIndex: 3, width: 36, height: 36, borderRadius: 999, border: "1px solid rgba(255,255,255,.18)", background: "#0a1018", color: "#fff", cursor: "pointer", fontSize: 16, fontWeight: 800, boxShadow: "0 10px 30px rgba(0,0,0,.7)" }}>✕</button>
+            <button onClick={() => setChatOpen(false)} aria-label="Close chat" style={{ position: "absolute", top: -13, right: -6, zIndex: 3, width: 36, height: 36, borderRadius: 999, border: "1px solid rgba(255,255,255,.18)", background: "#080910", color: "#fff", cursor: "pointer", fontSize: 16, fontWeight: 800, boxShadow: "0 10px 30px rgba(0,0,0,.7)" }}>✕</button>
             <Chat me={me} />
           </div>
         </div>

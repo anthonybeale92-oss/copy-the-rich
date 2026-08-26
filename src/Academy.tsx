@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 const CSS = `
-.rtac{--gold:#3f92cc;--gold-hi:#cfe7fa;--blue:#459eda;--cy:#6bb4e2;--ink:#f6f1e4;--mut:#a8a49a}
+.rtac{--gold:#3f9fe0;--gold-hi:#d6efff;--blue:#459eda;--cy:#5ec8ff;--ink:#f6f1e4;--mut:#a8a49a}
 .rtac *{box-sizing:border-box}
-.rtac .hero{border:1px solid rgba(63,146,204,.3);border-radius:18px;padding:24px;background:linear-gradient(120deg,rgba(63,146,204,.08),rgba(86,164,216,.05));display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
+.rtac .hero{border:1px solid rgba(63,159,224,.3);border-radius:18px;padding:24px;background:linear-gradient(120deg,rgba(63,159,224,.08),rgba(79,181,238,.05));display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
 .rtac .hero .ic{font-size:38px}
 .rtac .hero h3{margin:0;font-size:21px;font-weight:900;color:#fff}
 .rtac .hero p{margin:6px 0 0;color:var(--mut);font-size:14px;max-width:58ch}
@@ -12,9 +12,9 @@ const CSS = `
 .rtac .btn.gold{color:#1a1400;background:linear-gradient(90deg,var(--gold),var(--gold-hi))}
 .rtac .btn.ghost{color:var(--ink);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14)}
 .rtac .lbl{font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:6px 0 12px}
-.rtac .mod{border:1px solid rgba(255,255,255,.09);background:linear-gradient(180deg,#0b1220,#0a1018);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.rtac .mod{border:1px solid rgba(255,255,255,.09);background:linear-gradient(180deg,#090a11,#080910);border-radius:14px;margin-bottom:12px;overflow:hidden}
 .rtac .mhead{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;user-select:none}
-.rtac .mnum{flex:0 0 40px;width:40px;height:40px;border-radius:11px;background:rgba(63,146,204,.1);border:1px solid rgba(63,146,204,.25);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,Menlo,monospace;font-weight:900;color:var(--gold-hi)}
+.rtac .mnum{flex:0 0 40px;width:40px;height:40px;border-radius:11px;background:rgba(63,159,224,.1);border:1px solid rgba(63,159,224,.25);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,Menlo,monospace;font-weight:900;color:var(--gold-hi)}
 .rtac .mtitle{flex:1;min-width:0}
 .rtac .mtitle .t{font-weight:800;font-size:15.5px;color:#fff}
 .rtac .mtitle .s{font-size:12.5px;color:var(--mut);margin-top:2px}
@@ -138,14 +138,14 @@ export default function Academy({ enter, setTab }: { enter: Enter; setTab: (t: a
         </div>
       </div>
 
-      <div className="hero" style={{ borderColor: "rgba(86,164,216,.3)", background: "linear-gradient(120deg,rgba(86,164,216,.09),rgba(46,122,180,.05))" }}>
+      <div className="hero" style={{ borderColor: "rgba(79,181,238,.3)", background: "linear-gradient(120deg,rgba(79,181,238,.09),rgba(42,128,189,.05))" }}>
         <span className="ic">🎓</span>
         <div>
           <h3>Pulse University</h3>
           <p>The full trading education library on the Pulse platform — deep-dive courses on price action, risk, and the markets. Opens in your Pulse account, already logged in.</p>
         </div>
         <div className="btns">
-          <a className="btn gold" href={enter("/academy")} target="_blank" rel="noopener noreferrer" style={{ background: "linear-gradient(90deg,#459eda,#6bb4e2)", color: "#0d1420" }}>Open Pulse University →</a>
+          <a className="btn gold" href={enter("/academy")} target="_blank" rel="noopener noreferrer" style={{ background: "linear-gradient(90deg,#459eda,#5ec8ff)", color: "#0b0d12" }}>Open Pulse University →</a>
         </div>
       </div>
 

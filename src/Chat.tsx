@@ -2,29 +2,29 @@ import { useEffect, useRef, useState } from "react";
 import { fetchChat, sendChat, type ChatMsg, type MeStatus } from "./api";
 
 const CSS = `
-.rtchat{--gold:#3f92cc;--cy:#6bb4e2}
+.rtchat{--gold:#3f9fe0;--cy:#5ec8ff}
 .rtchat *{box-sizing:border-box}
-.rtchat{display:flex;flex-direction:column;height:min(72vh,660px);border:1px solid rgba(255,255,255,.1);border-radius:16px;background:#0a1018;overflow:hidden}
-.rtchat .ch{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(63,146,204,.04)}
+.rtchat{display:flex;flex-direction:column;height:min(72vh,660px);border:1px solid rgba(255,255,255,.1);border-radius:16px;background:#080910;overflow:hidden}
+.rtchat .ch{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(63,159,224,.04)}
 .rtchat .ch .dot{width:9px;height:9px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399}
 .rtchat .ch b{font-size:14.5px;font-weight:900;color:#fff}
 .rtchat .ch span{font-size:11.5px;color:rgba(255,255,255,.45)}
 .rtchat .body{flex:1;overflow-y:auto;padding:14px 14px 8px;display:flex;flex-direction:column;gap:10px}
 .rtchat .m{display:flex;gap:9px;align-items:flex-start;max-width:88%}
 .rtchat .m.me{align-self:flex-end;flex-direction:row-reverse}
-.rtchat .av{flex:0 0 30px;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#0d1420;background:linear-gradient(135deg,#6bb4e2,#2a72a8)}
-.rtchat .av.host{background:linear-gradient(135deg,#3f92cc,#3f92cc)}
+.rtchat .av{flex:0 0 30px;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#0b0d12;background:linear-gradient(135deg,#5ec8ff,#1f6fa8)}
+.rtchat .av.host{background:linear-gradient(135deg,#3f9fe0,#3f9fe0)}
 .rtchat .bub{min-width:0}
 .rtchat .nm{font-size:11.5px;font-weight:800;color:rgba(255,255,255,.6);margin:0 4px 3px;display:flex;align-items:center;gap:6px}
 .rtchat .m.me .nm{justify-content:flex-end}
-.rtchat .hb{font-size:9px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:#1a1400;background:linear-gradient(90deg,#3f92cc,#d8ecfb);border-radius:5px;padding:1px 6px}
+.rtchat .hb{font-size:9px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:#1a1400;background:linear-gradient(90deg,#3f9fe0,#e2f4ff);border-radius:5px;padding:1px 6px}
 .rtchat .tx{font-size:14px;line-height:1.5;color:#fff;background:rgba(255,255,255,.06);border-radius:14px;padding:8px 13px;white-space:pre-wrap;word-break:break-word}
-.rtchat .m.me .tx{background:linear-gradient(90deg,#6bb4e2,#2e7ab4);color:#0d1420;font-weight:600}
-.rtchat .m.host .tx{background:rgba(63,146,204,.12);border:1px solid rgba(63,146,204,.25)}
+.rtchat .m.me .tx{background:linear-gradient(90deg,#5ec8ff,#2a80bd);color:#0b0d12;font-weight:600}
+.rtchat .m.host .tx{background:rgba(63,159,224,.12);border:1px solid rgba(63,159,224,.25)}
 .rtchat .comp{display:flex;gap:8px;padding:12px 14px;border-top:1px solid rgba(255,255,255,.07)}
-.rtchat .comp input{flex:1;height:42px;border:1px solid rgba(255,255,255,.12);background:#05070d;border-radius:21px;padding:0 16px;color:#fff;font-size:14px;outline:none}
-.rtchat .comp input:focus{border-color:rgba(107,180,226,.4)}
-.rtchat .comp button{height:42px;padding:0 18px;border:none;border-radius:21px;font-weight:800;font-size:13.5px;color:#0d1420;background:linear-gradient(90deg,#6bb4e2,#2e7ab4);cursor:pointer}
+.rtchat .comp input{flex:1;height:42px;border:1px solid rgba(255,255,255,.12);background:#050608;border-radius:21px;padding:0 16px;color:#fff;font-size:14px;outline:none}
+.rtchat .comp input:focus{border-color:rgba(94,200,255,.4)}
+.rtchat .comp button{height:42px;padding:0 18px;border:none;border-radius:21px;font-weight:800;font-size:13.5px;color:#0b0d12;background:linear-gradient(90deg,#5ec8ff,#2a80bd);cursor:pointer}
 .rtchat .comp button:disabled{opacity:.5}
 .rtchat .empty{margin:auto;text-align:center;color:rgba(255,255,255,.45);font-size:13.5px;padding:24px}
 .rtchat-locked{border:1px dashed rgba(255,255,255,.14);border-radius:16px;padding:30px 20px;text-align:center;color:rgba(255,255,255,.55);font-size:14px}

@@ -13,24 +13,24 @@ const INFO_CSS = `
 .rb .phero .lede{margin-top:18px}
 .rb .steps{display:grid;grid-template-columns:1fr;gap:16px;margin-top:34px}
 @media(min-width:760px){.rb .steps{grid-template-columns:1fr 1fr}}
-.rb .step{position:relative;border:1px solid rgba(255,255,255,.08);background:#0b0c12;border-radius:18px;padding:22px 22px 22px 66px}
-.rb .step .num{position:absolute;left:20px;top:22px;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-weight:900;color:#0d1420;background:linear-gradient(135deg,#6bb4e2,#2a72a8)}
+.rb .step{position:relative;border:1px solid rgba(255,255,255,.08);background:#0a0b10;border-radius:18px;padding:22px 22px 22px 66px}
+.rb .step .num{position:absolute;left:20px;top:22px;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-weight:900;color:#0b0d12;background:linear-gradient(135deg,#5ec8ff,#1f6fa8)}
 .rb .step h4{font-size:16px;font-weight:800}
 .rb .step p{color:rgba(255,255,255,.6);font-size:13.5px;line-height:1.6;margin-top:7px}
 .rb .rules{list-style:none;padding:0;margin:26px auto 0;max-width:640px;text-align:left}
-.rb .rules li{position:relative;padding:12px 12px 12px 44px;border:1px solid rgba(255,255,255,.08);background:#0b0c12;border-radius:14px;margin-bottom:10px;font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.55}
+.rb .rules li{position:relative;padding:12px 12px 12px 44px;border:1px solid rgba(255,255,255,.08);background:#0a0b10;border-radius:14px;margin-bottom:10px;font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.55}
 .rb .rules li b{color:#fff}
 /* Decorative tick, so gold — see the note on the same rule in Home. */
-.rb .rules li::before{content:"✓";position:absolute;left:16px;top:12px;color:#6bb4e2;font-weight:900;font-size:16px}
+.rb .rules li::before{content:"✓";position:absolute;left:16px;top:12px;color:#5ec8ff;font-weight:900;font-size:16px}
 .rb .ranks{display:grid;grid-template-columns:1fr;gap:12px;margin-top:26px}
 @media(min-width:640px){.rb .ranks{grid-template-columns:1fr 1fr 1fr}}
-.rb .rank{border:1px solid rgba(255,255,255,.1);background:#0b0c12;border-radius:16px;padding:20px;text-align:center}
+.rb .rank{border:1px solid rgba(255,255,255,.1);background:#0a0b10;border-radius:16px;padding:20px;text-align:center}
 .rb .rank .rn{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
 .rb .rank .rv{font-size:26px;font-weight:900;margin-top:6px;font-variant-numeric:tabular-nums}
 .rb .rank .rd{font-size:12.5px;color:rgba(255,255,255,.5);margin-top:6px;line-height:1.5}
 .rb .rank.s{border-color:rgba(168,164,154,.4)}.rb .rank.s .rn,.rb .rank.s .rv{color:#ded9cf}
-.rb .rank.g{border-color:rgba(63,146,204,.4)}.rb .rank.g .rn,.rb .rank.g .rv{color:#7cbde6}
-.rb .rank.v{border-color:rgba(46,122,180,.45)}.rb .rank.v .rn,.rb .rank.v .rv{color:#8cc0e3}
+.rb .rank.g{border-color:rgba(63,159,224,.4)}.rb .rank.g .rn,.rb .rank.g .rv{color:#7fd4ff}
+.rb .rank.v{border-color:rgba(42,128,189,.45)}.rb .rank.v .rn,.rb .rank.v .rv{color:#8cc0e3}
 .rb .lead-in{max-width:680px;margin:16px auto 0;text-align:center;color:rgba(255,255,255,.62);font-size:15.5px;line-height:1.7}
 `;
 
@@ -96,7 +96,7 @@ export function GoldrockPage() {
   return (
     <Page active="/goldrock">
       <section className="phero">
-        <span className="free" style={{ background: "linear-gradient(90deg,#6bb4e2,#2a72a8)" }}>Fully passive</span>
+        <span className="free" style={{ background: "linear-gradient(90deg,#5ec8ff,#1f6fa8)" }}>Fully passive</span>
         <h1>The <span className="g">GoldRock</span> PAMM</h1>
         <p className="lede">Not ready to trade yourself? Back the managed fund. The desk trades gold, you compound — completely hands-off while you learn. Targeting <b>15%+ a month</b>, withdraw your profits anytime.</p>
         <div className="cta-row"><a className="btn lg" href={SIGNUP_PATH}>Join the PAMM →</a><a className="ghost lg" href="/calculator">Run the numbers</a></div>
@@ -141,7 +141,7 @@ export function TapToTradePage() {
   return (
     <Page active="/tap-to-trade">
       <section className="phero">
-        <span className="free" style={{ background: "linear-gradient(90deg,#6bb4e2,#2e7ab4)" }}>One-tap trading</span>
+        <span className="free" style={{ background: "linear-gradient(90deg,#5ec8ff,#2a80bd)" }}>One-tap trading</span>
         <h1>Tap to Trade</h1>
         <p className="lede">The desk's daily plays — <b>entry, stop and target</b> spelled out — fired onto your own account in a single tap, sized for you. Learn by doing, earn as you go. No charting required.</p>
         <div className="cta-row"><a className="btn lg" href={SIGNUP_PATH}>Get access →</a><a className="ghost lg" href={LOGIN_URL}>Log in</a></div>
@@ -228,16 +228,16 @@ function CompoundCalc() {
       {/* header */}
       <div className="text-center pt-2">
         <p className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-amber-300/70"><Calculator className="w-3.5 h-3.5" /> Free tool · No signup</p>
-        <h1 className="text-[26px] leading-[1.12] sm:text-5xl font-black tracking-tight mt-2 text-white">Compound Interest <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg,#b3daf4,#6bb4e2,#2a72a8)" }}>Calculator</span></h1>
+        <h1 className="text-[26px] leading-[1.12] sm:text-5xl font-black tracking-tight mt-2 text-white">Compound Interest <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg,#bde7ff,#5ec8ff,#1f6fa8)" }}>Calculator</span></h1>
         <p className="text-[12.5px] sm:text-sm text-white/55 mt-3 max-w-2xl mx-auto leading-relaxed">Punch in a starting amount, your monthly return, and how long you let it run. Add recurring contributions if you keep funding — see the full month-by-month curve, the effective annual rate, and a compound-vs-simple comparison.</p>
       </div>
 
       {/* RESULT HERO */}
-      <div className="relative overflow-hidden rounded-3xl border border-amber-400/25 p-5 sm:p-7" style={{ background: "radial-gradient(ellipse 80% 70% at 80% 0%, rgba(107,180,226,0.16), transparent 60%), radial-gradient(ellipse 60% 60% at 10% 110%, rgba(46,122,180,0.12), transparent 60%), linear-gradient(160deg,#0b1019,#070b12)" }}>
+      <div className="relative overflow-hidden rounded-3xl border border-amber-400/25 p-5 sm:p-7" style={{ background: "radial-gradient(ellipse 80% 70% at 80% 0%, rgba(94,200,255,0.16), transparent 60%), radial-gradient(ellipse 60% 60% at 10% 110%, rgba(42,128,189,0.12), transparent 60%), linear-gradient(160deg,#0b1019,#070b12)" }}>
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div className="min-w-0">
             <p className="text-[11px] uppercase tracking-[0.18em] text-amber-300/60">Projected final balance · {months} mo</p>
-            <p className="text-4xl sm:text-6xl font-black tabular-nums mt-1 bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg,#d8ecfb,#6bb4e2,#2a72a8)" }}>{cmoney(calc.final)}</p>
+            <p className="text-4xl sm:text-6xl font-black tabular-nums mt-1 bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg,#e2f4ff,#5ec8ff,#1f6fa8)" }}>{cmoney(calc.final)}</p>
             <p className="text-sm font-bold text-emerald-300 tabular-nums mt-1">+{cmoney(calc.interestTotal)} interest earned</p>
           </div>
           <div className="grid grid-cols-3 gap-3 lg:gap-5 shrink-0">
@@ -249,7 +249,7 @@ function CompoundCalc() {
         <div className="mt-5 pt-4 border-t border-white/[0.08] flex items-center justify-between gap-3 flex-wrap">
           <div className="inline-flex p-1 rounded-full border border-white/10 bg-black/30">
             {(["month", "year"] as const).map((p) => (
-              <button key={p} onClick={() => setRatePeriod(p)} className={`px-4 py-1.5 rounded-full text-[12px] font-bold transition ${ratePeriod === p ? "text-[#06121a]" : "text-white/55 hover:text-white"}`} style={ratePeriod === p ? { background: "linear-gradient(90deg,#6bb4e2,#2a72a8)" } : undefined}>{p === "month" ? "Per month" : "Per year"}</button>
+              <button key={p} onClick={() => setRatePeriod(p)} className={`px-4 py-1.5 rounded-full text-[12px] font-bold transition ${ratePeriod === p ? "text-[#050608]" : "text-white/55 hover:text-white"}`} style={ratePeriod === p ? { background: "linear-gradient(90deg,#5ec8ff,#1f6fa8)" } : undefined}>{p === "month" ? "Per month" : "Per year"}</button>
             ))}
           </div>
           <p className="text-[12px] text-white/50">Your <span className="text-white/80 font-semibold">{rate}%</span> {ratePeriod === "year" ? "annual" : "monthly"} return = <span className="font-bold text-amber-300 tabular-nums">{calc.annualized.toFixed(2)}%</span> effective APY</p>
@@ -257,7 +257,7 @@ function CompoundCalc() {
       </div>
 
       {/* INPUTS */}
-      <div className="rounded-3xl border border-white/[0.08] bg-[#0a1018] p-5 sm:p-6">
+      <div className="rounded-3xl border border-white/[0.08] bg-[#080910] p-5 sm:p-6">
         <div className="flex items-center gap-2 mb-4"><Calculator className="w-4 h-4 text-amber-300" /><h3 className="text-sm font-bold text-white">Your scenario</h3><span className="text-[11px] text-white/35 ml-1">— tap any value to edit</span></div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           <InputBox label="Starting amount" hint="What you invest today" prefix="$">
@@ -282,23 +282,23 @@ function CompoundCalc() {
       </div>
 
       {/* CHART */}
-      <div className="rounded-3xl border border-white/[0.08] bg-[#0a1018] p-4 sm:p-6">
+      <div className="rounded-3xl border border-white/[0.08] bg-[#080910] p-4 sm:p-6">
         <div className="flex items-center justify-between gap-2 mb-4 flex-wrap">
           <div className="flex items-center gap-2"><TrendingUp className="w-4 h-4 text-amber-300" /><h3 className="text-sm font-bold text-white">Projected growth</h3></div>
           <div className="flex items-center gap-4 text-[11px] text-white/50">
-            <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm" style={{ background: "linear-gradient(180deg,#b3daf4,#2271a5)" }} /> Monthly gain</span>
+            <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm" style={{ background: "linear-gradient(180deg,#bde7ff,#2271a5)" }} /> Monthly gain</span>
             <span className="inline-flex items-center gap-1.5"><span className="w-4 h-0.5 rounded-full bg-amber-500" /> Running balance</span>
           </div>
         </div>
         <GrowthChart rows={calc.rows} />
-        <div className="mt-4 rounded-2xl border border-amber-400/20 px-4 py-3 flex items-center justify-between gap-3 flex-wrap" style={{ background: "linear-gradient(90deg, rgba(107,180,226,0.10), rgba(46,122,180,0.06))" }}>
+        <div className="mt-4 rounded-2xl border border-amber-400/20 px-4 py-3 flex items-center justify-between gap-3 flex-wrap" style={{ background: "linear-gradient(90deg, rgba(94,200,255,0.10), rgba(42,128,189,0.06))" }}>
           <p className="text-[13px] text-white/85"><span className="font-bold text-amber-300">Compounding adds {cmoney(calc.compoundAdds)}</span> vs flat simple interest at the same rate.</p>
           <p className="text-[12px] text-white/45 tabular-nums">simple: {cmoney(calc.simpleBalance)}</p>
         </div>
       </div>
 
       {/* MONTH-BY-MONTH */}
-      <div className="rounded-3xl border border-white/[0.08] bg-[#0a1018] overflow-hidden">
+      <div className="rounded-3xl border border-white/[0.08] bg-[#080910] overflow-hidden">
         <div className="flex items-center justify-between gap-2 px-5 pt-5 flex-wrap">
           <div><h3 className="text-base font-bold text-white">Month-by-month projection</h3><p className="text-[12px] text-white/45 mt-0.5">The same compounding curve, laid out so you can scan every month.</p></div>
           <p className="text-[12px] text-white/40 tabular-nums">{months} months · {rate}% / {ratePeriod === "year" ? "yr" : "mo"}{contribution > 0 ? ` · +${cmoney(contribution)}/mo` : ""}</p>
@@ -329,10 +329,10 @@ function CompoundCalc() {
       </div>
 
       {/* CTA */}
-      <div className="rounded-3xl border border-amber-400/20 p-6 text-center" style={{ background: "linear-gradient(135deg, rgba(107,180,226,0.10), rgba(46,122,180,0.07))" }}>
+      <div className="rounded-3xl border border-amber-400/20 p-6 text-center" style={{ background: "linear-gradient(135deg, rgba(94,200,255,0.10), rgba(42,128,189,0.07))" }}>
         <p className="text-base font-bold text-white flex items-center justify-center gap-2"><Sparkles className="w-4 h-4 text-amber-300" /> Ready to put compounding to work?</p>
         <p className="text-[13px] text-white/55 mt-1.5">GoldRock's PAMM targets ≈ {GOLDROCK_MONTHLY}% / month. Invest and let it reinvest for you.</p>
-        <a href={SIGNUP_PATH} className="mt-4 h-11 px-7 rounded-full font-bold text-[#06121a] inline-flex items-center gap-2" style={{ background: "linear-gradient(90deg,#6bb4e2,#2a72a8)" }}>Create your account →</a>
+        <a href={SIGNUP_PATH} className="mt-4 h-11 px-7 rounded-full font-bold text-[#050608] inline-flex items-center gap-2" style={{ background: "linear-gradient(90deg,#5ec8ff,#1f6fa8)" }}>Create your account →</a>
       </div>
 
       <p className="text-[11px] leading-relaxed text-white/35 px-1 text-center flex items-start gap-1.5 justify-center max-w-2xl mx-auto"><Info className="w-3.5 h-3.5 shrink-0 mt-0.5" /><span>This calculator is for illustration only. Projections assume a constant return and do not guarantee future results. Past performance is not indicative of future returns. Trading involves risk.</span></p>
@@ -356,8 +356,8 @@ function GrowthChart({ rows }: { rows: { label: string; balance: number; gain: n
   return (
     <svg viewBox={`0 0 ${W} ${H}`} width="100%" height="300" preserveAspectRatio="none" style={{ display: "block" }}>
       <defs>
-        <linearGradient id="ccBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#b3daf4" /><stop offset="100%" stopColor="#2271a5" /></linearGradient>
-        <linearGradient id="ccArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="rgba(96,172,220,.22)" /><stop offset="100%" stopColor="rgba(96,172,220,0)" /></linearGradient>
+        <linearGradient id="ccBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#bde7ff" /><stop offset="100%" stopColor="#2271a5" /></linearGradient>
+        <linearGradient id="ccArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="rgba(88,190,246,.22)" /><stop offset="100%" stopColor="rgba(88,190,246,0)" /></linearGradient>
       </defs>
       {Array.from({ length: ticks + 1 }, (_, i) => { const gv = (maxBal / ticks) * i; const gy = y(gv); return (<g key={i}><line x1={padL} y1={gy} x2={padL + iw} y2={gy} stroke="rgba(255,255,255,.05)" strokeWidth="1" /><text x={padL - 6} y={gy + 3} textAnchor="end" fontSize="10" fill="rgba(255,255,255,.4)">{ckfmt(gv)}</text></g>); })}
       {rows.map((r, i) => { const bh = (r.gain / maxBal) * ih; return <rect key={i} x={x(i) - bw / 2} y={padT + ih - bh} width={bw} height={Math.max(0, bh)} rx="3" fill="url(#ccBar)" />; })}

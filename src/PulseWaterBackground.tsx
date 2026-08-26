@@ -88,11 +88,12 @@ function ConstellationCanvas({ lite, animate }: { lite?: boolean; animate?: bool
     // The three node tints. These are channel literals rather than an rgba() string,
     // which is why they outlived the palette sweep and left cyan and violet nodes
     // drifting over a gold page. Same three-step spread as before — bright, mid,
-    // deep — now bright gold, amber, bronze.
+    // deep — now bright light blue, mid, deep. If a recolour ever looks finished but a few
+    // specks are still the old hue, it is these: nothing that greps for a colour can find them.
     function nodeColor(hue: number) {
-      if (hue === 0) return { r: 255, g: 210, b: 74 };
-      if (hue === 1) return { r: 224, g: 169, b: 46 };
-      return { r: 201, g: 147, b: 47 };
+      if (hue === 0) return { r: 94, g: 200, b: 255 };
+      if (hue === 1) return { r: 63, g: 159, b: 224 };
+      return { r: 42, g: 128, b: 189 };
     }
 
     function step(t: number) {
@@ -113,9 +114,9 @@ function ConstellationCanvas({ lite, animate }: { lite?: boolean; animate?: bool
         const travel = width + bandW * 2;
         const sweepX = ((t * 0.024) % travel) - bandW;
         const sg = ctx.createLinearGradient(sweepX - bandW, 0, sweepX + bandW, 0);
-        sg.addColorStop(0, "rgba(107,180,226,0)");
-        sg.addColorStop(0.5, "rgba(63,146,204,0.055)");
-        sg.addColorStop(1, "rgba(46,122,180,0)");
+        sg.addColorStop(0, "rgba(94,200,255,0)");
+        sg.addColorStop(0.5, "rgba(63,159,224,0.055)");
+        sg.addColorStop(1, "rgba(42,128,189,0)");
         ctx.fillStyle = sg;
         ctx.fillRect(sweepX - bandW, 0, bandW * 2, height);
       }
@@ -162,7 +163,7 @@ function ConstellationCanvas({ lite, animate }: { lite?: boolean; animate?: bool
           if (d2 < LINK_DIST * LINK_DIST) {
             const d = Math.sqrt(d2);
             const alpha = (1 - d / LINK_DIST) * 0.22;
-            ctx.strokeStyle = `rgba(130,196,236,${alpha * 0.6})`;
+            ctx.strokeStyle = `rgba(135,215,255,${alpha * 0.6})`;
             ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -174,9 +175,9 @@ function ConstellationCanvas({ lite, animate }: { lite?: boolean; animate?: bool
 
       if (m.active) {
         const grad = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, MOUSE_DIST);
-        grad.addColorStop(0, "rgba(130,196,236,0.07)");
-        grad.addColorStop(0.6, "rgba(96,172,220,0.04)");
-        grad.addColorStop(1, "rgba(130,196,236,0)");
+        grad.addColorStop(0, "rgba(135,215,255,0.07)");
+        grad.addColorStop(0.6, "rgba(88,190,246,0.04)");
+        grad.addColorStop(1, "rgba(135,215,255,0)");
         ctx.fillStyle = grad;
         ctx.fillRect(m.x - MOUSE_DIST, m.y - MOUSE_DIST, MOUSE_DIST * 2, MOUSE_DIST * 2);
 
@@ -294,7 +295,7 @@ function AuroraBlobs() {
           left: "5%",
           top: "-12%",
           background:
-            "radial-gradient(circle at 50% 50%, rgba(130,196,236,0.18), rgba(130,196,236,0.04) 50%, transparent 80%)",
+            "radial-gradient(circle at 50% 50%, rgba(135,215,255,0.18), rgba(135,215,255,0.04) 50%, transparent 80%)",
           animation: "dashAurora1 32s ease-in-out infinite",
         }}
       />
@@ -304,7 +305,7 @@ function AuroraBlobs() {
           right: "-8%",
           top: "35%",
           background:
-            "radial-gradient(circle at 50% 50%, rgba(96,172,220,0.18), rgba(96,172,220,0.04) 55%, transparent 82%)",
+            "radial-gradient(circle at 50% 50%, rgba(88,190,246,0.18), rgba(88,190,246,0.04) 55%, transparent 82%)",
           animation: "dashAurora2 36s ease-in-out infinite",
         }}
       />
@@ -314,7 +315,7 @@ function AuroraBlobs() {
           left: "30%",
           bottom: "-18%",
           background:
-            "radial-gradient(circle at 50% 50%, rgba(46,122,180,0.16), rgba(46,122,180,0.03) 55%, transparent 82%)",
+            "radial-gradient(circle at 50% 50%, rgba(42,128,189,0.16), rgba(42,128,189,0.03) 55%, transparent 82%)",
           animation: "dashAurora1 30s ease-in-out infinite reverse",
         }}
       />
@@ -350,8 +351,8 @@ export function PulseWaterBackground({ lite, animate }: { lite?: boolean; animat
       className="rbwater pointer-events-none fixed inset-0 z-0 overflow-hidden"
       style={{
         background:
-          "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(130,196,236,0.08) 0%, transparent 65%), " +
-          "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(96,172,220,0.1) 0%, transparent 65%), " +
+          "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(135,215,255,0.08) 0%, transparent 65%), " +
+          "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(88,190,246,0.1) 0%, transparent 65%), " +
           "linear-gradient(180deg, #050608 0%, #04050a 50%, #060509 100%)",
       }}
     >
