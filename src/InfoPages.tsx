@@ -13,25 +13,25 @@ const INFO_CSS = `
 .rb .phero .lede{margin-top:18px}
 .rb .steps{display:grid;grid-template-columns:1fr;gap:16px;margin-top:34px}
 @media(min-width:760px){.rb .steps{grid-template-columns:1fr 1fr}}
-.rb .step{position:relative;border:1px solid rgba(255,255,255,.08);background:#0b0c12;border-radius:18px;padding:22px 22px 22px 66px}
-.rb .step .num{position:absolute;left:20px;top:22px;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-weight:900;color:#0d1420;background:linear-gradient(135deg,#6bb4e2,#2a72a8)}
+.rb .step{position:relative;border:1px solid rgba(20,20,20,.08);background:#fbfbfc;border-radius:18px;padding:22px 22px 22px 66px}
+.rb .step .num{position:absolute;left:20px;top:22px;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-weight:900;color:#f9f9fa;background:linear-gradient(135deg,#1d6694,#2f7fbc)}
 .rb .step h4{font-size:16px;font-weight:800}
-.rb .step p{color:rgba(255,255,255,.6);font-size:13.5px;line-height:1.6;margin-top:7px}
+.rb .step p{color:rgba(20,20,20,.6);font-size:13.5px;line-height:1.6;margin-top:7px}
 .rb .rules{list-style:none;padding:0;margin:26px auto 0;max-width:640px;text-align:left}
-.rb .rules li{position:relative;padding:12px 12px 12px 44px;border:1px solid rgba(255,255,255,.08);background:#0b0c12;border-radius:14px;margin-bottom:10px;font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.55}
-.rb .rules li b{color:#fff}
+.rb .rules li{position:relative;padding:12px 12px 12px 44px;border:1px solid rgba(20,20,20,.08);background:#fbfbfc;border-radius:14px;margin-bottom:10px;font-size:14.5px;color:rgba(20,20,20,.82);line-height:1.55}
+.rb .rules li b{color:#141414}
 /* Decorative tick, so gold — see the note on the same rule in Home. */
-.rb .rules li::before{content:"✓";position:absolute;left:16px;top:12px;color:#6bb4e2;font-weight:900;font-size:16px}
+.rb .rules li::before{content:"✓";position:absolute;left:16px;top:12px;color:#1d6694;font-weight:900;font-size:16px}
 .rb .ranks{display:grid;grid-template-columns:1fr;gap:12px;margin-top:26px}
 @media(min-width:640px){.rb .ranks{grid-template-columns:1fr 1fr 1fr}}
-.rb .rank{border:1px solid rgba(255,255,255,.1);background:#0b0c12;border-radius:16px;padding:20px;text-align:center}
+.rb .rank{border:1px solid rgba(20,20,20,.1);background:#fbfbfc;border-radius:16px;padding:20px;text-align:center}
 .rb .rank .rn{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
 .rb .rank .rv{font-size:26px;font-weight:900;margin-top:6px;font-variant-numeric:tabular-nums}
-.rb .rank .rd{font-size:12.5px;color:rgba(255,255,255,.5);margin-top:6px;line-height:1.5}
-.rb .rank.s{border-color:rgba(168,164,154,.4)}.rb .rank.s .rn,.rb .rank.s .rv{color:#ded9cf}
-.rb .rank.g{border-color:rgba(63,146,204,.4)}.rb .rank.g .rn,.rb .rank.g .rv{color:#7cbde6}
-.rb .rank.v{border-color:rgba(46,122,180,.45)}.rb .rank.v .rn,.rb .rank.v .rv{color:#8cc0e3}
-.rb .lead-in{max-width:680px;margin:16px auto 0;text-align:center;color:rgba(255,255,255,.62);font-size:15.5px;line-height:1.7}
+.rb .rank .rd{font-size:12.5px;color:rgba(20,20,20,.5);margin-top:6px;line-height:1.5}
+.rb .rank.s{border-color:rgba(101,97,87,.4)}.rb .rank.s .rn,.rb .rank.s .rv{color:#433c2e}
+.rb .rank.g{border-color:rgba(49,129,185,.4)}.rb .rank.g .rn,.rb .rank.g .rv{color:#195a83}
+.rb .rank.v{border-color:rgba(48,127,187,.45)}.rb .rank.v .rn,.rb .rank.v .rv{color:#1c5073}
+.rb .lead-in{max-width:680px;margin:16px auto 0;text-align:center;color:rgba(20,20,20,.62);font-size:15.5px;line-height:1.7}
 `;
 
 function Page({ active, children }: { active: string; children: ReactNode }) {
@@ -96,7 +96,7 @@ export function GoldrockPage() {
   return (
     <Page active="/goldrock">
       <section className="phero">
-        <span className="free" style={{ background: "linear-gradient(90deg,#6bb4e2,#2a72a8)" }}>Fully passive</span>
+        <span className="free" style={{ background: "linear-gradient(90deg,#1d6694,#2f7fbc)" }}>Fully passive</span>
         <h1>The <span className="g">GoldRock</span> PAMM</h1>
         <p className="lede">Not ready to trade yourself? Back the managed fund. The desk trades gold, you compound — completely hands-off while you learn. Targeting <b>15%+ a month</b>, withdraw your profits anytime.</p>
         <div className="cta-row"><a className="btn lg" href={SIGNUP_PATH}>Join the PAMM →</a><a className="ghost lg" href="/calculator">Run the numbers</a></div>
@@ -130,7 +130,7 @@ export function GoldrockPage() {
           <div className="rank v"><div className="rn">VIP Gold</div><div className="rv">$7,500</div><div className="rd">Top-tier status in the fund.</div></div>
         </div>
         <div className="cta-row" style={{ marginTop: 32 }}><a className="btn lg" href={SIGNUP_PATH}>Join the PAMM →</a></div>
-        <p style={{ textAlign: "center", fontSize: 12, color: "rgba(255,255,255,.32)", marginTop: 16 }}>Investing carries risk. Targets are not guarantees and capital is at risk.</p>
+        <p style={{ textAlign: "center", fontSize: 12, color: "rgba(20,20,20,.32)", marginTop: 16 }}>Investing carries risk. Targets are not guarantees and capital is at risk.</p>
       </section>
     </Page>
   );
@@ -141,7 +141,7 @@ export function TapToTradePage() {
   return (
     <Page active="/tap-to-trade">
       <section className="phero">
-        <span className="free" style={{ background: "linear-gradient(90deg,#6bb4e2,#2e7ab4)" }}>One-tap trading</span>
+        <span className="free" style={{ background: "linear-gradient(90deg,#1d6694,#307fbb)" }}>One-tap trading</span>
         <h1>Tap to Trade</h1>
         <p className="lede">The desk's daily plays — <b>entry, stop and target</b> spelled out — fired onto your own account in a single tap, sized for you. Learn by doing, earn as you go. No charting required.</p>
         <div className="cta-row"><a className="btn lg" href={SIGNUP_PATH}>Get access →</a><a className="ghost lg" href={LOGIN_URL}>Log in</a></div>
@@ -227,18 +227,18 @@ function CompoundCalc() {
     <div className="max-w-5xl mx-auto px-1 sm:px-2 space-y-6 pb-6">
       {/* header */}
       <div className="text-center pt-2">
-        <p className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-amber-300/70"><Calculator className="w-3.5 h-3.5" /> Free tool · No signup</p>
-        <h1 className="text-[26px] leading-[1.12] sm:text-5xl font-black tracking-tight mt-2 text-white">Compound Interest <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg,#b3daf4,#6bb4e2,#2a72a8)" }}>Calculator</span></h1>
-        <p className="text-[12.5px] sm:text-sm text-white/55 mt-3 max-w-2xl mx-auto leading-relaxed">Punch in a starting amount, your monthly return, and how long you let it run. Add recurring contributions if you keep funding — see the full month-by-month curve, the effective annual rate, and a compound-vs-simple comparison.</p>
+        <p className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#1d6694]/70"><Calculator className="w-3.5 h-3.5" /> Free tool · No signup</p>
+        <h1 className="text-[26px] leading-[1.12] sm:text-5xl font-black tracking-tight mt-2 text-[#141414]">Compound Interest <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg,#2e3e49,#1d6694,#2f7fbc)" }}>Calculator</span></h1>
+        <p className="text-[12.5px] sm:text-sm text-[#141414]/55 mt-3 max-w-2xl mx-auto leading-relaxed">Punch in a starting amount, your monthly return, and how long you let it run. Add recurring contributions if you keep funding — see the full month-by-month curve, the effective annual rate, and a compound-vs-simple comparison.</p>
       </div>
 
       {/* RESULT HERO */}
-      <div className="relative overflow-hidden rounded-3xl border border-amber-400/25 p-5 sm:p-7" style={{ background: "radial-gradient(ellipse 80% 70% at 80% 0%, rgba(107,180,226,0.16), transparent 60%), radial-gradient(ellipse 60% 60% at 10% 110%, rgba(46,122,180,0.12), transparent 60%), linear-gradient(160deg,#0b1019,#070b12)" }}>
+      <div className="relative overflow-hidden rounded-3xl border border-[#3181b9]/25 p-5 sm:p-7" style={{ background: "radial-gradient(ellipse 80% 70% at 80% 0%, rgba(29,102,148,0.16), transparent 60%), radial-gradient(ellipse 60% 60% at 10% 110%, rgba(48,127,187,0.12), transparent 60%), linear-gradient(160deg,#fafafb,#fcfcfc)" }}>
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div className="min-w-0">
-            <p className="text-[11px] uppercase tracking-[0.18em] text-amber-300/60">Projected final balance · {months} mo</p>
-            <p className="text-4xl sm:text-6xl font-black tabular-nums mt-1 bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg,#d8ecfb,#6bb4e2,#2a72a8)" }}>{cmoney(calc.final)}</p>
-            <p className="text-sm font-bold text-emerald-300 tabular-nums mt-1">+{cmoney(calc.interestTotal)} interest earned</p>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-[#1d6694]/60">Projected final balance · {months} mo</p>
+            <p className="text-4xl sm:text-6xl font-black tabular-nums mt-1 bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg,#1f2930,#1d6694,#2f7fbc)" }}>{cmoney(calc.final)}</p>
+            <p className="text-sm font-bold text-emerald-600 tabular-nums mt-1">+{cmoney(calc.interestTotal)} interest earned</p>
           </div>
           <div className="grid grid-cols-3 gap-3 lg:gap-5 shrink-0">
             <HeroStat label="Total growth" value={`+${calc.growthPct.toFixed(0)}%`} sub={`${calc.multiple.toFixed(2)}×`} />
@@ -246,62 +246,62 @@ function CompoundCalc() {
             <HeroStat label="You put in" value={cmoney(calc.principalTotal)} sub="principal" />
           </div>
         </div>
-        <div className="mt-5 pt-4 border-t border-white/[0.08] flex items-center justify-between gap-3 flex-wrap">
-          <div className="inline-flex p-1 rounded-full border border-white/10 bg-black/30">
+        <div className="mt-5 pt-4 border-t border-black/[0.08] flex items-center justify-between gap-3 flex-wrap">
+          <div className="inline-flex p-1 rounded-full border border-black/10 bg-black/[0.03]">
             {(["month", "year"] as const).map((p) => (
-              <button key={p} onClick={() => setRatePeriod(p)} className={`px-4 py-1.5 rounded-full text-[12px] font-bold transition ${ratePeriod === p ? "text-[#06121a]" : "text-white/55 hover:text-white"}`} style={ratePeriod === p ? { background: "linear-gradient(90deg,#6bb4e2,#2a72a8)" } : undefined}>{p === "month" ? "Per month" : "Per year"}</button>
+              <button key={p} onClick={() => setRatePeriod(p)} className={`px-4 py-1.5 rounded-full text-[12px] font-bold transition ${ratePeriod === p ? "text-[#fbfbfb]" : "text-[#141414]/55 hover:text-[#141414]"}`} style={ratePeriod === p ? { background: "linear-gradient(90deg,#1d6694,#2f7fbc)" } : undefined}>{p === "month" ? "Per month" : "Per year"}</button>
             ))}
           </div>
-          <p className="text-[12px] text-white/50">Your <span className="text-white/80 font-semibold">{rate}%</span> {ratePeriod === "year" ? "annual" : "monthly"} return = <span className="font-bold text-amber-300 tabular-nums">{calc.annualized.toFixed(2)}%</span> effective APY</p>
+          <p className="text-[12px] text-[#141414]/50">Your <span className="text-[#141414]/80 font-semibold">{rate}%</span> {ratePeriod === "year" ? "annual" : "monthly"} return = <span className="font-bold text-[#1d6694] tabular-nums">{calc.annualized.toFixed(2)}%</span> effective APY</p>
         </div>
       </div>
 
       {/* INPUTS */}
-      <div className="rounded-3xl border border-white/[0.08] bg-[#0a1018] p-5 sm:p-6">
-        <div className="flex items-center gap-2 mb-4"><Calculator className="w-4 h-4 text-amber-300" /><h3 className="text-sm font-bold text-white">Your scenario</h3><span className="text-[11px] text-white/35 ml-1">— tap any value to edit</span></div>
+      <div className="rounded-3xl border border-black/[0.08] bg-[#fafbfb] p-5 sm:p-6">
+        <div className="flex items-center gap-2 mb-4"><Calculator className="w-4 h-4 text-[#1d6694]" /><h3 className="text-sm font-bold text-[#141414]">Your scenario</h3><span className="text-[11px] text-[#141414]/35 ml-1">— tap any value to edit</span></div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           <InputBox label="Starting amount" hint="What you invest today" prefix="$">
-            <input type="text" inputMode="decimal" value={initialStr} onChange={(e) => { const s = e.target.value.replace(/[^0-9.]/g, ""); setInitialStr(s); const n = parseFloat(s); if (!isNaN(n)) setInitial(n); }} onBlur={() => { const n = Math.max(1, Math.min(1e8, parseFloat(initialStr) || 0)); setInitial(n); setInitialStr(String(n)); }} className="w-full bg-transparent text-2xl font-black tabular-nums text-white outline-none focus:text-amber-200 transition-colors" />
+            <input type="text" inputMode="decimal" value={initialStr} onChange={(e) => { const s = e.target.value.replace(/[^0-9.]/g, ""); setInitialStr(s); const n = parseFloat(s); if (!isNaN(n)) setInitial(n); }} onBlur={() => { const n = Math.max(1, Math.min(1e8, parseFloat(initialStr) || 0)); setInitial(n); setInitialStr(String(n)); }} className="w-full bg-transparent text-2xl font-black tabular-nums text-[#141414] outline-none focus:text-[#2f7fbc] transition-colors" />
           </InputBox>
           <InputBox label={ratePeriod === "year" ? "Annual return" : "Monthly return"} hint={`GoldRock target ≈ ${GOLDROCK_MONTHLY}%/mo`} suffix="%">
-            <input type="text" inputMode="decimal" value={rateStr} onChange={(e) => { const s = e.target.value.replace(/[^0-9.]/g, ""); setRateStr(s); const n = parseFloat(s); if (!isNaN(n)) setRate(n); }} onBlur={() => { const n = Math.max(0, Math.min(1000, parseFloat(rateStr) || 0)); setRate(n); setRateStr(String(n)); }} className="w-full bg-transparent text-2xl font-black tabular-nums text-amber-300 outline-none transition-colors" />
+            <input type="text" inputMode="decimal" value={rateStr} onChange={(e) => { const s = e.target.value.replace(/[^0-9.]/g, ""); setRateStr(s); const n = parseFloat(s); if (!isNaN(n)) setRate(n); }} onBlur={() => { const n = Math.max(0, Math.min(1000, parseFloat(rateStr) || 0)); setRate(n); setRateStr(String(n)); }} className="w-full bg-transparent text-2xl font-black tabular-nums text-[#1d6694] outline-none transition-colors" />
           </InputBox>
           <InputBox label="Time horizon" hint="How long it runs" suffix="mo">
-            <input type="text" inputMode="numeric" value={monthsStr} onChange={(e) => { const s = e.target.value.replace(/[^0-9]/g, ""); setMonthsStr(s); const n = parseInt(s, 10); if (!isNaN(n)) setMonths(n); }} onBlur={() => { const n = Math.max(1, Math.min(600, parseInt(monthsStr, 10) || 1)); setMonths(n); setMonthsStr(String(n)); }} className="w-full bg-transparent text-2xl font-black tabular-nums text-white outline-none focus:text-amber-200 transition-colors" />
+            <input type="text" inputMode="numeric" value={monthsStr} onChange={(e) => { const s = e.target.value.replace(/[^0-9]/g, ""); setMonthsStr(s); const n = parseInt(s, 10); if (!isNaN(n)) setMonths(n); }} onBlur={() => { const n = Math.max(1, Math.min(600, parseInt(monthsStr, 10) || 1)); setMonths(n); setMonthsStr(String(n)); }} className="w-full bg-transparent text-2xl font-black tabular-nums text-[#141414] outline-none focus:text-[#2f7fbc] transition-colors" />
           </InputBox>
           <InputBox label="Adding each month" hint="Optional recurring top-up" prefix="$">
-            <input type="text" inputMode="decimal" value={contribStr} onChange={(e) => { const s = e.target.value.replace(/[^0-9.]/g, ""); setContribStr(s); const n = parseFloat(s); if (!isNaN(n)) setContribution(n); }} onBlur={() => { const n = Math.max(0, Math.min(1e8, parseFloat(contribStr) || 0)); setContribution(n); setContribStr(String(n)); }} className="w-full bg-transparent text-2xl font-black tabular-nums text-white outline-none focus:text-amber-200 transition-colors" />
+            <input type="text" inputMode="decimal" value={contribStr} onChange={(e) => { const s = e.target.value.replace(/[^0-9.]/g, ""); setContribStr(s); const n = parseFloat(s); if (!isNaN(n)) setContribution(n); }} onBlur={() => { const n = Math.max(0, Math.min(1e8, parseFloat(contribStr) || 0)); setContribution(n); setContribStr(String(n)); }} className="w-full bg-transparent text-2xl font-black tabular-nums text-[#141414] outline-none focus:text-[#2f7fbc] transition-colors" />
           </InputBox>
         </div>
-        <div className="flex gap-2 flex-wrap mt-4 pt-4 border-t border-white/[0.06]">
-          <span className="text-[11px] text-white/35 self-center mr-1">Quick start:</span>
+        <div className="flex gap-2 flex-wrap mt-4 pt-4 border-t border-black/[0.07]">
+          <span className="text-[11px] text-[#141414]/35 self-center mr-1">Quick start:</span>
           {[500, 1000, 5000, 10000, 25000].map((v) => (
-            <button key={v} onClick={() => { setInitial(v); setInitialStr(String(v)); }} className={`px-3 py-1 rounded-full text-[11px] font-semibold border ${initial === v ? "bg-amber-400/15 text-amber-200 border-amber-400/40" : "text-white/55 border-white/10 hover:border-white/25"}`}>{cmoney(v)}</button>
+            <button key={v} onClick={() => { setInitial(v); setInitialStr(String(v)); }} className={`px-3 py-1 rounded-full text-[11px] font-semibold border ${initial === v ? "bg-[#3181b9]/15 text-[#2f7fbc] border-[#3181b9]/40" : "text-[#141414]/55 border-black/10 hover:border-black/20"}`}>{cmoney(v)}</button>
           ))}
         </div>
       </div>
 
       {/* CHART */}
-      <div className="rounded-3xl border border-white/[0.08] bg-[#0a1018] p-4 sm:p-6">
+      <div className="rounded-3xl border border-black/[0.08] bg-[#fafbfb] p-4 sm:p-6">
         <div className="flex items-center justify-between gap-2 mb-4 flex-wrap">
-          <div className="flex items-center gap-2"><TrendingUp className="w-4 h-4 text-amber-300" /><h3 className="text-sm font-bold text-white">Projected growth</h3></div>
-          <div className="flex items-center gap-4 text-[11px] text-white/50">
-            <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm" style={{ background: "linear-gradient(180deg,#b3daf4,#2271a5)" }} /> Monthly gain</span>
-            <span className="inline-flex items-center gap-1.5"><span className="w-4 h-0.5 rounded-full bg-amber-500" /> Running balance</span>
+          <div className="flex items-center gap-2"><TrendingUp className="w-4 h-4 text-[#1d6694]" /><h3 className="text-sm font-bold text-[#141414]">Projected growth</h3></div>
+          <div className="flex items-center gap-4 text-[11px] text-[#141414]/50">
+            <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm" style={{ background: "linear-gradient(180deg,#2e3e49,#2885c3)" }} /> Monthly gain</span>
+            <span className="inline-flex items-center gap-1.5"><span className="w-4 h-0.5 rounded-full bg-[#1d6694]" /> Running balance</span>
           </div>
         </div>
         <GrowthChart rows={calc.rows} />
-        <div className="mt-4 rounded-2xl border border-amber-400/20 px-4 py-3 flex items-center justify-between gap-3 flex-wrap" style={{ background: "linear-gradient(90deg, rgba(107,180,226,0.10), rgba(46,122,180,0.06))" }}>
-          <p className="text-[13px] text-white/85"><span className="font-bold text-amber-300">Compounding adds {cmoney(calc.compoundAdds)}</span> vs flat simple interest at the same rate.</p>
-          <p className="text-[12px] text-white/45 tabular-nums">simple: {cmoney(calc.simpleBalance)}</p>
+        <div className="mt-4 rounded-2xl border border-[#3181b9]/20 px-4 py-3 flex items-center justify-between gap-3 flex-wrap" style={{ background: "linear-gradient(90deg, rgba(29,102,148,0.10), rgba(48,127,187,0.06))" }}>
+          <p className="text-[13px] text-[#141414]/85"><span className="font-bold text-[#1d6694]">Compounding adds {cmoney(calc.compoundAdds)}</span> vs flat simple interest at the same rate.</p>
+          <p className="text-[12px] text-[#141414]/45 tabular-nums">simple: {cmoney(calc.simpleBalance)}</p>
         </div>
       </div>
 
       {/* MONTH-BY-MONTH */}
-      <div className="rounded-3xl border border-white/[0.08] bg-[#0a1018] overflow-hidden">
+      <div className="rounded-3xl border border-black/[0.08] bg-[#fafbfb] overflow-hidden">
         <div className="flex items-center justify-between gap-2 px-5 pt-5 flex-wrap">
-          <div><h3 className="text-base font-bold text-white">Month-by-month projection</h3><p className="text-[12px] text-white/45 mt-0.5">The same compounding curve, laid out so you can scan every month.</p></div>
-          <p className="text-[12px] text-white/40 tabular-nums">{months} months · {rate}% / {ratePeriod === "year" ? "yr" : "mo"}{contribution > 0 ? ` · +${cmoney(contribution)}/mo` : ""}</p>
+          <div><h3 className="text-base font-bold text-[#141414]">Month-by-month projection</h3><p className="text-[12px] text-[#141414]/45 mt-0.5">The same compounding curve, laid out so you can scan every month.</p></div>
+          <p className="text-[12px] text-[#141414]/40 tabular-nums">{months} months · {rate}% / {ratePeriod === "year" ? "yr" : "mo"}{contribution > 0 ? ` · +${cmoney(contribution)}/mo` : ""}</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 px-5 py-4">
           {[0, 1].map((col) => {
@@ -311,9 +311,9 @@ function CompoundCalc() {
             if (slice.length === 0) return <div key={col} />;
             return (
               <div key={col} className="min-w-0">
-                <div className="grid grid-cols-4 gap-2 pb-2 mb-1 border-b border-white/[0.08] text-[10px] uppercase tracking-wider text-white/40 font-semibold"><span>Month</span><span className="text-right">Balance</span><span className="text-right">Principal</span><span className="text-right">Interest</span></div>
+                <div className="grid grid-cols-4 gap-2 pb-2 mb-1 border-b border-black/[0.08] text-[10px] uppercase tracking-wider text-[#141414]/40 font-semibold"><span>Month</span><span className="text-right">Balance</span><span className="text-right">Principal</span><span className="text-right">Interest</span></div>
                 {slice.map((r) => (
-                  <div key={r.m} className="grid grid-cols-4 gap-2 py-1.5 border-b border-white/[0.04] text-[12px] tabular-nums"><span className="text-white/60 font-medium">Month {r.m}</span><span className="text-right font-bold text-white">{cmoney(r.balance)}</span><span className="text-right text-white/45">{cmoney(r.principal)}</span><span className="text-right font-semibold text-amber-300">+{cmoney(r.interest)}</span></div>
+                  <div key={r.m} className="grid grid-cols-4 gap-2 py-1.5 border-b border-black/[0.06] text-[12px] tabular-nums"><span className="text-[#141414]/60 font-medium">Month {r.m}</span><span className="text-right font-bold text-[#141414]">{cmoney(r.balance)}</span><span className="text-right text-[#141414]/45">{cmoney(r.principal)}</span><span className="text-right font-semibold text-[#1d6694]">+{cmoney(r.interest)}</span></div>
                 ))}
               </div>
             );
@@ -323,19 +323,19 @@ function CompoundCalc() {
 
       {/* EXPLAINERS */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-        <Explainer icon={<Repeat className="w-4 h-4 text-amber-300" />} title="What compounding does">Each month's gain is added to your balance, so the next month earns a return on a bigger base. That snowball is why the curve bends upward instead of rising in a straight line.</Explainer>
-        <Explainer icon={<TrendingUp className="w-4 h-4 text-amber-300" />} title="Compound vs simple">Simple interest pays the same flat amount every month on your original deposit. Compounding reinvests every gain — the gap widens the longer you stay invested.</Explainer>
-        <Explainer icon={<Sparkles className="w-4 h-4 text-amber-300" />} title="Adding each month">Recurring contributions stack new principal on top of a compounding balance. Even small monthly top-ups meaningfully lift the final number over time.</Explainer>
+        <Explainer icon={<Repeat className="w-4 h-4 text-[#1d6694]" />} title="What compounding does">Each month's gain is added to your balance, so the next month earns a return on a bigger base. That snowball is why the curve bends upward instead of rising in a straight line.</Explainer>
+        <Explainer icon={<TrendingUp className="w-4 h-4 text-[#1d6694]" />} title="Compound vs simple">Simple interest pays the same flat amount every month on your original deposit. Compounding reinvests every gain — the gap widens the longer you stay invested.</Explainer>
+        <Explainer icon={<Sparkles className="w-4 h-4 text-[#1d6694]" />} title="Adding each month">Recurring contributions stack new principal on top of a compounding balance. Even small monthly top-ups meaningfully lift the final number over time.</Explainer>
       </div>
 
       {/* CTA */}
-      <div className="rounded-3xl border border-amber-400/20 p-6 text-center" style={{ background: "linear-gradient(135deg, rgba(107,180,226,0.10), rgba(46,122,180,0.07))" }}>
-        <p className="text-base font-bold text-white flex items-center justify-center gap-2"><Sparkles className="w-4 h-4 text-amber-300" /> Ready to put compounding to work?</p>
-        <p className="text-[13px] text-white/55 mt-1.5">GoldRock's PAMM targets ≈ {GOLDROCK_MONTHLY}% / month. Invest and let it reinvest for you.</p>
-        <a href={SIGNUP_PATH} className="mt-4 h-11 px-7 rounded-full font-bold text-[#06121a] inline-flex items-center gap-2" style={{ background: "linear-gradient(90deg,#6bb4e2,#2a72a8)" }}>Create your account →</a>
+      <div className="rounded-3xl border border-[#3181b9]/20 p-6 text-center" style={{ background: "linear-gradient(135deg, rgba(29,102,148,0.10), rgba(48,127,187,0.07))" }}>
+        <p className="text-base font-bold text-[#141414] flex items-center justify-center gap-2"><Sparkles className="w-4 h-4 text-[#1d6694]" /> Ready to put compounding to work?</p>
+        <p className="text-[13px] text-[#141414]/55 mt-1.5">GoldRock's PAMM targets ≈ {GOLDROCK_MONTHLY}% / month. Invest and let it reinvest for you.</p>
+        <a href={SIGNUP_PATH} className="mt-4 h-11 px-7 rounded-full font-bold text-[#fbfbfb] inline-flex items-center gap-2" style={{ background: "linear-gradient(90deg,#1d6694,#2f7fbc)" }}>Create your account →</a>
       </div>
 
-      <p className="text-[11px] leading-relaxed text-white/35 px-1 text-center flex items-start gap-1.5 justify-center max-w-2xl mx-auto"><Info className="w-3.5 h-3.5 shrink-0 mt-0.5" /><span>This calculator is for illustration only. Projections assume a constant return and do not guarantee future results. Past performance is not indicative of future returns. Trading involves risk.</span></p>
+      <p className="text-[11px] leading-relaxed text-[#141414]/35 px-1 text-center flex items-start gap-1.5 justify-center max-w-2xl mx-auto"><Info className="w-3.5 h-3.5 shrink-0 mt-0.5" /><span>This calculator is for illustration only. Projections assume a constant return and do not guarantee future results. Past performance is not indicative of future returns. Trading involves risk.</span></p>
     </div>
   );
 }
@@ -356,24 +356,24 @@ function GrowthChart({ rows }: { rows: { label: string; balance: number; gain: n
   return (
     <svg viewBox={`0 0 ${W} ${H}`} width="100%" height="300" preserveAspectRatio="none" style={{ display: "block" }}>
       <defs>
-        <linearGradient id="ccBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#b3daf4" /><stop offset="100%" stopColor="#2271a5" /></linearGradient>
-        <linearGradient id="ccArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="rgba(96,172,220,.22)" /><stop offset="100%" stopColor="rgba(96,172,220,0)" /></linearGradient>
+        <linearGradient id="ccBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#2e3e49" /><stop offset="100%" stopColor="#2885c3" /></linearGradient>
+        <linearGradient id="ccArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="rgba(35,111,159,.22)" /><stop offset="100%" stopColor="rgba(35,111,159,0)" /></linearGradient>
       </defs>
-      {Array.from({ length: ticks + 1 }, (_, i) => { const gv = (maxBal / ticks) * i; const gy = y(gv); return (<g key={i}><line x1={padL} y1={gy} x2={padL + iw} y2={gy} stroke="rgba(255,255,255,.05)" strokeWidth="1" /><text x={padL - 6} y={gy + 3} textAnchor="end" fontSize="10" fill="rgba(255,255,255,.4)">{ckfmt(gv)}</text></g>); })}
+      {Array.from({ length: ticks + 1 }, (_, i) => { const gv = (maxBal / ticks) * i; const gy = y(gv); return (<g key={i}><line x1={padL} y1={gy} x2={padL + iw} y2={gy} stroke="rgba(20,20,20,.05)" strokeWidth="1" /><text x={padL - 6} y={gy + 3} textAnchor="end" fontSize="10" fill="rgba(20,20,20,.4)">{ckfmt(gv)}</text></g>); })}
       {rows.map((r, i) => { const bh = (r.gain / maxBal) * ih; return <rect key={i} x={x(i) - bw / 2} y={padT + ih - bh} width={bw} height={Math.max(0, bh)} rx="3" fill="url(#ccBar)" />; })}
       <polygon points={areaPts} fill="url(#ccArea)" />
-      <polyline points={linePts} fill="none" stroke="#4499d2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      {rows.map((r, i) => (i % step === 0 || i === n - 1) ? <text key={i} x={x(i)} y={H - 6} textAnchor="middle" fontSize="10" fill="rgba(255,255,255,.4)">{r.label === "Start" ? "Now" : r.label}</text> : null)}
+      <polyline points={linePts} fill="none" stroke="#2d82bb" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      {rows.map((r, i) => (i % step === 0 || i === n - 1) ? <text key={i} x={x(i)} y={H - 6} textAnchor="middle" fontSize="10" fill="rgba(20,20,20,.4)">{r.label === "Start" ? "Now" : r.label}</text> : null)}
     </svg>
   );
 }
 
 function HeroStat({ label, value, sub }: { label: string; value: string; sub?: string }) {
-  return (<div className="text-center lg:text-right min-w-0"><p className="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-white/40 font-semibold">{label}</p><p className="text-base sm:text-xl font-black tabular-nums text-white mt-1 leading-none">{value}</p>{sub && <p className="text-[10px] text-white/40 tabular-nums mt-0.5">{sub}</p>}</div>);
+  return (<div className="text-center lg:text-right min-w-0"><p className="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-[#141414]/40 font-semibold">{label}</p><p className="text-base sm:text-xl font-black tabular-nums text-[#141414] mt-1 leading-none">{value}</p>{sub && <p className="text-[10px] text-[#141414]/40 tabular-nums mt-0.5">{sub}</p>}</div>);
 }
 function InputBox({ label, hint, prefix, suffix, children }: { label: string; hint?: string; prefix?: string; suffix?: string; children: ReactNode }) {
-  return (<div className="rounded-2xl border border-white/[0.09] bg-white/[0.02] p-3.5 min-w-0 focus-within:border-amber-400/40 transition-colors"><p className="text-[10px] uppercase tracking-[0.12em] text-white/45 font-semibold leading-tight min-h-[1.6em]">{label}</p><div className="flex items-baseline gap-1 mt-1.5">{prefix && <span className="text-white/45 text-lg font-bold shrink-0">{prefix}</span>}{children}{suffix && <span className="text-white/45 text-sm font-semibold shrink-0">{suffix}</span>}</div>{hint && <p className="text-[10px] text-white/30 mt-1 truncate">{hint}</p>}</div>);
+  return (<div className="rounded-2xl border border-black/[0.09] bg-black/[0.015] p-3.5 min-w-0 focus-within:border-[#3181b9]/40 transition-colors"><p className="text-[10px] uppercase tracking-[0.12em] text-[#141414]/45 font-semibold leading-tight min-h-[1.6em]">{label}</p><div className="flex items-baseline gap-1 mt-1.5">{prefix && <span className="text-[#141414]/45 text-lg font-bold shrink-0">{prefix}</span>}{children}{suffix && <span className="text-[#141414]/45 text-sm font-semibold shrink-0">{suffix}</span>}</div>{hint && <p className="text-[10px] text-[#141414]/30 mt-1 truncate">{hint}</p>}</div>);
 }
 function Explainer({ icon, title, children }: { icon: ReactNode; title: string; children: ReactNode }) {
-  return (<div className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4"><div className="flex items-center gap-2 mb-1.5">{icon}<h4 className="text-[13px] font-bold text-white">{title}</h4></div><p className="text-[12px] leading-relaxed text-white/50">{children}</p></div>);
+  return (<div className="rounded-2xl border border-black/[0.07] bg-black/[0.015] p-4"><div className="flex items-center gap-2 mb-1.5">{icon}<h4 className="text-[13px] font-bold text-[#141414]">{title}</h4></div><p className="text-[12px] leading-relaxed text-[#141414]/50">{children}</p></div>);
 }

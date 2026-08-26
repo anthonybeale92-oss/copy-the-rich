@@ -6,24 +6,24 @@ declare global { interface Window { google?: any; } }
 
 const CSS = `
 .lg *{box-sizing:border-box}
-.lg{min-height:100vh;background:#05070d;color:#fff;display:flex;align-items:center;justify-content:center;padding:24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif}
-.lg .card{width:100%;max-width:420px;border:1px solid rgba(255,255,255,.1);border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));padding:30px 26px;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.lg{min-height:100vh;background:#fdfdfd;color:#141414;display:flex;align-items:center;justify-content:center;padding:24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif}
+.lg .card{width:100%;max-width:420px;border:1px solid rgba(20,20,20,.1);border-radius:22px;background:linear-gradient(160deg,rgba(20,20,20,.05),rgba(20,20,20,.01));padding:30px 26px;box-shadow:0 30px 80px -30px rgba(0,0,0,0.128)}
 .lg .logo{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:18px}
-.lg .logo img{width:72px;height:72px;border-radius:18px;object-fit:contain;box-shadow:0 10px 30px -10px rgba(63,146,204,.5)}
+.lg .logo img{width:72px;height:72px;border-radius:18px;object-fit:contain;box-shadow:0 10px 30px -10px rgba(49,129,185,.5)}
 .lg h1{font-size:22px;font-weight:900;text-align:center}
-.lg .sub{font-size:13px;color:rgba(255,255,255,.5);text-align:center;margin-top:6px;line-height:1.5}
+.lg .sub{font-size:13px;color:rgba(20,20,20,.5);text-align:center;margin-top:6px;line-height:1.5}
 .lg .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.lg label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin:14px 0 6px}
-.lg input{width:100%;height:46px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);color:#fff;padding:0 14px;font-size:15px;outline:none}
-.lg input:focus{border-color:rgba(107,180,226,.6)}
-.lg .hint{font-size:11px;color:rgba(255,255,255,.35);margin-top:6px}
-.lg .btn{width:100%;height:50px;margin-top:20px;border:none;border-radius:13px;font-weight:800;font-size:15px;color:#0d1420;cursor:pointer;background:linear-gradient(90deg,#6bb4e2,#2e7ab4,#2a72a8);box-shadow:0 14px 40px -16px rgba(107,180,226,.7)}
+.lg label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(20,20,20,.5);margin:14px 0 6px}
+.lg input{width:100%;height:46px;border-radius:12px;border:1px solid rgba(20,20,20,.12);background:rgba(0,0,0,0.056);color:#141414;padding:0 14px;font-size:15px;outline:none}
+.lg input:focus{border-color:rgba(29,102,148,.6)}
+.lg .hint{font-size:11px;color:rgba(20,20,20,.35);margin-top:6px}
+.lg .btn{width:100%;height:50px;margin-top:20px;border:none;border-radius:13px;font-weight:800;font-size:15px;color:#f9f9fa;cursor:pointer;background:linear-gradient(90deg,#1d6694,#307fbb,#2f7fbc);box-shadow:0 14px 40px -16px rgba(29,102,148,.7)}
 .lg .btn:disabled{opacity:.6;cursor:default}
-.lg .err{margin-top:14px;font-size:13px;color:#fca5a5;text-align:center}
-.lg .foot{margin-top:18px;text-align:center;font-size:13px;color:rgba(255,255,255,.5)}
-.lg .foot a{color:#6bb4e2;font-weight:700}
-.lg .or{display:flex;align-items:center;gap:12px;margin:20px 0 16px;color:rgba(255,255,255,.35);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-.lg .or::before,.lg .or::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.1)}
+.lg .err{margin-top:14px;font-size:13px;color:#4c3131;text-align:center}
+.lg .foot{margin-top:18px;text-align:center;font-size:13px;color:rgba(20,20,20,.5)}
+.lg .foot a{color:#1d6694;font-weight:700}
+.lg .or{display:flex;align-items:center;gap:12px;margin:20px 0 16px;color:rgba(20,20,20,.35);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.lg .or::before,.lg .or::after{content:"";flex:1;height:1px;background:rgba(20,20,20,.1)}
 .lg .gwrap{display:flex;justify-content:center;min-height:44px;color-scheme:light}
 .lg .gwrap > div{width:100%!important}
 `;

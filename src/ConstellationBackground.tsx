@@ -275,7 +275,7 @@ const GRAIN_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="220" height="2
 </svg>`;
 
 export default function ConstellationBackground({
-  base = "#05070d",
+  base = "#fdfdfd",
   // "R,G,B" — the colour the stars, their links and the aurora pools are drawn in. White is the
   // forexbrokercrm original; Copy the Rich Trades passes its blue so the backdrop belongs to the brand
   // instead of sitting under it.

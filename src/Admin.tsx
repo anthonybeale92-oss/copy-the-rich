@@ -14,141 +14,141 @@ const shortDate = (iso: string) => { try { return new Date(iso).toLocaleDateStri
 
 const CSS = `
 .ad *{box-sizing:border-box}
-.ad{min-height:100vh;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;position:relative;overflow-x:clip;background:radial-gradient(1100px 650px at 78% -10%,rgba(107,180,226,.10),transparent 60%),radial-gradient(900px 600px at 8% 110%,rgba(46,122,180,.09),transparent 60%),#05070d}
+.ad{min-height:100vh;color:#141414;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;position:relative;overflow-x:clip;background:radial-gradient(1100px 650px at 78% -10%,rgba(29,102,148,.10),transparent 60%),radial-gradient(900px 600px at 8% 110%,rgba(48,127,187,.09),transparent 60%),#fdfdfd}
 .ad .top,.ad .wrap,.ad main{position:relative;z-index:1}
 /* animated constellation backdrop (canvas), fixed behind all content */
 .ad .adconst{position:fixed;inset:0;z-index:0;width:100%;height:100%;pointer-events:none;display:block}
-.ad .top{position:sticky;top:0;z-index:20;background:rgba(5,7,13,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.ad .top{position:sticky;top:0;z-index:20;background:rgba(253,253,253,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(20,20,20,.06)}
 .ad .topin{max-width:1080px;margin:0 auto;padding:0 18px;display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
 .ad .brand{display:flex;align-items:center;gap:9px}
 .ad .brand img{height:32px;width:32px;border-radius:8px;object-fit:contain}
 .ad .brand b{font-weight:900;font-size:15px}
-.ad .brand .tag{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#7cbde6;border:1px solid rgba(63,146,204,.35);border-radius:99px;padding:3px 8px;margin-left:4px}
+.ad .brand .tag{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#195a83;border:1px solid rgba(49,129,185,.35);border-radius:99px;padding:3px 8px;margin-left:4px}
 .ad .who{display:flex;align-items:center;gap:10px}
-.ad .who .em{font-size:12px;color:rgba(255,255,255,.6)}
-.ad .lo{height:32px;padding:0 12px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:none;color:rgba(255,255,255,.8);font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.ad .who .em{font-size:12px;color:rgba(20,20,20,.6)}
+.ad .lo{height:32px;padding:0 12px;border-radius:10px;border:1px solid rgba(20,20,20,.15);background:none;color:rgba(20,20,20,.8);font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
 .ad .wrap{max-width:1080px;margin:0 auto;padding:22px 18px 60px}
 .ad h1{font-size:24px;font-weight:900;letter-spacing:-.02em}
-.ad .lead{color:rgba(255,255,255,.55);font-size:14px;margin-top:4px}
+.ad .lead{color:rgba(20,20,20,.55);font-size:14px;margin-top:4px}
 .ad .adlayout{display:grid;grid-template-columns:1fr;gap:18px;margin-top:20px}
 @media(min-width:860px){.ad .adlayout{grid-template-columns:210px 1fr;align-items:start}}
 .ad .adside{display:flex;flex-direction:row;gap:8px;overflow-x:auto;position:sticky;top:12px;padding-bottom:4px}
 @media(min-width:860px){.ad .adside{flex-direction:column;overflow:visible}}
-.ad .adtab{display:flex;align-items:center;gap:10px;height:44px;padding:0 16px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);color:rgba(255,255,255,.7);font-weight:800;font-size:14px;cursor:pointer;white-space:nowrap;transition:.15s;font-family:inherit;flex:none}
+.ad .adtab{display:flex;align-items:center;gap:10px;height:44px;padding:0 16px;border-radius:12px;border:1px solid rgba(20,20,20,.08);background:rgba(20,20,20,.02);color:rgba(20,20,20,.7);font-weight:800;font-size:14px;cursor:pointer;white-space:nowrap;transition:.15s;font-family:inherit;flex:none}
 @media(min-width:860px){.ad .adtab{width:100%}}
 .ad .adtab .tic{font-size:16px}
-.ad .adtab:hover{color:#fff;border-color:rgba(255,255,255,.16)}
-.ad .adtab.on{color:#0d1420;background:linear-gradient(90deg,#6bb4e2,#2e7ab4);border-color:transparent;box-shadow:0 10px 26px -14px rgba(107,180,226,.7)}
+.ad .adtab:hover{color:#141414;border-color:rgba(20,20,20,.16)}
+.ad .adtab.on{color:#f9f9fa;background:linear-gradient(90deg,#1d6694,#307fbb);border-color:transparent;box-shadow:0 10px 26px -14px rgba(29,102,148,.7)}
 .ad .adbody{min-width:0}
 .ad .adbody .kick:first-child{margin-top:0}
-.ad .broadcast{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:0;border:1px solid rgba(63,146,204,.32);background:linear-gradient(120deg,rgba(63,146,204,.09),rgba(86,164,216,.05));border-radius:16px;padding:18px 20px}
+.ad .broadcast{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:0;border:1px solid rgba(49,129,185,.32);background:linear-gradient(120deg,rgba(49,129,185,.09),rgba(39,117,169,.05));border-radius:16px;padding:18px 20px}
 .ad .broadcast .bico{font-size:30px;line-height:1}
 .ad .broadcast .btxt{display:flex;flex-direction:column;gap:3px;min-width:220px;flex:1}
-.ad .broadcast .btxt b{color:#fff;font-size:15px;font-weight:900}
-.ad .broadcast .btxt span{color:rgba(255,255,255,.55);font-size:12.5px;line-height:1.5;max-width:60ch}
-.ad .broadcast .bbtn{margin-left:auto;height:44px;padding:0 20px;border:none;border-radius:12px;font-weight:900;font-size:13.5px;color:#0d1420;background:linear-gradient(90deg,#3f92cc,#cfe7fa);cursor:pointer;white-space:nowrap}
+.ad .broadcast .btxt b{color:#141414;font-size:15px;font-weight:900}
+.ad .broadcast .btxt span{color:rgba(20,20,20,.55);font-size:12.5px;line-height:1.5;max-width:60ch}
+.ad .broadcast .bbtn{margin-left:auto;height:44px;padding:0 20px;border:none;border-radius:12px;font-weight:900;font-size:13.5px;color:#f9f9fa;background:linear-gradient(90deg,#3181b9,#232d36);cursor:pointer;white-space:nowrap}
 .ad .broadcast .bbtn:hover{filter:brightness(1.06)}
-.ad .autopost{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:12px;border:1px solid rgba(86,164,216,.28);background:linear-gradient(120deg,rgba(86,164,216,.08),rgba(46,122,180,.05));border-radius:16px;padding:14px 18px}
+.ad .autopost{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:12px;border:1px solid rgba(39,117,169,.28);background:linear-gradient(120deg,rgba(39,117,169,.08),rgba(48,127,187,.05));border-radius:16px;padding:14px 18px}
 .ad .autopost .aptxt{display:flex;flex-direction:column;gap:3px;min-width:220px;flex:1}
-.ad .autopost .aptxt b{color:#fff;font-size:14px;font-weight:900}
-.ad .autopost .aptxt span{color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;max-width:56ch}
-.ad .autopost .apseg{display:flex;gap:6px;margin-left:auto;background:#05070d;border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:4px}
-.ad .autopost .apseg button{height:34px;padding:0 13px;border:none;background:transparent;border-radius:8px;color:rgba(255,255,255,.6);font-weight:800;font-size:12.5px;cursor:pointer;white-space:nowrap}
-.ad .autopost .apseg button.on{background:linear-gradient(90deg,#6bb4e2,#2e7ab4);color:#0d1420}
-.ad .kick{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(107,180,226,.8);margin:26px 0 12px}
+.ad .autopost .aptxt b{color:#141414;font-size:14px;font-weight:900}
+.ad .autopost .aptxt span{color:rgba(20,20,20,.55);font-size:12px;line-height:1.5;max-width:56ch}
+.ad .autopost .apseg{display:flex;gap:6px;margin-left:auto;background:#fdfdfd;border:1px solid rgba(20,20,20,.1);border-radius:11px;padding:4px}
+.ad .autopost .apseg button{height:34px;padding:0 13px;border:none;background:transparent;border-radius:8px;color:rgba(20,20,20,.6);font-weight:800;font-size:12.5px;cursor:pointer;white-space:nowrap}
+.ad .autopost .apseg button.on{background:linear-gradient(90deg,#1d6694,#307fbb);color:#f9f9fa}
+.ad .kick{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(29,102,148,.8);margin:26px 0 12px}
 .ad .kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(min-width:720px){.ad .kpis{grid-template-columns:repeat(4,1fr)}}
-.ad .kpi{border:1px solid rgba(255,255,255,.09);background:#0b0c12;border-radius:16px;padding:18px}
-.ad .kpi .l{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.ad .kpi .v{font-size:28px;font-weight:900;margin-top:6px;font-variant-numeric:tabular-nums;background:linear-gradient(90deg,#6bb4e2,#2a72a8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.ad .kpi .s{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px}
-.ad .panel{border:1px solid rgba(255,255,255,.09);background:#0b0c12;border-radius:18px;padding:20px;min-width:0}
+.ad .kpi{border:1px solid rgba(20,20,20,.09);background:#fbfbfc;border-radius:16px;padding:18px}
+.ad .kpi .l{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(20,20,20,.45)}
+.ad .kpi .v{font-size:28px;font-weight:900;margin-top:6px;font-variant-numeric:tabular-nums;background:linear-gradient(90deg,#1d6694,#2f7fbc);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ad .kpi .s{font-size:12px;color:rgba(20,20,20,.4);margin-top:4px}
+.ad .panel{border:1px solid rgba(20,20,20,.09);background:#fbfbfc;border-radius:18px;padding:20px;min-width:0}
 .ad .cols{display:grid;grid-template-columns:1fr;gap:16px}
 @media(min-width:820px){.ad .cols{grid-template-columns:1fr 1fr}}
 .ad .ph{font-size:14px;font-weight:800;margin-bottom:14px}
 /* 14-day chart */
 .ad .chart{display:flex;align-items:flex-end;gap:6px;height:150px;padding-top:8px}
 .ad .bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
-.ad .bar .col{width:100%;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#6bb4e2,#2e7ab4);min-height:3px;transition:.2s}
-.ad .bar .dd{font-size:9px;color:rgba(255,255,255,.35);white-space:nowrap}
+.ad .bar .col{width:100%;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#1d6694,#307fbb);min-height:3px;transition:.2s}
+.ad .bar .dd{font-size:9px;color:rgba(20,20,20,.35);white-space:nowrap}
 /* rows */
-.ad .row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid rgba(255,255,255,.05)}
+.ad .row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid rgba(20,20,20,.05)}
 .ad .row:first-child{border-top:none}
-.ad .row .nm{font-size:13.5px;color:rgba(255,255,255,.85);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ad .row .nm.land{color:#b3daf4;font-weight:700}
+.ad .row .nm{font-size:13.5px;color:rgba(20,20,20,.85);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ad .row .nm.land{color:#2e3e49;font-weight:700}
 /* users table */
 .ad .utable{padding:0;overflow:hidden}
 .ad .scrollx{overflow-x:auto}
 .ad table{width:100%;border-collapse:collapse;min-width:640px}
-.ad th{text-align:left;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);padding:11px 10px;border-bottom:1px solid rgba(255,255,255,.07);white-space:nowrap}
+.ad th{text-align:left;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(20,20,20,.4);padding:11px 10px;border-bottom:1px solid rgba(20,20,20,.07);white-space:nowrap}
 .ad th.r,.ad td.r{text-align:right}
-.ad td{padding:10px 10px;border-bottom:1px solid rgba(255,255,255,.04);font-size:13px;vertical-align:middle;white-space:nowrap}
-.ad tbody tr:hover{background:rgba(255,255,255,.02)}
-.ad .uname{font-weight:700;color:#fff}
-.ad .deskpill{margin-left:8px;font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:6px;color:#85c8f4;background:rgba(63,146,204,.13);border:1px solid rgba(63,146,204,.32);white-space:nowrap}
-.ad .uemail2{font-size:11.5px;color:rgba(255,255,255,.45)}
-.ad td.dim{color:rgba(255,255,255,.5)}
-.ad td.mono{font-family:ui-monospace,monospace;font-weight:700;color:#d8ecfb}
-.ad .ref{font-size:12px;font-weight:700;color:#8fc3e6;background:rgba(46,122,180,.12);border:1px solid rgba(46,122,180,.25);border-radius:99px;padding:2px 9px;white-space:nowrap}
-.ad .usort{display:flex;align-items:center;gap:8px;margin:14px 0 6px;font-size:12px;color:rgba(255,255,255,.45)}
-.ad .us{height:30px;padding:0 12px;border-radius:9px;border:1px solid rgba(255,255,255,.12);background:none;color:rgba(255,255,255,.7);font-size:12px;font-weight:700;cursor:pointer}
-.ad .us.on{border-color:rgba(107,180,226,.4);background:rgba(107,180,226,.1);color:#d8ecfb}
+.ad td{padding:10px 10px;border-bottom:1px solid rgba(20,20,20,.04);font-size:13px;vertical-align:middle;white-space:nowrap}
+.ad tbody tr:hover{background:rgba(20,20,20,.02)}
+.ad .uname{font-weight:700;color:#141414}
+.ad .deskpill{margin-left:8px;font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:6px;color:#0b4e7a;background:rgba(49,129,185,.13);border:1px solid rgba(49,129,185,.32);white-space:nowrap}
+.ad .uemail2{font-size:11.5px;color:rgba(20,20,20,.45)}
+.ad td.dim{color:rgba(20,20,20,.5)}
+.ad td.mono{font-family:ui-monospace,monospace;font-weight:700;color:#1f2930}
+.ad .ref{font-size:12px;font-weight:700;color:#194d70;background:rgba(48,127,187,.12);border:1px solid rgba(48,127,187,.25);border-radius:99px;padding:2px 9px;white-space:nowrap}
+.ad .usort{display:flex;align-items:center;gap:8px;margin:14px 0 6px;font-size:12px;color:rgba(20,20,20,.45)}
+.ad .us{height:30px;padding:0 12px;border-radius:9px;border:1px solid rgba(20,20,20,.12);background:none;color:rgba(20,20,20,.7);font-size:12px;font-weight:700;cursor:pointer}
+.ad .us.on{border-color:rgba(29,102,148,.4);background:rgba(29,102,148,.1);color:#1f2930}
 .ad .ufilters{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:16px 0 4px}
-.ad .usearch{flex:1;min-width:200px;height:38px;padding:0 14px;border-radius:11px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:#fff;font-size:13px;outline:none}
-.ad .usearch:focus{border-color:rgba(107,180,226,.4);background:rgba(107,180,226,.05)}
-.ad .usearch::placeholder{color:rgba(255,255,255,.35)}
+.ad .usearch{flex:1;min-width:200px;height:38px;padding:0 14px;border-radius:11px;border:1px solid rgba(20,20,20,.12);background:rgba(20,20,20,.03);color:#141414;font-size:13px;outline:none}
+.ad .usearch:focus{border-color:rgba(29,102,148,.4);background:rgba(29,102,148,.05)}
+.ad .usearch::placeholder{color:rgba(20,20,20,.35)}
 .ad .uchips{display:flex;flex-wrap:wrap;gap:6px}
-.ad .ucount{padding:10px 14px 0;font-size:11.5px;font-weight:700;color:rgba(255,255,255,.4)}
-.ad .loginas{font-size:12px;font-weight:800;color:#b3daf4;white-space:nowrap;text-decoration:none}
-.ad .loginas:hover{color:#d8ecfb;text-decoration:underline}
+.ad .ucount{padding:10px 14px 0;font-size:11.5px;font-weight:700;color:rgba(20,20,20,.4)}
+.ad .loginas{font-size:12px;font-weight:800;color:#2e3e49;white-space:nowrap;text-decoration:none}
+.ad .loginas:hover{color:#1f2930;text-decoration:underline}
 .ad tr.urow{cursor:pointer;transition:background .12s}
-.ad tr.urow:hover{background:rgba(255,255,255,.035)}
-.ad .mdlbg{position:fixed;inset:0;z-index:60;background:rgba(3,5,10,.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:18px;animation:mfade .16s ease}
+.ad tr.urow:hover{background:rgba(20,20,20,.035)}
+.ad .mdlbg{position:fixed;inset:0;z-index:60;background:rgba(253,253,254,.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:18px;animation:mfade .16s ease}
 @keyframes mfade{from{opacity:0}to{opacity:1}}
-.ad .mdl{position:relative;width:100%;max-width:440px;background:#0a1018;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:22px;box-shadow:0 40px 120px -30px rgba(0,0,0,.9);animation:mpop .18s cubic-bezier(.2,.8,.2,1)}
+.ad .mdl{position:relative;width:100%;max-width:440px;background:#fafbfb;border:1px solid rgba(20,20,20,.1);border-radius:18px;padding:22px;box-shadow:0 40px 120px -30px rgba(0,0,0,0.144);animation:mpop .18s cubic-bezier(.2,.8,.2,1)}
 @keyframes mpop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
-.ad .mdlx{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:13px;cursor:pointer}
-.ad .mdlx:hover{background:rgba(255,255,255,.12);color:#fff}
+.ad .mdlx{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;background:rgba(20,20,20,.06);border:1px solid rgba(20,20,20,.1);color:rgba(20,20,20,.7);font-size:13px;cursor:pointer}
+.ad .mdlx:hover{background:rgba(20,20,20,.12);color:#141414}
 .ad .mdlhead{display:flex;align-items:center;gap:13px;margin-bottom:14px}
-.ad .mav{flex:none;width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#3e9ad8,#24638f);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
-.ad .mnm{font-weight:800;color:#fff;font-size:17px}
-.ad .mem{color:rgba(255,255,255,.55);font-size:13px;word-break:break-all}
+.ad .mav{flex:none;width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#2783c1,#2f82bb);color:#141414;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
+.ad .mnm{font-weight:800;color:#141414;font-size:17px}
+.ad .mem{color:rgba(20,20,20,.55);font-size:13px;word-break:break-all}
 .ad .mtags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-.ad .mgrid{border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
-.ad .mrow{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.06)}
+.ad .mgrid{border:1px solid rgba(20,20,20,.08);border-radius:12px;overflow:hidden}
+.ad .mrow{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:11px 14px;border-bottom:1px solid rgba(20,20,20,.06)}
 .ad .mrow:last-child{border-bottom:none}
-.ad .mk{color:rgba(255,255,255,.5);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
-.ad .mv{color:#fff;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
+.ad .mk{color:rgba(20,20,20,.5);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.ad .mv{color:#141414;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
 .ad .mact{display:flex;gap:10px;margin-top:16px}
-.ad .mbtn{flex:1;text-align:center;padding:11px;border-radius:11px;font-size:13px;font-weight:800;cursor:pointer;text-decoration:none;background:linear-gradient(90deg,#3e9ad8,#24638f);color:#fff;border:none}
+.ad .mbtn{flex:1;text-align:center;padding:11px;border-radius:11px;font-size:13px;font-weight:800;cursor:pointer;text-decoration:none;background:linear-gradient(90deg,#2783c1,#2f82bb);color:#141414;border:none}
 .ad .mbtn:hover{filter:brightness(1.07)}
-.ad .mbtn.ghost{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:#bfdff4}
+.ad .mbtn.ghost{background:rgba(20,20,20,.05);border:1px solid rgba(20,20,20,.14);color:#2a3942}
 .ad .mbtn:disabled{opacity:.5;cursor:default}
 .ad .row .vv{font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;flex:none}
-.ad .row .vv small{color:rgba(255,255,255,.4);font-weight:600;margin-left:6px}
+.ad .row .vv small{color:rgba(20,20,20,.4);font-weight:600;margin-left:6px}
 /* tracking codes */
 .ad .track{display:grid;grid-template-columns:1fr;gap:10px;margin-top:2px}
 @media(min-width:640px){.ad .track{grid-template-columns:1fr 1fr 1fr}}
-.ad .tc{border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;background:rgba(255,255,255,.02)}
-.ad .tc .t{font-size:12px;font-weight:800;color:rgba(255,255,255,.8);display:flex;align-items:center;justify-content:space-between;gap:8px}
-.ad .tc .tin{width:100%;margin-top:10px;height:38px;border-radius:9px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.35);color:#b3daf4;font-family:ui-monospace,monospace;font-size:12.5px;padding:0 11px;outline:none}
-.ad .tc .tin:focus{border-color:rgba(107,180,226,.55)}
+.ad .tc{border:1px solid rgba(20,20,20,.08);border-radius:12px;padding:14px;background:rgba(20,20,20,.02)}
+.ad .tc .t{font-size:12px;font-weight:800;color:rgba(20,20,20,.8);display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ad .tc .tin{width:100%;margin-top:10px;height:38px;border-radius:9px;border:1px solid rgba(20,20,20,.14);background:rgba(0,0,0,0.056);color:#2e3e49;font-family:ui-monospace,monospace;font-size:12.5px;padding:0 11px;outline:none}
+.ad .tc .tin:focus{border-color:rgba(29,102,148,.55)}
 .ad .saverow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:16px}
-.ad .save{height:40px;padding:0 20px;border:none;border-radius:11px;font-weight:800;font-size:13.5px;color:#0d1420;cursor:pointer;background:linear-gradient(90deg,#6bb4e2,#2e7ab4,#2a72a8)}
+.ad .save{height:40px;padding:0 20px;border:none;border-radius:11px;font-weight:800;font-size:13.5px;color:#f9f9fa;cursor:pointer;background:linear-gradient(90deg,#1d6694,#307fbb,#2f7fbc)}
 .ad .save:disabled{opacity:.6;cursor:default}
-.ad .ok{font-size:13px;color:#6ee7b7;font-weight:700}
+.ad .ok{font-size:13px;color:#189161;font-weight:700}
 .ad .pill{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;padding:3px 8px}
-.ad .pill.on{color:#6ee7b7;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3)}
-.ad .pill.no{color:rgba(255,255,255,.5);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.ad .pill.on{color:#189161;background:rgba(42,193,138,.12);border:1px solid rgba(42,193,138,.3)}
+.ad .pill.no{color:rgba(20,20,20,.5);background:rgba(20,20,20,.04);border:1px solid rgba(20,20,20,.1)}
 .ad button.pill{cursor:pointer;font-family:inherit;line-height:1.4}
-.ad button.pill.siglock:hover{background:rgba(244,63,94,.12);border-color:rgba(244,63,94,.35);color:#fda4af}
-.ad .pill.unlockbtn{color:#d8ecfb;background:rgba(107,180,226,.10);border:1px solid rgba(107,180,226,.35)}
-.ad .pill.unlockbtn:hover{background:rgba(107,180,226,.18);color:#d2ebfb}
-.ad .pill.kycbtn{cursor:pointer;color:#6ee7b7;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.35)}
-.ad .pill.kycbtn:hover{background:rgba(52,211,153,.2);color:#aad3ee}
+.ad button.pill.siglock:hover{background:rgba(192,11,42,.12);border-color:rgba(192,11,42,.35);color:#4c3134}
+.ad .pill.unlockbtn{color:#1f2930;background:rgba(29,102,148,.10);border:1px solid rgba(29,102,148,.35)}
+.ad .pill.unlockbtn:hover{background:rgba(29,102,148,.18);color:#212d34}
+.ad .pill.kycbtn{cursor:pointer;color:#189161;background:rgba(42,193,138,.1);border:1px solid rgba(42,193,138,.35)}
+.ad .pill.kycbtn:hover{background:rgba(42,193,138,.2);color:#113a55}
 .ad .kycsub{opacity:.55;font-weight:700;text-transform:capitalize;margin-left:3px}
-.ad .note{font-size:12.5px;color:rgba(255,255,255,.45);margin-top:12px;line-height:1.6}
-.ad .center{min-height:100vh;display:grid;place-items:center;color:rgba(255,255,255,.5)}
+.ad .note{font-size:12.5px;color:rgba(20,20,20,.45);margin-top:12px;line-height:1.6}
+.ad .center{min-height:100vh;display:grid;place-items:center;color:rgba(20,20,20,.5)}
 `;
 
 /* "Continue with Google" ON THE CODE SCREEN.
@@ -197,9 +197,9 @@ function GoogleUnlock({ onDone, onError }: { onDone: () => void; onError: (m: st
       <div ref={slot} style={{ display: ready ? "flex" : "none", justifyContent: "center", marginBottom: 14 }} />
       {ready && (
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-          <span style={{ flex: 1, height: 1, background: "rgba(255,255,255,.1)" }} />
-          <span style={{ fontSize: 12, fontWeight: 700, color: "rgba(255,255,255,.5)" }}>OR USE A CODE</span>
-          <span style={{ flex: 1, height: 1, background: "rgba(255,255,255,.1)" }} />
+          <span style={{ flex: 1, height: 1, background: "rgba(20,20,20,.1)" }} />
+          <span style={{ fontSize: 12, fontWeight: 700, color: "rgba(20,20,20,.5)" }}>OR USE A CODE</span>
+          <span style={{ flex: 1, height: 1, background: "rgba(20,20,20,.1)" }} />
         </div>
       )}
     </>
@@ -295,11 +295,11 @@ export default function Admin() {
   if (needCode) return (
     <div className="ad"><style>{CSS}</style>
       <div className="center">
-        <div style={{ width: "min(420px,92vw)", background: "#16130c", border: "1px solid rgba(255,255,255,.08)", borderRadius: 16, padding: 28 }}>
-          <div style={{ fontSize: 19, fontWeight: 900, color: "#fff", marginBottom: 8 }}>Verify it's you</div>
-          <div style={{ fontSize: 13.5, color: "rgba(255,255,255,.55)", lineHeight: 1.6, marginBottom: 18 }}>
+        <div style={{ width: "min(420px,92vw)", background: "#fbfbfa", border: "1px solid rgba(20,20,20,.08)", borderRadius: 16, padding: 28 }}>
+          <div style={{ fontSize: 19, fontWeight: 900, color: "#141414", marginBottom: 8 }}>Verify it's you</div>
+          <div style={{ fontSize: 13.5, color: "rgba(20,20,20,.55)", lineHeight: 1.6, marginBottom: 18 }}>
             {codeSent
-              ? <>We emailed a 6-digit code to <b style={{ color: "#cfe7fa" }}>{me.email}</b>. It expires in 10 minutes.</>
+              ? <>We emailed a 6-digit code to <b style={{ color: "#232d36" }}>{me.email}</b>. It expires in 10 minutes.</>
               : <>We couldn't send the code. Check your connection and try again.</>}
           </div>
           <GoogleUnlock onDone={() => window.location.reload()} onError={(m) => setCodeErr(m)} />
@@ -308,16 +308,16 @@ export default function Admin() {
             onChange={(e) => { setCode(e.target.value.replace(/\D/g, "").slice(0, 6)); setCodeErr(""); }}
             onKeyDown={(e) => { if (e.key === "Enter") submitCode(); }}
             placeholder="000000"
-            style={{ width: "100%", background: "#0a1018", border: "1px solid rgba(255,255,255,.12)", borderRadius: 10, color: "#fff", fontSize: 26, fontWeight: 800, letterSpacing: ".26em", textAlign: "center", padding: "12px 14px", outline: "none" }}
+            style={{ width: "100%", background: "#fafbfb", border: "1px solid rgba(20,20,20,.12)", borderRadius: 10, color: "#141414", fontSize: 26, fontWeight: 800, letterSpacing: ".26em", textAlign: "center", padding: "12px 14px", outline: "none" }}
           />
-          {codeErr && <div style={{ color: "#ffb4b4", fontSize: 12.5, marginTop: 10 }}>{codeErr}</div>}
+          {codeErr && <div style={{ color: "#422a2a", fontSize: 12.5, marginTop: 10 }}>{codeErr}</div>}
           <button
             onClick={submitCode} disabled={codeBusy}
-            style={{ width: "100%", marginTop: 16, padding: "12px 14px", borderRadius: 10, border: "none", cursor: codeBusy ? "default" : "pointer", background: "linear-gradient(135deg,#3e9ad8,#24638f)", color: "#fff", fontSize: 14.5, fontWeight: 800, opacity: codeBusy ? 0.6 : 1 }}
+            style={{ width: "100%", marginTop: 16, padding: "12px 14px", borderRadius: 10, border: "none", cursor: codeBusy ? "default" : "pointer", background: "linear-gradient(135deg,#2783c1,#2f82bb)", color: "#141414", fontSize: 14.5, fontWeight: 800, opacity: codeBusy ? 0.6 : 1 }}
           >{codeBusy ? "Checking…" : "Unlock admin console"}</button>
           <button
             onClick={async () => { setCodeErr(""); setCodeSent(await requestAdminCode()); }}
-            style={{ width: "100%", marginTop: 10, padding: "10px 14px", borderRadius: 10, border: "1px solid rgba(255,255,255,.12)", cursor: "pointer", background: "transparent", color: "rgba(255,255,255,.65)", fontSize: 13, fontWeight: 700 }}
+            style={{ width: "100%", marginTop: 10, padding: "10px 14px", borderRadius: 10, border: "1px solid rgba(20,20,20,.12)", cursor: "pointer", background: "transparent", color: "rgba(20,20,20,.65)", fontSize: 13, fontWeight: 700 }}
           >Send a new code</button>
           <div className="note">Didn't request this? Someone has your password — change it now.</div>
         </div>
@@ -593,7 +593,7 @@ export default function Admin() {
             <div className="ph">Top pages</div>
             {(data?.byPath || []).map((p) => (
               <div className="row" key={p.path}>
-                <span className={`nm ${p.path === "/signup" ? "land" : ""}`} title={p.path}>{label(p.path)} <span style={{ color: "rgba(255,255,255,.3)", fontWeight: 400 }}>{p.path}</span></span>
+                <span className={`nm ${p.path === "/signup" ? "land" : ""}`} title={p.path}>{label(p.path)} <span style={{ color: "rgba(20,20,20,.3)", fontWeight: 400 }}>{p.path}</span></span>
                 <span className="vv">{p.views.toLocaleString()}<small>{p.visitors} vis</small></span>
               </div>
             ))}
@@ -659,7 +659,7 @@ export default function Admin() {
 // Brands — white-label partners in the network. Each gets its own domain and skin, but runs on the same
 // Copy the Rich Trades plumbing (members, signals, Tap-to-Trade), and its signups roll up under its ref code.
 const usd0 = (n: number) => `$${Math.round(Number(n) || 0).toLocaleString("en-US")}`;
-const BRAND_BLANK: Partial<RtbBrand> ={ name: "", slug: "", domain: "", status: "setup", ownerEmail: "", refCode: "", logoUrl: "", accent: "#6bb4e2", tagline: "", telegramUrl: "", notes: "" };
+const BRAND_BLANK: Partial<RtbBrand> ={ name: "", slug: "", domain: "", status: "setup", ownerEmail: "", refCode: "", logoUrl: "", accent: "#1d6694", tagline: "", telegramUrl: "", notes: "" };
 const BRAND_STATUS: { k: RtbBrand["status"]; lb: string }[] = [
   { k: "setup", lb: "🛠 In setup" }, { k: "live", lb: "🟢 Live" }, { k: "paused", lb: "⏸ Paused" },
 ];
@@ -737,8 +737,8 @@ function BrandsManager() {
             <label className="bfield">
               <span>Accent colour</span>
               <span className="bcolor">
-                <input type="color" value={/^#[0-9a-f]{6}$/i.test(String(edit.accent || "")) ? String(edit.accent) : "#6bb4e2"} onChange={(e) => set("accent", e.target.value)} />
-                <input value={String(edit.accent ?? "")} onChange={(e) => set("accent", e.target.value)} placeholder="#6bb4e2" />
+                <input type="color" value={/^#[0-9a-f]{6}$/i.test(String(edit.accent || "")) ? String(edit.accent) : "#1d6694"} onChange={(e) => set("accent", e.target.value)} />
+                <input value={String(edit.accent ?? "")} onChange={(e) => set("accent", e.target.value)} placeholder="#1d6694" />
               </span>
             </label>
             {field("telegramUrl", "Telegram / signals link", "https://t.me/…")}
@@ -761,7 +761,7 @@ function BrandsManager() {
         : (
           <div className="bcards">
             {brands.map((b) => (
-              <div key={b.id} className="bcard" style={{ ["--bx" as any]: /^#[0-9a-f]{6}$/i.test(b.accent) ? b.accent : "#6bb4e2" }}>
+              <div key={b.id} className="bcard" style={{ ["--bx" as any]: /^#[0-9a-f]{6}$/i.test(b.accent) ? b.accent : "#1d6694" }}>
                 <div className={`bcHead open${openId === b.id ? " on" : ""}`} role="button" tabIndex={0}
                   title={`See ${b.name}'s signups and network`}
                   onClick={() => toggleStats(b)}
@@ -846,72 +846,72 @@ function BrandsManager() {
 }
 
 const BRANDS_CSS = `
-.bform{margin-top:16px;border:1px solid rgba(140,198,234,.2);border-radius:16px;background:#0a1018;padding:18px}
-.bfhd{font-size:14px;font-weight:900;color:#fff;margin-bottom:14px}
+.bform{margin-top:16px;border:1px solid rgba(21,79,115,.2);border-radius:16px;background:#fafbfb;padding:18px}
+.bfhd{font-size:14px;font-weight:900;color:#141414;margin-bottom:14px}
 .bgrid{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:760px){.bgrid{grid-template-columns:1fr 1fr}}
 .bfield{display:flex;flex-direction:column;gap:6px}
 .bfield.wide{grid-column:1/-1}
-.bfield>span{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.bfield input,.bfield select,.bfield textarea{width:100%;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);color:#fff;padding:10px 12px;font-size:14px;outline:none;font-family:inherit}
-.bfield input:focus,.bfield select:focus,.bfield textarea:focus{border-color:rgba(107,180,226,.6)}
+.bfield>span{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:rgba(20,20,20,.45)}
+.bfield input,.bfield select,.bfield textarea{width:100%;border-radius:10px;border:1px solid rgba(20,20,20,.12);background:rgba(0,0,0,0.056);color:#141414;padding:10px 12px;font-size:14px;outline:none;font-family:inherit}
+.bfield input:focus,.bfield select:focus,.bfield textarea:focus{border-color:rgba(29,102,148,.6)}
 .bcolor{display:flex;gap:8px;align-items:center}
 .bcolor input[type=color]{width:44px;height:40px;padding:2px;flex:none;cursor:pointer}
-.berr{margin-top:12px;font-size:13px;color:#fca5a5}
+.berr{margin-top:12px;font-size:13px;color:#4c3131}
 .bactions{display:flex;gap:10px;margin-top:16px}
-.bsave{border:none;border-radius:11px;padding:11px 20px;font-weight:800;font-size:14px;color:#0d1420;cursor:pointer;background:linear-gradient(90deg,#6bb4e2,#2e7ab4)}
+.bsave{border:none;border-radius:11px;padding:11px 20px;font-weight:800;font-size:14px;color:#f9f9fa;cursor:pointer;background:linear-gradient(90deg,#1d6694,#307fbb)}
 .bsave:disabled{opacity:.5;cursor:default}
-.bcancel{border:1px solid rgba(255,255,255,.14);border-radius:11px;padding:11px 20px;font-weight:700;font-size:14px;color:rgba(255,255,255,.7);background:transparent;cursor:pointer}
-.bempty{margin-top:16px;border:1px dashed rgba(255,255,255,.14);border-radius:16px;padding:26px;text-align:center;color:rgba(255,255,255,.5);font-size:13.5px;line-height:1.6}
+.bcancel{border:1px solid rgba(20,20,20,.14);border-radius:11px;padding:11px 20px;font-weight:700;font-size:14px;color:rgba(20,20,20,.7);background:transparent;cursor:pointer}
+.bempty{margin-top:16px;border:1px dashed rgba(20,20,20,.14);border-radius:16px;padding:26px;text-align:center;color:rgba(20,20,20,.5);font-size:13.5px;line-height:1.6}
 .bcards{margin-top:16px;display:grid;grid-template-columns:1fr;gap:14px}
 @media(min-width:820px){.bcards{grid-template-columns:1fr 1fr}}
-.bcard{position:relative;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:#0a1018;padding:16px;overflow:hidden}
+.bcard{position:relative;border:1px solid rgba(20,20,20,.09);border-radius:16px;background:#fafbfb;padding:16px;overflow:hidden}
 .bcard::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--bx),transparent)}
 .bcHead{display:flex;align-items:center;gap:12px}
-.blogo{width:40px;height:40px;border-radius:11px;object-fit:contain;background:rgba(255,255,255,.06);flex:none}
-.blogo.ph{display:grid;place-items:center;font-weight:900;font-size:17px;color:#0d1420;background:var(--bx)}
+.blogo{width:40px;height:40px;border-radius:11px;object-fit:contain;background:rgba(20,20,20,.06);flex:none}
+.blogo.ph{display:grid;place-items:center;font-weight:900;font-size:17px;color:#f9f9fa;background:var(--bx)}
 .bcName{flex:1;min-width:0}
-.bcName b{display:block;font-size:15px;color:#fff}
-.bcName span{font-size:12.5px;color:rgba(255,255,255,.45)}
+.bcName b{display:block;font-size:15px;color:#141414}
+.bcName span{font-size:12.5px;color:rgba(20,20,20,.45)}
 .bcName a{color:var(--bx);text-decoration:none}
 .bcName a:hover{text-decoration:underline}
 .bstatus{font-size:10px;font-weight:900;letter-spacing:.05em;padding:4px 9px;border-radius:7px;white-space:nowrap}
-.bstatus.live{color:#052e1a;background:linear-gradient(90deg,#34d399,#56a4d8)}
-.bstatus.setup{color:#85c8f4;background:rgba(63,146,204,.14);border:1px solid rgba(63,146,204,.35)}
-.bstatus.paused{color:rgba(255,255,255,.6);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
-.btag{margin:12px 0 0;font-size:13px;color:rgba(255,255,255,.6);line-height:1.55}
+.bstatus.live{color:#f8f9f9;background:linear-gradient(90deg,#2ac18a,#2775a9)}
+.bstatus.setup{color:#0b4e7a;background:rgba(49,129,185,.14);border:1px solid rgba(49,129,185,.35)}
+.bstatus.paused{color:rgba(20,20,20,.6);background:rgba(20,20,20,.07);border:1px solid rgba(20,20,20,.12)}
+.btag{margin:12px 0 0;font-size:13px;color:rgba(20,20,20,.6);line-height:1.55}
 .bmeta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.bmeta span,.bmeta a{font-size:11.5px;color:rgba(255,255,255,.55);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:4px 8px;text-decoration:none;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.bmeta a:hover{color:#fff}
-.bnotes{margin:12px 0 0;font-size:12.5px;color:rgba(255,255,255,.42);line-height:1.55;white-space:pre-wrap}
+.bmeta span,.bmeta a{font-size:11.5px;color:rgba(20,20,20,.55);background:rgba(20,20,20,.05);border:1px solid rgba(20,20,20,.08);border-radius:7px;padding:4px 8px;text-decoration:none;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bmeta a:hover{color:#141414}
+.bnotes{margin:12px 0 0;font-size:12.5px;color:rgba(20,20,20,.42);line-height:1.55;white-space:pre-wrap}
 .bcRow{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-.bmini{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:rgba(255,255,255,.75);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none}
-.bmini:hover{color:#fff;border-color:rgba(255,255,255,.3)}
-.bmini.del{color:#fca5a5;border-color:rgba(244,63,94,.3)}
-.bconfirm{margin-top:12px;border:1px solid rgba(244,63,94,.3);background:rgba(244,63,94,.08);border-radius:11px;padding:12px;font-size:12.5px;color:rgba(255,255,255,.8);line-height:1.55}
+.bmini{border:1px solid rgba(20,20,20,.14);background:rgba(20,20,20,.04);color:rgba(20,20,20,.75);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none}
+.bmini:hover{color:#141414;border-color:rgba(20,20,20,.3)}
+.bmini.del{color:#4c3131;border-color:rgba(192,11,42,.3)}
+.bconfirm{margin-top:12px;border:1px solid rgba(192,11,42,.3);background:rgba(192,11,42,.08);border-radius:11px;padding:12px;font-size:12.5px;color:rgba(20,20,20,.8);line-height:1.55}
 .bconfirm span{display:flex;gap:8px;margin-top:10px}
 /* Brand drill-down: the header is the toggle, the panel below carries the numbers. */
 .bcHead.open{cursor:pointer;border-radius:11px;margin:-4px;padding:4px;transition:background .15s}
-.bcHead.open:hover{background:rgba(255,255,255,.04)}
-.bchev{font-size:10px;color:rgba(255,255,255,.4);flex:none;margin-left:2px}
-.bstats{margin-top:14px;border-top:1px solid rgba(255,255,255,.08);padding-top:14px}
-.bsnote{font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.6)}
+.bcHead.open:hover{background:rgba(20,20,20,.04)}
+.bchev{font-size:10px;color:rgba(20,20,20,.4);flex:none;margin-left:2px}
+.bstats{margin-top:14px;border-top:1px solid rgba(20,20,20,.08);padding-top:14px}
+.bsnote{font-size:12.5px;line-height:1.6;color:rgba(20,20,20,.6)}
 .bsgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 @media(min-width:560px){.bsgrid{grid-template-columns:repeat(3,1fr)}}
-.bstile{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);border-radius:11px;padding:10px 12px}
-.bstile b{display:block;font-size:17px;font-weight:900;color:#fff;font-variant-numeric:tabular-nums}
-.bstile span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.42);margin-top:3px}
-.bswrap{margin-top:12px;max-height:340px;overflow:auto;border:1px solid rgba(255,255,255,.07);border-radius:11px}
+.bstile{border:1px solid rgba(20,20,20,.08);background:rgba(20,20,20,.03);border-radius:11px;padding:10px 12px}
+.bstile b{display:block;font-size:17px;font-weight:900;color:#141414;font-variant-numeric:tabular-nums}
+.bstile span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:rgba(20,20,20,.42);margin-top:3px}
+.bswrap{margin-top:12px;max-height:340px;overflow:auto;border:1px solid rgba(20,20,20,.07);border-radius:11px}
 .bstable{width:100%;border-collapse:collapse;font-size:12.5px}
-.bstable th{position:sticky;top:0;background:#0a1018;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.42);padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.08)}
-.bstable td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.78);vertical-align:top}
+.bstable th{position:sticky;top:0;background:#fafbfb;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(20,20,20,.42);padding:9px 10px;border-bottom:1px solid rgba(20,20,20,.08)}
+.bstable td{padding:9px 10px;border-bottom:1px solid rgba(20,20,20,.05);color:rgba(20,20,20,.78);vertical-align:top}
 .bstable tr:last-child td{border-bottom:0}
-.bstable td b{display:block;color:#fff;font-weight:700}
-.bstable td i{display:block;font-style:normal;font-size:11px;color:rgba(255,255,255,.42);margin-top:1px}
+.bstable td b{display:block;color:#141414;font-weight:700}
+.bstable td i{display:block;font-style:normal;font-size:11px;color:rgba(20,20,20,.42);margin-top:1px}
 .bstable .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.bpill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.6)}
-.bpill.direct{border-color:rgba(107,180,226,.35);color:#b3daf4}
-.bpill.on{border-color:rgba(110,231,183,.35);color:#6ee7b7}
+.bpill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;border:1px solid rgba(20,20,20,.14);color:rgba(20,20,20,.6)}
+.bpill.direct{border-color:rgba(29,102,148,.35);color:#2e3e49}
+.bpill.on{border-color:rgba(24,145,97,.35);color:#189161}
 `;
 
 // Telegram bot management (Gold Pulse signals chat) — stats, pre-approve by email, remove a member.
@@ -954,22 +954,22 @@ function TelegramManager() {
               <input className="usearch" style={{ flex: 2, minWidth: 200 }} placeholder="Pre-approve / force-admit by email…" value={email} onChange={(e) => setEmail(e.target.value)} onKeyDown={(e) => e.key === "Enter" && verify()} />
               <button className="bbtn" style={{ height: 38 }} onClick={verify} disabled={busy || !email.trim()}>{busy ? "…" : "✅ Verify / admit"}</button>
             </div>
-            {msg && <div className="note" style={{ color: msg.startsWith("⚠️") ? "#fca5a5" : "#6ee7b7" }}>{msg}</div>}
+            {msg && <div className="note" style={{ color: msg.startsWith("⚠️") ? "#4c3131" : "#189161" }}>{msg}</div>}
             <input className="usearch" style={{ marginTop: 10 }} placeholder="Search members…" value={q} onChange={(e) => setQ(e.target.value)} />
             <div className="ucount" style={{ marginTop: 12 }}>{members.length} member{members.length === 1 ? "" : "s"}</div>
             <div style={{ marginTop: 4, maxHeight: "72vh", overflowY: "auto", paddingRight: 8 }}>
               {members.length === 0 ? <div className="note">No members match.</div> : members.map((m) => (
                 <div key={m.id} className="row" style={{ alignItems: "center", gap: 8 }}>
                   <span className="nm" style={{ flex: 1, minWidth: 0 }}>
-                    <b style={{ color: "#fff" }}>{m.name || m.username || m.email || m.id}</b>
-                    {m.username && <span style={{ color: "rgba(255,255,255,.4)", marginLeft: 6 }}>@{m.username}</span>}
-                    {m.email && <div style={{ fontSize: 12, color: "rgba(255,255,255,.4)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{m.email}</div>}
+                    <b style={{ color: "#141414" }}>{m.name || m.username || m.email || m.id}</b>
+                    {m.username && <span style={{ color: "rgba(20,20,20,.4)", marginLeft: 6 }}>@{m.username}</span>}
+                    {m.email && <div style={{ fontSize: 12, color: "rgba(20,20,20,.4)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{m.email}</div>}
                   </span>
-                  {m.isAdmin && <span style={chip("#cfe7fa")}>Admin</span>}
-                  <span style={chip(m.status === "verified" ? "#6ee7b7" : m.status === "removed" ? "#fca5a5" : "rgba(255,255,255,.45)")}>{m.status}</span>
+                  {m.isAdmin && <span style={chip("#232d36")}>Admin</span>}
+                  <span style={chip(m.status === "verified" ? "#189161" : m.status === "removed" ? "#4c3131" : "rgba(20,20,20,.45)")}>{m.status}</span>
                   {m.funded > 0 && <span className="vv" style={{ minWidth: 78, textAlign: "right", flexShrink: 0, whiteSpace: "nowrap" }}>{money(m.funded)}</span>}
                   {!m.isAdmin
-                    ? <button className="us" onClick={() => remove(m.id, m.name || m.email || m.id)} style={{ borderColor: "rgba(244,63,94,.4)", color: "#fca5a5", flexShrink: 0 }}>Remove</button>
+                    ? <button className="us" onClick={() => remove(m.id, m.name || m.email || m.id)} style={{ borderColor: "rgba(192,11,42,.4)", color: "#4c3131", flexShrink: 0 }}>Remove</button>
                     : <span style={{ width: 62, flexShrink: 0 }} aria-hidden />}
                 </div>
               ))}
