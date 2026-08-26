@@ -57,14 +57,14 @@ const tlMoney = (n: number) => `${n >= 0 ? "+" : "−"}$${Math.abs(n).toFixed(2)
 //   steps     → filled gradient chips, the only numbers that mean "do this in order"
 function TlgHead({ id, n, title, sub }: { id: string; n: number; title: string; sub: string }) {
   return (
-    <div id={id} className="mt-12 mb-4 scroll-mt-[80px] border-t border-black/[0.07] pt-7">
+    <div id={id} className="mt-12 mb-4 scroll-mt-[80px] border-t border-white/[0.07] pt-7">
       <div className="flex items-center gap-3 mb-2">
-        <span className="text-[10.5px] font-black tracking-[0.22em] text-[#195a83]/75">PART {String(n).padStart(2, "0")}</span>
-        <span className="flex-1 h-px bg-black/[0.035]" />
-        <span className="text-[10.5px] font-bold tracking-[0.12em] text-[#141414]/25 tabular-nums">{n} / 5</span>
+        <span className="text-[10.5px] font-black tracking-[0.22em] text-[#7cbde6]/75">PART {String(n).padStart(2, "0")}</span>
+        <span className="flex-1 h-px bg-white/[0.09]" />
+        <span className="text-[10.5px] font-bold tracking-[0.12em] text-white/25 tabular-nums">{n} / 5</span>
       </div>
-      <h4 className="text-[19px] font-extrabold text-[#141414] leading-tight">{title}</h4>
-      <p className="text-[13.5px] text-[#141414]/50 leading-relaxed mt-2 max-w-2xl">{sub}</p>
+      <h4 className="text-[19px] font-extrabold text-white leading-tight">{title}</h4>
+      <p className="text-[13.5px] text-white/50 leading-relaxed mt-2 max-w-2xl">{sub}</p>
     </div>
   );
 }
@@ -126,7 +126,7 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
   ];
   const active = steps[step - 1];
   const go = (n: number) => { const s = steps[n - 1]; if (!s) return; setStep(n); s.enter?.(); };
-  const ring = (f: Focus) => active.focus === f ? "ring-2 ring-[#3181b9] shadow-[0_0_22px_-4px_rgba(29,102,148,.7)] relative z-10" : "";
+  const ring = (f: Focus) => active.focus === f ? "ring-2 ring-amber-400 shadow-[0_0_22px_-4px_rgba(107,180,226,.7)] relative z-10" : "";
 
   // Step 7 has nothing to manage unless something is open — put a demo position on the book.
   useEffect(() => {
@@ -189,7 +189,7 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
   const liveClose = u(px);
   const lineSl = pos ? pos.sl : slOn ? slPrev : null;
   const lineTp = pos ? pos.tp : tpOn ? tpPrev : null;
-  const chartLines: [number | null, string, string][] = [[lineSl, "#ba0a21", "SL"], [lineTp, "#00eba9", "TP"], [pos ? pos.entry : null, "rgba(20,20,20,.55)", "ENTRY"]];
+  const chartLines: [number | null, string, string][] = [[lineSl, "#f5455c", "SL"], [lineTp, "#00e0a1", "TP"], [pos ? pos.entry : null, "rgba(255,255,255,.55)", "ENTRY"]];
 
   // Lingo, using the platform's own labels (Ticks, Exposure, Margin level all appear in the Trades panel).
   const terms = [
@@ -216,25 +216,25 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
   return (
     <div className="max-w-5xl">
       {/* HERO */}
-      <div className="rounded-2xl border border-black/[0.09] p-6 flex justify-between items-center gap-5 flex-wrap" style={{ background: "radial-gradient(120% 100% at 100% 0,rgba(39,117,169,.14),transparent 60%),#fafbfb" }}>
+      <div className="rounded-2xl border border-white/[0.09] p-6 flex justify-between items-center gap-5 flex-wrap" style={{ background: "radial-gradient(120% 100% at 100% 0,rgba(86,164,216,.14),transparent 60%),#0a1018" }}>
         <div className="min-w-[260px]">
-          <div className="text-[11px] font-extrabold tracking-[0.12em] uppercase text-[#195a83]">The platform your trades live on</div>
-          <h3 className="text-[22px] font-extrabold text-[#141414] mt-1.5 mb-2">How to trade on TradeLocker</h3>
-          <p className="text-[#141414]/60 text-sm leading-relaxed max-w-md">Real platform, real labels. Tour the screen, then step through a working demo of the order panel — prices tick, orders fill, P&amp;L moves. Nothing here touches your money.</p>
+          <div className="text-[11px] font-extrabold tracking-[0.12em] uppercase text-[#7cbde6]">The platform your trades live on</div>
+          <h3 className="text-[22px] font-extrabold text-white mt-1.5 mb-2">How to trade on TradeLocker</h3>
+          <p className="text-white/60 text-sm leading-relaxed max-w-md">Real platform, real labels. Tour the screen, then step through a working demo of the order panel — prices tick, orders fill, P&amp;L moves. Nothing here touches your money.</p>
         </div>
         <div className="flex flex-col items-start gap-1.5">
           <a className="btn tg" href={openUrl} target="_blank" rel="noopener noreferrer">Open my TradeLocker →</a>
-          <span className="text-[11px] text-[#141414]/40">Opens your live account on Pulse</span>
+          <span className="text-[11px] text-white/40">Opens your live account on Pulse</span>
         </div>
       </div>
 
       {/* CHAPTER NAV */}
       <div className="tlgnav mt-4 mb-8">
         {chapters.map((c) => (
-          <button key={c.id} onClick={() => jump(c.id)} className="text-left rounded-xl border border-black/[0.08] bg-[#fafbfb] px-3.5 py-3 hover:border-[#3181b9]/40 transition">
-            <div className="text-[10px] font-black text-[#195a83]/70 tracking-[0.22em]">PART {String(c.n).padStart(2, "0")}</div>
-            <div className="text-[13.5px] font-extrabold text-[#141414] mt-1">{c.t}</div>
-            <div className="text-[11.5px] text-[#141414]/45 mt-0.5 leading-snug">{c.d}</div>
+          <button key={c.id} onClick={() => jump(c.id)} className="text-left rounded-xl border border-white/[0.08] bg-[#0a1018] px-3.5 py-3 hover:border-amber-400/40 transition">
+            <div className="text-[10px] font-black text-[#7cbde6]/70 tracking-[0.22em]">PART {String(c.n).padStart(2, "0")}</div>
+            <div className="text-[13.5px] font-extrabold text-white mt-1">{c.t}</div>
+            <div className="text-[11.5px] text-white/45 mt-0.5 leading-snug">{c.d}</div>
           </button>
         ))}
       </div>
@@ -242,9 +242,9 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
       {/* 1 · INTERFACE TOUR */}
       <TlgHead id="tlg-tour" n={1} title="The screen — what you're looking at" sub="TradeLocker splits into five panels. Learn these names once and every instruction below makes sense." />
       <div className="tlgtour">
-        <figure className="rounded-2xl border border-black/[0.09] bg-[#fcfcfc] p-3 overflow-hidden">
+        <figure className="rounded-2xl border border-white/[0.09] bg-[#080a0f] p-3 overflow-hidden">
           <img src="/tradelocker/platform.webp" alt="The TradeLocker trading screen with the floating order panel" className="w-full h-auto rounded-lg" loading="lazy" />
-          <figcaption className="text-[11px] text-[#141414]/35 mt-2 px-1">The live platform, with the floating order panel pulled out. Screens: tradelocker.com</figcaption>
+          <figcaption className="text-[11px] text-white/35 mt-2 px-1">The live platform, with the floating order panel pulled out. Screens: tradelocker.com</figcaption>
         </figure>
         <div className="flex flex-col gap-2 self-start">
           {[
@@ -254,9 +254,9 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
             ["Trades panel", "Along the bottom: Positions, Pending, Trades, Closed Positions — and your Balance, P&L, Equity, Margin used, Margin available and Margin level."],
             ["Sidebar", "Far right: show/hide panels, zoom, and your account switcher."],
           ].map(([t, d], i) => (
-            <div key={t} className="flex gap-3 rounded-xl border border-black/[0.08] bg-[#fafbfb] px-3.5 py-3">
+            <div key={t} className="flex gap-3 rounded-xl border border-white/[0.08] bg-[#0a1018] px-3.5 py-3">
               <span className="tlgnum">{i + 1}</span>
-              <span className="text-[13px] text-[#141414]/60 leading-relaxed"><b className="text-[#141414] block text-[13.5px] mb-0.5">{t}</b>{d}</span>
+              <span className="text-[13px] text-white/60 leading-relaxed"><b className="text-white block text-[13.5px] mb-0.5">{t}</b>{d}</span>
             </div>
           ))}
         </div>
@@ -267,64 +267,64 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
       <div className="flex items-end justify-between gap-3 mb-3">
         <div className="tlgchips">
           {steps.map((s) => (
-            <button key={s.n} onClick={() => go(s.n)} title={s.title} className={`flex-none w-7 h-7 rounded-lg text-[12px] font-black transition ${step === s.n ? "text-[#f9f9fa]" : "text-[#141414]/45 border border-black/12 hover:border-black/20"}`} style={step === s.n ? { background: "linear-gradient(135deg,#1d6694,#307fbb)" } : undefined}>{s.n}</button>
+            <button key={s.n} onClick={() => go(s.n)} title={s.title} className={`flex-none w-7 h-7 rounded-lg text-[12px] font-black transition ${step === s.n ? "text-[#0d1420]" : "text-white/45 border border-white/12 hover:border-white/30"}`} style={step === s.n ? { background: "linear-gradient(135deg,#6bb4e2,#2e7ab4)" } : undefined}>{s.n}</button>
           ))}
         </div>
         <div className="flex items-center gap-2 flex-none">
-          <span className="text-[11px] font-bold text-[#141414]/40 tabular-nums max-[520px]:hidden">Step {step}/{steps.length}</span>
-          <button onClick={() => go(step - 1)} disabled={step === 1} className="px-2.5 py-1 rounded-lg border border-black/15 text-[12px] font-bold text-[#141414]/70 disabled:opacity-30 hover:border-black/20">←</button>
+          <span className="text-[11px] font-bold text-white/40 tabular-nums max-[520px]:hidden">Step {step}/{steps.length}</span>
+          <button onClick={() => go(step - 1)} disabled={step === 1} className="px-2.5 py-1 rounded-lg border border-white/15 text-[12px] font-bold text-white/70 disabled:opacity-30 hover:border-white/30">←</button>
           {step < steps.length
-            ? <button onClick={() => go(step + 1)} className="px-3 py-1 rounded-lg text-[12px] font-black text-[#f9f9fa]" style={{ background: "linear-gradient(135deg,#1d6694,#307fbb)" }}>Next →</button>
-            : <button onClick={() => go(1)} className="px-3 py-1 rounded-lg border border-black/15 text-[12px] font-bold text-[#141414]/70 hover:border-black/20">Restart</button>}
+            ? <button onClick={() => go(step + 1)} className="px-3 py-1 rounded-lg text-[12px] font-black text-[#0d1420]" style={{ background: "linear-gradient(135deg,#6bb4e2,#2e7ab4)" }}>Next →</button>
+            : <button onClick={() => go(1)} className="px-3 py-1 rounded-lg border border-white/15 text-[12px] font-bold text-white/70 hover:border-white/30">Restart</button>}
         </div>
       </div>
-      <div className="h-1 rounded-full bg-black/[0.03] mb-3 overflow-hidden"><div className="h-full rounded-full transition-all duration-300" style={{ width: `${(step / steps.length) * 100}%`, background: "linear-gradient(90deg,#1d6694,#307fbb)" }} /></div>
-      <div className="rounded-xl border border-[#3181b9]/30 bg-[#3181b9]/[0.06] p-4 mb-3">
+      <div className="h-1 rounded-full bg-white/[0.07] mb-3 overflow-hidden"><div className="h-full rounded-full transition-all duration-300" style={{ width: `${(step / steps.length) * 100}%`, background: "linear-gradient(90deg,#6bb4e2,#2e7ab4)" }} /></div>
+      <div className="rounded-xl border border-amber-400/30 bg-amber-400/[0.06] p-4 mb-3">
         <div className="flex items-center gap-2.5">
-          <span className="flex-none w-6 h-6 rounded-lg grid place-items-center text-[12px] font-black text-[#f9f9fa]" style={{ background: "linear-gradient(135deg,#1d6694,#307fbb)" }}>{active.n}</span>
-          <span className="text-[14.5px] font-extrabold text-[#141414]">{active.title}</span>
+          <span className="flex-none w-6 h-6 rounded-lg grid place-items-center text-[12px] font-black text-[#0d1420]" style={{ background: "linear-gradient(135deg,#6bb4e2,#2e7ab4)" }}>{active.n}</span>
+          <span className="text-[14.5px] font-extrabold text-white">{active.title}</span>
         </div>
-        <p className="text-[13px] text-[#141414]/65 leading-relaxed mt-2 pl-[34px]">{active.body}</p>
+        <p className="text-[13px] text-white/65 leading-relaxed mt-2 pl-[34px]">{active.body}</p>
       </div>
       <div className="tlgwrap">
         {/* MOCK TRADELOCKER UI (styled to the real platform: teal brand, big Buy/Sell price buttons, positions tabs) */}
-        <div className="rounded-2xl border border-black/[0.1] bg-[#fcfcfc] overflow-hidden self-start">
+        <div className="rounded-2xl border border-white/[0.1] bg-[#0a0b0e] overflow-hidden self-start">
           {/* chart toolbar — mirrors the real one: timeframe, style, Indicators, market state, account */}
-          <div className="flex items-center justify-between gap-3 px-3 py-2 border-b border-black/[0.07] bg-[#fbfbfb]">
-            <div className="flex items-center gap-3 text-[10.5px] font-bold text-[#141414]/55 min-w-0">
-              <span className="px-1.5 py-0.5 rounded bg-black/[0.03] text-[#141414]/80">5m</span>
+          <div className="flex items-center justify-between gap-3 px-3 py-2 border-b border-white/[0.07] bg-[#0d0f13]">
+            <div className="flex items-center gap-3 text-[10.5px] font-bold text-white/55 min-w-0">
+              <span className="px-1.5 py-0.5 rounded bg-white/[0.07] text-white/80">5m</span>
               <span className="max-[520px]:hidden"><i>ƒ</i>x Indicators</span>
-              <span className="flex items-center gap-1.5 text-emerald-600"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />Open</span>
+              <span className="flex items-center gap-1.5 text-emerald-400"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />Open</span>
             </div>
-            <div className="text-[10.5px] font-bold text-[#141414]/45 truncate">{me?.firstName ? `${me.firstName}'s account` : "Live account"} ▾</div>
+            <div className="text-[10.5px] font-bold text-white/45 truncate">{me?.firstName ? `${me.firstName}'s account` : "Live account"} ▾</div>
           </div>
           <div className="tlgbody">
             {/* markets panel */}
-            <div className="border-r border-black/[0.07] py-1.5 max-[639px]:hidden">
-              <div className="px-3 pb-1 text-[8px] uppercase tracking-wider text-[#141414]/35 font-bold">Markets</div>
+            <div className="border-r border-white/[0.06] py-1.5 max-[639px]:hidden">
+              <div className="px-3 pb-1 text-[8px] uppercase tracking-wider text-white/35 font-bold">Markets</div>
               {([["XAUUSD", bid.toFixed(2), ask.toFixed(2), true], ["EURUSD", "1.0842", "1.0843", false], ["BTCUSD", "64,210", "64,238", false], ["US30", "38,940", "38,944", false]] as [string, string, string, boolean][]).map(([s, b, a, on]) => (
-                <div key={s} className={`px-3 py-1.5 border-l-2 ${on ? `bg-[#2b85c0]/[0.08] border-[#2b85c0] ${ring("symbol")}` : "border-transparent"}`}>
-                  <div className={`text-[11px] font-bold ${on ? "text-[#2775a9]" : "text-[#141414]/65"}`}>{s}</div>
-                  <div className="flex gap-2 text-[9px] tabular-nums mt-0.5"><span className="text-rose-600">{b}</span><span className="text-emerald-600">{a}</span></div>
+                <div key={s} className={`px-3 py-1.5 border-l-2 ${on ? `bg-[#3694d2]/[0.08] border-[#3694d2] ${ring("symbol")}` : "border-transparent"}`}>
+                  <div className={`text-[11px] font-bold ${on ? "text-[#56a4d8]" : "text-white/65"}`}>{s}</div>
+                  <div className="flex gap-2 text-[9px] tabular-nums mt-0.5"><span className="text-rose-400">{b}</span><span className="text-emerald-400">{a}</span></div>
                 </div>
               ))}
             </div>
             {/* chart */}
             <div className="p-3 min-w-0 flex flex-col">
               <div className={`flex items-center justify-between gap-2 mb-2 ${ring("symbol")} rounded-md`}>
-                <div className="text-[13px] font-black text-[#141414] whitespace-nowrap">XAUUSD<span className="text-[10px] font-semibold text-[#141414]/40 ml-1.5">Gold · 5m</span></div>
-                <div className={`text-[10px] font-bold tabular-nums whitespace-nowrap ${px >= TLG_PX0 ? "text-emerald-600" : "text-rose-600"}`}>{px.toFixed(2)} <span className="text-[#141414]/35 font-semibold max-[820px]:hidden">({px >= TLG_PX0 ? "+" : "−"}{Math.abs(px - TLG_PX0).toFixed(2)})</span></div>
+                <div className="text-[13px] font-black text-white whitespace-nowrap">XAUUSD<span className="text-[10px] font-semibold text-white/40 ml-1.5">Gold · 5m</span></div>
+                <div className={`text-[10px] font-bold tabular-nums whitespace-nowrap ${px >= TLG_PX0 ? "text-emerald-400" : "text-rose-400"}`}>{px.toFixed(2)} <span className="text-white/35 font-semibold max-[820px]:hidden">({px >= TLG_PX0 ? "+" : "−"}{Math.abs(px - TLG_PX0).toFixed(2)})</span></div>
               </div>
               <svg viewBox="0 0 320 118" width="100%" preserveAspectRatio="none" className="block flex-1 min-h-[150px]">
                 {TLG_CANDLES.map((c, i) => {
                   const last = i === TLG_CANDLES.length - 1;
                   const [o, h, l] = c; const cl = last ? liveClose : c[3];
                   const hi = last ? Math.max(h, cl) : h, lo = last ? Math.min(l, cl) : l;
-                  const x = 8 + i * 19; const col = cl >= o ? "#2cbfb1" : "#af1310";
+                  const x = 8 + i * 19; const col = cl >= o ? "#26a69a" : "#ef5350";
                   return (<g key={i}><line x1={x + 5} y1={yy(hi)} x2={x + 5} y2={yy(lo)} stroke={col} strokeWidth="1.3" /><rect x={x} y={yy(Math.max(o, cl))} width="10" height={Math.max(2, Math.abs(yy(o) - yy(cl)))} rx="1" fill={col} /></g>);
                 })}
                 {/* live price + the stop / target / entry levels, drawn where they really sit */}
-                <line x1="0" y1={yy(liveClose)} x2="320" y2={yy(liveClose)} stroke="rgba(43,133,192,.55)" strokeWidth="1" strokeDasharray="3 3" />
+                <line x1="0" y1={yy(liveClose)} x2="320" y2={yy(liveClose)} stroke="rgba(54,148,210,.55)" strokeWidth="1" strokeDasharray="3 3" />
                 {chartLines.map(([p, col, label]) => p == null ? null : (
                   <g key={label}><line x1="0" y1={yy(u(p))} x2="320" y2={yy(u(p))} stroke={col} strokeWidth="1" strokeDasharray="4 4" opacity="0.85" /><text x="4" y={yy(u(p)) - 3} fill={col} fontSize="7" fontWeight="700">{label} {p.toFixed(2)}</text></g>
                 ))}
@@ -332,50 +332,50 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
             </div>
             {/* ORDER PANEL — modelled on the real one: Market · Pending · Trailing Stop, the
                 SL&TP calculator (Price / Ticks / P&L / Balance), Size + Margin, then BUY / SELL. */}
-            <div className="border-l border-black/[0.07] p-2.5 space-y-2 bg-[#fbfbfc] min-w-0">
-              <div className="flex items-center gap-1.5 text-[11px] font-black text-[#141414]/80">
-                <span className="text-[#141414]/25 tracking-[-2px]">⋮⋮</span> XAUUSD
+            <div className="border-l border-white/[0.06] p-2.5 space-y-2 bg-[#0c0e12] min-w-0">
+              <div className="flex items-center gap-1.5 text-[11px] font-black text-white/80">
+                <span className="text-white/25 tracking-[-2px]">⋮⋮</span> XAUUSD
               </div>
               <div className={`tlgtype text-[9.5px] ${ring("type")}`}>
                 {([["market", "Market"], ["pending", "Pending"], ["trail", "Trailing"]] as const).map(([t, label]) => (
-                  <button key={t} onClick={() => setOtype(t)} className={`py-1 rounded-md font-bold ${otype === t ? "bg-black/[0.05] text-[#141414]" : "text-[#141414]/40 hover:text-[#141414]/70"}`}>{label}</button>
+                  <button key={t} onClick={() => setOtype(t)} className={`py-1 rounded-md font-bold ${otype === t ? "bg-white/[0.13] text-white" : "text-white/40 hover:text-white/70"}`}>{label}</button>
                 ))}
               </div>
 
               {otype === "pending" && (
-                <div className={`rounded-lg border border-black/[0.09] p-2 ${ring("type")}`}>
+                <div className={`rounded-lg border border-white/[0.09] p-2 ${ring("type")}`}>
                   <div className="flex gap-1 mb-1.5 text-[9px] font-bold">
                     {([[false, "Below market"], [true, "Above market"]] as const).map(([v, label]) => (
-                      <button key={label} onClick={() => setPendAbove(v)} className={`flex-1 py-1 rounded ${pendAbove === v ? "bg-[#2f82bb]/25 text-[#1a4c6d] border border-[#2f82bb]/50" : "border border-black/10 text-[#141414]/40"}`}>{label}</button>
+                      <button key={label} onClick={() => setPendAbove(v)} className={`flex-1 py-1 rounded ${pendAbove === v ? "bg-[#24638f]/25 text-[#92c4e5] border border-[#24638f]/50" : "border border-white/10 text-white/40"}`}>{label}</button>
                     ))}
                   </div>
                   <div className="flex items-center justify-between">
-                    <button onClick={() => setLimOff((v) => Math.max(0.5, +(v - 0.5).toFixed(2)))} className="w-6 h-6 rounded-md bg-black/[0.04] text-[#141414] text-sm leading-none">−</button>
-                    <span className="text-[14px] font-black text-[#141414] tabular-nums">{restPrice.toFixed(2)}</span>
-                    <button onClick={() => setLimOff((v) => +(v + 0.5).toFixed(2))} className="w-6 h-6 rounded-md bg-black/[0.04] text-[#141414] text-sm leading-none">+</button>
+                    <button onClick={() => setLimOff((v) => Math.max(0.5, +(v - 0.5).toFixed(2)))} className="w-6 h-6 rounded-md bg-white/10 text-white text-sm leading-none">−</button>
+                    <span className="text-[14px] font-black text-white tabular-nums">{restPrice.toFixed(2)}</span>
+                    <button onClick={() => setLimOff((v) => +(v + 0.5).toFixed(2))} className="w-6 h-6 rounded-md bg-white/10 text-white text-sm leading-none">+</button>
                   </div>
-                  <div className="text-[9px] text-[#141414]/40 mt-1.5 text-center leading-snug">Market {limRef.toFixed(2)} → this rests as a <b className="text-[#141414]/70 uppercase">{restKind}</b> entry.</div>
+                  <div className="text-[9px] text-white/40 mt-1.5 text-center leading-snug">Market {limRef.toFixed(2)} → this rests as a <b className="text-white/70 uppercase">{restKind}</b> entry.</div>
                 </div>
               )}
 
               {otype === "trail" && (
-                <div className={`rounded-lg border border-black/[0.09] p-2 ${ring("risk")}`}>
-                  <div className="text-[9px] uppercase tracking-wide text-[#141414]/40 mb-1">Trail distance · ticks</div>
+                <div className={`rounded-lg border border-white/[0.09] p-2 ${ring("risk")}`}>
+                  <div className="text-[9px] uppercase tracking-wide text-white/40 mb-1">Trail distance · ticks</div>
                   <div className="flex items-center justify-between">
-                    <button onClick={() => setTrailTicks((v) => Math.max(100, v - 100))} className="w-6 h-6 rounded-md bg-black/[0.04] text-[#141414] text-sm leading-none">−</button>
-                    <span className="text-[14px] font-black text-[#141414] tabular-nums">{trailTicks}</span>
-                    <button onClick={() => setTrailTicks((v) => v + 100)} className="w-6 h-6 rounded-md bg-black/[0.04] text-[#141414] text-sm leading-none">+</button>
+                    <button onClick={() => setTrailTicks((v) => Math.max(100, v - 100))} className="w-6 h-6 rounded-md bg-white/10 text-white text-sm leading-none">−</button>
+                    <span className="text-[14px] font-black text-white tabular-nums">{trailTicks}</span>
+                    <button onClick={() => setTrailTicks((v) => v + 100)} className="w-6 h-6 rounded-md bg-white/10 text-white text-sm leading-none">+</button>
                   </div>
-                  <div className="text-[9px] text-[#141414]/40 mt-1.5 text-center leading-snug">= ${(trailTicks / 100).toFixed(2)} behind price, ratcheting up — never back.</div>
+                  <div className="text-[9px] text-white/40 mt-1.5 text-center leading-snug">= ${(trailTicks / 100).toFixed(2)} behind price, ratcheting up — never back.</div>
                 </div>
               )}
 
               {/* SL & TP calculator — four ways to say the same level */}
               {otype !== "trail" && (
-                <div className={`rounded-lg border border-black/[0.09] overflow-hidden ${ring("risk")}`}>
+                <div className={`rounded-lg border border-white/[0.09] overflow-hidden ${ring("risk")}`}>
                   <div className="grid grid-cols-2 text-[9.5px] font-bold">
-                    <button onClick={() => setSlOn((v) => !v)} className={`flex items-center justify-center gap-1 py-1.5 ${slOn ? "bg-[#2f82bb] text-[#141414]" : "text-[#141414]/40"}`}>Stop Loss {slOn ? "✓" : "☐"}</button>
-                    <button onClick={() => setTpOn((v) => !v)} className={`flex items-center justify-center gap-1 py-1.5 border-l border-black/[0.08] ${tpOn ? "bg-[#2f82bb] text-[#141414]" : "text-[#141414]/40"}`}>Take Profit {tpOn ? "✓" : "☐"}</button>
+                    <button onClick={() => setSlOn((v) => !v)} className={`flex items-center justify-center gap-1 py-1.5 ${slOn ? "bg-[#24638f] text-white" : "text-white/40"}`}>Stop Loss {slOn ? "✓" : "☐"}</button>
+                    <button onClick={() => setTpOn((v) => !v)} className={`flex items-center justify-center gap-1 py-1.5 border-l border-white/[0.08] ${tpOn ? "bg-[#24638f] text-white" : "text-white/40"}`}>Take Profit {tpOn ? "✓" : "☐"}</button>
                   </div>
                   <div className="tlgcalc text-[9.5px] tabular-nums">
                     {([
@@ -385,150 +385,150 @@ function TradeLockerGuide({ me }: { me: MeStatus | null }) {
                       ["Balance", `${((slD * lots * 100 / equity) * 100).toFixed(2)}%`, `${((tpD * lots * 100 / equity) * 100).toFixed(2)}%`],
                     ] as [string, string, string][]).map(([label, s, t]) => (
                       <div key={label} className="contents">
-                        <span className={`px-2 py-1 text-right ${slOn ? "text-rose-600" : "text-[#141414]/20"}`}>{slOn ? s : "—"}</span>
-                        <span className="px-1 py-1 text-center text-[#141414]/35 font-bold">{label}</span>
-                        <span className={`px-2 py-1 ${tpOn ? "text-emerald-600" : "text-[#141414]/20"}`}>{tpOn ? t : "—"}</span>
+                        <span className={`px-2 py-1 text-right ${slOn ? "text-rose-300" : "text-white/20"}`}>{slOn ? s : "—"}</span>
+                        <span className="px-1 py-1 text-center text-white/35 font-bold">{label}</span>
+                        <span className={`px-2 py-1 ${tpOn ? "text-emerald-300" : "text-white/20"}`}>{tpOn ? t : "—"}</span>
                       </div>
                     ))}
                   </div>
                   <div className="flex gap-1 px-2 pb-2 pt-0.5">
-                    <button onClick={() => { setSlD((v) => Math.max(2, v - 2)); setTpD((v) => Math.max(4, v - 4)); }} className="flex-1 py-1 rounded bg-black/[0.03] text-[#141414]/60 text-[9px] font-bold">Tighter</button>
-                    <button onClick={() => { setSlD((v) => v + 2); setTpD((v) => v + 4); }} className="flex-1 py-1 rounded bg-black/[0.03] text-[#141414]/60 text-[9px] font-bold">Wider</button>
+                    <button onClick={() => { setSlD((v) => Math.max(2, v - 2)); setTpD((v) => Math.max(4, v - 4)); }} className="flex-1 py-1 rounded bg-white/[0.07] text-white/60 text-[9px] font-bold">Tighter</button>
+                    <button onClick={() => { setSlD((v) => v + 2); setTpD((v) => v + 4); }} className="flex-1 py-1 rounded bg-white/[0.07] text-white/60 text-[9px] font-bold">Wider</button>
                   </div>
                 </div>
               )}
 
               {/* Size + margin */}
-              <div className={`rounded-lg border border-black/[0.09] p-2 ${ring("lots")}`}>
-                <div className="flex items-center justify-between text-[9px] uppercase tracking-wide text-[#141414]/40 mb-1"><span>Size</span><span className="text-[#2c72a0] normal-case tabular-nums">Margin: ${margin.toFixed(2)}</span></div>
+              <div className={`rounded-lg border border-white/[0.09] p-2 ${ring("lots")}`}>
+                <div className="flex items-center justify-between text-[9px] uppercase tracking-wide text-white/40 mb-1"><span>Size</span><span className="text-[#5fa5d3] normal-case tabular-nums">Margin: ${margin.toFixed(2)}</span></div>
                 <div className="flex items-center justify-between">
-                  <button onClick={() => setLots((l) => Math.max(0.01, Math.round((l - 0.01) * 100) / 100))} className="w-6 h-6 rounded-md bg-black/[0.04] text-[#141414] text-sm leading-none">−</button>
-                  <span className="text-center leading-none"><b className="text-[15px] font-black text-[#141414] tabular-nums block">{lots.toFixed(2)}</b><span className="text-[8.5px] text-[#141414]/40">Lots</span></span>
-                  <button onClick={() => setLots((l) => Math.round((l + 0.01) * 100) / 100)} className="w-6 h-6 rounded-md bg-black/[0.04] text-[#141414] text-sm leading-none">+</button>
+                  <button onClick={() => setLots((l) => Math.max(0.01, Math.round((l - 0.01) * 100) / 100))} className="w-6 h-6 rounded-md bg-white/10 text-white text-sm leading-none">−</button>
+                  <span className="text-center leading-none"><b className="text-[15px] font-black text-white tabular-nums block">{lots.toFixed(2)}</b><span className="text-[8.5px] text-white/40">Lots</span></span>
+                  <button onClick={() => setLots((l) => Math.round((l + 0.01) * 100) / 100)} className="w-6 h-6 rounded-md bg-white/10 text-white text-sm leading-none">+</button>
                 </div>
               </div>
 
               {/* BUY / SELL */}
               <div className={`tlgbs ${ring("place")}`}>
                 {(["sell", "buy"] as const).map((s) => (
-                  <button key={s} onClick={() => fire(s)} className={`rounded-lg py-2 text-center transition ${side === s ? "ring-2 ring-black/20" : "opacity-90 hover:opacity-100"}`} style={{ background: s === "buy" ? "linear-gradient(180deg,#00eba9,#00eba8)" : "linear-gradient(180deg,#a5000e,#c91f33)" }}>
+                  <button key={s} onClick={() => fire(s)} className={`rounded-lg py-2 text-center transition ${side === s ? "ring-2 ring-white/40" : "opacity-90 hover:opacity-100"}`} style={{ background: s === "buy" ? "linear-gradient(180deg,#00e0a1,#00b884)" : "linear-gradient(180deg,#ff5a68,#e0364a)" }}>
                     <div className="text-[10px] font-black text-black/70 tracking-wide">{s === "buy" ? "BUY" : "SELL"}</div>
                     <div className="text-[14px] font-black text-black tabular-nums leading-none mt-0.5">{(otype === "pending" ? restPrice : s === "buy" ? ask : bid).toFixed(2)}</div>
                   </button>
                 ))}
               </div>
-              {!slOn && otype !== "trail" && <div className="text-[10px] text-[#1d6694]/90 leading-snug">⚠ Desk rule: always trade with a stop.</div>}
-              <div className="text-[9px] text-[#141414]/35 text-center leading-snug">Tap <b className="text-[#141414]/60">BUY</b> / <b className="text-[#141414]/60">SELL</b> to {otype === "pending" ? `rest a ${restKind} order` : "fire a market order"}.</div>
+              {!slOn && otype !== "trail" && <div className="text-[10px] text-amber-300/90 leading-snug">⚠ Desk rule: always trade with a stop.</div>}
+              <div className="text-[9px] text-white/35 text-center leading-snug">Tap <b className="text-white/60">BUY</b> / <b className="text-white/60">SELL</b> to {otype === "pending" ? `rest a ${restKind} order` : "fire a market order"}.</div>
             </div>
           </div>
           {/* TRADES PANEL — real tab names and the real account metrics strip */}
-          <div className={`border-t border-black/[0.07] bg-[#fbfbfb] ${ring("positions")} ${ring("balance")}`}>
+          <div className={`border-t border-white/[0.07] bg-[#0d0f13] ${ring("positions")} ${ring("balance")}`}>
             <div className="flex items-center justify-between gap-3 flex-wrap px-3 pt-2">
               <div className="flex gap-4 text-[10px] font-bold">
                 {([["positions", `Positions (${pos ? 1 : 0})`], ["orders", `Pending (${order ? 1 : 0})`], ["history", `Closed Positions (${hist.length})`]] as const).map(([k, label]) => (
-                  <button key={k} onClick={() => setTab(k)} className={`pb-1.5 ${tab === k ? "text-[#2775a9] border-b-2 border-[#2b85c0]" : "text-[#141414]/40 hover:text-[#141414]/60"}`}>{label}</button>
+                  <button key={k} onClick={() => setTab(k)} className={`pb-1.5 ${tab === k ? "text-[#56a4d8] border-b-2 border-[#3694d2]" : "text-white/40 hover:text-white/60"}`}>{label}</button>
                 ))}
               </div>
               <div className="flex gap-3.5 pb-1.5 text-[8.5px] tabular-nums">
-                {([["Balance", `$${balance.toFixed(2)}`, "text-[#141414]"], ["Profit & Loss", tlMoney(pl), pl >= 0 ? "text-emerald-600" : "text-rose-600"], ["Equity", `$${equity.toFixed(2)}`, "text-[#141414]"], ["Margin used", `$${marginUsed.toFixed(2)}`, "text-[#141414]"], ["Margin level", marginUsed ? `${marginLevel.toFixed(0)}%` : "—", "text-[#141414]"]] as [string, string, string][]).map(([l, v, c], i) => (
-                  <div key={l} className={i > 2 ? "max-[760px]:hidden" : ""}><div className="uppercase tracking-wide text-[#141414]/35">{l}</div><div className={`text-[10.5px] font-black ${c}`}>{v}</div></div>
+                {([["Balance", `$${balance.toFixed(2)}`, "text-white"], ["Profit & Loss", tlMoney(pl), pl >= 0 ? "text-emerald-400" : "text-rose-400"], ["Equity", `$${equity.toFixed(2)}`, "text-white"], ["Margin used", `$${marginUsed.toFixed(2)}`, "text-white"], ["Margin level", marginUsed ? `${marginLevel.toFixed(0)}%` : "—", "text-white"]] as [string, string, string][]).map(([l, v, c], i) => (
+                  <div key={l} className={i > 2 ? "max-[760px]:hidden" : ""}><div className="uppercase tracking-wide text-white/35">{l}</div><div className={`text-[10.5px] font-black ${c}`}>{v}</div></div>
                 ))}
               </div>
             </div>
-            <div className="px-3 py-2 border-t border-black/[0.06]">
+            <div className="px-3 py-2 border-t border-white/[0.05]">
               {tab === "positions" && (pos ? (
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between text-[11.5px] gap-2 flex-wrap">
-                    <span className="font-bold text-[#141414]">XAUUSD <span className={pos.side === "buy" ? "text-emerald-600" : "text-rose-600"}>{pos.side === "buy" ? "BUY" : "SELL"}</span> · {pos.lots.toFixed(2)} <span className="text-[#141414]/40 font-normal tabular-nums">@ {pos.entry.toFixed(2)}</span></span>
+                    <span className="font-bold text-white">XAUUSD <span className={pos.side === "buy" ? "text-emerald-400" : "text-rose-400"}>{pos.side === "buy" ? "BUY" : "SELL"}</span> · {pos.lots.toFixed(2)} <span className="text-white/40 font-normal tabular-nums">@ {pos.entry.toFixed(2)}</span></span>
                     <span className="flex items-center gap-2">
-                      <span className={`tabular-nums font-bold ${pl >= 0 ? "text-emerald-600" : "text-rose-600"}`}>{tlMoney(pl)}</span>
-                      {rMult != null && <span className={`tabular-nums text-[10px] font-bold px-1.5 py-0.5 rounded ${rMult >= 0 ? "text-emerald-600 bg-emerald-500/10" : "text-rose-600 bg-rose-400/10"}`}>{rMult >= 0 ? "+" : "−"}{Math.abs(rMult).toFixed(2)}R</span>}
-                      <button onClick={() => setManage((m) => !m)} className="px-2 py-0.5 rounded bg-black/[0.04] text-[#141414]/70 text-[10px] font-bold">{manage ? "Done" : "Edit"}</button>
-                      <button onClick={() => closeSome(0.5)} disabled={pos.lots < 0.02} className="px-2 py-0.5 rounded bg-black/[0.04] text-[#141414]/70 text-[10px] font-bold disabled:opacity-35">Partial close</button>
-                      <button onClick={() => closeSome(1)} className="px-2 py-0.5 rounded bg-black/[0.04] text-[#141414]/70 text-[10px] font-bold">Close</button>
+                      <span className={`tabular-nums font-bold ${pl >= 0 ? "text-emerald-400" : "text-rose-400"}`}>{tlMoney(pl)}</span>
+                      {rMult != null && <span className={`tabular-nums text-[10px] font-bold px-1.5 py-0.5 rounded ${rMult >= 0 ? "text-emerald-300 bg-emerald-400/10" : "text-rose-300 bg-rose-400/10"}`}>{rMult >= 0 ? "+" : "−"}{Math.abs(rMult).toFixed(2)}R</span>}
+                      <button onClick={() => setManage((m) => !m)} className="px-2 py-0.5 rounded bg-white/10 text-white/70 text-[10px] font-bold">{manage ? "Done" : "Edit"}</button>
+                      <button onClick={() => closeSome(0.5)} disabled={pos.lots < 0.02} className="px-2 py-0.5 rounded bg-white/10 text-white/70 text-[10px] font-bold disabled:opacity-35">Partial close</button>
+                      <button onClick={() => closeSome(1)} className="px-2 py-0.5 rounded bg-white/10 text-white/70 text-[10px] font-bold">Close</button>
                     </span>
                   </div>
                   {manage && (
-                    <div className="rounded-lg border border-black/[0.09] bg-black/[0.03] p-2 space-y-1.5">
+                    <div className="rounded-lg border border-white/[0.09] bg-black/30 p-2 space-y-1.5">
                       {(["sl", "tp"] as const).map((k) => (
                         <div key={k} className="flex items-center justify-between text-[10.5px]">
-                          <span className={k === "sl" ? "text-rose-600 font-bold" : "text-[#1d6694] font-bold"}>{k === "sl" ? "Stop loss" : "Take profit"}</span>
+                          <span className={k === "sl" ? "text-rose-300 font-bold" : "text-amber-300 font-bold"}>{k === "sl" ? "Stop loss" : "Take profit"}</span>
                           <span className="flex items-center gap-1.5">
-                            <button onClick={() => nudge(k, -1)} className="w-5 h-5 rounded bg-black/[0.04] text-[#141414] text-[11px] leading-none">−</button>
-                            <span className="tabular-nums text-[#141414] font-bold w-[54px] text-center">{pos[k] == null ? "—" : pos[k]!.toFixed(2)}</span>
-                            <button onClick={() => nudge(k, 1)} className="w-5 h-5 rounded bg-black/[0.04] text-[#141414] text-[11px] leading-none">+</button>
+                            <button onClick={() => nudge(k, -1)} className="w-5 h-5 rounded bg-white/10 text-white text-[11px] leading-none">−</button>
+                            <span className="tabular-nums text-white font-bold w-[54px] text-center">{pos[k] == null ? "—" : pos[k]!.toFixed(2)}</span>
+                            <button onClick={() => nudge(k, 1)} className="w-5 h-5 rounded bg-white/10 text-white text-[11px] leading-none">+</button>
                           </span>
                         </div>
                       ))}
                       <div className="flex gap-1.5 pt-0.5">
-                        <button onClick={() => setPos((p) => p && ({ ...p, sl: p.entry }))} className="flex-1 py-1 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 text-[10px] font-bold">Stop → breakeven</button>
-                        <button onClick={() => closeSome(0.5)} disabled={pos.lots < 0.02} className="flex-1 py-1 rounded bg-black/[0.04] text-[#141414]/75 text-[10px] font-bold disabled:opacity-35">Close 50%</button>
+                        <button onClick={() => setPos((p) => p && ({ ...p, sl: p.entry }))} className="flex-1 py-1 rounded bg-emerald-400/15 border border-emerald-400/30 text-emerald-200 text-[10px] font-bold">Stop → breakeven</button>
+                        <button onClick={() => closeSome(0.5)} disabled={pos.lots < 0.02} className="flex-1 py-1 rounded bg-white/10 text-white/75 text-[10px] font-bold disabled:opacity-35">Close 50%</button>
                       </div>
-                      {pos.lots < 0.02 && <div className="text-[9px] text-[#141414]/35 leading-snug">0.01 is the smallest lot — you need 0.02+ to scale out in halves.</div>}
+                      {pos.lots < 0.02 && <div className="text-[9px] text-white/35 leading-snug">0.01 is the smallest lot — you need 0.02+ to scale out in halves.</div>}
                     </div>
                   )}
                 </div>
-              ) : <div className="text-[11px] text-[#141414]/30 py-0.5">No open positions — tap <b className="text-[#141414]/60">BUY</b> / <b className="text-[#141414]/60">SELL</b> to open one.</div>)}
+              ) : <div className="text-[11px] text-white/30 py-0.5">No open positions — tap <b className="text-white/60">BUY</b> / <b className="text-white/60">SELL</b> to open one.</div>)}
               {tab === "orders" && (order ? (
                 <div className="flex items-center justify-between text-[11.5px]">
-                  <span className="font-bold text-[#141414]">XAUUSD <span className={order.side === "buy" ? "text-emerald-600" : "text-rose-600"}>{order.side.toUpperCase()} {order.kind.toUpperCase()}</span> · {order.lots.toFixed(2)} <span className="text-[#141414]/40 font-normal tabular-nums">@ {order.price.toFixed(2)}</span></span>
-                  <span className="flex items-center gap-2"><span className="text-[10px] text-[#1d6694]/80 font-bold">Working</span><button onClick={() => setOrder(null)} className="px-2 py-0.5 rounded bg-black/[0.04] text-[#141414]/70 text-[10px] font-bold">Cancel</button></span>
+                  <span className="font-bold text-white">XAUUSD <span className={order.side === "buy" ? "text-emerald-400" : "text-rose-400"}>{order.side.toUpperCase()} {order.kind.toUpperCase()}</span> · {order.lots.toFixed(2)} <span className="text-white/40 font-normal tabular-nums">@ {order.price.toFixed(2)}</span></span>
+                  <span className="flex items-center gap-2"><span className="text-[10px] text-amber-300/80 font-bold">Working</span><button onClick={() => setOrder(null)} className="px-2 py-0.5 rounded bg-white/10 text-white/70 text-[10px] font-bold">Cancel</button></span>
                 </div>
-              ) : <div className="text-[11px] text-[#141414]/30 py-0.5">No working orders — a <b className="text-[#141414]/60">Limit</b> or <b className="text-[#141414]/60">Stop</b> order rests here until price reaches it.</div>)}
+              ) : <div className="text-[11px] text-white/30 py-0.5">No working orders — a <b className="text-white/60">Limit</b> or <b className="text-white/60">Stop</b> order rests here until price reaches it.</div>)}
               {tab === "history" && (hist.length ? (
                 <div className="space-y-1">
                   {hist.map((h, i) => (
                     <div key={i} className="flex items-center justify-between text-[11px]">
-                      <span className="text-[#141414]/70">XAUUSD <span className={h.side === "buy" ? "text-emerald-600" : "text-rose-600"}>{h.side.toUpperCase()}</span> · {h.lots.toFixed(2)} <span className="text-[#141414]/35 tabular-nums">{h.entry.toFixed(2)} → {h.exit.toFixed(2)}</span></span>
-                      <span className={`tabular-nums font-bold ${h.pl >= 0 ? "text-emerald-600" : "text-rose-600"}`}>{tlMoney(h.pl)}</span>
+                      <span className="text-white/70">XAUUSD <span className={h.side === "buy" ? "text-emerald-400" : "text-rose-400"}>{h.side.toUpperCase()}</span> · {h.lots.toFixed(2)} <span className="text-white/35 tabular-nums">{h.entry.toFixed(2)} → {h.exit.toFixed(2)}</span></span>
+                      <span className={`tabular-nums font-bold ${h.pl >= 0 ? "text-emerald-400" : "text-rose-400"}`}>{tlMoney(h.pl)}</span>
                     </div>
                   ))}
                 </div>
-              ) : <div className="text-[11px] text-[#141414]/30 py-0.5">Nothing closed yet — every trade you close lands here with its realised P/L.</div>)}
+              ) : <div className="text-[11px] text-white/30 py-0.5">Nothing closed yet — every trade you close lands here with its realised P/L.</div>)}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="mt-4 rounded-xl border border-emerald-500/25 bg-emerald-500/[0.07] px-4 py-3 text-[13px] text-emerald-700/90 leading-relaxed">💡 <b className="text-[#141414]">New to it?</b> Spin up a free <b>demo account</b> in Pulse and run these exact steps risk-free — same platform, fake money. When you're ready, do it live.</div>
+      <div className="mt-4 rounded-xl border border-emerald-400/25 bg-emerald-400/[0.07] px-4 py-3 text-[13px] text-emerald-100/90 leading-relaxed">💡 <b className="text-white">New to it?</b> Spin up a free <b>demo account</b> in Pulse and run these exact steps risk-free — same platform, fake money. When you're ready, do it live.</div>
 
       {/* 3 · MANAGE THE TRADE */}
       <TlgHead id="tlg-manage" n={3} title="Manage it — edit, partial close, close" sub="Once you're in, everything happens in the Trades panel or straight on the chart. These are real screens from the platform." />
       <div className="tlgmanage">
-        <figure className="rounded-2xl border border-black/[0.09] bg-[#fcfcfc] p-3">
+        <figure className="rounded-2xl border border-white/[0.09] bg-[#080a0f] p-3">
           <img src="/tradelocker/positions-table.webp" alt="TradeLocker Positions tab showing instrument, side, size, entry, stop loss, take profit, margin, exposure and P&L" className="w-full h-auto rounded-lg" loading="lazy" />
-          <figcaption className="text-[12px] text-[#141414]/50 mt-2.5 px-1 leading-relaxed"><b className="text-[#141414]">The Positions tab.</b> Every open trade with its side, size, entry → current price, SL, TP, margin, exposure and live Profit &amp; Loss. The header carries your Balance, Equity, Margin used and Margin level.</figcaption>
+          <figcaption className="text-[12px] text-white/50 mt-2.5 px-1 leading-relaxed"><b className="text-white">The Positions tab.</b> Every open trade with its side, size, entry → current price, SL, TP, margin, exposure and live Profit &amp; Loss. The header carries your Balance, Equity, Margin used and Margin level.</figcaption>
         </figure>
-        <figure className="rounded-2xl border border-black/[0.09] bg-[#fcfcfc] p-3">
+        <figure className="rounded-2xl border border-white/[0.09] bg-[#080a0f] p-3">
           <img src="/tradelocker/position-menu.webp" alt="TradeLocker position right-click menu: copy position ID, edit position, partial close position, close position" className="w-full h-auto rounded-lg" loading="lazy" />
-          <figcaption className="text-[12px] text-[#141414]/50 mt-2.5 px-1 leading-relaxed"><b className="text-[#141414]">Right-click any position</b> (or use the Actions icons) for <b className="text-[#141414]/80">Edit position</b>, <b className="text-[#141414]/80">Partial close</b> and <b className="text-[#141414]/80">Close position</b>. Full close asks you to confirm unless you've turned on one-click trading.</figcaption>
+          <figcaption className="text-[12px] text-white/50 mt-2.5 px-1 leading-relaxed"><b className="text-white">Right-click any position</b> (or use the Actions icons) for <b className="text-white/80">Edit position</b>, <b className="text-white/80">Partial close</b> and <b className="text-white/80">Close position</b>. Full close asks you to confirm unless you've turned on one-click trading.</figcaption>
         </figure>
-        <figure className="rounded-2xl border border-black/[0.09] bg-[#fcfcfc] p-3 tlgspan">
+        <figure className="rounded-2xl border border-white/[0.09] bg-[#080a0f] p-3 tlgspan">
           <img src="/tradelocker/on-chart.webp" alt="TradeLocker on-chart stop loss and take profit lines, shown in dollars and percent" className="w-full h-auto rounded-lg" loading="lazy" />
-          <figcaption className="text-[12px] text-[#141414]/50 mt-2.5 px-1 leading-relaxed"><b className="text-[#141414]">Or do it on the chart.</b> Click a position to drop into edit mode and your SL and TP appear as draggable lines, labelled in dollars <i>and</i> as a % of your balance. Drag the stop up to your entry once you're in profit — that's breakeven, and it's free.</figcaption>
+          <figcaption className="text-[12px] text-white/50 mt-2.5 px-1 leading-relaxed"><b className="text-white">Or do it on the chart.</b> Click a position to drop into edit mode and your SL and TP appear as draggable lines, labelled in dollars <i>and</i> as a % of your balance. Drag the stop up to your entry once you're in profit — that's breakeven, and it's free.</figcaption>
         </figure>
       </div>
-      <div className="mt-3 rounded-xl border border-black/[0.08] bg-[#fafbfb] px-4 py-3.5 text-[13px] text-[#141414]/65 leading-relaxed">
-        <b className="text-[#141414]">The desk's routine on a Gold Pulse call:</b> fire the entry with the stop already set → at TP1, <b className="text-[#141414]/85">partial close</b> and drag the stop to breakeven → let the rest run to TP2/TP3. You're never risking your own money past the first target.
+      <div className="mt-3 rounded-xl border border-white/[0.08] bg-[#0a1018] px-4 py-3.5 text-[13px] text-white/65 leading-relaxed">
+        <b className="text-white">The desk's routine on a Gold Pulse call:</b> fire the entry with the stop already set → at TP1, <b className="text-white/85">partial close</b> and drag the stop to breakeven → let the rest run to TP2/TP3. You're never risking your own money past the first target.
       </div>
 
       {/* 4 · LINGO */}
       <TlgHead id="tlg-lingo" n={4} title="Know the lingo" sub="The words the platform and the desk both use." />
       <div className="tlgterms">
-        {terms.map((t) => (<div key={t.t} className="rounded-xl border border-black/[0.08] bg-[#fafbfb] p-3.5"><b className="block text-[#195a83] text-[13.5px] mb-1">{t.t}</b><span className="text-[#141414]/60 text-[13px] leading-relaxed">{t.d}</span></div>))}
+        {terms.map((t) => (<div key={t.t} className="rounded-xl border border-white/[0.08] bg-[#0a1018] p-3.5"><b className="block text-[#7cbde6] text-[13.5px] mb-1">{t.t}</b><span className="text-white/60 text-[13px] leading-relaxed">{t.d}</span></div>))}
       </div>
 
       {/* 5 · RULES */}
       <TlgHead id="tlg-rules" n={5} title="The desk rules — read this twice" sub="The platform will let you do anything. These are the four things that keep an account alive." />
       <div className="flex flex-col gap-2.5">
         {[["Every trade ships with a stop.", "No SL, no trade. It's the difference between a bad day and a blown account."], ["Scale out at the TPs.", "Take partial profit at TP1, move your stop to breakeven, and let the rest run."], ["Size for survival.", "Risk a small, fixed amount per trade. You can't win if you're not in it tomorrow."], ["Never hold against your stop.", "If it hits, it hits. Moving a stop to dodge a loss turns small losses into big ones."]].map(([h, d], i) => (
-          <div key={i} className="flex gap-3 items-start rounded-xl border border-black/[0.08] bg-[#fafbfb] px-4 py-3.5 text-[13.5px] text-[#141414]/75 leading-relaxed"><span className="tlgnum">{i + 1}</span><span><b className="text-[#141414]">{h}</b> {d}</span></div>
+          <div key={i} className="flex gap-3 items-start rounded-xl border border-white/[0.08] bg-[#0a1018] px-4 py-3.5 text-[13.5px] text-white/75 leading-relaxed"><span className="tlgnum">{i + 1}</span><span><b className="text-white">{h}</b> {d}</span></div>
         ))}
       </div>
 
-      <div className="mt-6 rounded-2xl border border-black/[0.09] p-5 flex items-center gap-4 flex-wrap" style={{ background: "radial-gradient(120% 100% at 0 100%,rgba(39,117,169,.12),transparent 60%),#fafbfb" }}>
+      <div className="mt-6 rounded-2xl border border-white/[0.09] p-5 flex items-center gap-4 flex-wrap" style={{ background: "radial-gradient(120% 100% at 0 100%,rgba(86,164,216,.12),transparent 60%),#0a1018" }}>
         <a className="btn tg" href={openUrl} target="_blank" rel="noopener noreferrer">Open TradeLocker →</a>
-        <span className="text-[#141414]/60 text-[13.5px] flex-1 min-w-[220px] leading-relaxed">Want it done for you? Use <b className="text-[#141414]">Tap to Trade</b> on any Gold Pulse call — it fires the entry and auto-sets your stop.</span>
+        <span className="text-white/60 text-[13.5px] flex-1 min-w-[220px] leading-relaxed">Want it done for you? Use <b className="text-white">Tap to Trade</b> on any Gold Pulse call — it fires the entry and auto-sets your stop.</span>
       </div>
     </div>
   );
@@ -573,10 +573,10 @@ const GoldPulse = () => (
   <svg className="goldpulse" viewBox="0 0 52 30" fill="none" aria-hidden>
     <defs>
       <linearGradient id="gpGrad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stopColor="#3181b9" /><stop offset="50%" stopColor="#1f2930" /><stop offset="100%" stopColor="#3181b9" />
+        <stop offset="0%" stopColor="#3f92cc" /><stop offset="50%" stopColor="#d8ecfb" /><stop offset="100%" stopColor="#3f92cc" />
       </linearGradient>
     </defs>
-    <path d={GOLD_PULSE_PATH} stroke="rgba(49,129,185,0.28)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    <path d={GOLD_PULSE_PATH} stroke="rgba(63,146,204,0.28)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
     <path className="gpbeam" d={GOLD_PULSE_PATH} stroke="url(#gpGrad)" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
@@ -607,28 +607,28 @@ const NAV: { group: string; items: { key: TabKey | "pulse"; label: string; ext?:
 
 const CSS = `
 .mb *{box-sizing:border-box}
-.mb{position:relative;min-height:100vh;background:#fdfdfd;color:#141414;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.mb{position:relative;min-height:100vh;background:#05070d;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 /* The animated constellation backdrop sits fixed at z-index 0 (see ConstellationBackground) —
    every page layer has to be explicitly lifted above it or it paints over the content. */
-.mb .top{position:sticky;top:0;z-index:30;background:rgba(253,253,253,.72);backdrop-filter:blur(16px);border-bottom:1px solid rgba(20,20,20,.06);transform:translateZ(0);will-change:transform;backface-visibility:hidden}
+.mb .top{position:sticky;top:0;z-index:30;background:rgba(5,7,13,.72);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);transform:translateZ(0);will-change:transform;backface-visibility:hidden}
 .mb .shell,.mb .center{position:relative;z-index:1}
 .mb .topin{max-width:1180px;margin:0 auto;padding:0 18px;display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
 .mb .brand{display:flex;align-items:center;gap:9px}
 .mb .brand img{height:34px;width:34px;border-radius:9px;object-fit:contain}
 .mb .brand span{font-weight:900;font-size:15px;white-space:nowrap}
-.mb .burger{display:none;width:38px;height:38px;margin-right:2px;border-radius:10px;border:1px solid rgba(20,20,20,.12);background:rgba(20,20,20,.03);color:#141414;cursor:pointer;align-items:center;justify-content:center;flex:0 0 38px}
+.mb .burger{display:none;width:38px;height:38px;margin-right:2px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:#fff;cursor:pointer;align-items:center;justify-content:center;flex:0 0 38px}
 .mb .burger svg{width:20px;height:20px}
 .mb .scrim{display:none}
-.mb .lo{height:34px;padding:0 14px;border-radius:11px;border:1px solid rgba(20,20,20,.15);background:none;color:rgba(20,20,20,.8);font-size:12px;font-weight:700;cursor:pointer}
-.mb .lo:hover{color:#141414;border-color:rgba(20,20,20,.3)}
+.mb .lo{height:34px;padding:0 14px;border-radius:11px;border:1px solid rgba(255,255,255,.15);background:none;color:rgba(255,255,255,.8);font-size:12px;font-weight:700;cursor:pointer}
+.mb .lo:hover{color:#fff;border-color:rgba(255,255,255,.3)}
 .mb .topr{display:flex;align-items:center;gap:10px;min-width:0}
-.mb .demobar{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:10px 18px;font-size:12.5px;color:#194d70;background:rgba(48,127,187,.10);border-bottom:1px solid rgba(48,127,187,.22);text-align:center}
-.mb .demobar b{color:#141414}
-.mb .uemail{font-size:12px;color:rgba(20,20,20,.55);max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mb .demobar{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:10px 18px;font-size:12.5px;color:#8fc3e6;background:rgba(46,122,180,.10);border-bottom:1px solid rgba(46,122,180,.22);text-align:center}
+.mb .demobar b{color:#fff}
+.mb .uemail{font-size:12px;color:rgba(255,255,255,.55);max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media(max-width:560px){.mb .uemail{display:none}}
 /* Admin gets its own accent through the same variables the rail uses, so it stays distinct from
    the member nav without needing separate hover/active rules. */
-.mb .tab.admin{--gr:167,139,250;--g2r:236,72,153;border-color:rgba(35,111,159,.3);color:#194d70}
+.mb .tab.admin{--gr:167,139,250;--g2r:236,72,153;border-color:rgba(96,172,220,.3);color:#8fc3e6}
 
 .mb .shell{max-width:1180px;margin:0 auto;padding:18px;display:flex;gap:18px;align-items:flex-start}
 .mb .rail{position:sticky;top:78px;flex:0 0 210px;display:flex;flex-direction:column;gap:6px}
@@ -642,42 +642,42 @@ const CSS = `
 .mb .rail>div:not(.railtop){display:flex;flex-direction:column;gap:6px}
 .mb .rail>div+div{margin-top:12px}
 .mb .railtop{display:none}
-.mb .tab{position:relative;display:flex;align-items:center;gap:11px;height:44px;padding:0 13px;border-radius:12px;border:1px solid transparent;background:none;color:rgba(20,20,20,.72);font-size:14px;font-weight:700;cursor:pointer;text-align:left;width:100%;transition:.18s;text-decoration:none;overflow:hidden}
+.mb .tab{position:relative;display:flex;align-items:center;gap:11px;height:44px;padding:0 13px;border-radius:12px;border:1px solid transparent;background:none;color:rgba(255,255,255,.72);font-size:14px;font-weight:700;cursor:pointer;text-align:left;width:100%;transition:.18s;text-decoration:none;overflow:hidden}
 .mb .tab .ti{width:19px;height:19px;flex:0 0 19px;color:rgb(var(--gr));opacity:.62;transition:.18s}
-.mb .tab:hover{background:linear-gradient(90deg,rgba(var(--gr),.12),rgba(var(--g2r),.05));border-color:rgba(var(--gr),.22);color:#141414;transform:translateX(2px)}
+.mb .tab:hover{background:linear-gradient(90deg,rgba(var(--gr),.12),rgba(var(--g2r),.05));border-color:rgba(var(--gr),.22);color:#fff;transform:translateX(2px)}
 .mb .tab:hover .ti{opacity:1;filter:drop-shadow(0 0 6px rgba(var(--gr),.6))}
-.mb .tab.on{background:linear-gradient(90deg,rgba(var(--gr),.24),rgba(var(--g2r),.12));border-color:rgba(var(--gr),.5);color:#141414;box-shadow:0 6px 22px -8px rgba(var(--gr),.55),inset 0 1px 0 rgba(20,20,20,.06)}
+.mb .tab.on{background:linear-gradient(90deg,rgba(var(--gr),.24),rgba(var(--g2r),.12));border-color:rgba(var(--gr),.5);color:#fff;box-shadow:0 6px 22px -8px rgba(var(--gr),.55),inset 0 1px 0 rgba(255,255,255,.06)}
 /* Left accent bar on the active item — the strongest single cue for "you are here". */
 .mb .tab.on::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:0 3px 3px 0;background:linear-gradient(180deg,rgb(var(--gr)),rgb(var(--g2r)));box-shadow:0 0 10px rgba(var(--gr),.8)}
 .mb .tab.on .ti{opacity:1;filter:drop-shadow(0 0 7px rgba(var(--gr),.75))}
 @media(prefers-reduced-motion:reduce){.mb .tab,.mb .tab:hover{transition:none;transform:none}}
 /* Locked until funded. Still clickable on purpose — the click re-opens the deposit prompt, which is
    more useful than a dead button that leaves them guessing why nothing happened. */
-.mb .tab.lk{color:rgba(20,20,20,.34)}
+.mb .tab.lk{color:rgba(255,255,255,.34)}
 .mb .tab.lk .ti{opacity:.24;filter:none}
 .mb .tab.lk .lkic{margin-left:auto;font-size:11px;opacity:.5;filter:grayscale(1)}
-.mb .tab.lk:hover{background:rgba(20,20,20,.03);border-color:rgba(20,20,20,.09);color:rgba(20,20,20,.5);transform:none}
+.mb .tab.lk:hover{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.09);color:rgba(255,255,255,.5);transform:none}
 .mb .tab.lk:hover .ti{opacity:.4;filter:none}
 .mb .tab.lk:hover .lkic{opacity:.9;filter:none}
 /* Pulse dashboard — an outbound link, and the one Core item that is never locked. Tinted in Pulse
    cyan and marked with an arrow so it's obviously "leaves this site". */
-.mb .tab.pulse{--gr:0,229,255;--g2r:42,157,244;color:rgba(20,20,20,.82);background:rgba(25,90,131,.06);border-color:rgba(25,90,131,.2)}
+.mb .tab.pulse{--gr:0,229,255;--g2r:42,157,244;color:rgba(255,255,255,.82);background:rgba(124,189,230,.06);border-color:rgba(124,189,230,.2)}
 .mb .tab.pulse .ti{opacity:.95}
-.mb .tab.pulse .extic{margin-left:auto;font-size:12px;font-weight:900;color:rgba(25,90,131,.7)}
-.mb .tab.pulse:hover{background:rgba(25,90,131,.13);border-color:rgba(25,90,131,.42)}
-.mb .railfoot{margin-top:12px;border-top:1px solid rgba(20,20,20,.07);padding-top:12px;display:flex;flex-direction:column;gap:6px}
+.mb .tab.pulse .extic{margin-left:auto;font-size:12px;font-weight:900;color:rgba(124,189,230,.7)}
+.mb .tab.pulse:hover{background:rgba(124,189,230,.13);border-color:rgba(124,189,230,.42)}
+.mb .railfoot{margin-top:12px;border-top:1px solid rgba(255,255,255,.07);padding-top:12px;display:flex;flex-direction:column;gap:6px}
 .mb .content{flex:1;min-width:0}
 
 .mb .hero{padding:2px 0 8px}
 .mb .hi{font-size:26px;font-weight:900;letter-spacing:-.02em}
-.mb .hi .g{background:linear-gradient(90deg,#1d6694,#2f7fbc);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.mb .hisub{color:rgba(20,20,20,.55);font-size:14.5px;margin-top:6px;max-width:560px}
-.mb .walletchip{display:inline-flex;align-items:center;gap:8px;margin-top:14px;border:1px solid rgba(42,193,138,.3);background:rgba(42,193,138,.08);border-radius:12px;padding:9px 14px;font-size:13.5px;color:rgba(20,20,20,.8)}
-.mb .walletchip b{color:#189161;font-variant-numeric:tabular-nums}
-.mb .kick{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(29,102,148,.8);margin:26px 0 12px;display:flex;align-items:center;gap:8px}
-.mb .kick .opt{color:rgba(20,20,20,.35);font-weight:700}
+.mb .hi .g{background:linear-gradient(90deg,#6bb4e2,#2a72a8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.mb .hisub{color:rgba(255,255,255,.55);font-size:14.5px;margin-top:6px;max-width:560px}
+.mb .walletchip{display:inline-flex;align-items:center;gap:8px;margin-top:14px;border:1px solid rgba(52,211,153,.3);background:rgba(52,211,153,.08);border-radius:12px;padding:9px 14px;font-size:13.5px;color:rgba(255,255,255,.8)}
+.mb .walletchip b{color:#6ee7b7;font-variant-numeric:tabular-nums}
+.mb .kick{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(107,180,226,.8);margin:26px 0 12px;display:flex;align-items:center;gap:8px}
+.mb .kick .opt{color:rgba(255,255,255,.35);font-weight:700}
 .mb .h2{font-size:20px;font-weight:900;letter-spacing:-.01em}
-.mb .lead{color:rgba(20,20,20,.55);font-size:14px;margin-top:6px;max-width:600px;line-height:1.55}
+.mb .lead{color:rgba(255,255,255,.55);font-size:14px;margin-top:6px;max-width:600px;line-height:1.55}
 
 .mb .grid{display:grid;grid-template-columns:1fr;gap:14px}
 @media(min-width:720px){.mb .grid{grid-template-columns:1fr 1fr}}
@@ -689,7 +689,7 @@ const CSS = `
 .mb .tlgchips{display:flex;gap:6px;flex-wrap:wrap;min-width:0}
 /* Callout numeral — outlined, deliberately quieter than the filled step chips so the two
    numbering systems never read as the same list. */
-.mb .tlgnum{flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#185781;border:1px solid rgba(25,90,131,.4);background:rgba(25,90,131,.07);font-variant-numeric:tabular-nums}
+.mb .tlgnum{flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#7ebde7;border:1px solid rgba(124,189,230,.4);background:rgba(124,189,230,.07);font-variant-numeric:tabular-nums}
 .mb .tlgtour{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
 @media(min-width:900px){.mb .tlgtour{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}}
 .mb .tlgmanage{display:grid;grid-template-columns:1fr;gap:14px;align-items:start}
@@ -697,104 +697,104 @@ const CSS = `
 .mb .tlgbody{display:grid;grid-template-columns:1fr}
 @media(min-width:640px){.mb .tlgbody{grid-template-columns:112px minmax(0,1fr) 196px}}
 .mb .tlgbs{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.mb .tlgtype{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;background:rgba(20,20,20,.05);border-radius:9px;padding:3px}
-.mb .tlgcalc{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);border-top:1px solid rgba(20,20,20,.07)}
+.mb .tlgtype{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;background:rgba(255,255,255,.05);border-radius:9px;padding:3px}
+.mb .tlgcalc{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);border-top:1px solid rgba(255,255,255,.07)}
 .mb .tlgterms{display:grid;grid-template-columns:1fr;gap:10px}
 @media(min-width:640px){.mb .tlgterms{grid-template-columns:1fr 1fr}}
-.mb .card{border:1px solid rgba(20,20,20,.09);background:#fbfbfc;border-radius:18px;padding:22px;display:flex;flex-direction:column}
-.mb .card .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:rgba(29,102,148,.12);border:1px solid rgba(29,102,148,.28)}
+.mb .card{border:1px solid rgba(255,255,255,.09);background:#0b0c12;border-radius:18px;padding:22px;display:flex;flex-direction:column}
+.mb .card .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:rgba(107,180,226,.12);border:1px solid rgba(107,180,226,.28)}
 .mb .card h3{font-size:17px;font-weight:800;margin-top:14px}
-.mb .card p{color:rgba(20,20,20,.6);font-size:14px;line-height:1.55;margin-top:8px;flex:1}
+.mb .card p{color:rgba(255,255,255,.6);font-size:14px;line-height:1.55;margin-top:8px;flex:1}
 
-.mb .btn{margin-top:16px;height:44px;border:none;border-radius:12px;font-weight:800;font-size:14px;color:#f9f9fa;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:linear-gradient(90deg,#1d6694,#307fbb,#2f7fbc);box-shadow:0 12px 34px -16px rgba(29,102,148,.7);align-self:flex-start;padding:0 20px;text-decoration:none}
-.mb .btn.tg{background:linear-gradient(90deg,#2783c1,#2f82bb);color:#141414;box-shadow:0 12px 34px -16px rgba(39,117,169,.8)}
+.mb .btn{margin-top:16px;height:44px;border:none;border-radius:12px;font-weight:800;font-size:14px;color:#0d1420;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:linear-gradient(90deg,#6bb4e2,#2e7ab4,#2a72a8);box-shadow:0 12px 34px -16px rgba(107,180,226,.7);align-self:flex-start;padding:0 20px;text-decoration:none}
+.mb .btn.tg{background:linear-gradient(90deg,#3e9ad8,#24638f);color:#fff;box-shadow:0 12px 34px -16px rgba(86,164,216,.8)}
 .mb .btn:hover{filter:brightness(1.06)}
 .mb .tgrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.mb .tglink{display:inline-flex;align-items:center;gap:8px;background:rgba(39,117,169,.08);border:1px solid rgba(39,117,169,.28);border-radius:10px;padding:7px 8px 7px 12px;max-width:100%}
-.mb .tgurl{color:#114a70;font-size:13px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.mb .tglink{display:inline-flex;align-items:center;gap:8px;background:rgba(86,164,216,.08);border:1px solid rgba(86,164,216,.28);border-radius:10px;padding:7px 8px 7px 12px;max-width:100%}
+.mb .tgurl{color:#8fc8ee;font-size:13px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
 .mb .tgurl:hover{text-decoration:underline}
-.mb .tgcopy{flex:none;background:rgba(39,117,169,.16);border:1px solid rgba(39,117,169,.35);color:#25323a;font-size:12px;font-weight:700;border-radius:7px;padding:5px 10px;cursor:pointer;transition:.15s}
-.mb .tgcopy:hover{background:rgba(39,117,169,.28);color:#141414}
-.mb .btn.ghost{background:none;border:1px solid rgba(20,20,20,.16);color:#141414;box-shadow:none}
-.mb .btn.link{background:none;box-shadow:none;color:rgba(20,20,20,.5);padding:0 6px;height:auto;text-decoration:underline;font-weight:700;font-size:13px}
-.mb .btn.link:hover{color:#141414;filter:none}
+.mb .tgcopy{flex:none;background:rgba(86,164,216,.16);border:1px solid rgba(86,164,216,.35);color:#c7e6fa;font-size:12px;font-weight:700;border-radius:7px;padding:5px 10px;cursor:pointer;transition:.15s}
+.mb .tgcopy:hover{background:rgba(86,164,216,.28);color:#fff}
+.mb .btn.ghost{background:none;border:1px solid rgba(255,255,255,.16);color:#fff;box-shadow:none}
+.mb .btn.link{background:none;box-shadow:none;color:rgba(255,255,255,.5);padding:0 6px;height:auto;text-decoration:underline;font-weight:700;font-size:13px}
+.mb .btn.link:hover{color:#fff;filter:none}
 
 /* PICK YOUR PATH */
 .mb .pick2{display:grid;grid-template-columns:1fr;gap:16px;margin-top:6px}
 @media(min-width:760px){.mb .pick2{grid-template-columns:1fr 1fr}}
-.mb .pcard{position:relative;overflow:hidden;border-radius:20px;padding:26px;cursor:pointer;border:1px solid rgba(20,20,20,.1);background:#fbfbfc;transition:.18s;text-align:left}
-.mb .pcard:hover{transform:translateY(-3px);border-color:rgba(29,102,148,.4)}
-.mb .pcard.gold{background:radial-gradient(520px 260px at 15% 0%,rgba(48,127,187,.14),transparent 60%),#fbfbfc;border-color:rgba(48,127,187,.3)}
-.mb .pcard.cyan{background:radial-gradient(520px 260px at 15% 0%,rgba(29,102,148,.14),transparent 60%),#fbfbfc;border-color:rgba(29,102,148,.3)}
-.mb .pcard .pic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;border:1px solid rgba(20,20,20,.14)}
+.mb .pcard{position:relative;overflow:hidden;border-radius:20px;padding:26px;cursor:pointer;border:1px solid rgba(255,255,255,.1);background:#0b0c12;transition:.18s;text-align:left}
+.mb .pcard:hover{transform:translateY(-3px);border-color:rgba(107,180,226,.4)}
+.mb .pcard.gold{background:radial-gradient(520px 260px at 15% 0%,rgba(46,122,180,.14),transparent 60%),#0b0c12;border-color:rgba(46,122,180,.3)}
+.mb .pcard.cyan{background:radial-gradient(520px 260px at 15% 0%,rgba(107,180,226,.14),transparent 60%),#0b0c12;border-color:rgba(107,180,226,.3)}
+.mb .pcard .pic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.14)}
 .mb .pcard .pic svg{width:24px;height:24px}
-.mb .pcard.gold .pic{background:rgba(48,127,187,.14);border-color:rgba(48,127,187,.32);color:#194d70}
-.mb .pcard.cyan .pic{background:rgba(29,102,148,.14);border-color:rgba(29,102,148,.32);color:#2e3e49}
+.mb .pcard.gold .pic{background:rgba(46,122,180,.14);border-color:rgba(46,122,180,.32);color:#8fc3e6}
+.mb .pcard.cyan .pic{background:rgba(107,180,226,.14);border-color:rgba(107,180,226,.32);color:#b3daf4}
 .mb .pcard .ptag{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-top:16px}
-.mb .pcard.gold .ptag{color:#1c5073}.mb .pcard.cyan .ptag{color:#2e3e49}
+.mb .pcard.gold .ptag{color:#8cc0e3}.mb .pcard.cyan .ptag{color:#b3daf4}
 .mb .pcard h3{font-size:20px;font-weight:900;margin-top:5px}
-.mb .pcard p{color:rgba(20,20,20,.6);font-size:14px;line-height:1.6;margin-top:9px}
+.mb .pcard p{color:rgba(255,255,255,.6);font-size:14px;line-height:1.6;margin-top:9px}
 .mb .pcard .go{margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:14px}
-.mb .pcard.gold .go{color:#194d70}.mb .pcard.cyan .go{color:#2e3e49}
+.mb .pcard.gold .go{color:#8fc3e6}.mb .pcard.cyan .go{color:#b3daf4}
 /* GoldRock flame badge (PAMM) + Gold Pulse animated badge (signals) */
 .mb .pcard .pic.flame{background:none;border:none;width:62px;height:62px;overflow:visible}
-.mb .pcard .pic.flame img{width:62px;height:62px;object-fit:contain;mix-blend-mode:screen;filter:drop-shadow(0 0 16px rgba(47,127,188,.55));-webkit-mask-image:radial-gradient(circle at 50% 48%,#ffffff 55%,transparent 78%);mask-image:radial-gradient(circle at 50% 48%,#ffffff 55%,transparent 78%)}
+.mb .pcard .pic.flame img{width:62px;height:62px;object-fit:contain;mix-blend-mode:screen;filter:drop-shadow(0 0 16px rgba(42,114,168,.55));-webkit-mask-image:radial-gradient(circle at 50% 48%,#000 55%,transparent 78%);mask-image:radial-gradient(circle at 50% 48%,#000 55%,transparent 78%)}
 /* Gold Pulse signals — gold on black, no ring around the logo */
-.mb .pcard.gpsig{background:radial-gradient(520px 260px at 15% 0%,rgba(49,129,185,.10),transparent 60%),#fcfcfd;border-color:rgba(49,129,185,.30)}
-.mb .pcard.gpsig:hover{border-color:rgba(49,129,185,.5);transform:translateY(-3px)}
-.mb .pcard.gpsig .ptag{color:#195a83}
-.mb .pcard.gpsig .go{color:#195a83}
-.mb .pcard .pic.gp{background:#fcfcfc;border:none;box-shadow:none;width:56px;height:56px}
+.mb .pcard.gpsig{background:radial-gradient(520px 260px at 15% 0%,rgba(63,146,204,.10),transparent 60%),#08080b;border-color:rgba(63,146,204,.30)}
+.mb .pcard.gpsig:hover{border-color:rgba(63,146,204,.5);transform:translateY(-3px)}
+.mb .pcard.gpsig .ptag{color:#7cbde6}
+.mb .pcard.gpsig .go{color:#7cbde6}
+.mb .pcard .pic.gp{background:#0a0a0d;border:none;box-shadow:none;width:56px;height:56px}
 .mb .pcard .pic.gp svg{width:36px;height:auto}
-.mb .goldpulse .gpbeam{stroke-dasharray:9 62;animation:gpBeam 1.5s linear infinite;filter:drop-shadow(0 0 5px rgba(49,129,185,.85))}
+.mb .goldpulse .gpbeam{stroke-dasharray:9 62;animation:gpBeam 1.5s linear infinite;filter:drop-shadow(0 0 5px rgba(63,146,204,.85))}
 @keyframes gpBeam{to{stroke-dashoffset:-71}}
 @media(prefers-reduced-motion:reduce){.mb .goldpulse .gpbeam{animation:none;stroke-dasharray:none}}
-.mb .unlocknote{margin:-4px 0 14px;border:1px solid rgba(29,102,148,.22);background:rgba(29,102,148,.06);border-radius:12px;padding:12px 14px;font-size:13px;color:rgba(20,20,20,.75);line-height:1.5}
-.mb .unlocknote b{color:#141414}
+.mb .unlocknote{margin:-4px 0 14px;border:1px solid rgba(107,180,226,.22);background:rgba(107,180,226,.06);border-radius:12px;padding:12px 14px;font-size:13px;color:rgba(255,255,255,.75);line-height:1.5}
+.mb .unlocknote b{color:#fff}
 
 /* STEP GATE */
-.mb .gate{position:relative;overflow:hidden;border:1px solid rgba(29,102,148,.26);border-radius:20px;padding:24px;background:radial-gradient(600px 260px at 15% 0%,rgba(29,102,148,.10),transparent 60%),#fbfbfc}
-.mb .gate.gold{border-color:rgba(48,127,187,.28);background:radial-gradient(600px 260px at 15% 0%,rgba(48,127,187,.12),transparent 60%),#fbfbfc}
-.mb .gate.on{border-color:rgba(42,193,138,.4);background:radial-gradient(600px 260px at 15% 0%,rgba(42,193,138,.10),transparent 60%),#fbfbfc}
-.mb .gate .glbl{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#2e3e49}
-.mb .gate.gold .glbl{color:#194d70}.mb .gate.on .glbl{color:#189161}
+.mb .gate{position:relative;overflow:hidden;border:1px solid rgba(107,180,226,.26);border-radius:20px;padding:24px;background:radial-gradient(600px 260px at 15% 0%,rgba(107,180,226,.10),transparent 60%),#0b0c12}
+.mb .gate.gold{border-color:rgba(46,122,180,.28);background:radial-gradient(600px 260px at 15% 0%,rgba(46,122,180,.12),transparent 60%),#0b0c12}
+.mb .gate.on{border-color:rgba(52,211,153,.4);background:radial-gradient(600px 260px at 15% 0%,rgba(52,211,153,.10),transparent 60%),#0b0c12}
+.mb .gate .glbl{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#b3daf4}
+.mb .gate.gold .glbl{color:#8fc3e6}.mb .gate.on .glbl{color:#6ee7b7}
 .mb .gate h3{font-size:20px;font-weight:900;margin-top:8px}
-.mb .gate p{color:rgba(20,20,20,.62);font-size:14px;line-height:1.6;margin-top:8px}
-.mb .bar{height:10px;border-radius:99px;background:rgba(20,20,20,.08);overflow:hidden;margin-top:16px}
-.mb .bar>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#1d6694,#2f7fbc);transition:width .5s ease}
-.mb .gate.gold .bar>i{background:linear-gradient(90deg,#2f7fbc,#1b5f8b)}
-.mb .barlab{display:flex;justify-content:space-between;font-size:12px;color:rgba(20,20,20,.5);margin-top:7px;font-variant-numeric:tabular-nums}
+.mb .gate p{color:rgba(255,255,255,.62);font-size:14px;line-height:1.6;margin-top:8px}
+.mb .bar{height:10px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:16px}
+.mb .bar>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#6bb4e2,#2a72a8);transition:width .5s ease}
+.mb .gate.gold .bar>i{background:linear-gradient(90deg,#2a72a8,#74b8e4)}
+.mb .barlab{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.5);margin-top:7px;font-variant-numeric:tabular-nums}
 .mb .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;align-items:center}
 .mb .row .btn{margin-top:0}
-.mb .note{font-size:13px;color:rgba(20,20,20,.5)}
-.mb .lnkbox{margin-top:16px;display:flex;align-items:center;gap:8px;border:1px solid rgba(20,20,20,.12);background:#fdfdfd;border-radius:11px;padding:6px 6px 6px 12px}
-.mb .lnk{flex:1;min-width:0;font-size:12.5px;color:rgba(20,20,20,.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.mb .cpy{flex:none;height:34px;padding:0 14px;border:none;border-radius:9px;font-weight:800;font-size:12.5px;color:#f9f9fa;cursor:pointer;background:linear-gradient(90deg,#1d6694,#307fbb);white-space:nowrap}
-.mb .reenable{margin-top:14px;border:1px dashed rgba(20,20,20,.14);border-radius:14px;padding:16px;font-size:13.5px;color:rgba(20,20,20,.6);line-height:1.6}
-.mb .reenable button{background:none;border:none;color:#2e3e49;font-weight:800;cursor:pointer;font-size:13.5px}
+.mb .note{font-size:13px;color:rgba(255,255,255,.5)}
+.mb .lnkbox{margin-top:16px;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);background:#05070d;border-radius:11px;padding:6px 6px 6px 12px}
+.mb .lnk{flex:1;min-width:0;font-size:12.5px;color:rgba(255,255,255,.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.mb .cpy{flex:none;height:34px;padding:0 14px;border:none;border-radius:9px;font-weight:800;font-size:12.5px;color:#0d1420;cursor:pointer;background:linear-gradient(90deg,#6bb4e2,#2e7ab4);white-space:nowrap}
+.mb .reenable{margin-top:14px;border:1px dashed rgba(255,255,255,.14);border-radius:14px;padding:16px;font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.6}
+.mb .reenable button{background:none;border:none;color:#b3daf4;font-weight:800;cursor:pointer;font-size:13.5px}
 
 /* settings */
-.mb .srow{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid rgba(20,20,20,.09);background:#fbfbfc;border-radius:14px;padding:16px 18px;margin-top:12px}
+.mb .srow{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid rgba(255,255,255,.09);background:#0b0c12;border-radius:14px;padding:16px 18px;margin-top:12px}
 .mb .srow .st{font-weight:800;font-size:14.5px}
-.mb .srow .ss{font-size:12.5px;color:rgba(20,20,20,.5);margin-top:3px}
-.mb .sbtn{height:38px;padding:0 16px;border-radius:11px;border:1px solid rgba(29,102,148,.35);background:rgba(29,102,148,.08);color:#1f2930;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap;flex:none}
-.mb .sbtn.ghost{border-color:rgba(20,20,20,.15);background:none;color:rgba(20,20,20,.75)}
+.mb .srow .ss{font-size:12.5px;color:rgba(255,255,255,.5);margin-top:3px}
+.mb .sbtn{height:38px;padding:0 16px;border-radius:11px;border:1px solid rgba(107,180,226,.35);background:rgba(107,180,226,.08);color:#d8ecfb;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap;flex:none}
+.mb .sbtn.ghost{border-color:rgba(255,255,255,.15);background:none;color:rgba(255,255,255,.75)}
 
-.mb .center{min-height:100vh;display:grid;place-items:center;color:rgba(20,20,20,.5)}
+.mb .center{min-height:100vh;display:grid;place-items:center;color:rgba(255,255,255,.5)}
 @media(max-width:760px){
   .mb .burger{display:flex}
   .mb .shell{gap:0;padding:14px}
-  .mb .rail{position:fixed;left:0;top:0;bottom:0;z-index:60;flex:0 0 auto;width:270px;max-width:84vw;padding:14px 14px 22px;background:radial-gradient(420px 300px at 0% 0%,rgba(29,102,148,.10),transparent 60%),linear-gradient(180deg,#fafbfb,#fcfcfc 65%);border-right:1px solid rgba(20,20,20,.09);box-shadow:24px 0 70px -20px rgba(0,0,0,0.12),inset -1px 0 0 rgba(29,102,148,.06);transform:translateX(-100%);transition:transform .24s ease;overflow-y:auto}
+  .mb .rail{position:fixed;left:0;top:0;bottom:0;z-index:60;flex:0 0 auto;width:270px;max-width:84vw;padding:14px 14px 22px;background:radial-gradient(420px 300px at 0% 0%,rgba(107,180,226,.10),transparent 60%),linear-gradient(180deg,#0a1018,#070910 65%);border-right:1px solid rgba(255,255,255,.09);box-shadow:24px 0 70px -20px rgba(0,0,0,.75),inset -1px 0 0 rgba(107,180,226,.06);transform:translateX(-100%);transition:transform .24s ease;overflow-y:auto}
   .mb .rail.open{transform:translateX(0)}
-  .mb .railtop{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 4px 16px;margin-bottom:6px;border-bottom:1px solid rgba(20,20,20,.08)}
+  .mb .railtop{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 4px 16px;margin-bottom:6px;border-bottom:1px solid rgba(255,255,255,.08)}
   .mb .raillogo{display:flex;align-items:center;gap:11px;min-width:0}
-  .mb .raillogo img{height:40px;width:40px;border-radius:11px;object-fit:contain;box-shadow:0 10px 26px -10px rgba(29,102,148,.55),0 0 0 1px rgba(20,20,20,.06)}
-  .mb .raillogo span{font-weight:900;font-size:16.5px;letter-spacing:-.01em;white-space:nowrap;background:linear-gradient(90deg,#141414,#1f2930);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  .mb .railx{width:34px;height:34px;flex:none;border-radius:10px;border:1px solid rgba(20,20,20,.12);background:rgba(20,20,20,.04);color:rgba(20,20,20,.7);display:grid;place-items:center;cursor:pointer}
-  .mb .railx:hover{color:#141414;border-color:rgba(20,20,20,.25)}
+  .mb .raillogo img{height:40px;width:40px;border-radius:11px;object-fit:contain;box-shadow:0 10px 26px -10px rgba(107,180,226,.55),0 0 0 1px rgba(255,255,255,.06)}
+  .mb .raillogo span{font-weight:900;font-size:16.5px;letter-spacing:-.01em;white-space:nowrap;background:linear-gradient(90deg,#fff,#d8ecfb);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .mb .railx{width:34px;height:34px;flex:none;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:rgba(255,255,255,.7);display:grid;place-items:center;cursor:pointer}
+  .mb .railx:hover{color:#fff;border-color:rgba(255,255,255,.25)}
   .mb .railx svg{width:18px;height:18px}
   .mb .rail .tab{height:48px}
-  .mb .scrim{display:block;position:fixed;inset:0;z-index:50;background:rgba(0,0,0,0.088);backdrop-filter:blur(2px)}
+  .mb .scrim{display:block;position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.55);backdrop-filter:blur(2px)}
   .mb .content{width:100%}
   .mb .hi{font-size:22px}
 }
@@ -804,97 +804,97 @@ const CSS = `
    card surfaces go translucent + blurred — same treatment the cabinet on
    forexbrokercrm.com uses. Overrides live at the end so they win without
    having to touch every rule above. */
-.mb .card,.mb .srow,.mb .pcard{background:rgba(251,251,252,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.mb .pcard.gold{background:radial-gradient(520px 260px at 15% 0%,rgba(48,127,187,.16),transparent 60%),rgba(251,251,252,.62)}
-.mb .pcard.cyan{background:radial-gradient(520px 260px at 15% 0%,rgba(29,102,148,.16),transparent 60%),rgba(251,251,252,.62)}
-.mb .pcard.gpsig{background:radial-gradient(520px 260px at 15% 0%,rgba(49,129,185,.13),transparent 60%),rgba(252,252,253,.62)}
-.mb .gate{background:radial-gradient(600px 260px at 15% 0%,rgba(29,102,148,.12),transparent 60%),rgba(251,251,252,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.mb .gate.gold{background:radial-gradient(600px 260px at 15% 0%,rgba(48,127,187,.14),transparent 60%),rgba(251,251,252,.62)}
-.mb .gate.on{background:radial-gradient(600px 260px at 15% 0%,rgba(42,193,138,.12),transparent 60%),rgba(251,251,252,.62)}
+.mb .card,.mb .srow,.mb .pcard{background:rgba(11,12,18,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.mb .pcard.gold{background:radial-gradient(520px 260px at 15% 0%,rgba(46,122,180,.16),transparent 60%),rgba(11,12,18,.62)}
+.mb .pcard.cyan{background:radial-gradient(520px 260px at 15% 0%,rgba(107,180,226,.16),transparent 60%),rgba(11,12,18,.62)}
+.mb .pcard.gpsig{background:radial-gradient(520px 260px at 15% 0%,rgba(63,146,204,.13),transparent 60%),rgba(8,8,11,.62)}
+.mb .gate{background:radial-gradient(600px 260px at 15% 0%,rgba(107,180,226,.12),transparent 60%),rgba(11,12,18,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.mb .gate.gold{background:radial-gradient(600px 260px at 15% 0%,rgba(46,122,180,.14),transparent 60%),rgba(11,12,18,.62)}
+.mb .gate.on{background:radial-gradient(600px 260px at 15% 0%,rgba(52,211,153,.12),transparent 60%),rgba(11,12,18,.62)}
 /* Dash surfaces (news feed, ticker, positions) render inside .content */
-.mb .rtd .newscard{background:radial-gradient(760px 230px at 10% -40%,rgba(49,129,185,.17),transparent 62%),linear-gradient(180deg,rgba(250,250,251,.7),rgba(251,251,252,.7));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.mb .rtd .ticker,.mb .rtd .poswrap{background:rgba(251,251,251,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.mb .rtd .acctbar{background:rgba(250,250,251,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.mb .rtd .newscard{background:radial-gradient(760px 230px at 10% -40%,rgba(63,146,204,.17),transparent 62%),linear-gradient(180deg,rgba(12,16,25,.7),rgba(10,13,21,.7));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.mb .rtd .ticker,.mb .rtd .poswrap{background:rgba(10,13,22,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.mb .rtd .acctbar{background:rgba(11,15,26,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 /* "Add money" first-run prompt — deliberately the loudest thing on the page for an unfunded member */
-.mb .fundwrap{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:18px;background:rgba(253,253,253,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);overflow-y:auto;animation:fundIn .22s ease-out}
+.mb .fundwrap{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:18px;background:rgba(4,6,12,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);overflow-y:auto;animation:fundIn .22s ease-out}
 @keyframes fundIn{from{opacity:0}to{opacity:1}}
 /* Pulse brand surface: deep navy + the electric cyan from Pulse's own logo-primary.svg
-   (#1d6694 -> #0d5788 -> #144e74), so this reads as Pulse the moment it opens. */
-.mb .fundbox{position:relative;width:min(540px,100%);margin:auto;background:radial-gradient(620px 300px at 50% -10%,rgba(25,90,131,.16),transparent 62%),linear-gradient(180deg,#fcfbfb,#fafbfb);border-radius:22px;padding:26px 24px 22px;box-shadow:0 30px 90px rgba(0,0,0,0.106),0 0 60px -20px rgba(25,90,131,.35);text-align:center}
+   (#6bb4e2 -> #77c1f2 -> #8bc5eb), so this reads as Pulse the moment it opens. */
+.mb .fundbox{position:relative;width:min(540px,100%);margin:auto;background:radial-gradient(620px 300px at 50% -10%,rgba(124,189,230,.16),transparent 62%),linear-gradient(180deg,#171208,#070d1a);border-radius:22px;padding:26px 24px 22px;box-shadow:0 30px 90px rgba(0,0,0,.66),0 0 60px -20px rgba(124,189,230,.35);text-align:center}
 /* Animated brand edge — same mask-composite idiom as the Tap-to-Trade modal in Dash.tsx. */
-.mb .fundbox::before{content:"";position:absolute;inset:0;border-radius:22px;padding:1.5px;background:linear-gradient(130deg,rgba(19,85,125,.9),rgba(13,87,136,.25) 42%,rgba(20,78,116,.18) 62%,rgba(19,85,125,.85));background-size:220% 220%;animation:fedge 6s linear infinite;-webkit-mask:linear-gradient(#ffffff 0 0) content-box,linear-gradient(#ffffff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.mb .fundbox::before{content:"";position:absolute;inset:0;border-radius:22px;padding:1.5px;background:linear-gradient(130deg,rgba(130,196,236,.9),rgba(119,193,242,.25) 42%,rgba(139,197,235,.18) 62%,rgba(130,196,236,.85));background-size:220% 220%;animation:fedge 6s linear infinite;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 @keyframes fedge{0%{background-position:0% 50%}100%{background-position:220% 50%}}
 /* The collab lockup: Copy the Rich Trades x Pulse Markets */
 .mb .fduo{display:flex;align-items:center;justify-content:center;gap:15px;margin-bottom:14px}
 .mb .fduo .fl{position:relative;animation:ffloat 3.6s ease-in-out infinite}
 .mb .fduo .fl:last-child{animation-delay:.6s}
-.mb .fduo .fl img{display:block;width:54px;height:54px;border-radius:50%;object-fit:cover;background:#fbfbfc;box-shadow:0 8px 26px -8px rgba(25,90,131,.6),0 0 0 1px rgba(20,20,20,.08)}
-.mb .fduo .fl::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(19,85,125,.45);animation:fring 2.8s ease-out infinite;pointer-events:none}
+.mb .fduo .fl img{display:block;width:54px;height:54px;border-radius:50%;object-fit:cover;background:#050b18;box-shadow:0 8px 26px -8px rgba(124,189,230,.6),0 0 0 1px rgba(255,255,255,.08)}
+.mb .fduo .fl::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(130,196,236,.45);animation:fring 2.8s ease-out infinite;pointer-events:none}
 .mb .fduo .fl:last-child::after{animation-delay:.6s}
-.mb .fduo .fx{font-size:15px;font-weight:900;color:rgba(20,20,20,.32)}
+.mb .fduo .fx{font-size:15px;font-weight:900;color:rgba(255,255,255,.32)}
 @keyframes ffloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 @keyframes fring{0%{transform:scale(.86);opacity:.85}100%{transform:scale(1.3);opacity:0}}
-.mb .fbadge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:rgba(25,90,131,.12);border:1px solid rgba(25,90,131,.32);color:#093e61;font-size:10.5px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;margin-bottom:12px}
-.mb .fundbox h2{font-size:25px;font-weight:900;color:#141414;margin:0 0 8px;letter-spacing:-.015em}
-.mb .fundbox .sub{font-size:14.5px;color:rgba(20,20,20,.66);line-height:1.6;margin:0 0 16px}
+.mb .fbadge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:rgba(124,189,230,.12);border:1px solid rgba(124,189,230,.32);color:#9ed3f6;font-size:10.5px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;margin-bottom:12px}
+.mb .fundbox h2{font-size:25px;font-weight:900;color:#fff;margin:0 0 8px;letter-spacing:-.015em}
+.mb .fundbox .sub{font-size:14.5px;color:rgba(255,255,255,.66);line-height:1.6;margin:0 0 16px}
 /* The two reasons to fund — trade it yourself, or let GoldRock compound it for you. */
 .mb .fways{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 16px;text-align:left}
-.mb .fway{background:rgba(25,90,131,.06);border:1px solid rgba(25,90,131,.2);border-radius:13px;padding:12px 13px}
-.mb .fway b{display:block;font-size:13.5px;color:#141414;margin-bottom:3px}
-.mb .fway span{font-size:12.5px;color:rgba(20,20,20,.62);line-height:1.45}
+.mb .fway{background:rgba(124,189,230,.06);border:1px solid rgba(124,189,230,.2);border-radius:13px;padding:12px 13px}
+.mb .fway b{display:block;font-size:13.5px;color:#fff;margin-bottom:3px}
+.mb .fway span{font-size:12.5px;color:rgba(255,255,255,.62);line-height:1.45}
 @media(max-width:520px){.mb .fways{grid-template-columns:1fr}}
 /* Callouts in the "how it works" panel — the answers to the two questions someone new to crypto
    always asks next: "what if I don't have any?" and "how do I get it back?" */
-.mb .fhnote{text-align:left;background:rgba(25,90,131,.06);border:1px solid rgba(25,90,131,.2);border-radius:12px;padding:12px 14px;margin-bottom:10px;font-size:13px;color:rgba(20,20,20,.66);line-height:1.55}
-.mb .fhnote b{color:#093e61}
+.mb .fhnote{text-align:left;background:rgba(124,189,230,.06);border:1px solid rgba(124,189,230,.2);border-radius:12px;padding:12px 14px;margin-bottom:10px;font-size:13px;color:rgba(255,255,255,.66);line-height:1.55}
+.mb .fhnote b{color:#9ed3f6}
 /* Same content as the old modal panel, laid out as a page: wider, left-aligned body, room to read. */
-.mb .fundpage{max-width:720px;background:radial-gradient(700px 320px at 50% -10%,rgba(25,90,131,.14),transparent 62%),linear-gradient(180deg,rgba(251,251,250,.85),rgba(250,251,251,.85));border:1px solid rgba(25,90,131,.24);border-radius:20px;padding:30px 28px;text-align:center}
-.mb .fundpage h2{font-size:27px;font-weight:900;color:#141414;margin:0 0 8px;letter-spacing:-.02em}
-.mb .fundpage .sub{font-size:14.5px;color:rgba(20,20,20,.66);line-height:1.6;margin:0 0 18px}
+.mb .fundpage{max-width:720px;background:radial-gradient(700px 320px at 50% -10%,rgba(124,189,230,.14),transparent 62%),linear-gradient(180deg,rgba(23,18,10,.85),rgba(7,13,26,.85));border:1px solid rgba(124,189,230,.24);border-radius:20px;padding:30px 28px;text-align:center}
+.mb .fundpage h2{font-size:27px;font-weight:900;color:#fff;margin:0 0 8px;letter-spacing:-.02em}
+.mb .fundpage .sub{font-size:14.5px;color:rgba(255,255,255,.66);line-height:1.6;margin:0 0 18px}
 .mb .fundpage .fundbtn{max-width:420px;margin-left:auto;margin-right:auto}
 .mb .fundpage .fundalt{max-width:420px;margin-left:auto;margin-right:auto}
 @media(max-width:640px){.mb .fundpage{padding:22px 16px}.mb .fundpage h2{font-size:22px}}
 .mb .fhnote+.fundbtn{margin-top:16px}
 /* Benefits list — what the deposit actually buys, above the mechanics of making it. */
 .mb .fbens{display:grid;gap:9px;text-align:left;margin:0 0 18px}
-.mb .fben{display:flex;gap:12px;align-items:flex-start;background:rgba(25,90,131,.05);border:1px solid rgba(25,90,131,.16);border-radius:13px;padding:12px 13px}
-.mb .fben .fbi{flex:0 0 30px;height:30px;border-radius:9px;background:rgba(25,90,131,.12);display:grid;place-items:center;font-size:15px}
-.mb .fben b{display:block;font-size:14px;color:#141414;margin-bottom:2px}
-.mb .fben span{font-size:12.5px;color:rgba(20,20,20,.62);line-height:1.5}
-.mb .fsec{display:flex;align-items:center;gap:9px;font-size:10.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#093e61;margin:0 0 8px;text-align:left}
-.mb .fsec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(25,90,131,.4),transparent)}
+.mb .fben{display:flex;gap:12px;align-items:flex-start;background:rgba(124,189,230,.05);border:1px solid rgba(124,189,230,.16);border-radius:13px;padding:12px 13px}
+.mb .fben .fbi{flex:0 0 30px;height:30px;border-radius:9px;background:rgba(124,189,230,.12);display:grid;place-items:center;font-size:15px}
+.mb .fben b{display:block;font-size:14px;color:#fff;margin-bottom:2px}
+.mb .fben span{font-size:12.5px;color:rgba(255,255,255,.62);line-height:1.5}
+.mb .fsec{display:flex;align-items:center;gap:9px;font-size:10.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#9ed3f6;margin:0 0 8px;text-align:left}
+.mb .fsec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(124,189,230,.4),transparent)}
 .mb .fundsteps{display:grid;gap:10px;text-align:left;margin:0 0 18px}
-.mb .fundstep{display:flex;align-items:center;gap:12px;background:rgba(20,20,20,.04);border:1px solid rgba(20,20,20,.07);border-radius:12px;padding:11px 13px}
+.mb .fundstep{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:11px 13px}
 /* .sn, not a bare b — the step copy contains its own <b>, which would inherit the badge styling */
-.mb .fundstep .sn{flex:0 0 26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#2783c1,#2f82bb);color:#141414;font-size:13px;font-weight:900;display:grid;place-items:center}
-.mb .fundstep span{font-size:14px;color:rgba(20,20,20,.82);line-height:1.45}
+.mb .fundstep .sn{flex:0 0 26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#3e9ad8,#24638f);color:#fff;font-size:13px;font-weight:900;display:grid;place-items:center}
+.mb .fundstep span{font-size:14px;color:rgba(255,255,255,.82);line-height:1.45}
 /* Pulse cyan with deep-navy text — bright cyan needs dark text to stay legible. */
-.mb .fundbtn{position:relative;overflow:hidden;display:block;width:100%;padding:16px 18px;border-radius:14px;border:none;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,#1d6694,#3181b9);color:#fcfcfb;font-size:17px;font-weight:900;box-shadow:0 10px 32px rgba(25,90,131,.4)}
+.mb .fundbtn{position:relative;overflow:hidden;display:block;width:100%;padding:16px 18px;border-radius:14px;border:none;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,#6bb4e2,#3f92cc);color:#12100a;font-size:17px;font-weight:900;box-shadow:0 10px 32px rgba(124,189,230,.4)}
 .mb .fundbtn:hover{filter:brightness(1.08)}
-.mb .fundbtn::after{content:"";position:absolute;top:0;left:-60%;width:38%;height:100%;background:linear-gradient(90deg,transparent,rgba(20,20,20,.55),transparent);transform:skewX(-20deg);animation:fshine 3s ease-in-out infinite;pointer-events:none}
+.mb .fundbtn::after{content:"";position:absolute;top:0;left:-60%;width:38%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:fshine 3s ease-in-out infinite;pointer-events:none}
 @keyframes fshine{0%{left:-60%}55%{left:130%}100%{left:130%}}
 @media(prefers-reduced-motion:reduce){.mb .fundbox::before,.mb .fduo .fl,.mb .fduo .fl::after,.mb .fundbtn::after{animation:none}}
-.mb .fundalt{display:block;width:100%;margin-top:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(20,20,20,.12);background:transparent;color:rgba(20,20,20,.72);font-size:14px;font-weight:700;cursor:pointer;text-decoration:none}
-.mb .fundlater{margin-top:12px;background:none;border:none;color:rgba(20,20,20,.4);font-size:13px;cursor:pointer;text-decoration:underline}
-.mb .fundnote{font-size:12.5px;color:rgba(20,20,20,.42);margin-top:14px;line-height:1.55}
+.mb .fundalt{display:block;width:100%;margin-top:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:transparent;color:rgba(255,255,255,.72);font-size:14px;font-weight:700;cursor:pointer;text-decoration:none}
+.mb .fundlater{margin-top:12px;background:none;border:none;color:rgba(255,255,255,.4);font-size:13px;cursor:pointer;text-decoration:underline}
+.mb .fundnote{font-size:12.5px;color:rgba(255,255,255,.42);margin-top:14px;line-height:1.55}
 @media(max-width:520px){.mb .fundbox{padding:22px 18px 18px}.mb .fundbox h2{font-size:21px}}
 /* Permanent in-page version of the same call to action. Unlike the pop-up this can't be dismissed,
    so an unfunded member always has the deposit button in front of them. */
-.mb .fundbar{position:relative;overflow:hidden;border-radius:22px;padding:40px 32px;background:radial-gradient(760px 340px at 50% -10%,rgba(25,90,131,.2),transparent 62%),linear-gradient(135deg,rgba(251,251,250,.92),rgba(250,251,251,.92));border:1px solid rgba(25,90,131,.32);box-shadow:0 18px 56px -20px rgba(25,90,131,.5)}
-.mb .fundbar::after{content:"";position:absolute;inset:-40% -10% auto auto;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(25,90,131,.16),transparent 65%);pointer-events:none}
+.mb .fundbar{position:relative;overflow:hidden;border-radius:22px;padding:40px 32px;background:radial-gradient(760px 340px at 50% -10%,rgba(124,189,230,.2),transparent 62%),linear-gradient(135deg,rgba(23,18,10,.92),rgba(7,13,26,.92));border:1px solid rgba(124,189,230,.32);box-shadow:0 18px 56px -20px rgba(124,189,230,.5)}
+.mb .fundbar::after{content:"";position:absolute;inset:-40% -10% auto auto;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(124,189,230,.16),transparent 65%);pointer-events:none}
 /* Stacked, centred hero rather than a side-by-side strip — a full-width row reads as a dismissible
    banner, a centred column reads as the point of the page. */
 .mb .fundbar .fbin{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
 .mb .fundbar .fblogo{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:12px}
-.mb .fundbar .fblogo img{width:54px;height:54px;border-radius:50%;object-fit:cover;background:#fbfbfc;box-shadow:0 8px 26px -8px rgba(25,90,131,.6),0 0 0 1px rgba(20,20,20,.08)}
-.mb .fundbar .fblogo span{font-size:15px;font-weight:900;color:rgba(20,20,20,.3)}
+.mb .fundbar .fblogo img{width:54px;height:54px;border-radius:50%;object-fit:cover;background:#050b18;box-shadow:0 8px 26px -8px rgba(124,189,230,.6),0 0 0 1px rgba(255,255,255,.08)}
+.mb .fundbar .fblogo span{font-size:15px;font-weight:900;color:rgba(255,255,255,.3)}
 .mb .fundbar .fbtx{flex:none;width:100%;max-width:620px}
-.mb .fundbar .fbk{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#093e61;margin-bottom:8px}
-.mb .fundbar h3{font-size:34px;font-weight:900;color:#141414;margin:0 0 10px;letter-spacing:-.025em;line-height:1.12}
-.mb .fundbar p{font-size:15px;color:rgba(20,20,20,.7);margin:0;line-height:1.6}
-.mb .fundbar .fbgo{position:relative;overflow:hidden;flex:0 0 auto;display:block;width:100%;max-width:420px;text-align:center;padding:21px 34px;border-radius:16px;background:linear-gradient(135deg,#1d6694,#3181b9);color:#fcfcfb;font-size:19px;font-weight:900;text-decoration:none;white-space:nowrap;box-shadow:0 14px 38px rgba(25,90,131,.5);animation:fbpulse 2.6s ease-in-out infinite}
+.mb .fundbar .fbk{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#9ed3f6;margin-bottom:8px}
+.mb .fundbar h3{font-size:34px;font-weight:900;color:#fff;margin:0 0 10px;letter-spacing:-.025em;line-height:1.12}
+.mb .fundbar p{font-size:15px;color:rgba(255,255,255,.7);margin:0;line-height:1.6}
+.mb .fundbar .fbgo{position:relative;overflow:hidden;flex:0 0 auto;display:block;width:100%;max-width:420px;text-align:center;padding:21px 34px;border-radius:16px;background:linear-gradient(135deg,#6bb4e2,#3f92cc);color:#12100a;font-size:19px;font-weight:900;text-decoration:none;white-space:nowrap;box-shadow:0 14px 38px rgba(124,189,230,.5);animation:fbpulse 2.6s ease-in-out infinite}
 .mb .fundbar .fbgo:hover{filter:brightness(1.08)}
-.mb .fundbar .fbgo::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(20,20,20,.5),transparent);transform:skewX(-20deg);animation:fshine 3s ease-in-out infinite;pointer-events:none}
+.mb .fundbar .fbgo::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);animation:fshine 3s ease-in-out infinite;pointer-events:none}
 @keyframes fbpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
 @media(prefers-reduced-motion:reduce){.mb .fundbar .fbgo,.mb .fundbar .fbgo::after{animation:none}}
 @media(max-width:640px){.mb .fundbar{padding:30px 18px}.mb .fundbar h3{font-size:26px}.mb .fundbar p{font-size:14.5px}.mb .fundbar .fbgo{max-width:none;padding:18px 24px;font-size:17.5px}}
@@ -992,7 +992,7 @@ export default function Members() {
                   ? "You're funded — jump into the desk's daily plays on Telegram and take today's setups with the inner circle."
                   : "You're in — your GoldRock allocation unlocked the signals. Jump into the desk's daily plays on Telegram.")}</p>
             {!isPamm && !me?.liveFunded && (
-              <p className="note" style={{ marginTop: 8 }}>💡 Not trading a live account yet? Spin up a <b style={{ color: "#141414" }}>free demo account</b> and practice today's signals risk-free — then fund live when you're ready to trade them for real.</p>
+              <p className="note" style={{ marginTop: 8 }}>💡 Not trading a live account yet? Spin up a <b style={{ color: "#fff" }}>free demo account</b> and practice today's signals risk-free — then fund live when you're ready to trade them for real.</p>
             )}
             <div className="row">
               {isPamm
@@ -1081,7 +1081,7 @@ export default function Members() {
       <div className="kick">Step 1 · {PATH_LABEL[focus]}</div>
       <PathPanel path={focus} />
       {other && (hideSecond ? (
-        <div className="reenable">You're focused on <b style={{ color: "#141414" }}>{PATH_LABEL[focus]}</b>. Want to add <b style={{ color: "#141414" }}>{PATH_LABEL[other]}</b> too? <button onClick={() => setTab("settings")}>Re-enable in Settings →</button></div>
+        <div className="reenable">You're focused on <b style={{ color: "#fff" }}>{PATH_LABEL[focus]}</b>. Want to add <b style={{ color: "#fff" }}>{PATH_LABEL[other]}</b> too? <button onClick={() => setTab("settings")}>Re-enable in Settings →</button></div>
       ) : (
         <>
           <div className="kick">Step 2 · {PATH_LABEL[other]} <span className="opt">· optional</span></div>
@@ -1108,15 +1108,15 @@ export default function Members() {
             {(
               <>
                 <h2 id="fundttl">One step left, {name}</h2>
-                <p className="sub">Copy the Rich Trades runs on <b style={{ color: "#093e61" }}>Pulse Markets</b> — fast withdrawals, tight spreads and instant tap-to-trade. Add <b style={{ color: "#141414" }}>{fundMin}</b> or more to your Pulse account and everything unlocks automatically.</p>
+                <p className="sub">Copy the Rich Trades runs on <b style={{ color: "#9ed3f6" }}>Pulse Markets</b> — fast withdrawals, tight spreads and instant tap-to-trade. Add <b style={{ color: "#fff" }}>{fundMin}</b> or more to your Pulse account and everything unlocks automatically.</p>
                 <div className="fways">
                   <div className="fway"><b>📈 Trade it yourself</b><span>Tap-to-trade the desk's Gold Pulse calls, sized for your account.</span></div>
                   <div className="fway"><b>🏦 Or compound it</b><span>Put it in GoldRock and earn passively — the desk trades, you compound.</span></div>
                 </div>
                 <div className="fundsteps">
-                  <div className="fundstep"><span className="sn">1</span><span>Tap <b style={{ color: "#141414" }}>Deposit on Pulse</b> below — it opens your Pulse account, already signed in.</span></div>
+                  <div className="fundstep"><span className="sn">1</span><span>Tap <b style={{ color: "#fff" }}>Deposit on Pulse</b> below — it opens your Pulse account, already signed in.</span></div>
                   <div className="fundstep"><span className="sn">2</span><span>Pick your coin, send to the address it shows you.</span></div>
-                  <div className="fundstep"><span className="sn">3</span><span>Come back here and tap <b style={{ color: "#141414" }}>“I've done it”</b>. That's it.</span></div>
+                  <div className="fundstep"><span className="sn">3</span><span>Come back here and tap <b style={{ color: "#fff" }}>“I've done it”</b>. That's it.</span></div>
                 </div>
                 <a className="fundbtn" href={fundUrl} target="_blank" rel="noopener noreferrer" onClick={dismissFund}>Deposit on Pulse →</a>
                 {/* Closes the modal and opens the real page rather than stacking a second panel
@@ -1231,11 +1231,11 @@ export default function Members() {
               <div className="fsec">Now — how to fund it</div>
               <p className="sub" style={{ marginBottom: 14 }}>Pulse funds by crypto. If you've never done it, this is the whole thing — it's easier than it sounds.</p>
               <div className="fundsteps">
-                <div className="fundstep"><span className="sn">1</span><span><b style={{ color: "#141414" }}>Pick a coin.</b> Bitcoin, Ethereum, USDT, USDC, SOL, TRX or XRP. Most people use <b style={{ color: "#141414" }}>USDT</b> — it's a dollar, so {fundMin} of USDT is {fundMin}.</span></div>
-                <div className="fundstep"><span className="sn">2</span><span><b style={{ color: "#141414" }}>Pulse shows you an address.</b> It's yours alone. Copy it.</span></div>
-                <div className="fundstep"><span className="sn">3</span><span><b style={{ color: "#141414" }}>Send that amount</b> to the address from wherever you hold crypto — Coinbase, Binance, Kraken, or your own wallet. Match the network Pulse shows you.</span></div>
-                <div className="fundstep"><span className="sn">4</span><span><b style={{ color: "#141414" }}>It lands by itself.</b> Once the network confirms, your Pulse balance updates — no approval, no waiting on anyone.</span></div>
-                <div className="fundstep"><span className="sn">5</span><span><b style={{ color: "#141414" }}>Then choose:</b> trade the signals yourself, or put it in GoldRock and let the desk compound it.</span></div>
+                <div className="fundstep"><span className="sn">1</span><span><b style={{ color: "#fff" }}>Pick a coin.</b> Bitcoin, Ethereum, USDT, USDC, SOL, TRX or XRP. Most people use <b style={{ color: "#fff" }}>USDT</b> — it's a dollar, so {fundMin} of USDT is {fundMin}.</span></div>
+                <div className="fundstep"><span className="sn">2</span><span><b style={{ color: "#fff" }}>Pulse shows you an address.</b> It's yours alone. Copy it.</span></div>
+                <div className="fundstep"><span className="sn">3</span><span><b style={{ color: "#fff" }}>Send that amount</b> to the address from wherever you hold crypto — Coinbase, Binance, Kraken, or your own wallet. Match the network Pulse shows you.</span></div>
+                <div className="fundstep"><span className="sn">4</span><span><b style={{ color: "#fff" }}>It lands by itself.</b> Once the network confirms, your Pulse balance updates — no approval, no waiting on anyone.</span></div>
+                <div className="fundstep"><span className="sn">5</span><span><b style={{ color: "#fff" }}>Then choose:</b> trade the signals yourself, or put it in GoldRock and let the desk compound it.</span></div>
               </div>
               <div className="fhnote"><b>No crypto yet?</b> Buy USDT on Coinbase, Binance or any major exchange with your card or bank, then send it over using the steps above. That's the only extra step.</div>
               <div className="fhnote"><b>Getting it back out.</b> Withdraw from the same screen to your own wallet — Pulse is our recommended broker precisely because withdrawals are quick.</div>
@@ -1277,7 +1277,7 @@ export default function Members() {
           {tab === "tlguide" && (
             <>
               <div className="h2">TradeLocker Guide</div>
-              <p className="lead">Your account lives in <b style={{ color: "#141414" }}>TradeLocker</b> — the platform the Gold Pulse calls fire onto. Here's everything: opening it, placing a trade, setting your stop &amp; targets, and managing it like the desk.</p>
+              <p className="lead">Your account lives in <b style={{ color: "#fff" }}>TradeLocker</b> — the platform the Gold Pulse calls fire onto. Here's everything: opening it, placing a trade, setting your stop &amp; targets, and managing it like the desk.</p>
               <div style={{ height: 18 }} />
               <TradeLockerGuide me={me} />
             </>
@@ -1338,7 +1338,7 @@ export default function Members() {
           {tab === "following" && (
             <>
               <div className="h2">Following</div>
-              <p className="lead">Stay close to the desk. Right now that's <b style={{ color: "#141414" }}>Anthony Beale</b> and the Gold Pulse desk — message the host or jump into the community any time.</p>
+              <p className="lead">Stay close to the desk. Right now that's <b style={{ color: "#fff" }}>Anthony Beale</b> and the Gold Pulse desk — message the host or jump into the community any time.</p>
               <div style={{ height: 18 }} />
               <div className="srow"><div><div className="st">Anthony Beale</div><div className="ss">Host of the inner circle · Gold Pulse desk</div></div><button className="sbtn" onClick={() => setTab("community")}>Open community →</button></div>
             </>
@@ -1376,7 +1376,7 @@ export default function Members() {
                 </>
               ) : (
                 <>
-                  <p className="lead">Daily calls, wins, and guidance from the desk. Complete <b style={{ color: "#141414" }}>at least one step</b> — fund the GoldRock PAMM or fund {usd(me?.signalsMin ?? 250)} for the signals — and you're in.</p>
+                  <p className="lead">Daily calls, wins, and guidance from the desk. Complete <b style={{ color: "#fff" }}>at least one step</b> — fund the GoldRock PAMM or fund {usd(me?.signalsMin ?? 250)} for the signals — and you're in.</p>
                   <div style={{ height: 18 }} />
                   <div className="gate">
                     <div className="glbl">🔒 Locked</div>
@@ -1455,9 +1455,9 @@ export default function Members() {
       </div>
 
       {chatOpen && (
-        <div onClick={() => setChatOpen(false)} style={{ position: "fixed", inset: 0, zIndex: 200, background: "rgba(253,253,254,.75)", backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}>
+        <div onClick={() => setChatOpen(false)} style={{ position: "fixed", inset: 0, zIndex: 200, background: "rgba(3,5,10,.75)", backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}>
           <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: 560, position: "relative" }}>
-            <button onClick={() => setChatOpen(false)} aria-label="Close chat" style={{ position: "absolute", top: -13, right: -6, zIndex: 3, width: 36, height: 36, borderRadius: 999, border: "1px solid rgba(20,20,20,.18)", background: "#fafbfb", color: "#141414", cursor: "pointer", fontSize: 16, fontWeight: 800, boxShadow: "0 10px 30px rgba(0,0,0,0.112)" }}>✕</button>
+            <button onClick={() => setChatOpen(false)} aria-label="Close chat" style={{ position: "absolute", top: -13, right: -6, zIndex: 3, width: 36, height: 36, borderRadius: 999, border: "1px solid rgba(255,255,255,.18)", background: "#0a1018", color: "#fff", cursor: "pointer", fontSize: 16, fontWeight: 800, boxShadow: "0 10px 30px rgba(0,0,0,.7)" }}>✕</button>
             <Chat me={me} />
           </div>
         </div>

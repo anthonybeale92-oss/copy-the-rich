@@ -2,32 +2,32 @@ import { useEffect, useRef, useState } from "react";
 import { fetchChat, sendChat, type ChatMsg, type MeStatus } from "./api";
 
 const CSS = `
-.rtchat{--gold:#3181b9;--cy:#1d6694}
+.rtchat{--gold:#3f92cc;--cy:#6bb4e2}
 .rtchat *{box-sizing:border-box}
-.rtchat{display:flex;flex-direction:column;height:min(72vh,660px);border:1px solid rgba(20,20,20,.1);border-radius:16px;background:#fafbfb;overflow:hidden}
-.rtchat .ch{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid rgba(20,20,20,.07);background:rgba(49,129,185,.04)}
-.rtchat .ch .dot{width:9px;height:9px;border-radius:50%;background:#2ac18a;box-shadow:0 0 8px #2ac18a}
-.rtchat .ch b{font-size:14.5px;font-weight:900;color:#141414}
-.rtchat .ch span{font-size:11.5px;color:rgba(20,20,20,.45)}
+.rtchat{display:flex;flex-direction:column;height:min(72vh,660px);border:1px solid rgba(255,255,255,.1);border-radius:16px;background:#0a1018;overflow:hidden}
+.rtchat .ch{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(63,146,204,.04)}
+.rtchat .ch .dot{width:9px;height:9px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399}
+.rtchat .ch b{font-size:14.5px;font-weight:900;color:#fff}
+.rtchat .ch span{font-size:11.5px;color:rgba(255,255,255,.45)}
 .rtchat .body{flex:1;overflow-y:auto;padding:14px 14px 8px;display:flex;flex-direction:column;gap:10px}
 .rtchat .m{display:flex;gap:9px;align-items:flex-start;max-width:88%}
 .rtchat .m.me{align-self:flex-end;flex-direction:row-reverse}
-.rtchat .av{flex:0 0 30px;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#f9f9fa;background:linear-gradient(135deg,#1d6694,#2f7fbc)}
-.rtchat .av.host{background:linear-gradient(135deg,#3181b9,#3181b9)}
+.rtchat .av{flex:0 0 30px;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#0d1420;background:linear-gradient(135deg,#6bb4e2,#2a72a8)}
+.rtchat .av.host{background:linear-gradient(135deg,#3f92cc,#3f92cc)}
 .rtchat .bub{min-width:0}
-.rtchat .nm{font-size:11.5px;font-weight:800;color:rgba(20,20,20,.6);margin:0 4px 3px;display:flex;align-items:center;gap:6px}
+.rtchat .nm{font-size:11.5px;font-weight:800;color:rgba(255,255,255,.6);margin:0 4px 3px;display:flex;align-items:center;gap:6px}
 .rtchat .m.me .nm{justify-content:flex-end}
-.rtchat .hb{font-size:9px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:#fcfcfb;background:linear-gradient(90deg,#3181b9,#1f2930);border-radius:5px;padding:1px 6px}
-.rtchat .tx{font-size:14px;line-height:1.5;color:#141414;background:rgba(20,20,20,.06);border-radius:14px;padding:8px 13px;white-space:pre-wrap;word-break:break-word}
-.rtchat .m.me .tx{background:linear-gradient(90deg,#1d6694,#307fbb);color:#f9f9fa;font-weight:600}
-.rtchat .m.host .tx{background:rgba(49,129,185,.12);border:1px solid rgba(49,129,185,.25)}
-.rtchat .comp{display:flex;gap:8px;padding:12px 14px;border-top:1px solid rgba(20,20,20,.07)}
-.rtchat .comp input{flex:1;height:42px;border:1px solid rgba(20,20,20,.12);background:#fdfdfd;border-radius:21px;padding:0 16px;color:#141414;font-size:14px;outline:none}
-.rtchat .comp input:focus{border-color:rgba(29,102,148,.4)}
-.rtchat .comp button{height:42px;padding:0 18px;border:none;border-radius:21px;font-weight:800;font-size:13.5px;color:#f9f9fa;background:linear-gradient(90deg,#1d6694,#307fbb);cursor:pointer}
+.rtchat .hb{font-size:9px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:#1a1400;background:linear-gradient(90deg,#3f92cc,#d8ecfb);border-radius:5px;padding:1px 6px}
+.rtchat .tx{font-size:14px;line-height:1.5;color:#fff;background:rgba(255,255,255,.06);border-radius:14px;padding:8px 13px;white-space:pre-wrap;word-break:break-word}
+.rtchat .m.me .tx{background:linear-gradient(90deg,#6bb4e2,#2e7ab4);color:#0d1420;font-weight:600}
+.rtchat .m.host .tx{background:rgba(63,146,204,.12);border:1px solid rgba(63,146,204,.25)}
+.rtchat .comp{display:flex;gap:8px;padding:12px 14px;border-top:1px solid rgba(255,255,255,.07)}
+.rtchat .comp input{flex:1;height:42px;border:1px solid rgba(255,255,255,.12);background:#05070d;border-radius:21px;padding:0 16px;color:#fff;font-size:14px;outline:none}
+.rtchat .comp input:focus{border-color:rgba(107,180,226,.4)}
+.rtchat .comp button{height:42px;padding:0 18px;border:none;border-radius:21px;font-weight:800;font-size:13.5px;color:#0d1420;background:linear-gradient(90deg,#6bb4e2,#2e7ab4);cursor:pointer}
 .rtchat .comp button:disabled{opacity:.5}
-.rtchat .empty{margin:auto;text-align:center;color:rgba(20,20,20,.45);font-size:13.5px;padding:24px}
-.rtchat-locked{border:1px dashed rgba(20,20,20,.14);border-radius:16px;padding:30px 20px;text-align:center;color:rgba(20,20,20,.55);font-size:14px}
+.rtchat .empty{margin:auto;text-align:center;color:rgba(255,255,255,.45);font-size:13.5px;padding:24px}
+.rtchat-locked{border:1px dashed rgba(255,255,255,.14);border-radius:16px;padding:30px 20px;text-align:center;color:rgba(255,255,255,.55);font-size:14px}
 `;
 const initial = (n?: string) => (n || "M").trim().charAt(0).toUpperCase();
 function ago(iso: string) { try { const s = (Date.now() - new Date(iso).getTime()) / 1000; if (s < 60) return "now"; const m = s / 60; if (m < 60) return `${Math.floor(m)}m`; const h = m / 60; if (h < 24) return `${Math.floor(h)}h`; return `${Math.floor(h / 24)}d`; } catch { return ""; } }
@@ -62,7 +62,7 @@ export default function Chat({ me }: { me: MeStatus | null }) {
   };
 
   if (!unlocked) {
-    return <div className="rtchat-locked"><style>{CSS}</style>🔒 <b style={{ color: "#141414" }}>The chat is for funded members.</b><br />Fund a live account or allocate to GoldRock to join the room and talk trades with the circle.</div>;
+    return <div className="rtchat-locked"><style>{CSS}</style>🔒 <b style={{ color: "#fff" }}>The chat is for funded members.</b><br />Fund a live account or allocate to GoldRock to join the room and talk trades with the circle.</div>;
   }
 
   return (

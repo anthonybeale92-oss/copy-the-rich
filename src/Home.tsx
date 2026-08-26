@@ -1,6 +1,7 @@
 // Copy the Rich Trades brand HOME — leads with FREE education + PASSIVE income, then the two ways to earn
 // (signals or the PAMM), then funding up for 10× leverage at the bottom. The 10X landing lives at /signup.
 import { useState } from "react";
+import ConstellationBackground from "./ConstellationBackground";
 import { getStoredRef, HOUSE_REF } from "./api";
 export const LOGIN_URL = "/login";
 
@@ -50,7 +51,7 @@ const testimonials = [
 
 export const RB_CSS = `
 .rb *{box-sizing:border-box}
-.rb{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;background:#fdfdfd;color:#141414;min-height:100vh;position:relative;overflow-x:clip;-webkit-font-smoothing:antialiased}
+.rb{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;background:#05070d;color:#fff;min-height:100vh;position:relative;overflow-x:clip;-webkit-font-smoothing:antialiased}
 .rb a{text-decoration:none;color:inherit}
 .rb .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 @keyframes rbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
@@ -58,114 +59,114 @@ export const RB_CSS = `
 @keyframes rbGrad{0%{background-position:-200% 0}100%{background-position:200% 0}}
 @keyframes rbTwinkle{0%,100%{opacity:.12}50%{opacity:.5}}
 @keyframes rbSheen{0%{transform:translateX(-160%) skewX(-18deg)}100%{transform:translateX(280%) skewX(-18deg)}}
-.rb .stars{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(1100px 650px at 70% -10%,rgba(29,102,148,.08),transparent 60%),radial-gradient(900px 600px at 10% 110%,rgba(48,127,187,.08),transparent 60%)}
-.rb .dot{position:absolute;width:3px;height:3px;border-radius:50%;background:#1d6694;animation:rbTwinkle 4s ease-in-out infinite}
+.rb .stars{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(1100px 650px at 70% -10%,rgba(107,180,226,.08),transparent 60%),radial-gradient(900px 600px at 10% 110%,rgba(46,122,180,.08),transparent 60%)}
+.rb .dot{position:absolute;width:3px;height:3px;border-radius:50%;background:#6bb4e2;animation:rbTwinkle 4s ease-in-out infinite}
 /* viewport-fit=cover hands the page the full screen, home indicator included. The backdrop
    wants that (it's why the bottom strip is lit now); the CONTENT does not, or the last line
    of the footer sits under the indicator. */
 .rb main{position:relative;z-index:1;padding-bottom:env(safe-area-inset-bottom)}
 /* NAV */
-.rb .nav{position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(20,20,20,.06);backdrop-filter:blur(18px);background:rgba(253,253,253,.82);transform:translateZ(0);will-change:transform;backface-visibility:hidden}
+.rb .nav{position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(255,255,255,.06);backdrop-filter:blur(18px);background:rgba(5,7,13,.82);transform:translateZ(0);will-change:transform;backface-visibility:hidden}
 .rb .navin{display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
 .rb .brand{display:flex;align-items:center;gap:9px;min-width:0}
-.rb .brand img{height:34px;width:34px;border-radius:9px;object-fit:contain;box-shadow:0 6px 20px -8px rgba(49,129,185,.55);flex:none}
+.rb .brand img{height:34px;width:34px;border-radius:9px;object-fit:contain;box-shadow:0 6px 20px -8px rgba(63,146,204,.55);flex:none}
 .rb .brand span{font-size:16px;font-weight:900;letter-spacing:-.01em;white-space:nowrap}
 .rb .navr{display:flex;align-items:center;gap:8px;flex:none}
 .rb .navlinks{display:none}
 @media(min-width:900px){.rb .navlinks{display:flex;align-items:center;gap:6px;position:absolute;left:50%;transform:translateX(-50%)}}
-.rb .navlinks a{position:relative;font-size:13px;font-weight:700;color:rgba(20,20,20,.72);padding:8px 12px;border-radius:10px;transition:.15s}
-.rb .navlinks a:hover{color:#141414;background:rgba(20,20,20,.06)}
-.rb .navlinks a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:2px;background:linear-gradient(90deg,#1d6694,#2f7fbc);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.rb .navlinks a{position:relative;font-size:13px;font-weight:700;color:rgba(255,255,255,.72);padding:8px 12px;border-radius:10px;transition:.15s}
+.rb .navlinks a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.rb .navlinks a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:2px;background:linear-gradient(90deg,#6bb4e2,#2a72a8);transform:scaleX(0);transform-origin:left;transition:transform .2s}
 .rb .navlinks a:hover::after{transform:scaleX(1)}
-.rb .navlinks a.on{color:#141414;background:rgba(29,102,148,.08)}
+.rb .navlinks a.on{color:#fff;background:rgba(107,180,226,.08)}
 .rb .navlinks a.on::after{transform:scaleX(1)}
 .rb .brand{cursor:pointer}
 .rb .navin{position:relative}
 .rb section{scroll-margin-top:74px}
-.rb .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:13px;font-weight:800;color:#f9f9fa;background:linear-gradient(90deg,#1d6694,#307fbb,#2f7fbc);box-shadow:0 12px 34px -16px rgba(29,102,148,.7);transition:transform .15s;white-space:nowrap}
+.rb .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:13px;font-weight:800;color:#0d1420;background:linear-gradient(90deg,#6bb4e2,#2e7ab4,#2a72a8);box-shadow:0 12px 34px -16px rgba(107,180,226,.7);transition:transform .15s;white-space:nowrap}
 .rb .btn:hover{transform:scale(1.03)}
-.rb .btn::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(100deg,transparent,rgba(20,20,20,.18),transparent);transform:translateX(-160%) skewX(-18deg);animation:rbSheen 4.5s ease-in-out infinite}
-.rb .btn.gold{background:linear-gradient(90deg,#3181b9,#195a83)}
+.rb .btn::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.18),transparent);transform:translateX(-160%) skewX(-18deg);animation:rbSheen 4.5s ease-in-out infinite}
+.rb .btn.gold{background:linear-gradient(90deg,#3f92cc,#7cbde6)}
 .rb .btn.sm{height:38px;padding:0 15px;font-size:13px}
 .rb .btn.lg{height:54px;padding:0 28px;font-size:16px}
-.rb .ghost{display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 15px;border-radius:13px;font-size:13px;font-weight:700;color:rgba(20,20,20,.85);border:1px solid rgba(20,20,20,.15);transition:.15s;white-space:nowrap}
+.rb .ghost{display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 15px;border-radius:13px;font-size:13px;font-weight:700;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.15);transition:.15s;white-space:nowrap}
 .rb .ghost.lg{height:54px;padding:0 26px;font-size:15px}
-.rb .ghost:hover{border-color:rgba(20,20,20,.3);color:#141414}
+.rb .ghost:hover{border-color:rgba(255,255,255,.3);color:#fff}
 @media(max-width:420px){.rb .brand span{font-size:14px}.rb .btn.sm,.rb .ghost{height:34px;padding:0 12px;font-size:12px}}
 /* HERO */
 .rb .hero{text-align:center;padding:46px 0 30px}
 .rb .logo-hero{position:relative;width:186px;height:186px;margin:0 auto 4px;max-width:54vw}
-.rb .logo-hero .halo{position:absolute;inset:-16px;border-radius:50%;filter:blur(30px);background:radial-gradient(circle,rgba(49,129,185,.28),rgba(29,102,148,.2) 55%,transparent 72%);animation:rbGlow 4.5s infinite}
+.rb .logo-hero .halo{position:absolute;inset:-16px;border-radius:50%;filter:blur(30px);background:radial-gradient(circle,rgba(63,146,204,.28),rgba(107,180,226,.2) 55%,transparent 72%);animation:rbGlow 4.5s infinite}
 .rb .logo-hero img{position:relative;width:100%;height:100%;object-fit:contain;border-radius:26px;animation:rbFloat 6s ease-in-out infinite}
 .rb h1{font-size:40px;line-height:1.03;font-weight:900;letter-spacing:-.02em;margin:14px 0 0}
 @media(min-width:860px){.rb h1{font-size:60px}}
-.rb h1 .g{background:linear-gradient(135deg,#26333b 0%,#1971ab 28%,#2087ca 55%,#11537f 78%,#29261a 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:rbGrad 8s linear infinite}
-.rb .lede{color:rgba(20,20,20,.62);font-size:16px;line-height:1.62;max-width:42rem;margin:20px auto 0}
+.rb h1 .g{background:linear-gradient(135deg,#c5e5fa 0%,#54ace6 28%,#1c75b0 55%,#80c2ee 78%,#fff8e1 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:rbGrad 8s linear infinite}
+.rb .lede{color:rgba(255,255,255,.62);font-size:16px;line-height:1.62;max-width:42rem;margin:20px auto 0}
 .rb .cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
 .rb .stat-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px}
-.rb .stat{border:1px solid rgba(20,20,20,.08);background:rgba(20,20,20,.02);border-radius:12px;padding:10px 18px;text-align:center}
-.rb .stat .v{font-size:18px;font-weight:900;background:linear-gradient(135deg,#26333b 0%,#1971ab 28%,#2087ca 55%,#11537f 78%,#29261a 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:rbGrad 8s linear infinite}
-.rb .stat .l{font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;color:rgba(20,20,20,.45);margin-top:3px}
+.rb .stat{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);border-radius:12px;padding:10px 18px;text-align:center}
+.rb .stat .v{font-size:18px;font-weight:900;background:linear-gradient(135deg,#c5e5fa 0%,#54ace6 28%,#1c75b0 55%,#80c2ee 78%,#fff8e1 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:rbGrad 8s linear infinite}
+.rb .stat .l{font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.45);margin-top:3px}
 /* SECTIONS */
 .rb section{padding:44px 0}
-.rb .sec-k{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(29,102,148,.8);margin-bottom:8px;text-align:center}
+.rb .sec-k{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(107,180,226,.8);margin-bottom:8px;text-align:center}
 .rb h2{font-size:28px;font-weight:900;letter-spacing:-.02em;text-align:center}
 @media(min-width:860px){.rb h2{font-size:37px}}
-.rb .sub{color:rgba(20,20,20,.55);text-align:center;max-width:40rem;margin:12px auto 0;line-height:1.6}
+.rb .sub{color:rgba(255,255,255,.55);text-align:center;max-width:40rem;margin:12px auto 0;line-height:1.6}
 /* EDU banner */
-.rb .edu{border:1px solid rgba(29,102,148,.2);border-radius:24px;padding:34px 24px;background:radial-gradient(700px 320px at 50% 0%,rgba(29,102,148,.1),transparent 60%)}
-.rb .free{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#f9f9fa;background:linear-gradient(90deg,#1d6694,#2f7fbc);border-radius:99px;padding:5px 12px;margin-bottom:14px}
+.rb .edu{border:1px solid rgba(107,180,226,.2);border-radius:24px;padding:34px 24px;background:radial-gradient(700px 320px at 50% 0%,rgba(107,180,226,.1),transparent 60%)}
+.rb .free{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#0d1420;background:linear-gradient(90deg,#6bb4e2,#2a72a8);border-radius:99px;padding:5px 12px;margin-bottom:14px}
 .rb .edu-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px}
 @media(min-width:820px){.rb .edu-grid{grid-template-columns:1fr 1fr 1fr}}
-.rb .ecard{text-align:left;border:1px solid rgba(20,20,20,.08);background:rgba(20,20,20,.02);border-radius:16px;padding:20px}
+.rb .ecard{text-align:left;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);border-radius:16px;padding:20px}
 .rb .ecard .ic{font-size:22px}
 .rb .ecard h4{font-weight:800;margin-top:10px}
-.rb .ecard p{color:rgba(20,20,20,.55);font-size:13.5px;line-height:1.6;margin-top:7px}
+.rb .ecard p{color:rgba(255,255,255,.55);font-size:13.5px;line-height:1.6;margin-top:7px}
 /* TWO WAYS TO EARN */
 .rb .grid2{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px}
 @media(min-width:820px){.rb .grid2{grid-template-columns:1fr 1fr}}
-.rb .opt{position:relative;overflow:hidden;border:1px solid rgba(20,20,20,.1);border-radius:22px;padding:30px;display:flex;flex-direction:column;background:#fbfbfc}
-.rb .opt.gold{border-color:rgba(49,129,185,.28);background:radial-gradient(520px 260px at 15% 0%,rgba(49,129,185,.12),transparent 60%),#fbfbfc}
-.rb .opt.cyan{border-color:rgba(29,102,148,.28);background:radial-gradient(520px 260px at 15% 0%,rgba(29,102,148,.12),transparent 60%),#fbfbfc}
-.rb .opt .oic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;border:1px solid rgba(20,20,20,.14)}
-.rb .opt.gold .oic{background:rgba(49,129,185,.14);border-color:rgba(49,129,185,.32)}
-.rb .opt.cyan .oic{background:rgba(29,102,148,.14);border-color:rgba(29,102,148,.32)}
+.rb .opt{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:30px;display:flex;flex-direction:column;background:#0b0c12}
+.rb .opt.gold{border-color:rgba(63,146,204,.28);background:radial-gradient(520px 260px at 15% 0%,rgba(63,146,204,.12),transparent 60%),#0b0c12}
+.rb .opt.cyan{border-color:rgba(107,180,226,.28);background:radial-gradient(520px 260px at 15% 0%,rgba(107,180,226,.12),transparent 60%),#0b0c12}
+.rb .opt .oic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;border:1px solid rgba(255,255,255,.14)}
+.rb .opt.gold .oic{background:rgba(63,146,204,.14);border-color:rgba(63,146,204,.32)}
+.rb .opt.cyan .oic{background:rgba(107,180,226,.14);border-color:rgba(107,180,226,.32)}
 .rb .opt .tag{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-top:16px}
-.rb .opt.gold .tag{color:#195a83}.rb .opt.cyan .tag{color:#2e3e49}
+.rb .opt.gold .tag{color:#7cbde6}.rb .opt.cyan .tag{color:#b3daf4}
 .rb .opt h3{font-size:23px;font-weight:900;margin-top:6px;letter-spacing:-.01em}
-.rb .opt p{color:rgba(20,20,20,.62);font-size:14.5px;line-height:1.62;margin-top:11px}
+.rb .opt p{color:rgba(255,255,255,.62);font-size:14.5px;line-height:1.62;margin-top:11px}
 .rb .opt ul{list-style:none;padding:0;margin:16px 0 0;flex:1}
-.rb .opt li{font-size:14px;color:rgba(20,20,20,.78);padding:5px 0 5px 24px;position:relative}
+.rb .opt li{font-size:14px;color:rgba(255,255,255,.78);padding:5px 0 5px 24px;position:relative}
 /* Gold, not green. These ticks are decoration on a marketing list — "zero trading
    required", "the pros trade it for you" — not a profit/loss signal, so they are
    the one green on this page with no meaning to protect. Green stays where it
    means money: P/L figures, buy buttons, the chart's candles. */
-.rb .opt li::before{content:"✓";position:absolute;left:0;color:#1d6694;font-weight:900}
+.rb .opt li::before{content:"✓";position:absolute;left:0;color:#6bb4e2;font-weight:900}
 .rb .opt .go{margin-top:22px}
 .rb .opt{transition:transform .25s ease,box-shadow .25s ease}
 /* PAMM card — the gold-ringed one. */
-.rb .opt.blue{border-color:rgba(48,127,187,.32);background:radial-gradient(520px 260px at 15% 0%,rgba(29,102,148,.12),transparent 55%),radial-gradient(520px 260px at 90% 10%,rgba(48,127,187,.12),transparent 55%),#fbfbfc;box-shadow:0 24px 60px -34px rgba(29,102,148,.4)}
-.rb .opt.blue .tag{color:#2e3e49}
-.rb .opt.blue:hover{transform:translateY(-3px);box-shadow:0 30px 70px -30px rgba(29,102,148,.5)}
+.rb .opt.blue{border-color:rgba(46,122,180,.32);background:radial-gradient(520px 260px at 15% 0%,rgba(107,180,226,.12),transparent 55%),radial-gradient(520px 260px at 90% 10%,rgba(46,122,180,.12),transparent 55%),#0b0c12;box-shadow:0 24px 60px -34px rgba(107,180,226,.4)}
+.rb .opt.blue .tag{color:#b3daf4}
+.rb .opt.blue:hover{transform:translateY(-3px);box-shadow:0 30px 70px -30px rgba(107,180,226,.5)}
 /* animated gold gradient ring (bright gold → amber → bronze) */
-.rb .opt.blue::after{content:"";position:absolute;inset:0;border-radius:22px;padding:1.4px;background:linear-gradient(120deg,rgba(29,102,148,.75),rgba(48,127,187,.6),rgba(48,127,187,.7),rgba(29,102,148,.75));background-size:300% 300%;-webkit-mask:linear-gradient(#ffffff 0 0) content-box,linear-gradient(#ffffff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:gborder 9s linear infinite;pointer-events:none}
+.rb .opt.blue::after{content:"";position:absolute;inset:0;border-radius:22px;padding:1.4px;background:linear-gradient(120deg,rgba(107,180,226,.75),rgba(46,122,180,.6),rgba(46,122,180,.7),rgba(107,180,226,.75));background-size:300% 300%;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:gborder 9s linear infinite;pointer-events:none}
 @keyframes gborder{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 /* Gold flame + waveform mark */
 .rb .gr-ic{width:58px;height:58px}
-.rb .gr-ic svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 3px 12px rgba(47,127,188,.55))}
+.rb .gr-ic svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 3px 12px rgba(42,114,168,.55))}
 .rb .fl{transform-box:fill-box;transform-origin:center bottom;animation:flick 1.4s ease-in-out infinite}
 .rb .fl.b{animation-duration:1.05s;animation-delay:-.3s}
 .rb .fl.c{animation-duration:1.7s;animation-delay:-.6s}
 @keyframes flick{0%,100%{transform:scaleY(1) scaleX(1);opacity:.95}50%{transform:scaleY(1.16) scaleX(.9);opacity:.66}}
 .rb .gr-ic .wave{stroke-dasharray:120;stroke-dashoffset:120;animation:wdraw 2.2s ease-out forwards,wpulse 2.6s ease-in-out 2.2s infinite}
 @keyframes wdraw{to{stroke-dashoffset:0}}
-@keyframes wpulse{0%,100%{opacity:1;filter:drop-shadow(0 0 0 rgba(29,102,148,0))}50%{opacity:.85;filter:drop-shadow(0 0 5px rgba(29,102,148,.8))}}
+@keyframes wpulse{0%,100%{opacity:1;filter:drop-shadow(0 0 0 rgba(107,180,226,0))}50%{opacity:.85;filter:drop-shadow(0 0 5px rgba(107,180,226,.8))}}
 /* growth track-record sparkline */
-.rb .track{margin-top:16px;border:1px solid rgba(29,102,148,.22);background:linear-gradient(180deg,rgba(29,102,148,.06),rgba(48,127,187,.04));border-radius:14px;padding:12px 14px}
+.rb .track{margin-top:16px;border:1px solid rgba(107,180,226,.22);background:linear-gradient(180deg,rgba(107,180,226,.06),rgba(46,122,180,.04));border-radius:14px;padding:12px 14px}
 .rb .track .tl{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.rb .track .tl b{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#2e3e49}
-.rb .track .tl em{font-style:normal;font-size:12px;color:rgba(20,20,20,.6)}
-.rb .track .tl em i{font-style:normal;color:#2775a9;font-weight:900}
+.rb .track .tl b{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#b3daf4}
+.rb .track .tl em{font-style:normal;font-size:12px;color:rgba(255,255,255,.6)}
+.rb .track .tl em i{font-style:normal;color:#56a4d8;font-weight:900}
 .rb .spark{width:100%;height:46px;display:block}
 .rb .spark .sdraw{stroke-dasharray:520;stroke-dashoffset:520;animation:sdraw 2.6s ease-out forwards}
 @keyframes sdraw{to{stroke-dashoffset:0}}
@@ -173,59 +174,59 @@ export const RB_CSS = `
 @keyframes sdot{0%,100%{opacity:1}50%{opacity:.45}}
 @media(prefers-reduced-motion:reduce){.rb .fl,.rb .opt.blue::after,.rb .spark .sdraw,.rb .spark .sdot,.rb .gr-ic .wave{animation:none}.rb .spark .sdraw,.rb .gr-ic .wave{stroke-dashoffset:0}}
 /* 10X FUND-UP */
-.rb .tenx{border:1px solid rgba(48,127,187,.24);border-radius:26px;padding:38px 26px;text-align:center;background:radial-gradient(680px 300px at 50% 0%,rgba(48,127,187,.14),transparent 60%)}
+.rb .tenx{border:1px solid rgba(46,122,180,.24);border-radius:26px;padding:38px 26px;text-align:center;background:radial-gradient(680px 300px at 50% 0%,rgba(46,122,180,.14),transparent 60%)}
 .rb .tenx .stat-row{margin-top:26px}
 /* CARDS (community) */
 .rb .grid3{display:grid;grid-template-columns:1fr;gap:16px;margin-top:34px}
 @media(min-width:640px){.rb .grid3{grid-template-columns:1fr 1fr}}
 @media(min-width:980px){.rb .grid3{grid-template-columns:1fr 1fr 1fr}}
-.rb .card{border:1px solid rgba(20,20,20,.08);background:#fbfbfc;border-radius:18px;padding:24px;display:flex;flex-direction:column}
-.rb .card .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(49,129,185,.12);border:1px solid rgba(49,129,185,.3)}
-.rb .card.cyan .ic{background:rgba(29,102,148,.12);border-color:rgba(29,102,148,.3)}
+.rb .card{border:1px solid rgba(255,255,255,.08);background:#0b0c12;border-radius:18px;padding:24px;display:flex;flex-direction:column}
+.rb .card .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(63,146,204,.12);border:1px solid rgba(63,146,204,.3)}
+.rb .card.cyan .ic{background:rgba(107,180,226,.12);border-color:rgba(107,180,226,.3)}
 .rb .card h3{font-size:17.5px;font-weight:800;margin-top:15px}
-.rb .card p{color:rgba(20,20,20,.6);font-size:14px;line-height:1.6;margin-top:9px;flex:1}
+.rb .card p{color:rgba(255,255,255,.6);font-size:14px;line-height:1.6;margin-top:9px;flex:1}
 /* TESTIMONIALS */
-.rb .tcard{border:1px solid rgba(20,20,20,.08);background:#fbfbfc;border-radius:18px;padding:22px}
-.rb .tcard .stars-row{color:#195a83;font-size:14px;letter-spacing:2px}
-.rb .tcard .q{color:rgba(20,20,20,.82);font-size:14.5px;line-height:1.65;margin-top:12px}
+.rb .tcard{border:1px solid rgba(255,255,255,.08);background:#0b0c12;border-radius:18px;padding:22px}
+.rb .tcard .stars-row{color:#7cbde6;font-size:14px;letter-spacing:2px}
+.rb .tcard .q{color:rgba(255,255,255,.82);font-size:14.5px;line-height:1.65;margin-top:12px}
 .rb .tcard .who{display:flex;align-items:center;gap:10px;margin-top:16px}
-.rb .tcard .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#f9f9fa;background:linear-gradient(135deg,#3181b9,#1d6694)}
+.rb .tcard .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#0d1420;background:linear-gradient(135deg,#3f92cc,#6bb4e2)}
 .rb .tcard .nm{font-size:14px;font-weight:800}
-.rb .tcard .hd{font-size:12px;color:rgba(20,20,20,.4)}
+.rb .tcard .hd{font-size:12px;color:rgba(255,255,255,.4)}
 /* FINAL */
-.rb .final{text-align:center;border:1px solid rgba(49,129,185,.22);border-radius:26px;padding:46px 22px;background:radial-gradient(600px 300px at 50% 0%,rgba(49,129,185,.12),transparent 60%)}
-.rb .about{max-width:720px;margin:20px auto 0;text-align:center;color:rgba(20,20,20,.65);font-size:16px;line-height:1.75}
-.rb footer{text-align:center;color:rgba(20,20,20,.35);font-size:12px;padding:32px 22px 50px;line-height:1.7}
+.rb .final{text-align:center;border:1px solid rgba(63,146,204,.22);border-radius:26px;padding:46px 22px;background:radial-gradient(600px 300px at 50% 0%,rgba(63,146,204,.12),transparent 60%)}
+.rb .about{max-width:720px;margin:20px auto 0;text-align:center;color:rgba(255,255,255,.65);font-size:16px;line-height:1.75}
+.rb footer{text-align:center;color:rgba(255,255,255,.35);font-size:12px;padding:32px 22px 50px;line-height:1.7}
 /* PROOF GALLERY */
 .rb .proofgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
 @media(min-width:560px){.rb .proofgrid{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:920px){.rb .proofgrid{grid-template-columns:repeat(4,1fr)}}
-.rb .proofcard{position:relative;padding:0;border:1px solid rgba(20,20,20,.1);border-radius:16px;overflow:hidden;background:#fafbfb;aspect-ratio:3/4;cursor:pointer;transition:transform .22s,border-color .22s,box-shadow .22s}
+.rb .proofcard{position:relative;padding:0;border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;background:#0a1018;aspect-ratio:3/4;cursor:pointer;transition:transform .22s,border-color .22s,box-shadow .22s}
 .rb .proofcard img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .35s}
-.rb .proofcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,0.064));opacity:.5;transition:opacity .22s}
-.rb .proofcard:hover{transform:translateY(-4px);border-color:rgba(29,102,148,.5);box-shadow:0 20px 44px -22px rgba(29,102,148,.55)}
+.rb .proofcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.4));opacity:.5;transition:opacity .22s}
+.rb .proofcard:hover{transform:translateY(-4px);border-color:rgba(107,180,226,.5);box-shadow:0 20px 44px -22px rgba(107,180,226,.55)}
 .rb .proofcard:hover img{transform:scale(1.06)}
 .rb .proofcard:hover::after{opacity:0}
-.rb .proofcard .pfz{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:9px;background:rgba(0,0,0,0.088);backdrop-filter:blur(4px);display:grid;place-items:center;font-size:14px;color:#141414;opacity:0;transform:scale(.8);transition:.2s;z-index:1}
+.rb .proofcard .pfz{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:9px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);display:grid;place-items:center;font-size:14px;color:#fff;opacity:0;transform:scale(.8);transition:.2s;z-index:1}
 .rb .proofcard:hover .pfz{opacity:1;transform:scale(1)}
 /* GROWTH CALCULATOR */
-.rb .calc{border:1px solid rgba(29,102,148,.2);border-radius:24px;padding:32px 24px;background:radial-gradient(680px 320px at 50% 0%,rgba(29,102,148,.1),transparent 60%),radial-gradient(560px 300px at 90% 100%,rgba(48,127,187,.08),transparent 60%)}
+.rb .calc{border:1px solid rgba(107,180,226,.2);border-radius:24px;padding:32px 24px;background:radial-gradient(680px 320px at 50% 0%,rgba(107,180,226,.1),transparent 60%),radial-gradient(560px 300px at 90% 100%,rgba(46,122,180,.08),transparent 60%)}
 .rb .calcgrid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:26px}
 @media(min-width:820px){.rb .calcgrid{grid-template-columns:1fr 1.1fr;align-items:center}}
-.rb .calcin{border:1px solid rgba(20,20,20,.09);background:rgba(20,20,20,.02);border-radius:16px;padding:20px}
-.rb .calcin label{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:rgba(20,20,20,.55);margin:14px 0 8px}
+.rb .calcin{border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.02);border-radius:16px;padding:20px}
+.rb .calcin label{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:14px 0 8px}
 .rb .calcin label:first-child{margin-top:0}
-.rb .calcin label span{font-size:15px;font-weight:900;color:#2e3e49;letter-spacing:0;text-transform:none}
-.rb .calcin input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:linear-gradient(90deg,#1d6694,#2f7fbc);outline:none}
-.rb .calcin input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#141414;border:3px solid #1d6694;box-shadow:0 3px 10px rgba(29,102,148,.6);cursor:pointer}
-.rb .calcin input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#141414;border:3px solid #1d6694;cursor:pointer}
-.rb .calcout{border:1px solid rgba(48,127,187,.28);background:linear-gradient(180deg,rgba(29,102,148,.06),rgba(48,127,187,.04));border-radius:16px;padding:18px}
+.rb .calcin label span{font-size:15px;font-weight:900;color:#b3daf4;letter-spacing:0;text-transform:none}
+.rb .calcin input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:linear-gradient(90deg,#6bb4e2,#2a72a8);outline:none}
+.rb .calcin input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid #6bb4e2;box-shadow:0 3px 10px rgba(107,180,226,.6);cursor:pointer}
+.rb .calcin input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid #6bb4e2;cursor:pointer}
+.rb .calcout{border:1px solid rgba(46,122,180,.28);background:linear-gradient(180deg,rgba(107,180,226,.06),rgba(46,122,180,.04));border-radius:16px;padding:18px}
 .rb .calcspark{width:100%;height:120px;display:block}
 .rb .calcres{display:flex;gap:12px;margin-top:12px}
-.rb .calcres div{flex:1;border:1px solid rgba(20,20,20,.08);background:rgba(0,0,0,0.04);border-radius:12px;padding:12px 14px}
-.rb .calcres span{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(20,20,20,.45)}
+.rb .calcres div{flex:1;border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.25);border-radius:12px;padding:12px 14px}
+.rb .calcres span{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45)}
 .rb .calcres b{display:block;font-size:22px;font-weight:900;margin-top:4px;font-variant-numeric:tabular-nums}
-.rb .calcres b.pos{color:#2775a9}
+.rb .calcres b.pos{color:#56a4d8}
 @media(prefers-reduced-motion:reduce){.rb *{animation:none!important}}
 `;
 
@@ -243,14 +244,9 @@ export const RB_CSS = `
 export function Stars() {
   return (
     <>
-      {/* The constellation is gone from the public pages. It earned its place on a near-black
-          ground, where a field of faint lit points is depth; on white the same field is a page
-          with specks on it, and every one of them competes with the type. What replaces it is
-          two very soft blue pools — enough that the white reads as lit rather than as blank,
-          not enough to notice. The member area keeps the constellation: it still runs dark.
-
-          rbglow is kept as the class name because the 100lvh rule in index.css reaches for it,
-          and without that the layer stops where the phone's toolbar starts. */}
+      <ConstellationBackground tint="63,146,204" />
+      {/* rbglow: the class is what the 100lvh rule in ConstellationBackground reaches for — without
+          it this layer stops where the browser toolbar starts and the strip below reads flat black. */}
       <div
         aria-hidden
         className="rbglow"
@@ -260,7 +256,7 @@ export function Stars() {
           zIndex: 0,
           pointerEvents: "none",
           background:
-            "radial-gradient(1200px 700px at 72% -12%, rgba(46,122,180,.07), transparent 62%), radial-gradient(1000px 640px at 8% 108%, rgba(107,180,226,.09), transparent 64%)",
+            "radial-gradient(1100px 650px at 70% -10%, rgba(107,180,226,.10), transparent 60%), radial-gradient(900px 600px at 10% 110%, rgba(46,122,180,.10), transparent 60%)",
         }}
       />
     </>
@@ -289,7 +285,7 @@ export function SiteFooter() {
   return (
     <footer>
       <div>© Copy the Rich Trades · Learn free. Earn passively. Win together.</div>
-      <p style={{ marginTop: 8, color: "rgba(20,20,20,.28)" }}>Trading leveraged products carries a substantial risk of loss. Only trade with capital you can afford to lose. Past performance is not indicative of future results.</p>
+      <p style={{ marginTop: 8, color: "rgba(255,255,255,.28)" }}>Trading leveraged products carries a substantial risk of loss. Only trade with capital you can afford to lose. Past performance is not indicative of future results.</p>
     </footer>
   );
 }
@@ -348,10 +344,10 @@ export default function Home() {
                   <svg viewBox="0 0 48 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <linearGradient id="grflame" x1="0" y1="1" x2="0" y2="0">
-                        <stop offset="0" stopColor="#2a84c0" /><stop offset=".55" stopColor="#2c84be" /><stop offset="1" stopColor="#11476b" />
+                        <stop offset="0" stopColor="#1f618d" /><stop offset=".55" stopColor="#2d86c1" /><stop offset="1" stopColor="#94caee" />
                       </linearGradient>
                       <linearGradient id="grwave" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0" stopColor="#1d6694" /><stop offset=".5" stopColor="#307fbb" /><stop offset="1" stopColor="#2f7fbc" />
+                        <stop offset="0" stopColor="#6bb4e2" /><stop offset=".5" stopColor="#2e7ab4" /><stop offset="1" stopColor="#2a72a8" />
                       </linearGradient>
                     </defs>
                     {/* animated blue flames */}
@@ -369,12 +365,12 @@ export default function Home() {
                   <div className="tl"><b>GoldRock trajectory</b><em>compounding <i>15%+ / mo</i> target</em></div>
                   <svg className="spark" viewBox="0 0 260 46" preserveAspectRatio="none" fill="none">
                     <defs>
-                      <linearGradient id="grsp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#1d6694" /><stop offset=".5" stopColor="#307fbb" /><stop offset="1" stopColor="#2f7fbc" /></linearGradient>
-                      <linearGradient id="grfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="rgba(29,102,148,.28)" /><stop offset="1" stopColor="rgba(29,102,148,0)" /></linearGradient>
+                      <linearGradient id="grsp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#6bb4e2" /><stop offset=".5" stopColor="#2e7ab4" /><stop offset="1" stopColor="#2a72a8" /></linearGradient>
+                      <linearGradient id="grfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="rgba(107,180,226,.28)" /><stop offset="1" stopColor="rgba(107,180,226,0)" /></linearGradient>
                     </defs>
                     <path d="M4,42 C40,40 58,36 92,31 C126,26 150,19 186,12 C214,7 238,5 256,3 L256,46 L4,46 Z" fill="url(#grfill)" />
                     <path className="sdraw" d="M4,42 C40,40 58,36 92,31 C126,26 150,19 186,12 C214,7 238,5 256,3" stroke="url(#grsp)" strokeWidth="2.4" strokeLinecap="round" />
-                    <circle className="sdot" cx="256" cy="3" r="3.4" fill="#1d6694" />
+                    <circle className="sdot" cx="256" cy="3" r="3.4" fill="#6bb4e2" />
                   </svg>
                 </div>
                 <ul>
@@ -459,7 +455,7 @@ export default function Home() {
                   </button>
                 ))}
               </div>
-              <p style={{ marginTop: 12, fontSize: 12, color: "rgba(20,20,20,.3)", textAlign: "center" }}>Real results. Trading involves risk — past performance is not indicative of future results.</p>
+              <p style={{ marginTop: 12, fontSize: 12, color: "rgba(255,255,255,.3)", textAlign: "center" }}>Real results. Trading involves risk — past performance is not indicative of future results.</p>
             </div>
           </section>
 
@@ -468,7 +464,7 @@ export default function Home() {
             <div className="final">
               <div className="sec-k">Your shot</div>
               <h2>Start free. Earn passively. Win together.</h2>
-              <p className="about">Most people never learn the game or trade with enough size to change anything. Copy the Rich Trades flips that — <b style={{ color: "#195a83" }}>learn for free</b>, earn passive income with the fund and signals, and size up to <b style={{ color: "#195a83" }}>10× leverage</b> when you're ready. It's not a prop-firm challenge. It's your shot.</p>
+              <p className="about">Most people never learn the game or trade with enough size to change anything. Copy the Rich Trades flips that — <b style={{ color: "#7cbde6" }}>learn for free</b>, earn passive income with the fund and signals, and size up to <b style={{ color: "#7cbde6" }}>10× leverage</b> when you're ready. It's not a prop-firm challenge. It's your shot.</p>
               <div className="cta-row" style={{ marginTop: 26 }}><a className="btn lg" href={SIGNUP_PATH}>Start free →</a><a className="ghost lg" href={LOGIN_URL}>Log in</a></div>
             </div>
           </section>
@@ -477,11 +473,11 @@ export default function Home() {
         <SiteFooter />
       </main>
       {proofOpen != null && (
-        <div onClick={() => setProofOpen(null)} style={{ position: "fixed", inset: 0, zIndex: 90, display: "grid", placeItems: "center", padding: 16, background: "rgba(252,252,253,.92)", backdropFilter: "blur(6px)" }}>
-          <button onClick={() => setProofOpen(null)} style={{ position: "absolute", top: 16, right: 16, width: 40, height: 40, borderRadius: 999, border: "none", background: "rgba(20,20,20,.12)", color: "#141414", fontSize: 20, cursor: "pointer" }}>✕</button>
-          <button onClick={(e) => { e.stopPropagation(); setProofOpen((p) => (p == null ? p : (p - 1 + PROOF.length) % PROOF.length)); }} style={{ position: "absolute", left: 12, width: 44, height: 44, borderRadius: 999, border: "none", background: "rgba(20,20,20,.12)", color: "#141414", fontSize: 26, cursor: "pointer" }}>‹</button>
-          <img src={PROOF[proofOpen]} alt="Proof" onClick={(e) => e.stopPropagation()} style={{ maxHeight: "88vh", maxWidth: "92vw", borderRadius: 16, border: "1px solid rgba(20,20,20,.15)" }} />
-          <button onClick={(e) => { e.stopPropagation(); setProofOpen((p) => (p == null ? p : (p + 1) % PROOF.length)); }} style={{ position: "absolute", right: 12, width: 44, height: 44, borderRadius: 999, border: "none", background: "rgba(20,20,20,.12)", color: "#141414", fontSize: 26, cursor: "pointer" }}>›</button>
+        <div onClick={() => setProofOpen(null)} style={{ position: "fixed", inset: 0, zIndex: 90, display: "grid", placeItems: "center", padding: 16, background: "rgba(6,8,14,.92)", backdropFilter: "blur(6px)" }}>
+          <button onClick={() => setProofOpen(null)} style={{ position: "absolute", top: 16, right: 16, width: 40, height: 40, borderRadius: 999, border: "none", background: "rgba(255,255,255,.12)", color: "#fff", fontSize: 20, cursor: "pointer" }}>✕</button>
+          <button onClick={(e) => { e.stopPropagation(); setProofOpen((p) => (p == null ? p : (p - 1 + PROOF.length) % PROOF.length)); }} style={{ position: "absolute", left: 12, width: 44, height: 44, borderRadius: 999, border: "none", background: "rgba(255,255,255,.12)", color: "#fff", fontSize: 26, cursor: "pointer" }}>‹</button>
+          <img src={PROOF[proofOpen]} alt="Proof" onClick={(e) => e.stopPropagation()} style={{ maxHeight: "88vh", maxWidth: "92vw", borderRadius: 16, border: "1px solid rgba(255,255,255,.15)" }} />
+          <button onClick={(e) => { e.stopPropagation(); setProofOpen((p) => (p == null ? p : (p + 1) % PROOF.length)); }} style={{ position: "absolute", right: 12, width: 44, height: 44, borderRadius: 999, border: "none", background: "rgba(255,255,255,.12)", color: "#fff", fontSize: 26, cursor: "pointer" }}>›</button>
         </div>
       )}
     </div>
@@ -524,8 +520,8 @@ export function GrowthCalc() {
         <div className="calcout">
           <svg className="calcspark" viewBox="0 0 260 92" preserveAspectRatio="none" fill="none">
             <defs>
-              <linearGradient id="cln" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#1d6694" /><stop offset="1" stopColor="#2f7fbc" /></linearGradient>
-              <linearGradient id="cfl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="rgba(29,102,148,.3)" /><stop offset="1" stopColor="rgba(29,102,148,0)" /></linearGradient>
+              <linearGradient id="cln" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#6bb4e2" /><stop offset="1" stopColor="#2a72a8" /></linearGradient>
+              <linearGradient id="cfl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="rgba(107,180,226,.3)" /><stop offset="1" stopColor="rgba(107,180,226,0)" /></linearGradient>
             </defs>
             <polygon points={`0,92 ${pts} 260,92`} fill="url(#cfl)" />
             <polyline points={pts} stroke="url(#cln)" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -537,7 +533,7 @@ export function GrowthCalc() {
           <a className="btn go" href={SIGNUP_PATH} style={{ width: "100%", marginTop: 4 }}>Start compounding →</a>
         </div>
       </div>
-      <p style={{ textAlign: "center", fontSize: 12, color: "rgba(20,20,20,.35)", marginTop: 14 }}>Illustration only — a projection at a chosen rate, not a guarantee. Returns vary and capital is at risk.</p>
+      <p style={{ textAlign: "center", fontSize: 12, color: "rgba(255,255,255,.35)", marginTop: 14 }}>Illustration only — a projection at a chosen rate, not a guarantee. Returns vary and capital is at risk.</p>
     </div>
   );
 }

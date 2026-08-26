@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 html, body, #root { min-height: 100%; }
-body { margin: 0; background: #fdfdfd; color: #141414; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: #05070d; color: #fff; -webkit-font-smoothing: antialiased; }
 
 /* Every full-screen backdrop layer, held to the bottom of the actual screen.
  *
  * A fixed inset:0 does not mean "the whole screen" on a phone — iOS resolves it against whatever
  * viewport the browser's own toolbars leave behind, so the layer stops where the toolbar starts and
- * the strip below it falls through to the bare body colour. That strip is the same #fdfdfd as the
+ * the strip below it falls through to the bare body colour. That strip is the same #05070d as the
  * rest of the page, which is exactly why it looks wrong: it is the right black with none of the
  * gold pooled over it, so it reads as a flat bar cut off the bottom of a lit page.
  *
@@ -30,6 +30,6 @@ body { margin: 0; background: #fdfdfd; color: #141414; -webkit-font-smoothing: a
    shadow and the highlight sits off-centre: pale at the start, full gold through
    the middle, a deep amber shadow at 70%, lifting back to gold at the end. */
 .pulse-brand-text {
-  background: linear-gradient(90deg, #1b242a 0%, #1d6694 32%, #307fbb 70%, #154f73 100%);
+  background: linear-gradient(90deg, #e2f1fc 0%, #6bb4e2 32%, #2e7ab4 70%, #8cc6ea 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;
 }

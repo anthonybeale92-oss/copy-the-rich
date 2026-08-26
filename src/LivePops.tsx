@@ -128,7 +128,7 @@ const POP_CSS = `
 }
 @keyframes lvpHalo{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:.8;transform:scale(1.06)}}
 @keyframes lvpSheen{0%{transform:translateX(-140%) skewX(-18deg)}100%{transform:translateX(320%) skewX(-18deg)}}
-@keyframes lvpPing{0%{box-shadow:0 0 0 0 rgba(29,102,148,.5)}70%{box-shadow:0 0 0 12px rgba(29,102,148,0)}100%{box-shadow:0 0 0 0 rgba(29,102,148,0)}}
+@keyframes lvpPing{0%{box-shadow:0 0 0 0 rgba(107,180,226,.5)}70%{box-shadow:0 0 0 12px rgba(107,180,226,0)}100%{box-shadow:0 0 0 0 rgba(107,180,226,0)}}
 
 .lvp{
   position:fixed;z-index:80;
@@ -138,12 +138,12 @@ const POP_CSS = `
   display:flex;align-items:center;gap:12px;
   padding:12px 34px 12px 12px;
   border-radius:16px;
-  border:1px solid rgba(29,102,148,.34);
-  background:linear-gradient(140deg,rgba(252,251,251,.97),rgba(252,252,252,.97));
-  box-shadow:0 22px 50px -18px rgba(0,0,0,0.144),0 0 34px -14px rgba(29,102,148,.45),inset 0 1px 0 rgba(20,20,20,.06);
+  border:1px solid rgba(107,180,226,.34);
+  background:linear-gradient(140deg,rgba(18,16,12,.97),rgba(9,10,16,.97));
+  box-shadow:0 22px 50px -18px rgba(0,0,0,.9),0 0 34px -14px rgba(107,180,226,.45),inset 0 1px 0 rgba(255,255,255,.06);
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
-  color:#141414;
+  color:#fff;
   overflow:hidden;
   opacity:0;transform:translateY(120%) scale(.86);
   pointer-events:none;
@@ -156,30 +156,30 @@ const POP_CSS = `
 /* the sheen that runs across the card as it lands */
 .lvp.in::after{
   content:"";position:absolute;top:0;bottom:0;width:60px;pointer-events:none;
-  background:linear-gradient(90deg,transparent,rgba(9,61,96,.16),transparent);
+  background:linear-gradient(90deg,transparent,rgba(159,211,246,.16),transparent);
   animation:lvpSheen 1.1s ease-out .5s 1 both;
 }
 .lvp-glow{position:absolute;left:-30px;top:-40px;width:150px;height:150px;border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,rgba(29,102,148,.22),transparent 68%);animation:lvpHalo 2.6s ease-in-out infinite}
+  background:radial-gradient(circle,rgba(107,180,226,.22),transparent 68%);animation:lvpHalo 2.6s ease-in-out infinite}
 
 .lvp-av{position:relative;flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
-  background:linear-gradient(140deg,rgba(29,102,148,.26),rgba(48,127,187,.1));
-  border:1px solid rgba(29,102,148,.5);animation:lvpPing 2.4s ease-out infinite}
-.lvp-av span{font-size:16px;font-weight:900;color:#154f73;letter-spacing:-.01em}
+  background:linear-gradient(140deg,rgba(107,180,226,.26),rgba(46,122,180,.1));
+  border:1px solid rgba(107,180,226,.5);animation:lvpPing 2.4s ease-out infinite}
+.lvp-av span{font-size:16px;font-weight:900;color:#8cc6ea;letter-spacing:-.01em}
 
 .lvp-body{position:relative;min-width:0;flex:1}
 .lvp-nm{font-size:14px;font-weight:800;letter-spacing:-.01em;line-height:1.25}
-.lvp-ln{margin-top:2px;font-size:12.5px;line-height:1.35;color:rgba(20,20,20,.72)}
-.lvp-ln b{color:#1d6694;font-weight:800}
+.lvp-ln{margin-top:2px;font-size:12.5px;line-height:1.35;color:rgba(255,255,255,.72)}
+.lvp-ln b{color:#6bb4e2;font-weight:800}
 .lvp-brand{white-space:nowrap}
 .lvp-tag{margin-top:5px;display:flex;align-items:center;gap:6px;font-size:10px;font-weight:800;
-  letter-spacing:.09em;text-transform:uppercase;color:rgba(29,102,148,.85)}
+  letter-spacing:.09em;text-transform:uppercase;color:rgba(107,180,226,.85)}
 .lvp-ic{font-size:11px;line-height:1}
-.lvp-dot{width:3px;height:3px;border-radius:50%;background:rgba(29,102,148,.45);flex:none}
+.lvp-dot{width:3px;height:3px;border-radius:50%;background:rgba(107,180,226,.45);flex:none}
 
 .lvp-x{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;border:none;cursor:pointer;
-  background:transparent;color:rgba(20,20,20,.32);font-size:11px;line-height:1;transition:.15s;z-index:2}
-.lvp-x:hover{background:rgba(20,20,20,.09);color:#141414}
+  background:transparent;color:rgba(255,255,255,.32);font-size:11px;line-height:1;transition:.15s;z-index:2}
+.lvp-x:hover{background:rgba(255,255,255,.09);color:#fff}
 
 @media(max-width:560px){
   .lvp{width:calc(100vw - 24px);left:12px;padding:11px 30px 11px 11px;border-radius:14px}

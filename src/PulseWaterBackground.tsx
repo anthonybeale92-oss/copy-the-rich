@@ -87,18 +87,12 @@ function ConstellationCanvas({ lite, animate }: { lite?: boolean; animate?: bool
 
     // The three node tints. These are channel literals rather than an rgba() string,
     // which is why they outlived the palette sweep and left cyan and violet nodes
-    // drifting over a gold page. They then outlived the SECOND sweep the same way and
-    // left gold specks over a white one — the comment was here and the numbers still
-    // got missed, so: any colour written as separate r/g/b fields is invisible to every
-    // search for a colour, and this is the only place in the app that does it.
-    //
-    // Same three-step spread as before, bright to deep, now in the brand blues. They sit
-    // deeper than the blues used for type because the draw code fades them to 55% alpha
-    // and below; picked any lighter, they vanish into the white.
+    // drifting over a gold page. Same three-step spread as before — bright, mid,
+    // deep — now bright gold, amber, bronze.
     function nodeColor(hue: number) {
-      if (hue === 0) return { r: 49, g: 129, b: 185 };
-      if (hue === 1) return { r: 46, g: 122, b: 180 };
-      return { r: 29, g: 102, b: 148 };
+      if (hue === 0) return { r: 255, g: 210, b: 74 };
+      if (hue === 1) return { r: 224, g: 169, b: 46 };
+      return { r: 201, g: 147, b: 47 };
     }
 
     function step(t: number) {
@@ -119,9 +113,9 @@ function ConstellationCanvas({ lite, animate }: { lite?: boolean; animate?: bool
         const travel = width + bandW * 2;
         const sweepX = ((t * 0.024) % travel) - bandW;
         const sg = ctx.createLinearGradient(sweepX - bandW, 0, sweepX + bandW, 0);
-        sg.addColorStop(0, "rgba(29,102,148,0)");
-        sg.addColorStop(0.5, "rgba(49,129,185,0.055)");
-        sg.addColorStop(1, "rgba(48,127,187,0)");
+        sg.addColorStop(0, "rgba(107,180,226,0)");
+        sg.addColorStop(0.5, "rgba(63,146,204,0.055)");
+        sg.addColorStop(1, "rgba(46,122,180,0)");
         ctx.fillStyle = sg;
         ctx.fillRect(sweepX - bandW, 0, bandW * 2, height);
       }
@@ -180,9 +174,9 @@ function ConstellationCanvas({ lite, animate }: { lite?: boolean; animate?: bool
 
       if (m.active) {
         const grad = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, MOUSE_DIST);
-        grad.addColorStop(0, "rgba(19,85,125,0.07)");
-        grad.addColorStop(0.6, "rgba(35,111,159,0.04)");
-        grad.addColorStop(1, "rgba(19,85,125,0)");
+        grad.addColorStop(0, "rgba(130,196,236,0.07)");
+        grad.addColorStop(0.6, "rgba(96,172,220,0.04)");
+        grad.addColorStop(1, "rgba(130,196,236,0)");
         ctx.fillStyle = grad;
         ctx.fillRect(m.x - MOUSE_DIST, m.y - MOUSE_DIST, MOUSE_DIST * 2, MOUSE_DIST * 2);
 
@@ -300,7 +294,7 @@ function AuroraBlobs() {
           left: "5%",
           top: "-12%",
           background:
-            "radial-gradient(circle at 50% 50%, rgba(19,85,125,0.18), rgba(19,85,125,0.04) 50%, transparent 80%)",
+            "radial-gradient(circle at 50% 50%, rgba(130,196,236,0.18), rgba(130,196,236,0.04) 50%, transparent 80%)",
           animation: "dashAurora1 32s ease-in-out infinite",
         }}
       />
@@ -310,7 +304,7 @@ function AuroraBlobs() {
           right: "-8%",
           top: "35%",
           background:
-            "radial-gradient(circle at 50% 50%, rgba(35,111,159,0.18), rgba(35,111,159,0.04) 55%, transparent 82%)",
+            "radial-gradient(circle at 50% 50%, rgba(96,172,220,0.18), rgba(96,172,220,0.04) 55%, transparent 82%)",
           animation: "dashAurora2 36s ease-in-out infinite",
         }}
       />
@@ -320,7 +314,7 @@ function AuroraBlobs() {
           left: "30%",
           bottom: "-18%",
           background:
-            "radial-gradient(circle at 50% 50%, rgba(48,127,187,0.16), rgba(48,127,187,0.03) 55%, transparent 82%)",
+            "radial-gradient(circle at 50% 50%, rgba(46,122,180,0.16), rgba(46,122,180,0.03) 55%, transparent 82%)",
           animation: "dashAurora1 30s ease-in-out infinite reverse",
         }}
       />
@@ -356,9 +350,9 @@ export function PulseWaterBackground({ lite, animate }: { lite?: boolean; animat
       className="rbwater pointer-events-none fixed inset-0 z-0 overflow-hidden"
       style={{
         background:
-          "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(19,85,125,0.08) 0%, transparent 65%), " +
-          "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(35,111,159,0.1) 0%, transparent 65%), " +
-          "linear-gradient(180deg, #fdfdfe 0%, #fdfdfd 50%, #fdfdfd 100%)",
+          "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(130,196,236,0.08) 0%, transparent 65%), " +
+          "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(96,172,220,0.1) 0%, transparent 65%), " +
+          "linear-gradient(180deg, #050608 0%, #04050a 50%, #060509 100%)",
       }}
     >
       {/* lite (admin) skips the 180px animated aurora blobs + grain overlay — the most expensive
