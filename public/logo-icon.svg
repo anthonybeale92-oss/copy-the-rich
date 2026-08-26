@@ -1,0 +1,79 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="bgGrad" cx="50%" cy="42%" r="70%">
+            <stop offset="0%"   style="stop-color:#0d1f47;stop-opacity:1"/>
+            <stop offset="55%"  style="stop-color:#070f28;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#01030a;stop-opacity:1"/>
+        </radialGradient>
+
+        <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   style="stop-color:#00f5ff;stop-opacity:0.22"/>
+            <stop offset="45%"  style="stop-color:#0088ff;stop-opacity:0.08"/>
+            <stop offset="100%" style="stop-color:#0088ff;stop-opacity:0"/>
+        </radialGradient>
+
+        <linearGradient id="pulseGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="0%"   style="stop-color:#00e5ff;stop-opacity:0.55"/>
+            <stop offset="22%"  style="stop-color:#00f5ff;stop-opacity:1"/>
+            <stop offset="55%"  style="stop-color:#33ddff;stop-opacity:1"/>
+            <stop offset="85%"  style="stop-color:#7cc8ff;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.55"/>
+        </linearGradient>
+
+        <linearGradient id="coreGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="0%"   style="stop-color:#d6fbff;stop-opacity:0.65"/>
+            <stop offset="22%"  style="stop-color:#e8fdff;stop-opacity:1"/>
+            <stop offset="55%"  style="stop-color:#f0feff;stop-opacity:1"/>
+            <stop offset="85%"  style="stop-color:#ece4ff;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#ddd0ff;stop-opacity:0.65"/>
+        </linearGradient>
+
+        <filter id="bigBlur" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="22"/>
+        </filter>
+        <filter id="medBlur" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="8"/>
+        </filter>
+        <filter id="tightBlur" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="2"/>
+        </filter>
+
+        <filter id="dither" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="2" stitchTiles="stitch" seed="9"/>
+            <feColorMatrix values="0 0 0 0 0.5
+                                   0 0 0 0 0.5
+                                   0 0 0 0 0.5
+                                   0 0 0 0.08 0"/>
+        </filter>
+    </defs>
+
+    <g>
+        <path d="M 200 540 L 360 540 L 410 560 L 460 510 L 510 600 L 560 320 L 610 700 L 660 480 L 710 555 L 760 540 L 880 540"
+              stroke="url(#pulseGrad)"
+              stroke-width="28"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.45"
+              filter="url(#bigBlur)"/>
+
+        <path d="M 200 540 L 360 540 L 410 560 L 460 510 L 510 600 L 560 320 L 610 700 L 660 480 L 710 555 L 760 540 L 880 540"
+              stroke="url(#pulseGrad)"
+              stroke-width="18"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.85"
+              filter="url(#medBlur)"/>
+
+        <path d="M 200 540 L 360 540 L 410 560 L 460 510 L 510 600 L 560 320 L 610 700 L 660 480 L 710 555 L 760 540 L 880 540"
+              stroke="url(#pulseGrad)"
+              stroke-width="12"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+    </g>
+
+    <circle cx="200" cy="540" r="9" fill="#00f5ff" opacity="0.85"/>
+    <circle cx="880" cy="540" r="9" fill="#a78bfa" opacity="0.85"/>
+</svg>

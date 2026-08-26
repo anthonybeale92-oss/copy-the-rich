@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Copy the Rich Trades">
+  <title>Copy the Rich Trades</title>
+  <!--
+    A flat reading of the brand mark: the C and the R locked together, a cent sign riding above
+    them, and the chart line breaking out of the C to the upper right. The supplied artwork is a
+    3D render with bevels and a cast shadow; those do not survive being scaled to a 34px nav
+    slot, so this keeps the SHAPES and the two blues and drops the lighting. Swap this file for
+    a trace of the render if the bevels are wanted at large sizes.
+  -->
+  <defs>
+    <linearGradient id="ctrLight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a8d6f0"/>
+      <stop offset="45%" stop-color="#7fbee5"/>
+      <stop offset="100%" stop-color="#4f9fd4"/>
+    </linearGradient>
+    <linearGradient id="ctrDeep" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5aa6da"/>
+      <stop offset="55%" stop-color="#2e7ab4"/>
+      <stop offset="100%" stop-color="#1f5f92"/>
+    </linearGradient>
+    <linearGradient id="ctrArrow" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4f9fd4"/>
+      <stop offset="55%" stop-color="#8cc9ec"/>
+      <stop offset="100%" stop-color="#c7e6fa"/>
+    </linearGradient>
+  </defs>
+
+  <!-- The C: an open ring, mouth to the right, so the chart line has somewhere to escape. -->
+  <path d="M 300 150
+           A 118 118 0 1 0 300 362"
+        fill="none" stroke="url(#ctrLight)" stroke-width="52" stroke-linecap="round"/>
+
+  <!-- The R, sharing the C's right edge. Bowl on top, leg kicking out to the lower right. -->
+  <path d="M 300 138 L 300 374" fill="none" stroke="url(#ctrDeep)" stroke-width="52" stroke-linecap="round"/>
+  <path d="M 300 164 L 348 164 A 58 58 0 0 1 348 280 L 300 280"
+        fill="none" stroke="url(#ctrDeep)" stroke-width="52" stroke-linejoin="round"/>
+  <path d="M 344 276 L 404 374" fill="none" stroke="url(#ctrDeep)" stroke-width="52" stroke-linecap="round"/>
+
+  <!-- The cent sign, sitting above the join. -->
+  <g stroke="#ffffff" fill="none" stroke-width="20" stroke-linecap="round">
+    <path d="M 252 74 A 44 44 0 1 0 252 158"/>
+    <path d="M 230 52 L 230 180"/>
+  </g>
+  <g stroke="url(#ctrLight)" fill="none" stroke-width="13" stroke-linecap="round">
+    <path d="M 252 74 A 44 44 0 1 0 252 158"/>
+    <path d="M 230 52 L 230 180"/>
+  </g>
+
+  <!-- The breakout: the chart line stepping up through the C and out past the R. -->
+  <path d="M 150 322 L 214 258 L 262 300 L 366 176"
+        fill="none" stroke="#ffffff" stroke-width="46"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 150 322 L 214 258 L 262 300 L 366 176"
+        fill="none" stroke="url(#ctrArrow)" stroke-width="30"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 300 128 L 400 128 L 400 228 Z" fill="#ffffff"/>
+  <path d="M 314 142 L 386 142 L 386 214 Z" fill="url(#ctrArrow)"/>
+</svg>
