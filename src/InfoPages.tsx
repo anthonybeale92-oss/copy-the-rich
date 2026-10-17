@@ -98,7 +98,6 @@ export function LearnPage() {
             <p>Premium private chat, premium trading signals, and 1-on-1 coaching are coming soon. Access details will be shared when they launch.</p>
           </div>
         </div>
-        <div className="cta-row"><a className="btn lg" href={DISCORD_INVITE_URL} target="_blank" rel="noopener noreferrer">Join the Free Community →</a></div>
         <p className="lead-in">The group chat is 100% free. Join us on Discord.</p>
       </section>
 
