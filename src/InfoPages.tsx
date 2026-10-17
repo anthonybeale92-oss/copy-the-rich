@@ -77,41 +77,7 @@ export function LearnPage() {
         <p className="lede">Come in with zero experience. The Copy the Rich Trades academy takes you from your very first candle to trading a funded account — at your own pace, alongside a real community. No fees, no catch.</p>
       </section>
 
-      <section className="discord-panel" aria-labelledby="discord-heading">
-        <div className="sec-k">Your trading community</div>
-        <h2 id="discord-heading">What's inside the Discord?</h2>
-        <p className="sub">Connect with Anthony and traders of all levels. Share your experience, ask questions, and learn from one another.</p>
-        <div className="edu-grid">
-          <div className="ecard">
-            <span className="community-status">Available now · 100% free</span>
-            <h3>Group chat with Anthony &amp; the community</h3>
-            <p>Join the conversation with Anthony and fellow traders, from beginners to experienced members. A place to exchange ideas and learn together.</p>
-          </div>
-          <div className="ecard">
-            <span className="community-status soon">Being added</span>
-            <h3>Beginner lessons</h3>
-            <p>Beginner lessons are being added to help you build your understanding of trading, one step at a time.</p>
-          </div>
-          <div className="ecard">
-            <span className="community-status soon">Coming soon · Premium</span>
-            <h3>More ways to learn with us</h3>
-            <p>Premium private chat, premium trading signals, and 1-on-1 coaching are coming soon. Access details will be shared when they launch.</p>
-          </div>
-        </div>
-        <p className="lead-in">The group chat is 100% free. Join us on Discord.</p>
-      </section>
-
-      <section className="onboarding" id="start-here" aria-labelledby="start-heading">
-        <div className="sec-k">Start here</div>
-        <h2 id="start-heading">Your next steps, in order</h2>
-        <p className="sub">Join the community first. Then use our broker link to create your account and come back to connect with the group.</p>
-        <div className="steps">
-          <div className="step"><div className="num">1</div><h4>Join the free Discord</h4><p>Open our Discord invite and join Copy the Rich Trades. Keep this page open so you can come back for step 2.</p><a className="btn sm" href={DISCORD_INVITE_URL} target="_blank" rel="noopener noreferrer">1. Join Discord ↗</a></div>
-          <div className="step"><div className="num">2</div><h4>Create your broker account</h4><p>Already joined Discord? Use the button below to register on Pulse Markets. Registration takes place on the broker's website.</p><a className="btn sm" href={SIGNUP_PATH} target="_blank" rel="noopener noreferrer">2. Open Broker Account ↗</a></div>
-          <div className="step"><div className="num">3</div><h4>Come back &amp; say hello</h4><p>Return to Discord, introduce yourself, and tell us your experience level and what you'd like to learn. Keep account details and passwords private.</p><a className="ghost sm" href={DISCORD_INVITE_URL} target="_blank" rel="noopener noreferrer">3. Return to Discord ↗</a></div>
-        </div>
-        <p className="lead-in">The Discord group chat is 100% free. Broker registration is separate.</p>
-      </section>
+      <div className="cta-row"><a className="btn lg" href="/#start-here">Start with the community →</a></div>
 
       <section>
         <div className="sec-k">The curriculum</div>
