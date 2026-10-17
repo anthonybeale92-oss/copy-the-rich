@@ -1,6 +1,7 @@
 // Copy the Rich Trades brand HOME — leads with FREE education + PASSIVE income, then the two ways to earn
 // (signals or the PAMM), then funding up for 10× leverage at the bottom. The 10X landing lives at /signup.
 import { useState } from "react";
+import CommunityStart from "./CommunityStart";
 import ConstellationBackground from "./ConstellationBackground";
 import { HOUSE_REF } from "./api";
 export const LOGIN_URL = "/login";
@@ -283,7 +284,7 @@ export function SiteNav({ active }: { active?: string }) {
             never signed up does not need an account door in the top right, and giving it one
             costs the only action this page is trying to get. */}
         <div className="navr">
-          <a className="btn sm" href={SIGNUP_PATH}>Get Started →</a>
+          <a className="btn sm" href={active ? SIGNUP_PATH : "#start-here"}>Get Started →</a>
         </div>
       </div>
     </header>
@@ -317,34 +318,18 @@ export default function Home() {
               sit under the sub-line as plain text, and the only control is the one action
               the page wants. */}
           <div className="hero">
-            <h1>Copy the desk.<br /><span className="g">Compound the difference.</span></h1>
+            <h1>Learn to trade.<br /><span className="g">Grow with the community.</span></h1>
             <p className="lede">
-              Learn the markets for free, put money to work in a managed fund, and take the
-              desk's plays as they happen — then size up to <b>10×</b> when you're ready.
+              Join Anthony and traders of all levels in our free Discord. Ask questions, share ideas,
+              and learn together. Start by joining the group below, then create your Pulse Markets account using our link.
             </p>
-            <div className="cta-row"><a className="btn lg" href={SIGNUP_PATH}>Get started →</a></div>
             <div className="hero-facts">
-              <span>Free education</span><i /><span>Passive income</span><i /><span>100% of your profits</span>
+              <span>Free community</span><i /><span>Learn together</span><i /><span>Start step by step</span>
             </div>
-            <a className="seemore" href="#education">See how it works<em>⌄</em></a>
+            <a className="seemore" href="#discord-heading">Explore the community<em>⌄</em></a>
           </div>
 
-          {/* 1 · FREE EDUCATION (primary) */}
-          <section id="education">
-            <div className="edu">
-              <div style={{ textAlign: "center" }}>
-                <span className="free">100% Free</span>
-                <h2>Learn the game — it costs nothing</h2>
-                <p className="sub">Never traded before? Perfect. Come in, learn everything for free, and grow alongside people doing the exact same thing. No fees, no catch.</p>
-              </div>
-              <div className="edu-grid">
-                {eduPoints.map((e, i) => (
-                  <div key={i} className="ecard"><div className="ic">{e.ic}</div><h4>{e.t}</h4><p>{e.d}</p></div>
-                ))}
-              </div>
-              <div style={{ textAlign: "center", marginTop: 26 }}><a className="btn lg" href={SIGNUP_PATH}>Start learning free →</a></div>
-            </div>
-          </section>
+          <CommunityStart />
 
           {/* 2 · TWO WAYS TO EARN — signals or the PAMM */}
           <section id="earn">
@@ -463,14 +448,7 @@ export default function Home() {
           </section>
 
           {/* FINAL */}
-          <section id="about">
-            <div className="final">
-              <div className="sec-k">Your shot</div>
-              <h2>Start free. Earn passively. Win together.</h2>
-              <p className="about">Most people never learn the game or trade with enough size to change anything. Copy the Rich Trades flips that — <b style={{ color: "#7fd4ff" }}>learn for free</b>, earn passive income with the fund and signals, and size up to <b style={{ color: "#7fd4ff" }}>10× leverage</b> when you're ready. It's not a prop-firm challenge. It's your shot.</p>
-              <div className="cta-row" style={{ marginTop: 26 }}><a className="btn lg" href={SIGNUP_PATH}>Start free →</a><a className="ghost lg" href={LOGIN_URL}>Log in</a></div>
-            </div>
-          </section>
+
         </div>
 
         <SiteFooter />
