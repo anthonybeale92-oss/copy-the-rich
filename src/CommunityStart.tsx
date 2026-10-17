@@ -34,6 +34,10 @@ export default function CommunityStart() { return <>
 .rb .community-status{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#9bdcff;border:1px solid rgba(94,200,255,.3);border-radius:99px;padding:5px 9px}
 .rb .community-status.soon{color:rgba(255,255,255,.65);border-color:rgba(255,255,255,.18)}
 .rb .discord-panel .ecard h3{font-size:18px;font-weight:800;margin-top:16px}
+.rb .discord-panel .benefit-list{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:12px}
+.rb .discord-panel .benefit-list li{position:relative;padding-left:20px;color:rgba(255,255,255,.72);font-size:14px;line-height:1.5}
+.rb .discord-panel .benefit-list li::before{content:"✓";position:absolute;left:0;color:#7fd4ff;font-weight:700}
+.rb .discord-panel .benefits-note{max-width:850px;font-size:12.5px;line-height:1.65;margin-top:16px}
 .rb .onboarding{scroll-margin-top:90px}
 .rb .onboarding .step a{margin-top:18px}
 @media(min-width:960px){.rb .onboarding .steps{grid-template-columns:repeat(3,1fr)}}
@@ -45,24 +49,22 @@ export default function CommunityStart() { return <>
         <div className="edu-grid">
           <div className="ecard">
             <span className="community-status">100% free to join</span>
-            <h3>Free community &amp; group chat</h3>
-            <p>Connect with Anthony and traders of every level. Ask questions, share ideas, and learn together.</p>
+            <h3>Free community</h3>
+            <ul className="benefit-list"><li>Chat with Anthony</li><li>Connect with other traders</li><li>Ask questions and share ideas</li><li>Learn together</li></ul>
           </div>
           <div className="ecard">
             <span className="community-status">Learn · Explore · Get set up</span>
-            <h3>Your trading toolkit &amp; Pulse benefits</h3>
-            <p><strong>Free course</strong> — beginner lessons through Pulse University. No funding required.</p>
-            <p><strong>Free gold signals</strong> — guidance for active, funded Pulse accounts. Our community requires $250 in trading capital—not a signals fee.</p>
-            <p><strong>PAMM investing &amp; 10× instant funding accounts</strong> — explore Pulse’s options and learn how to get started.</p>
-            <p><strong>Free trading indicator</strong> — our charting tool with setup instructions.</p>
+            <h3>Trading toolkit</h3>
+            <ul className="benefit-list"><li>Free beginner course</li><li>Free gold signals*</li><li>PAMM investing options</li><li>10× funding options</li><li>Free trading indicator</li></ul>
           </div>
           <div className="ecard">
-            <span className="community-status soon">Coming soon · Premium</span>
-            <h3>Premium access</h3>
-            <p>Premium private chat, premium signals, and 1-on-1 coaching are coming soon. Access details will be shared when they launch.</p>
+            <span className="community-status soon">Coming soon</span>
+            <h3>Premium</h3>
+            <ul className="benefit-list"><li>Private chat</li><li>Premium signals</li><li>1-on-1 coaching</li></ul>
           </div>
         </div>
-        <p className="lead-in"><strong>Discord is 100% free to join.</strong> Broker features have separate funding requirements, costs, eligibility, and risks.</p>
+        <p className="lead-in benefits-note">*Gold signals require an active, funded Pulse account. Our community minimum is $250 in trading capital—not a signals fee.</p>
+        <p className="lead-in benefits-note"><strong>Discord is 100% free to join.</strong> The beginner course requires no funding. Broker features have separate funding requirements, costs, eligibility, and risks.</p>
       </section>
 
       <section className="onboarding" id="start-here" aria-labelledby="start-heading">
