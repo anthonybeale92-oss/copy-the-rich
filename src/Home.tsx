@@ -88,7 +88,7 @@ export const RB_CSS = `
    The fold is deliberately tall: the headline lands near the middle of the screen instead of
    at the top of it, which is what makes a page like this feel like a statement rather than a
    product tour. Everything that used to sit above the headline is gone. */
-.rb .hero{text-align:center;padding:clamp(70px,17vh,180px) 0 clamp(56px,10vh,110px)}
+.rb .hero{text-align:center;padding:clamp(70px,17vh,180px) 0 28px}
 .rb h1{font-size:clamp(42px,9.2vw,86px);line-height:1.02;font-weight:900;letter-spacing:-.034em;margin:0}
 /* Light blue into white, left to right. The old sweep ran pale-bright-dark-mid and ended on a
    warm cream, which was gold's shape kept after gold was gone — on black it read as a mistake
@@ -101,7 +101,8 @@ export const RB_CSS = `
    evaluate; as a line they read as a caption, which is all they ever were. */
 .rb .hero-facts{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin-top:26px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.42);letter-spacing:.01em}
 .rb .hero-facts i{width:3px;height:3px;border-radius:50%;background:rgba(94,200,255,.55);display:block}
-.rb .seemore{display:inline-flex;flex-direction:column;align-items:center;gap:5px;margin-top:clamp(34px,6vh,64px);font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.34);transition:color .18s}
+.rb .seemore{display:inline-flex;flex-direction:column;align-items:center;gap:5px;margin-top:24px;font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.34);transition:color .18s}
+.rb .hero ~ .discord-panel{margin-top:0}
 .rb .seemore:hover{color:rgba(94,200,255,.9)}
 .rb .seemore em{font-style:normal;font-size:15px;animation:rbFloat 2.6s ease-in-out infinite}
 @media(prefers-reduced-motion:reduce){.rb .seemore em{animation:none}}
@@ -113,6 +114,17 @@ export const RB_CSS = `
 .rb .stat{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);border-radius:12px;padding:10px 18px;text-align:center}
 .rb .stat .v{font-size:18px;font-weight:900;background:linear-gradient(92deg,#5ec8ff,#8ad9ff 55%,#fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .rb .stat .l{font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.45);margin-top:3px}
+/* GoldRock keeps its calculator alongside the introduction. */
+.rb .grid2.earning-options{grid-template-columns:1fr}
+.rb #goldrock{display:grid;gap:28px;align-items:start}
+.rb .goldrock-calculator{min-width:0;scroll-margin-top:84px}
+.rb .goldrock-calculator .calc{padding:0;border:0;background:none}
+.rb .goldrock-calculator .calc h2{font-size:25px}
+.rb .goldrock-calculator .calcgrid{grid-template-columns:1fr;margin-top:18px;gap:12px}
+.rb .goldrock-calculator .calcspark{height:80px}
+.rb .goldrock-calculator .calcin{padding:16px}
+.rb .goldrock-calculator .calc .sub{font-size:13px}
+@media(min-width:960px){.rb #goldrock{grid-template-columns:1fr 1.25fr;gap:40px}.rb .goldrock-calculator{border-left:1px solid rgba(94,200,255,.16);padding-left:32px}}
 /* SECTIONS */
 .rb section{padding:44px 0}
 .rb .sec-k{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(94,200,255,.8);margin-bottom:8px;text-align:center}
@@ -336,9 +348,10 @@ export default function Home() {
             <div className="sec-k">Earn while you learn</div>
             <h2>Two ways to make money</h2>
             <p className="sub">Want it hands-off, or want to take the plays yourself? Pick your lane — do one, or do both.</p>
-            <div className="grid2">
+            <div className="grid2 earning-options">
               {/* PAMM — passive */}
               <div className="opt blue" id="goldrock">
+                <div className="goldrock-intro">
                 {/* GoldRock owns a mark — the gold bar in blue flame — and this card was
                     drawing its own instead: three flame paths with a waveform across them.
                     The real badge already ships in this repo and already appears on /signup
@@ -349,24 +362,13 @@ export default function Home() {
                 <div className="tag">Fully passive</div>
                 <h3>Join the GoldRock PAMM</h3>
                 <p>Not ready to trade? Back the managed fund targeting <b>15%+ a month</b>. The desk trades, you compound — completely hands-off while you learn.</p>
-                <div className="track">
-                  <div className="tl"><b>GoldRock trajectory</b><em>compounding <i>15%+ / mo</i> target</em></div>
-                  <svg className="spark" viewBox="0 0 260 46" preserveAspectRatio="none" fill="none">
-                    <defs>
-                      <linearGradient id="grsp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#5ec8ff" /><stop offset=".5" stopColor="#2a80bd" /><stop offset="1" stopColor="#1f6fa8" /></linearGradient>
-                      <linearGradient id="grfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="rgba(94,200,255,.28)" /><stop offset="1" stopColor="rgba(94,200,255,0)" /></linearGradient>
-                    </defs>
-                    <path d="M4,42 C40,40 58,36 92,31 C126,26 150,19 186,12 C214,7 238,5 256,3 L256,46 L4,46 Z" fill="url(#grfill)" />
-                    <path className="sdraw" d="M4,42 C40,40 58,36 92,31 C126,26 150,19 186,12 C214,7 238,5 256,3" stroke="url(#grsp)" strokeWidth="2.4" strokeLinecap="round" />
-                    <circle className="sdot" cx="256" cy="3" r="3.4" fill="#5ec8ff" />
-                  </svg>
-                </div>
                 <ul>
                   <li>Zero trading required</li>
                   <li>The pros trade it for you</li>
                   <li>Withdraw your profits anytime</li>
                 </ul>
-                <a className="btn go" href={SIGNUP_PATH}>Join the PAMM →</a>
+                </div>
+                <div id="calculator" className="goldrock-calculator"><GrowthCalc /></div>
               </div>
               {/* SIGNALS — guided active */}
               <div className="opt cyan" id="taptotrade">
@@ -383,9 +385,6 @@ export default function Home() {
               </div>
             </div>
           </section>
-
-          {/* 2.5 · GROWTH CALCULATOR */}
-          <section id="calculator"><GrowthCalc /></section>
 
           {/* 3 · FUND UP — 10X leverage (bottom) */}
           <section id="tenx">
