@@ -2,7 +2,7 @@
 // (signals or the PAMM), then funding up for 10× leverage at the bottom. The 10X landing lives at /signup.
 import { useState } from "react";
 import ConstellationBackground from "./ConstellationBackground";
-import { getStoredRef, HOUSE_REF } from "./api";
+import { HOUSE_REF } from "./api";
 export const LOGIN_URL = "/login";
 
 // Every "Get Started" / "Start free" / "Start learning free" CTA lands on Pulse's register form
@@ -12,19 +12,9 @@ export const LOGIN_URL = "/login";
 const REGISTER_BASE = "https://www.pulsemarketstrade.com/register";
 // The house code now lives in api.ts as HOUSE_REF, so the promo pages resolve to the same link.
 
-// An affiliate's ?ref= is captured into localStorage the moment anyone lands (see captureRef in
-// main.tsx) precisely so it can ride along to signup. Hardcoding the house code here would throw
-// that away and credit every affiliate's traffic to the default plan, so a real code always wins.
-//
-// The URL is read BEFORE localStorage, and that order matters: captureRef runs in App's mount
-// effect, but this module is evaluated at boot — earlier. A first-time visitor arriving on
-// copytherichtrades.com?ref=THEIRS would still have an empty localStorage at this point, and reading
-// only the store would silently credit them to the house.
+// All public signup buttons use the broker referral link selected by the site owner.
 export function signupUrl(): string {
-  let ref = "";
-  try { ref = (new URLSearchParams(window.location.search).get("ref") || "").trim(); } catch {}
-  if (!ref) ref = getStoredRef();
-  return `${REGISTER_BASE}?ref=${encodeURIComponent(ref || HOUSE_REF)}&b=pulse`;
+  return `${REGISTER_BASE}?ref=${encodeURIComponent(HOUSE_REF)}&b=pulse`;
 }
 
 // Named export because InfoPages and the rest of the site already import it.
