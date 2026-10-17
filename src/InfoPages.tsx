@@ -34,6 +34,15 @@ const INFO_CSS = `
 .rb .rank.g{border-color:rgba(63,159,224,.4)}.rb .rank.g .rn,.rb .rank.g .rv{color:#7fd4ff}
 .rb .rank.v{border-color:rgba(42,128,189,.45)}.rb .rank.v .rn,.rb .rank.v .rv{color:#8cc0e3}
 .rb .lead-in{max-width:680px;margin:16px auto 0;text-align:center;color:rgba(255,255,255,.62);font-size:15.5px;line-height:1.7}
+.rb .discord-panel{margin-top:44px;padding:clamp(24px,5vw,48px);border:1px solid rgba(94,200,255,.22);border-radius:24px;background:linear-gradient(135deg,rgba(94,200,255,.07),rgba(255,255,255,.015))}
+.rb .discord-panel .edu-grid{align-items:stretch}
+.rb .discord-panel .ecard{background:rgba(0,0,0,.24)}
+.rb .community-status{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#9bdcff;border:1px solid rgba(94,200,255,.3);border-radius:99px;padding:5px 9px}
+.rb .community-status.soon{color:rgba(255,255,255,.65);border-color:rgba(255,255,255,.18)}
+.rb .discord-panel .ecard h3{font-size:18px;font-weight:800;margin-top:16px}
+.rb .onboarding{scroll-margin-top:90px}
+.rb .onboarding .step a{margin-top:18px}
+@media(min-width:960px){.rb .onboarding .steps{grid-template-columns:repeat(3,1fr)}}
 `;
 
 function Page({ active, children }: { active: string; children: ReactNode }) {
@@ -66,8 +75,43 @@ export function LearnPage() {
         <span className="free">100% Free</span>
         <h1>Learn to Trade — <span className="g">Completely Free</span></h1>
         <p className="lede">Come in with zero experience. The Copy the Rich Trades academy takes you from your very first candle to trading a funded account — at your own pace, alongside a real community. No fees, no catch.</p>
-        <div className="cta-row"><a className="btn lg" href={DISCORD_INVITE_URL} target="_blank" rel="noopener noreferrer">Join the Free Community →</a><a className="ghost lg" href={SIGNUP_PATH}>Open a Broker Account ↗</a></div>
-        <p className="lead-in">Join Copy the Rich Trades on Discord. Broker registration is a separate step through our affiliate link.</p>
+      </section>
+
+      <section className="discord-panel" aria-labelledby="discord-heading">
+        <div className="sec-k">Your trading community</div>
+        <h2 id="discord-heading">What's inside the Discord?</h2>
+        <p className="sub">Connect with Anthony and traders of all levels. Share your experience, ask questions, and learn from one another.</p>
+        <div className="edu-grid">
+          <div className="ecard">
+            <span className="community-status">Available now · 100% free</span>
+            <h3>Group chat with Anthony &amp; the community</h3>
+            <p>Join the conversation with Anthony and fellow traders, from beginners to experienced members. A place to exchange ideas and learn together.</p>
+          </div>
+          <div className="ecard">
+            <span className="community-status soon">Being added</span>
+            <h3>Beginner lessons</h3>
+            <p>Beginner lessons are being added to help you build your understanding of trading, one step at a time.</p>
+          </div>
+          <div className="ecard">
+            <span className="community-status soon">Coming soon · Premium</span>
+            <h3>More ways to learn with us</h3>
+            <p>Premium private chat, premium trading signals, and 1-on-1 coaching are coming soon. Access details will be shared when they launch.</p>
+          </div>
+        </div>
+        <div className="cta-row"><a className="btn lg" href={DISCORD_INVITE_URL} target="_blank" rel="noopener noreferrer">Join the Free Community →</a></div>
+        <p className="lead-in">The group chat is 100% free. Join us on Discord.</p>
+      </section>
+
+      <section className="onboarding" id="start-here" aria-labelledby="start-heading">
+        <div className="sec-k">Start here</div>
+        <h2 id="start-heading">Your next steps, in order</h2>
+        <p className="sub">Join the community first. Then use our broker link to create your account and come back to connect with the group.</p>
+        <div className="steps">
+          <div className="step"><div className="num">1</div><h4>Join the free Discord</h4><p>Open our Discord invite and join Copy the Rich Trades. Keep this page open so you can come back for step 2.</p><a className="btn sm" href={DISCORD_INVITE_URL} target="_blank" rel="noopener noreferrer">1. Join Discord ↗</a></div>
+          <div className="step"><div className="num">2</div><h4>Create your broker account</h4><p>Already joined Discord? Use the button below to register on Pulse Markets. Registration takes place on the broker's website.</p><a className="btn sm" href={SIGNUP_PATH} target="_blank" rel="noopener noreferrer">2. Open Broker Account ↗</a></div>
+          <div className="step"><div className="num">3</div><h4>Come back &amp; say hello</h4><p>Return to Discord, introduce yourself, and tell us your experience level and what you'd like to learn. Keep account details and passwords private.</p><a className="ghost sm" href={DISCORD_INVITE_URL} target="_blank" rel="noopener noreferrer">3. Return to Discord ↗</a></div>
+        </div>
+        <p className="lead-in">The Discord group chat is 100% free. Broker registration is separate.</p>
       </section>
 
       <section>
@@ -77,18 +121,6 @@ export function LearnPage() {
         <div className="edu-grid">
           {curriculum.map((e, i) => (<div key={i} className="ecard"><div className="ic">{e.ic}</div><h4>{e.t}</h4><p>{e.d}</p></div>))}
         </div>
-      </section>
-
-      <section>
-        <div className="sec-k">How it works</div>
-        <h2>Learn by doing — with real people</h2>
-        <div className="steps">
-          <div className="step"><div className="num">1</div><h4>Join our free Discord community</h4><p>Meet the Copy the Rich Trades community on Discord and introduce yourself. Start here, at your own pace.</p></div>
-          <div className="step"><div className="num">2</div><h4>Sit in on daily breakdowns</h4><p>The desk trades live and explains every decision. You learn the <i>why</i>, not just the setup.</p></div>
-          <div className="step"><div className="num">3</div><h4>Ask anything in the group</h4><p>Stuck? Real members and the desk answer every day. Nobody gets left behind.</p></div>
-          <div className="step"><div className="num">4</div><h4>Take your first live signal</h4><p>When you're ready, tap a call and fire it on your account — sized for you, stop attached.</p></div>
-        </div>
-        <div className="cta-row" style={{ marginTop: 30 }}><a className="btn lg" href={DISCORD_INVITE_URL} target="_blank" rel="noopener noreferrer">Join the Free Community →</a></div>
       </section>
     </Page>
   );
