@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { ArrowRight, Wallet, BadgeDollarSign, TrendingUp, Smartphone, Gauge, Radio, Check, Zap } from "lucide-react";
+import { SIGNUP_PATH } from "./Home";
 import { PulseWaterBackground } from "./PulseWaterBackground";
 
 // Pulse-branded SVG growth chart (area + line, cyan→violet). Used for the track record and the calculator.
@@ -35,13 +36,12 @@ function GrowthChart({ id, vals, height = 210 }: { id: string; vals: number[]; h
 
 // Copy the Rich Trades passive-income landing. Leads with the compound effect + GoldRock's real track record,
 // a branded compound calculator, then the VIP signals, and 10X funding at the very bottom.
-// Gold palette only (bright gold / amber / bronze); emerald still marks gains. Sign-up CTAs go to /register.
+// Gold palette only (bright gold / amber / bronze); emerald still marks gains. Sign-up CTAs use the shared broker referral link.
 export default function TenXLaunch() {
   const params = useMemo(() => { try { return new URLSearchParams(window.location.search); } catch { return new URLSearchParams(); } }, []);
   const creator = params.get("name") || "Anthony Beale";
   const logo = params.get("logo") || (creator === "Anthony Beale" ? "/logo.svg" : null);
-  const refParam = params.get("ref");
-  const registerHref = refParam ? `/register?ref=${encodeURIComponent(refParam)}` : "/register";
+  const registerHref = SIGNUP_PATH;
   const usd = (n: number) => `$${Math.round(n).toLocaleString("en-US")}`;
 
   // GoldRock PAMM — real figures (mirror the live /api/pamm/goldrock + fund stats page).
