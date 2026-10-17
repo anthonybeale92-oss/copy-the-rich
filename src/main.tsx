@@ -8,6 +8,7 @@ import Register from "./Register";
 import Members from "./Members";
 import Admin from "./Admin";
 import LivePops from "./LivePops";
+import MusicPlayer from "./MusicPlayer";
 import { LearnPage, GoldrockPage, TapToTradePage, CalculatorPage } from "./InfoPages";
 import { trackPageview, captureRef } from "./api";
 import { installPixels, pixelPageview } from "./pixels";
@@ -44,7 +45,7 @@ function App() {
     </Switch>
     {/* Social-proof pops ride the public pages only — somebody already inside /members or /admin
         doesn't need converting, and a card jumping over the desk would just be in the way. */}
-    {POPS_ON.has(location.replace(/\/+$/, "") || "/") && <LivePops />}
+    {POPS_ON.has(location.replace(/\/+$/, "") || "/") && <><LivePops /><MusicPlayer /></>}
     </>
   );
 }
