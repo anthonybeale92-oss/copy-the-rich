@@ -4,6 +4,8 @@ import { useMemo, useState, type ReactNode } from "react";
 import { Calculator, TrendingUp, Sparkles, Repeat, Info } from "lucide-react";
 import { RB_CSS, Stars, SiteNav, SiteFooter, LOGIN_URL, SIGNUP_PATH } from "./Home";
 
+const DISCORD_INVITE_URL = "https://discord.gg/kU7Z6ReJM";
+
 // A little extra CSS for these pages (numbered steps, page hero spacing).
 const INFO_CSS = `
 .rb .phero{text-align:center;padding:52px 0 8px}
@@ -64,7 +66,8 @@ export function LearnPage() {
         <span className="free">100% Free</span>
         <h1>Learn to Trade — <span className="g">Completely Free</span></h1>
         <p className="lede">Come in with zero experience. The Copy the Rich Trades academy takes you from your very first candle to trading a funded account — at your own pace, alongside a real community. No fees, no catch.</p>
-        <div className="cta-row"><a className="btn lg" href={SIGNUP_PATH}>Start learning free →</a><a className="ghost lg" href={LOGIN_URL}>Log in</a></div>
+        <div className="cta-row"><a className="btn lg" href={DISCORD_INVITE_URL} target="_blank" rel="noopener noreferrer">Join the Free Community →</a><a className="ghost lg" href={SIGNUP_PATH}>Open a Broker Account ↗</a></div>
+        <p className="lead-in">Join Copy the Rich Trades on Discord. Broker registration is a separate step through our affiliate link.</p>
       </section>
 
       <section>
@@ -80,12 +83,12 @@ export function LearnPage() {
         <div className="sec-k">How it works</div>
         <h2>Learn by doing — with real people</h2>
         <div className="steps">
-          <div className="step"><div className="num">1</div><h4>Open the free academy</h4><p>Step-by-step lessons unlock the moment you join. Watch, practise on a free demo, repeat — no pressure, no clock.</p></div>
+          <div className="step"><div className="num">1</div><h4>Join our free Discord community</h4><p>Meet the Copy the Rich Trades community on Discord and introduce yourself. Start here, at your own pace.</p></div>
           <div className="step"><div className="num">2</div><h4>Sit in on daily breakdowns</h4><p>The desk trades live and explains every decision. You learn the <i>why</i>, not just the setup.</p></div>
           <div className="step"><div className="num">3</div><h4>Ask anything in the group</h4><p>Stuck? Real members and the desk answer every day. Nobody gets left behind.</p></div>
           <div className="step"><div className="num">4</div><h4>Take your first live signal</h4><p>When you're ready, tap a call and fire it on your account — sized for you, stop attached.</p></div>
         </div>
-        <div className="cta-row" style={{ marginTop: 30 }}><a className="btn lg" href={SIGNUP_PATH}>Start free →</a></div>
+        <div className="cta-row" style={{ marginTop: 30 }}><a className="btn lg" href={DISCORD_INVITE_URL} target="_blank" rel="noopener noreferrer">Join the Free Community →</a></div>
       </section>
     </Page>
   );
