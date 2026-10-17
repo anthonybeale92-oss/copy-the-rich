@@ -25,22 +25,8 @@ export function captureRef() {
 }
 export function getStoredRef(): string { try { return localStorage.getItem(REF_KEY) || ""; } catch { return ""; } }
 
-// THE HOUSE LINK. Anthony Beale's main referral code — where a visitor who arrived with no
-// affiliate code of their own gets credited:
-//
-//   https://www.pulsemarketstrade.com/register?ref=plan451-anthony-31o3&b=pulse
-//
-// Verified against Pulse before it was written down: affiliate plan451 (anthonybeale92@gmail.com),
-// code plan451-anthony-31o3, is_active and is_main, sitting directly under plan222 (Bankz). That
-// parent is what makes this desk a brand UNDER Bankz — every signup here credits Anthony, and
-// Anthony's line rolls up to Bankz on its own, with no second code needed on this site.
-//
-// It lives in api.ts rather than in a page because the sister site learned that lesson the hard
-// way: the house code was written out twice there, and one copy went stale for months.
-//
-// A real ?ref= always wins over this; see signupUrl() in Home.tsx for why the URL is read before
-// localStorage.
-export const HOUSE_REF = "plan451-anthony-31o3";
+// Broker referral code supplied by the site owner for signup links.
+export const HOUSE_REF = "plan451-20510lev-0i9a";
 
 export type Analytics = {
   totals: { views: number; visitors: number };
